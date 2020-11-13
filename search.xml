@@ -144,26 +144,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Dev-C++调试配置</title>
-    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p>链接：<a href="https://pan.baidu.com/s/1dDKlk5h-BUzpZQzqswrMlg">https://pan.baidu.com/s/1dDKlk5h-BUzpZQzqswrMlg</a><br>提取码：iyaf<br>复制这段内容后打开百度网盘手机App，操作更方便哦</p>
-]]></content>
-      <categories>
-        <category>C</category>
-      </categories>
-      <tags>
-        <tag>debug</tag>
-        <tag>Dev-C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>用conda安装pytorch</title>
     <url>/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/</url>
     <content><![CDATA[<h1 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h1><h2 id="Download-amp-install"><a href="#Download-amp-install" class="headerlink" title="Download &amp; install"></a>Download &amp; install</h2><p>官网<a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></p>
@@ -214,6 +194,26 @@
         <tag>pytorch</tag>
         <tag>conda</tag>
         <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dev-C++调试配置</title>
+    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
+<ol>
+<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
+<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
+<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
+</ol>
+<p><strong>zlib1.dll</strong>文件的链接如下：</p>
+<p>链接：<a href="https://pan.baidu.com/s/1dDKlk5h-BUzpZQzqswrMlg">https://pan.baidu.com/s/1dDKlk5h-BUzpZQzqswrMlg</a><br>提取码：iyaf<br>复制这段内容后打开百度网盘手机App，操作更方便哦</p>
+]]></content>
+      <categories>
+        <category>C</category>
+      </categories>
+      <tags>
+        <tag>debug</tag>
+        <tag>Dev-C++</tag>
       </tags>
   </entry>
 </search>
