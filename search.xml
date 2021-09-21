@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Matlab笔记</title>
+    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="小操作"><a href="#小操作" class="headerlink" title="小操作"></a>小操作</h2><ul>
+<li>添加注释 Ctrl+R   % </li>
+<li>取消注释 Ctrl+T</li>
+<li>清空工作区变量 clear</li>
+<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
+<li>clear;clc  表示初始化</li>
+<li>分号;表示不显示运行结果</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="输入输出函数-input-disp"><a href="#输入输出函数-input-disp" class="headerlink" title="输入输出函数(input(), disp())"></a>输入输出函数(input(), disp())</h2><p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
+<p>行向量 a = [1 2 3]</p>
+<p>列向量 a = [1;2;3]</p>
+<hr>
+<p>A = input(‘请输入A：’)</p>
+<h2 id="num2str"><a href="#num2str" class="headerlink" title="num2str"></a>num2str</h2><p>将数字转化为字符串</p>
+<p>a = 40               40</p>
+<p>num2str(a)      ‘40’</p>
+<h2 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h2><p>strcat(‘a的取值为’, a)</p>
+<p>[‘a的取值为’ a]</p>
+<h2 id="sum"><a href="#sum" class="headerlink" title="sum()"></a>sum()</h2><p>如果是一维向量，则直接求和</p>
+<p>如果是多维，默认对列向量求和</p>
+<hr>
+<p>sum(E, 1) 对列向量求和</p>
+<p>sum(E, 2) 对行向量求和</p>
+<p>sum(E(:)) 对整个矩阵求和</p>
+<h2 id="提取矩阵中的元素"><a href="#提取矩阵中的元素" class="headerlink" title="提取矩阵中的元素"></a>提取矩阵中的元素</h2><p>A(3,2)     表示第三行第二列</p>
+<p>A(3,:)      表示第三行所有元素</p>
+<p>A(:,2)      表示第二列所有元素</p>
+<p>:表示取所有元素</p>
+<hr>
+<p>A([2,5],:)    只取第二行和第五行</p>
+<p>A(2:5,:)       只取第二行到第五行</p>
+<p>A(2:2:5,:)    取第二行和第四行</p>
+<hr>
+<p>A(2:end,:)   取第二行到最后一行</p>
+<p>A(2:end-1,:)   取第二行到倒数第2行</p>
+<hr>
+<p>A(:)将矩阵输出为一个列向量</p>
+<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><p> 返回几行几列</p>
+<p>size(A, 1) 返回行</p>
+<p>size(A, 2) 返回列</p>
+<h2 id="repmat"><a href="#repmat" class="headerlink" title="repmat()"></a>repmat()</h2><p>B = repmat(A, 2, 1)</p>
+<p>把A看成一个整体，2行1列个A</p>
+<h2 id="inv-求逆阵"><a href="#inv-求逆阵" class="headerlink" title="inv()求逆阵"></a>inv()求逆阵</h2><p>inv(B)</p>
+<h2 id="矩阵对应元素相乘除"><a href="#矩阵对应元素相乘除" class="headerlink" title="矩阵对应元素相乘除"></a>矩阵对应元素相乘除</h2><h3 id><a href="#" class="headerlink" title=".*   ./"></a>.*   ./</h3><p>区别直接乘除</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h3><p>点针对每个元素进行操作</p>
+<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><p>V = eig(B)         取特征值 </p>
+<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h2><p>返回不为0的矩阵的索引</p>
+<p>ind = find(X)</p>
+<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
+<p>[r,c] = find(D == Max_eig, 1)</p>
+<h1 id="定义一个函数"><a href="#定义一个函数" class="headerlink" title="定义一个函数"></a>定义一个函数</h1><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="定义一个具有自变量的方程"><a href="#定义一个具有自变量的方程" class="headerlink" title="定义一个具有自变量的方程"></a>定义一个具有自变量的方程</h1><p>y=@(x) kx+b</p>
+<p>声明x是一个自变量</p>
+<h2 id="mean"><a href="#mean" class="headerlink" title="mean()"></a>mean()</h2><p>平均值</p>
+]]></content>
+  </entry>
+  <entry>
     <title>2021ML笔记</title>
     <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
@@ -112,71 +177,6 @@
         <tag>git</tag>
         <tag>工具</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Matlab笔记</title>
-    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="小操作"><a href="#小操作" class="headerlink" title="小操作"></a>小操作</h2><ul>
-<li>添加注释 Ctrl+R   % </li>
-<li>取消注释 Ctrl+T</li>
-<li>清空工作区变量 clear</li>
-<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
-<li>clear;clc  表示初始化</li>
-<li>分号;表示不显示运行结果</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="输入输出函数-input-disp"><a href="#输入输出函数-input-disp" class="headerlink" title="输入输出函数(input(), disp())"></a>输入输出函数(input(), disp())</h2><p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
-<p>行向量 a = [1 2 3]</p>
-<p>列向量 a = [1;2;3]</p>
-<hr>
-<p>A = input(‘请输入A：’)</p>
-<h2 id="num2str"><a href="#num2str" class="headerlink" title="num2str"></a>num2str</h2><p>将数字转化为字符串</p>
-<p>a = 40               40</p>
-<p>num2str(a)      ‘40’</p>
-<h2 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h2><p>strcat(‘a的取值为’, a)</p>
-<p>[‘a的取值为’ a]</p>
-<h2 id="sum"><a href="#sum" class="headerlink" title="sum()"></a>sum()</h2><p>如果是一维向量，则直接求和</p>
-<p>如果是多维，默认对列向量求和</p>
-<hr>
-<p>sum(E, 1) 对列向量求和</p>
-<p>sum(E, 2) 对行向量求和</p>
-<p>sum(E(:)) 对整个矩阵求和</p>
-<h2 id="提取矩阵中的元素"><a href="#提取矩阵中的元素" class="headerlink" title="提取矩阵中的元素"></a>提取矩阵中的元素</h2><p>A(3,2)     表示第三行第二列</p>
-<p>A(3,:)      表示第三行所有元素</p>
-<p>A(:,2)      表示第二列所有元素</p>
-<p>:表示取所有元素</p>
-<hr>
-<p>A([2,5],:)    只取第二行和第五行</p>
-<p>A(2:5,:)       只取第二行到第五行</p>
-<p>A(2:2:5,:)    取第二行和第四行</p>
-<hr>
-<p>A(2:end,:)   取第二行到最后一行</p>
-<p>A(2:end-1,:)   取第二行到倒数第2行</p>
-<hr>
-<p>A(:)将矩阵输出为一个列向量</p>
-<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><p> 返回几行几列</p>
-<p>size(A, 1) 返回行</p>
-<p>size(A, 2) 返回列</p>
-<h2 id="repmat"><a href="#repmat" class="headerlink" title="repmat()"></a>repmat()</h2><p>B = repmat(A, 2, 1)</p>
-<p>把A看成一个整体，2行1列个A</p>
-<h2 id="inv-求逆阵"><a href="#inv-求逆阵" class="headerlink" title="inv()求逆阵"></a>inv()求逆阵</h2><p>inv(B)</p>
-<h2 id="矩阵对应元素相乘除"><a href="#矩阵对应元素相乘除" class="headerlink" title="矩阵对应元素相乘除"></a>矩阵对应元素相乘除</h2><h3 id><a href="#" class="headerlink" title=".*   ./"></a>.*   ./</h3><p>区别直接乘除</p>
-<h3 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h3><p>点针对每个元素进行操作</p>
-<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><p>V = eig(B)         取特征值 </p>
-<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
-<h2 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h2><p>返回不为0的矩阵的索引</p>
-<p>ind = find(X)</p>
-<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
-<p>[r,c] = find(D == Max_eig, 1)</p>
-<h1 id="定义一个函数"><a href="#定义一个函数" class="headerlink" title="定义一个函数"></a>定义一个函数</h1><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="定义一个具有自变量的方程"><a href="#定义一个具有自变量的方程" class="headerlink" title="定义一个具有自变量的方程"></a>定义一个具有自变量的方程</h1><p>y=@(x) kx+b</p>
-<p>声明x是一个自变量</p>
-<h2 id="mean"><a href="#mean" class="headerlink" title="mean()"></a>mean()</h2><p>平均值</p>
-]]></content>
   </entry>
   <entry>
     <title>Python笔记</title>
@@ -319,26 +319,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dev-C++调试配置</title>
-    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p> 私聊博主</p>
-]]></content>
-      <categories>
-        <category>C</category>
-      </categories>
-      <tags>
-        <tag>debug</tag>
-        <tag>Dev-C++</tag>
       </tags>
   </entry>
   <entry>
