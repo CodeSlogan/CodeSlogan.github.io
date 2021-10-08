@@ -322,26 +322,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Dev-C++调试配置</title>
-    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p> 私聊博主</p>
-]]></content>
-      <categories>
-        <category>C</category>
-      </categories>
-      <tags>
-        <tag>debug</tag>
-        <tag>Dev-C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>割圆法Pi</title>
     <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
     <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。 </p>
