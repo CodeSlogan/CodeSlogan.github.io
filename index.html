@@ -1,1062 +1,298 @@
-<!DOCTYPE html>
-
-
-<html lang="en">
-
-
-<head>
-  <meta charset="utf-8" />
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>
-     CodeSlogan
-  </title>
-  <meta name="generator" content="hexo-theme-ayer">
-  
-  <link rel="shortcut icon" href="/favicon.ico" />
-  
-  
-<link rel="stylesheet" href="/dist/main.css">
-
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
-
-  
-<link rel="stylesheet" href="/css/custom.css">
-
-  
-  
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-
-  
-  
-
-  
-
-</head>
-
-</html>
-
-<body>
-  <div id="app">
-    
-      
-    <main class="content on">
-      
-<section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/codeslogan"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover5.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">CodeSlogan</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['Still waters run deep', '别怕路长梦远，总有星河照耀', ''],
-        startDelay: 0,
-        typeSpeed: 100,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CodeSlogan</title><meta name="author" content="codeslogan"><meta name="copyright" content="codeslogan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="CodeSlogan">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="CodeSlogan">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/1.bmp">
+<meta property="article:author" content="codeslogan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/1.bmp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
     }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-2021ML笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/"
-    >2021ML笔记</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2021-09-20T10:16:09.000Z" itemprop="datePublished">2021-09-20</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ML-DL/">ML_DL</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
-<h1 id="1-Regression"><a href="#1-Regression" class="headerlink" title="1. Regression"></a>1. Regression</h1><p>如何开始一个深度学习？</p>
-<ol>
-<li><p>Function with unknown parameters</p>
-<p>w and b are unknown parameters</p>
-<p>w -&gt; weight               b-&gt;bias</p>
-</li>
-<li><p>Define loss from training data</p>
-</li>
-<li><p>Optimization</p></li></ol> 
-      <a class="article-more-link" href="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-割圆法求Pi"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/"
-    >割圆法Pi</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/" class="article-date">
-  <time datetime="2021-09-19T01:36:35.000Z" itemprop="datePublished">2021-09-19</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。 </p> 
-      <a class="article-more-link" href="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-页面转换算法"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/05/17/%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/"
-    >页面置换算法</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/05/17/%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/" class="article-date">
-  <time datetime="2021-05-17T08:43:35.000Z" itemprop="datePublished">2021-05-17</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/os/">os</a> / <a class="article-category-link" href="/categories/os/%E7%AE%97%E6%B3%95/">算法</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>5种页面置换算法的简单实现</p>
-<h1 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h1><h2 id="OPT"><a href="#OPT" class="headerlink" title="OPT"></a>OPT</h2><p><strong>最佳置换算法</strong></p>
-<ul>
-<li>缺点：最佳置换算法是一种理想化算法，具有较好的性能，但是实际上无法实现（无法预知一个进程中的若干页面哪一个最长时间不被访问）；</li>
-<li>优点：最佳置换算法可以保证获得最低的缺页率，性能最好 </li>
-</ul> 
-      <a class="article-more-link" href="/2021/05/17/%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-Matlab笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/"
-    >Matlab笔记</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2021-05-05T08:41:19.000Z" itemprop="datePublished">2021-05-05</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="小操作"><a href="#小操作" class="headerlink" title="小操作"></a>小操作</h2><ul>
-<li>添加注释 Ctrl+R   % </li>
-<li>取消注释 Ctrl+T</li>
-<li>清空工作区变量 clear</li>
-<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
-<li>clear;clc  表示初始化</li>
-<li>分号;表示不显示运行结果</li>
-</ul> 
-      <a class="article-more-link" href="/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-Git配置"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/04/28/Git%E9%85%8D%E7%BD%AE/"
-    >Git配置</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/04/28/Git%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2021-04-28T13:15:21.000Z" itemprop="datePublished">2021-04-28</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p> 
-      <a class="article-more-link" href="/2021/04/28/Git%E9%85%8D%E7%BD%AE/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-天梯笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2021/03/04/%E5%A4%A9%E6%A2%AF%E7%AC%94%E8%AE%B0/"
-    >天梯笔记</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2021/03/04/%E5%A4%A9%E6%A2%AF%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2021-03-04T10:30:35.000Z" itemprop="datePublished">2021-03-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%A4%A9%E6%A2%AF%E8%B5%9B/">天梯赛</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>本节文章对刷天梯赛的过程作一些记录，主要是一些题目自己的理解。</p>
-<p>涉及到一些数据，熟悉其基本原理，并加以例题帮助理解。</p>
-<p>Nothing is unreachable ! to me</p> 
-      <a class="article-more-link" href="/2021/03/04/%E5%A4%A9%E6%A2%AF%E7%AC%94%E8%AE%B0/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-friend"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/11/15/friend/"
-    >友元函数无法访问私有成员</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/11/15/friend/" class="article-date">
-  <time datetime="2020-11-15T10:16:09.000Z" itemprop="datePublished">2020-11-15</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/C/">C++</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>今天在完成一份C++作业时，遇到了一个问题：</p>
-<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p> 
-      <a class="article-more-link" href="/2020/11/15/friend/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%8B%E5%85%83/" rel="tag">友元</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-dev调试配置"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/"
-    >Dev-C++调试配置</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2020-11-11T16:00:00.000Z" itemprop="datePublished">2020-11-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/C/">C</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p> 私聊博主</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dev-C/" rel="tag">Dev-C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debug/" rel="tag">debug</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-用conda安装pytorch"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/"
-    >用conda安装pytorch</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/" class="article-date">
-  <time datetime="2020-11-01T08:43:35.000Z" itemprop="datePublished">2020-11-01</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ML-DL/">ML_DL</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h1><h2 id="Download-amp-install"><a href="#Download-amp-install" class="headerlink" title="Download &amp; install"></a>Download &amp; install</h2> 
-      <a class="article-more-link" href="/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ML/" rel="tag">ML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/conda/" rel="tag">conda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-    <article
-  id="post-Python笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/10/28/Python%E7%AC%94%E8%AE%B0/"
-    >Python笔记</a> 
-</h2>
- 
-
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2020/10/28/Python%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2020-10-28T08:43:35.000Z" itemprop="datePublished">2020-10-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/python/">python</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="Python基础语法"><a href="#Python基础语法" class="headerlink" title="Python基础语法"></a>Python基础语法</h1><h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;helloworld&#x27;</span>)</span><br><span class="line">print(<span class="string">&#x27;I am&#x27;</span>,<span class="string">&#x27;chenshilin&#x27;</span>)</span><br><span class="line"><span class="comment">#会依次打印每个字符串，遇到逗号“,”会输出一个空格</span></span><br><span class="line">print(<span class="string">&#x27;100+200=&#x27;</span>,<span class="number">100</span>+<span class="number">200</span>)</span><br></pre></td></tr></table></figure> 
-      <a class="article-more-link" href="/2020/10/28/Python%E7%AC%94%E8%AE%B0/"
-        >Read More</a
-      >
-       
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-</article>
-
-    
-  </article>
-  
-
-  
-</section>
-</div>
-
-      <footer class="footer">
-  <div class="outer">
-    <ul>
-      <li>
-        Copyrights &copy;
-        2020-2021
-        <i class="ri-heart-fill heart_icon"></i> csl
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        
-        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
-        <span class="division">|</span>
-        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
-    </ul>
-  </div>
-</footer>
-      <div class="float_btns">
-        <div class="totop" id="totop">
-  <i class="ri-arrow-up-line"></i>
-</div>
-
-<div class="todark" id="todark">
-  <i class="ri-moon-line"></i>
-</div>
-
-      </div>
-    </main>
-    <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
-<nav class="navbar">
-  
-  <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="CodeSlogan"></a>
-  </div>
-  
-  <ul class="nav nav-main">
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags">标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于我</a>
-    </li>
-    
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
-    </aside>
-    <script>
-      if (window.matchMedia("(max-width: 768px)").matches) {
-        document.querySelector('.content').classList.remove('on');
-        document.querySelector('.sidebar').classList.remove('on');
-      }
-    </script>
-    <div id="mask"></div>
-
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/alipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/wechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
-    
-  </div>
-</div>
-    
-<script src="/js/jquery-2.0.3.min.js"></script>
-
-
-<script src="/js/lazyload.min.js"></script>
-
-<!-- Tocbot -->
-
-<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
-
-<script src="/dist/main.js"></script>
-
-<!-- ImageViewer -->
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
-
-<script>
-    function viewer_init() {
-        let pswpElement = document.querySelectorAll('.pswp')[0];
-        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
-
-        $imgArr.forEach(($em, i) => {
-            $em.onclick = () => {
-                // slider展开状态
-                // todo: 这样不好，后面改成状态
-                if (document.querySelector('.left-col.show')) return
-                let items = []
-                $imgArr.forEach(($em2, i2) => {
-                    let img = $em2.getAttribute('data-idx', i2)
-                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
-                    let title = $em2.getAttribute('alt')
-                    // 获得原图尺寸
-                    const image = new Image()
-                    image.src = src
-                    items.push({
-                        src: src,
-                        w: image.width || $em2.width,
-                        h: image.height || $em2.height,
-                        title: title
-                    })
-                })
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-                    index: parseInt(i)
-                });
-                gallery.init()
-            }
-        })
-    }
-    viewer_init()
-</script>
-
-<!-- MathJax -->
-
-<!-- Katex -->
-
-<!-- busuanzi  -->
-
-
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
-
-
-<!-- ClickLove -->
-
-<!-- ClickBoom1 -->
-
-<!-- ClickBoom2 -->
-
-<!-- CodeCopy -->
-
-
-<link rel="stylesheet" href="/css/clipboard.css">
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CodeSlogan',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-10-24 23:52:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
   }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
         }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
     }
-    initCopyCode();
-  }(window, document);
-</script>
-
-
-<!-- CanvasBackground -->
-
-
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-  </div>
-</body>
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/1.bmp" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover5.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CodeSlogan</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">CodeSlogan</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/CodeSlogan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mrchen40@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/" title="2021ML笔记">     <img class="post_bg" src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021ML笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/" title="2021ML笔记">2021ML笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-20T10:16:09.000Z" title="发表于 2021-09-20 18:16:09">2021-09-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ML-DL/">ML_DL</a></span></div><div class="content">大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路
+1. Regression如何开始一个深度学习？
 
-</html>
+Function with unknown parameters
+w and b are unknown parameters
+w -&gt; weight               b-&gt;bias
+
+Define loss from training data
+
+Optimization
+
+
+梯度下降，算积分，使得Loss趋近于最小
+
+
+
+​                                                                    可反复增加层数，来达到建立深度神经网络的目的
+
+2. Classification模型无法训练起来的原因：
+
+model bias
+参数不够，如同大海捞针，针却不在海里
+
+optimization issue
+梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针
+
+
+解决方法：
+
+比较不同的模型
+从浅的网络或一些简单的模型开始优化
+如果运用了深度网络，loss却不如其它简单模型来得 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/" title="割圆法Pi">     <img class="post_bg" src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="割圆法Pi"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/" title="割圆法Pi">割圆法Pi</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-09-19T01:36:35.000Z" title="发表于 2021-09-19 09:36:35">2021-09-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">题目采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。 
+
+
+分析方法1首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式S=pi*r^2求出pi
+按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式S=1/2*a*b*sina求出一个三角形的面积。
+
+观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi
+方法2
+另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。
+代码方法1123456789101112131415161718192021222324252627pa ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/05/17/%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/" title="页面置换算法">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="页面置换算法"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/17/%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/" title="页面置换算法">页面置换算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-17T08:43:35.000Z" title="发表于 2021-05-17 16:43:35">2021-05-17</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/os/">os</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/os/%E7%AE%97%E6%B3%95/">算法</a></span></div><div class="content">5种页面置换算法的简单实现
+页面置换算法OPT最佳置换算法
+
+缺点：最佳置换算法是一种理想化算法，具有较好的性能，但是实际上无法实现（无法预知一个进程中的若干页面哪一个最长时间不被访问）；
+优点：最佳置换算法可以保证获得最低的缺页率，性能最好 
+
+
+
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960void opt() //最佳转换算法，往后查找&#123;	printf(&quot;--------------------------------\n&quot;);	printf(&quot;现在执行的是最佳置换算法opt：\n&quot;);	memset(arr, -1, sizeof(arr));	int no = 0, tot = 0, z = 0, three = 0;	int flag[8];	memset(flag, 0, sizeof(flag)); //初始化一个flag数组，来确定最晚出现需要 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/" title="Matlab笔记">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Matlab笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/" title="Matlab笔记">Matlab笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-05-05T08:41:19.000Z" title="发表于 2021-05-05 16:41:19">2021-05-05</time></span></div><div class="content">基本操作小操作
+添加注释 Ctrl+R   % 
+取消注释 Ctrl+T
+清空工作区变量 clear
+清除命令行里操作过的命令，使屏幕变干净 clc
+clear;clc  表示初始化
+分号;表示不显示运行结果
+
+
+
+输入输出函数(input(), disp())disp用法类似C语言中的printf, 结尾无所谓分号
+行向量 a = [1 2 3]
+列向量 a = [1;2;3]
+
+A = input(‘请输入A：’)
+num2str将数字转化为字符串
+a = 40               40
+num2str(a)      ‘40’
+字符串的拼接strcat(‘a的取值为’, a)
+[‘a的取值为’ a]
+sum()如果是一维向量，则直接求和
+如果是多维，默认对列向量求和
+
+sum(E, 1) 对列向量求和
+sum(E, 2) 对行向量求和
+sum(E(:)) 对整个矩阵求和
+提取矩阵中的元素A(3,2)     表示第三行第二列
+A(3,:)      表示第三行所有元素
+A(:,2)      表示第二列所有元素
+:表示取所有元素
+
+A([2,5],:)    只取第二行和 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/28/Git%E9%85%8D%E7%BD%AE/" title="Git配置">     <img class="post_bg" src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/28/Git%E9%85%8D%E7%BD%AE/" title="Git配置">Git配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-04-28T13:15:21.000Z" title="发表于 2021-04-28 21:15:21">2021-04-28</time></span></div><div class="content">最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。
+首先，Git是目前世界上最先进的分布式版本控制系统。
+
+
+版本控制工具大致分为3种
+本地版本控制
+集中版本控制  SVN
+分布式版本控制 Git
+Git环境配置软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到
+1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级
+2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  –global 全局
+设置用户名与邮箱12git config --global user.name &quot;CodeSlogan&quot;  #名称git config --global user.email mrchen40@163.com   #邮箱
+
+SSH公钥这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。
+g ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/04/%E5%A4%A9%E6%A2%AF%E7%AC%94%E8%AE%B0/" title="天梯笔记">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="天梯笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/04/%E5%A4%A9%E6%A2%AF%E7%AC%94%E8%AE%B0/" title="天梯笔记">天梯笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2021-03-04T10:30:35.000Z" title="发表于 2021-03-04 18:30:35">2021-03-04</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%A4%A9%E6%A2%AF%E8%B5%9B/">天梯赛</a></span></div><div class="content">本节文章对刷天梯赛的过程作一些记录，主要是一些题目自己的理解。
+涉及到一些数据，熟悉其基本原理，并加以例题帮助理解。
+Nothing is unreachable ! to me
+
+
+并查集初始化结点12345void init()&#123;    for(int i = 1; i &lt;= n; i++)        father[i] = i;&#125;
+
+查找一个结点的根结点123456int get(int x)&#123;    if(father[x] == x) //递归基，直至找到根结点        return x;    return father[x] = get(father[x]); //使结点直接指向根结点&#125;
+
+合并1234567void merge(int x, int y)&#123;    x = get(x); //找到x结点的根结点    y = get(y);     if(x != y) //若二者不等        father[y] = x; //让y指向x&#125;
+
+例题(luogu)题目背景若某个家族人员过于庞大 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/15/friend/" title="友元函数无法访问私有成员">     <img class="post_bg" src="/2020/11/15/friend/image1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="友元函数无法访问私有成员"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/15/friend/" title="友元函数无法访问私有成员">友元函数无法访问私有成员</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-15T10:16:09.000Z" title="发表于 2020-11-15 18:16:09">2020-11-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">Problem今天在完成一份C++作业时，遇到了一个问题：
+已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员
+
+
+
+Solve在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加
+port.h
+12345678910111213141516171819202122232425#ifndef PORT_H#define PORT_H#include &lt;iostream&gt; //头文件中务必加入这两行代码using namespace std;//****class Port&#123;private:	char* brand;	char style[20];	int bottles;public:	Port(const char* br = &quot;none&quot;, const char* st = &quot;none&quot;, int b = 0);	Port(const Port&amp; p);	virtual ~Port() &#123; delete[]brand; &#125;	Por ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/" title="Dev-C++调试配置">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dev-C++调试配置"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/" title="Dev-C++调试配置">Dev-C++调试配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-11T16:00:00.000Z" title="发表于 2020-11-12 00:00:00">2020-11-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C</a></span></div><div class="content">我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。
+
+复制zlib1.dll文件到C:\Windows\System32目录下
+设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES
+设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量
+
+zlib1.dll文件的链接如下：
+ 私聊博主
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/" title="用conda安装pytorch">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用conda安装pytorch"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/" title="用conda安装pytorch">用conda安装pytorch</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-01T08:43:35.000Z" title="发表于 2020-11-01 16:43:35">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/ML-DL/">ML_DL</a></span></div><div class="content">MinicondaDownload &amp; install
+
+环境配置1C:\Users\huawei\miniconda3\Scripts
+
+将以上路径加入到环境变量的path中
+添加清华镜向源用途：加快下载速度，否则非常慢
+在开始菜单里找到并打开Anaconda Prompt(miniconda3),命令行窗口
+复制粘贴以下内容
+123456789conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/10/28/Python%E7%AC%94%E8%AE%B0/" title="Python笔记">     <img class="post_bg" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/10/28/Python%E7%AC%94%E8%AE%B0/" title="Python笔记">Python笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-10-28T08:43:35.000Z" title="发表于 2020-10-28 16:43:35">2020-10-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">Python基础语法输出1234print(&#x27;helloworld&#x27;)print(&#x27;I am&#x27;,&#x27;chenshilin&#x27;)#会依次打印每个字符串，遇到逗号“,”会输出一个空格print(&#x27;100+200=&#x27;,100+200)
+
+
+
+输入123name = input()name = input(&#x27;please enter a integer:&#x27;)#input()可以让你显示一个字符串来提示用户
+
+转义字符转义字符\可以转义很多字符，比如\n表示换行，\t表示制表符，字符\本身也要转义，所以\\表示的字符就是\
+Python还允许用r&#39;&#39;表示&#39;&#39;内部的字符串默认不转义
+12print(r&#x27;&#x27;&#x27;hello,\nworld&#x27;&#x27;&#x27;)
+
+hello,\nworld
+12print(&#x27;&#x27;&#x27;hello,\nworld&#x27;&#x27;&#x27;)
+
+hello,
+world ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/1.bmp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">codeslogan</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CodeSlogan"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/CodeSlogan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mrchen40@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">If not me, who?</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/" title="2021ML笔记">2021ML笔记</a><time datetime="2021-09-20T10:16:09.000Z" title="发表于 2021-09-20 18:16:09">2021-09-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/" title="割圆法Pi">割圆法Pi</a><time datetime="2021-09-19T01:36:35.000Z" title="发表于 2021-09-19 09:36:35">2021-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/17/%E9%A1%B5%E9%9D%A2%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/" title="页面置换算法">页面置换算法</a><time datetime="2021-05-17T08:43:35.000Z" title="发表于 2021-05-17 16:43:35">2021-05-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/" title="Matlab笔记">Matlab笔记</a><time datetime="2021-05-05T08:41:19.000Z" title="发表于 2021-05-05 16:41:19">2021-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/04/28/Git%E9%85%8D%E7%BD%AE/" title="Git配置">Git配置</a><time datetime="2021-04-28T13:15:21.000Z" title="发表于 2021-04-28 21:15:21">2021-04-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C++</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/ML-DL/"><span class="card-category-list-name">ML_DL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/os/"><span class="card-category-list-name">os</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/os/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/python/"><span class="card-category-list-name">python</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%A4%A9%E6%A2%AF%E8%B5%9B/"><span class="card-category-list-name">天梯赛</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/C/" style="font-size: 1.5em; color: #99a9bf">C++</a> <a href="/tags/Dev-C/" style="font-size: 1.1em; color: #999">Dev-C++</a> <a href="/tags/Java/" style="font-size: 1.1em; color: #999">Java</a> <a href="/tags/ML/" style="font-size: 1.5em; color: #99a9bf">ML</a> <a href="/tags/conda/" style="font-size: 1.1em; color: #999">conda</a> <a href="/tags/debug/" style="font-size: 1.1em; color: #999">debug</a> <a href="/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/tags/os/" style="font-size: 1.1em; color: #999">os</a> <a href="/tags/python/" style="font-size: 1.1em; color: #999">python</a> <a href="/tags/pytorch/" style="font-size: 1.1em; color: #999">pytorch</a> <a href="/tags/%E5%8F%8B%E5%85%83/" style="font-size: 1.1em; color: #999">友元</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">工具</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">算法</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/09/"><span class="card-archive-list-date">九月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">10</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-10-26T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-10-24T15:52:42.882Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By codeslogan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
