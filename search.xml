@@ -290,6 +290,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Java3D安装教程</title>
+    <url>/2021/08/31/Java3D%E5%AE%89%E8%A3%85(idea%E7%89%88)/</url>
+    <content><![CDATA[<p>﻿正值学习计算机图形学期间，学校选用的是比较冷门的Java3D，网上的安装教程也比较少，安装教程仅供参考。</p>
+<h2 id="1-JDK安装"><a href="#1-JDK安装" class="headerlink" title="1. JDK安装"></a>1. JDK安装</h2><p><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a> 点击下载<br>可以下载1.8或11稳定版本，这里记得要在我的电脑中配置环境，由于教程众多这里不再赘述</p>
+<h2 id="2-Java-3D-1-5-1"><a href="#2-Java-3D-1-5-1" class="headerlink" title="2. Java 3D 1.5.1"></a>2. Java 3D 1.5.1</h2><p><a href="https://www.oracle.com/java/technologies/java-archive-downloads-java-client-downloads.html#java3d-1.5.1-oth-JPR">Java3d</a> 点击下载<br>根据自己的系统选取，例如本人用的是windows，则选java3d-1-5-1-windows-i586.exe（代表32位）</p>
+<p>这里注意一点，<strong>JDK和Java3D的位数需相同</strong>，例如JDK用的32位，Java3D库也需32位</p>
+<h2 id="3-idea的安装"><a href="#3-idea的安装" class="headerlink" title="3. idea的安装"></a>3. idea的安装</h2><p><a href="https://www.jetbrains.com/idea/download/#section=windows">idea</a> 点击下载<br>下载community版本即可，如有激活码或其它途径可下载ultimate版本</p>
+<p>以上三样安装安装好之后，即可打开idea进行配置</p>
+<hr>
+<ul>
+<li>ddl文件配置<br>将Java3D bin目录文件下的ddl文件拷贝至JDK bin目录下，否则将报异常UnsatisfiedLinkError<br><img src="https://img-blog.csdnimg.cn/a18d09f5566a41139089d644d1b65e16.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li><p>打开idea，选取环境，创建项目<br>右键External Libraries下的环境，打开库设置<br><img src="https://img-blog.csdnimg.cn/b5905b2f4dc64757a793c53205ce59e8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li><p>添加jar包<br><img src="https://img-blog.csdnimg.cn/62dc4948f18b48e2b1c8fd798638048d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li><p>找到java3d的安装位置，默认是在以下路径<br>\Java3D\1.5.1\lib\ext<br>将jar包导入即可<br>（64版本的Java安装路径可能无(x86)）<br><img src="https://img-blog.csdnimg.cn/17291c13493348de938ad5c925db2cfb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li><p>最后用代码测试结果</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.j3d.utils.universe.*;</span><br><span class="line"><span class="keyword">import</span> com.sun.j3d.utils.geometry.ColorCube;</span><br><span class="line"><span class="keyword">import</span> javax.media.j3d.*;</span><br><span class="line"><span class="keyword">import</span> javax.vecmath.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.GraphicsConfiguration;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Simple Java 3D example program to display a spinning cube.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloUniverse</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">swing</span>.<span class="title">JFrame</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> SimpleUniverse univ = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> BranchGroup scene = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BranchGroup <span class="title">createSceneGraph</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Create the root of the branch graph</span></span><br><span class="line">        BranchGroup objRoot = <span class="keyword">new</span> BranchGroup();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the TransformGroup node and initialize it to the</span></span><br><span class="line">        <span class="comment">// identity. Enable the TRANSFORM_WRITE capability so that</span></span><br><span class="line">        <span class="comment">// our behavior code can modify it at run time. Add it to</span></span><br><span class="line">        <span class="comment">// the root of the subgraph.</span></span><br><span class="line">        TransformGroup objTrans = <span class="keyword">new</span> TransformGroup();</span><br><span class="line">        objTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);</span><br><span class="line">        objRoot.addChild(objTrans);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a simple Shape3D node; add it to the scene graph.</span></span><br><span class="line">        objTrans.addChild(<span class="keyword">new</span> ColorCube(<span class="number">0.4</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a new Behavior object that will perform the</span></span><br><span class="line">        <span class="comment">// desired operation on the specified transform and add</span></span><br><span class="line">        <span class="comment">// it into the scene graph.</span></span><br><span class="line">        Transform3D yAxis = <span class="keyword">new</span> Transform3D();</span><br><span class="line">        Alpha rotationAlpha = <span class="keyword">new</span> Alpha(-<span class="number">1</span>, <span class="number">4000</span>);</span><br><span class="line"></span><br><span class="line">        RotationInterpolator rotator =</span><br><span class="line">                <span class="keyword">new</span> RotationInterpolator(rotationAlpha, objTrans, yAxis,</span><br><span class="line">                        <span class="number">0.0f</span>, (<span class="keyword">float</span>) Math.PI*<span class="number">2.0f</span>);</span><br><span class="line">        BoundingSphere bounds =</span><br><span class="line">                <span class="keyword">new</span> BoundingSphere(<span class="keyword">new</span> Point3d(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>), <span class="number">100.0</span>);</span><br><span class="line">        rotator.setSchedulingBounds(bounds);</span><br><span class="line">        objRoot.addChild(rotator);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Have Java 3D perform optimizations on this scene graph.</span></span><br><span class="line">        objRoot.compile();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> objRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Canvas3D <span class="title">createUniverse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Get the preferred graphics configuration for the default screen</span></span><br><span class="line">        GraphicsConfiguration config =</span><br><span class="line">                SimpleUniverse.getPreferredConfiguration();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a Canvas3D using the preferred configuration</span></span><br><span class="line">        Canvas3D c = <span class="keyword">new</span> Canvas3D(config);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create simple universe with view branch</span></span><br><span class="line">        univ = <span class="keyword">new</span> SimpleUniverse(c);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// This will move the ViewPlatform back a bit so the</span></span><br><span class="line">        <span class="comment">// objects in the scene can be viewed.</span></span><br><span class="line">        univ.getViewingPlatform().setNominalViewingTransform();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensure at least 5 msec per frame (i.e., &lt; 200Hz)</span></span><br><span class="line">        univ.getViewer().getView().setMinimumFrameCycleTime(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates new form HelloUniverse</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HelloUniverse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Initialize the GUI components</span></span><br><span class="line">        initComponents();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create Canvas3D and SimpleUniverse; add canvas to drawing panel</span></span><br><span class="line">        Canvas3D c = createUniverse();</span><br><span class="line">        drawingPanel.add(c, java.awt.BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the content branch and add it to the universe</span></span><br><span class="line">        scene = createSceneGraph();</span><br><span class="line">        univ.addBranchGraph(scene);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ----------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** This method is called from within the constructor to</span></span><br><span class="line"><span class="comment">     * initialize the form.</span></span><br><span class="line"><span class="comment">     * WARNING: Do NOT modify this code. The content of this method is</span></span><br><span class="line"><span class="comment">     * always regenerated by the Form Editor.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Generated Code &quot;&gt;//GEN-BEGIN:initComponents</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initComponents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        drawingPanel = <span class="keyword">new</span> javax.swing.JPanel();</span><br><span class="line"></span><br><span class="line">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span><br><span class="line">        setTitle(<span class="string">&quot;HelloUniverse&quot;</span>);</span><br><span class="line">        drawingPanel.setLayout(<span class="keyword">new</span> java.awt.BorderLayout());</span><br><span class="line"></span><br><span class="line">        drawingPanel.setPreferredSize(<span class="keyword">new</span> java.awt.Dimension(<span class="number">250</span>, <span class="number">250</span>));</span><br><span class="line">        getContentPane().add(drawingPanel, java.awt.BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        pack();</span><br><span class="line">    &#125;<span class="comment">// &lt;/editor-fold&gt;//GEN-END:initComponents</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args the command line arguments</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        java.awt.EventQueue.invokeLater(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">new</span> HelloUniverse().setVisible(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Variables declaration - do not modify//GEN-BEGIN:variables</span></span><br><span class="line">    <span class="keyword">private</span> javax.swing.JPanel drawingPanel;</span><br><span class="line">    <span class="comment">// End of variables declaration//GEN-END:variables</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/16801d2d51e14c77b61470634777efb4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<ul>
+<li>安装成功！！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java上转型对象</title>
     <url>/2021/10/02/Java%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h1 id="1-对象转换概念"><a href="#1-对象转换概念" class="headerlink" title="1. 对象转换概念"></a>1. 对象转换概念</h1><p>不同类型的基本数据类型变量之间可以进行类型转换（自动转换与强制转换），在Java中对于具有继承关系的对象类型也可以进行转换。Java允许父类类型的引用变量直接引用子类类型的对象。<br><br></p>
@@ -352,6 +389,71 @@
       <tags>
         <tag>Java</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Matlab笔记</title>
+    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="小操作"><a href="#小操作" class="headerlink" title="小操作"></a>小操作</h2><ul>
+<li>添加注释 Ctrl+R   % </li>
+<li>取消注释 Ctrl+T</li>
+<li>清空工作区变量 clear</li>
+<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
+<li>clear;clc  表示初始化</li>
+<li>分号;表示不显示运行结果</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="输入输出函数-input-disp"><a href="#输入输出函数-input-disp" class="headerlink" title="输入输出函数(input(), disp())"></a>输入输出函数(input(), disp())</h2><p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
+<p>行向量 a = [1 2 3]</p>
+<p>列向量 a = [1;2;3]</p>
+<hr>
+<p>A = input(‘请输入A：’)</p>
+<h2 id="num2str"><a href="#num2str" class="headerlink" title="num2str"></a>num2str</h2><p>将数字转化为字符串</p>
+<p>a = 40               40</p>
+<p>num2str(a)      ‘40’</p>
+<h2 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h2><p>strcat(‘a的取值为’, a)</p>
+<p>[‘a的取值为’ a]</p>
+<h2 id="sum"><a href="#sum" class="headerlink" title="sum()"></a>sum()</h2><p>如果是一维向量，则直接求和</p>
+<p>如果是多维，默认对列向量求和</p>
+<hr>
+<p>sum(E, 1) 对列向量求和</p>
+<p>sum(E, 2) 对行向量求和</p>
+<p>sum(E(:)) 对整个矩阵求和</p>
+<h2 id="提取矩阵中的元素"><a href="#提取矩阵中的元素" class="headerlink" title="提取矩阵中的元素"></a>提取矩阵中的元素</h2><p>A(3,2)     表示第三行第二列</p>
+<p>A(3,:)      表示第三行所有元素</p>
+<p>A(:,2)      表示第二列所有元素</p>
+<p>:表示取所有元素</p>
+<hr>
+<p>A([2,5],:)    只取第二行和第五行</p>
+<p>A(2:5,:)       只取第二行到第五行</p>
+<p>A(2:2:5,:)    取第二行和第四行</p>
+<hr>
+<p>A(2:end,:)   取第二行到最后一行</p>
+<p>A(2:end-1,:)   取第二行到倒数第2行</p>
+<hr>
+<p>A(:)将矩阵输出为一个列向量</p>
+<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><p> 返回几行几列</p>
+<p>size(A, 1) 返回行</p>
+<p>size(A, 2) 返回列</p>
+<h2 id="repmat"><a href="#repmat" class="headerlink" title="repmat()"></a>repmat()</h2><p>B = repmat(A, 2, 1)</p>
+<p>把A看成一个整体，2行1列个A</p>
+<h2 id="inv-求逆阵"><a href="#inv-求逆阵" class="headerlink" title="inv()求逆阵"></a>inv()求逆阵</h2><p>inv(B)</p>
+<h2 id="矩阵对应元素相乘除"><a href="#矩阵对应元素相乘除" class="headerlink" title="矩阵对应元素相乘除"></a>矩阵对应元素相乘除</h2><h3 id><a href="#" class="headerlink" title=".*   ./"></a>.*   ./</h3><p>区别直接乘除</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h3><p>点针对每个元素进行操作</p>
+<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><p>V = eig(B)         取特征值 </p>
+<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h2><p>返回不为0的矩阵的索引</p>
+<p>ind = find(X)</p>
+<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
+<p>[r,c] = find(D == Max_eig, 1)</p>
+<h1 id="定义一个函数"><a href="#定义一个函数" class="headerlink" title="定义一个函数"></a>定义一个函数</h1><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="定义一个具有自变量的方程"><a href="#定义一个具有自变量的方程" class="headerlink" title="定义一个具有自变量的方程"></a>定义一个具有自变量的方程</h1><p>y=@(x) kx+b</p>
+<p>声明x是一个自变量</p>
+<h2 id="mean"><a href="#mean" class="headerlink" title="mean()"></a>mean()</h2><p>平均值</p>
+]]></content>
   </entry>
   <entry>
     <title>Python笔记</title>
@@ -497,71 +599,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Matlab笔记</title>
-    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="小操作"><a href="#小操作" class="headerlink" title="小操作"></a>小操作</h2><ul>
-<li>添加注释 Ctrl+R   % </li>
-<li>取消注释 Ctrl+T</li>
-<li>清空工作区变量 clear</li>
-<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
-<li>clear;clc  表示初始化</li>
-<li>分号;表示不显示运行结果</li>
-</ul>
-<a id="more"></a>
-
-<h2 id="输入输出函数-input-disp"><a href="#输入输出函数-input-disp" class="headerlink" title="输入输出函数(input(), disp())"></a>输入输出函数(input(), disp())</h2><p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
-<p>行向量 a = [1 2 3]</p>
-<p>列向量 a = [1;2;3]</p>
-<hr>
-<p>A = input(‘请输入A：’)</p>
-<h2 id="num2str"><a href="#num2str" class="headerlink" title="num2str"></a>num2str</h2><p>将数字转化为字符串</p>
-<p>a = 40               40</p>
-<p>num2str(a)      ‘40’</p>
-<h2 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h2><p>strcat(‘a的取值为’, a)</p>
-<p>[‘a的取值为’ a]</p>
-<h2 id="sum"><a href="#sum" class="headerlink" title="sum()"></a>sum()</h2><p>如果是一维向量，则直接求和</p>
-<p>如果是多维，默认对列向量求和</p>
-<hr>
-<p>sum(E, 1) 对列向量求和</p>
-<p>sum(E, 2) 对行向量求和</p>
-<p>sum(E(:)) 对整个矩阵求和</p>
-<h2 id="提取矩阵中的元素"><a href="#提取矩阵中的元素" class="headerlink" title="提取矩阵中的元素"></a>提取矩阵中的元素</h2><p>A(3,2)     表示第三行第二列</p>
-<p>A(3,:)      表示第三行所有元素</p>
-<p>A(:,2)      表示第二列所有元素</p>
-<p>:表示取所有元素</p>
-<hr>
-<p>A([2,5],:)    只取第二行和第五行</p>
-<p>A(2:5,:)       只取第二行到第五行</p>
-<p>A(2:2:5,:)    取第二行和第四行</p>
-<hr>
-<p>A(2:end,:)   取第二行到最后一行</p>
-<p>A(2:end-1,:)   取第二行到倒数第2行</p>
-<hr>
-<p>A(:)将矩阵输出为一个列向量</p>
-<h2 id="size"><a href="#size" class="headerlink" title="size()"></a>size()</h2><p> 返回几行几列</p>
-<p>size(A, 1) 返回行</p>
-<p>size(A, 2) 返回列</p>
-<h2 id="repmat"><a href="#repmat" class="headerlink" title="repmat()"></a>repmat()</h2><p>B = repmat(A, 2, 1)</p>
-<p>把A看成一个整体，2行1列个A</p>
-<h2 id="inv-求逆阵"><a href="#inv-求逆阵" class="headerlink" title="inv()求逆阵"></a>inv()求逆阵</h2><p>inv(B)</p>
-<h2 id="矩阵对应元素相乘除"><a href="#矩阵对应元素相乘除" class="headerlink" title="矩阵对应元素相乘除"></a>矩阵对应元素相乘除</h2><h3 id><a href="#" class="headerlink" title=".*   ./"></a>.*   ./</h3><p>区别直接乘除</p>
-<h3 id="-1"><a href="#-1" class="headerlink" title="."></a>.</h3><p>点针对每个元素进行操作</p>
-<h2 id="特征值和特征向量"><a href="#特征值和特征向量" class="headerlink" title="特征值和特征向量"></a>特征值和特征向量</h2><p>V = eig(B)         取特征值 </p>
-<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
-<h2 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h2><p>返回不为0的矩阵的索引</p>
-<p>ind = find(X)</p>
-<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
-<p>[r,c] = find(D == Max_eig, 1)</p>
-<h1 id="定义一个函数"><a href="#定义一个函数" class="headerlink" title="定义一个函数"></a>定义一个函数</h1><figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="定义一个具有自变量的方程"><a href="#定义一个具有自变量的方程" class="headerlink" title="定义一个具有自变量的方程"></a>定义一个具有自变量的方程</h1><p>y=@(x) kx+b</p>
-<p>声明x是一个自变量</p>
-<h2 id="mean"><a href="#mean" class="headerlink" title="mean()"></a>mean()</h2><p>平均值</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Dev-C++调试配置</title>
     <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
@@ -579,27 +616,6 @@
       <tags>
         <tag>debug</tag>
         <tag>Dev-C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>友元函数无法访问私有成员</title>
-    <url>/2020/11/15/friend/</url>
-    <content><![CDATA[<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>今天在完成一份C++作业时，遇到了一个问题：</p>
-<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p>
-<a id="more"></a>
-
-<p><img src="/2020/11/15/friend/image1.jpg" alt="image1"></p>
-<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p>在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加</p>
-<p><code>port.h</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PORT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PORT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; //头文件中务必加入这两行代码</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//****</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Port</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* brand;</span><br><span class="line">	<span class="keyword">char</span> style[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> bottles;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Port(<span class="keyword">const</span> <span class="keyword">char</span>* br = <span class="string">&quot;none&quot;</span>, <span class="keyword">const</span> <span class="keyword">char</span>* st = <span class="string">&quot;none&quot;</span>, <span class="keyword">int</span> b = <span class="number">0</span>);</span><br><span class="line">	Port(<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	<span class="keyword">virtual</span> ~Port() &#123; <span class="keyword">delete</span>[]brand; &#125;</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> += (<span class="keyword">int</span> b);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span>-=(<span class="keyword">int</span> b);</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Bottlecount</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bottles; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> Port&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>友元</tag>
       </tags>
   </entry>
   <entry>
@@ -636,6 +652,27 @@
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>友元函数无法访问私有成员</title>
+    <url>/2020/11/15/friend/</url>
+    <content><![CDATA[<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>今天在完成一份C++作业时，遇到了一个问题：</p>
+<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p>
+<a id="more"></a>
+
+<p><img src="/2020/11/15/friend/image1.jpg" alt="image1"></p>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p>在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加</p>
+<p><code>port.h</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PORT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PORT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; //头文件中务必加入这两行代码</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//****</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Port</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* brand;</span><br><span class="line">	<span class="keyword">char</span> style[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> bottles;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Port(<span class="keyword">const</span> <span class="keyword">char</span>* br = <span class="string">&quot;none&quot;</span>, <span class="keyword">const</span> <span class="keyword">char</span>* st = <span class="string">&quot;none&quot;</span>, <span class="keyword">int</span> b = <span class="number">0</span>);</span><br><span class="line">	Port(<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	<span class="keyword">virtual</span> ~Port() &#123; <span class="keyword">delete</span>[]brand; &#125;</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> += (<span class="keyword">int</span> b);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span>-=(<span class="keyword">int</span> b);</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Bottlecount</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bottles; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> Port&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>友元</tag>
       </tags>
   </entry>
   <entry>
@@ -1732,8 +1769,8 @@
         <category>天梯赛</category>
       </categories>
       <tags>
-        <tag>C++</tag>
         <tag>算法</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
 </search>
