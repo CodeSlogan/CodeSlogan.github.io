@@ -194,37 +194,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git配置</title>
-    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
-<a id="more"></a>
-
-<h1 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h1><p>大致分为3种</p>
-<h2 id="本地版本控制"><a href="#本地版本控制" class="headerlink" title="本地版本控制"></a>本地版本控制</h2><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
-<h2 id="集中版本控制-SVN"><a href="#集中版本控制-SVN" class="headerlink" title="集中版本控制  SVN"></a>集中版本控制  SVN</h2><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
-<h2 id="分布式版本控制-Git"><a href="#分布式版本控制-Git" class="headerlink" title="分布式版本控制 Git"></a>分布式版本控制 Git</h2><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
-<h1 id="Git环境配置"><a href="#Git环境配置" class="headerlink" title="Git环境配置"></a>Git环境配置</h1><p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
-<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
-<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
-<h2 id="设置用户名与邮箱"><a href="#设置用户名与邮箱" class="headerlink" title="设置用户名与邮箱"></a>设置用户名与邮箱</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="SSH公钥"><a href="#SSH公钥" class="headerlink" title="SSH公钥"></a>SSH公钥</h2><p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
-<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
-<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
-<h1 id="Git的工作流程"><a href="#Git的工作流程" class="headerlink" title="Git的工作流程"></a>Git的工作流程</h1><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
-<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p>狂神说</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML5笔记</title>
     <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>事先声明，本文是以Java后端开发的角度来学习HTML，并没有像前端那么细致。重点记录的是表单的使用</p>
@@ -287,6 +256,37 @@
       </categories>
       <tags>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git配置</title>
+    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
+<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<a id="more"></a>
+
+<h1 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h1><p>大致分为3种</p>
+<h2 id="本地版本控制"><a href="#本地版本控制" class="headerlink" title="本地版本控制"></a>本地版本控制</h2><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
+<h2 id="集中版本控制-SVN"><a href="#集中版本控制-SVN" class="headerlink" title="集中版本控制  SVN"></a>集中版本控制  SVN</h2><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
+<h2 id="分布式版本控制-Git"><a href="#分布式版本控制-Git" class="headerlink" title="分布式版本控制 Git"></a>分布式版本控制 Git</h2><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
+<h1 id="Git环境配置"><a href="#Git环境配置" class="headerlink" title="Git环境配置"></a>Git环境配置</h1><p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
+<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
+<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
+<h2 id="设置用户名与邮箱"><a href="#设置用户名与邮箱" class="headerlink" title="设置用户名与邮箱"></a>设置用户名与邮箱</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="SSH公钥"><a href="#SSH公钥" class="headerlink" title="SSH公钥"></a>SSH公钥</h2><p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
+<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
+<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
+<h1 id="Git的工作流程"><a href="#Git的工作流程" class="headerlink" title="Git的工作流程"></a>Git的工作流程</h1><p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
+<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p>狂神说</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -619,17 +619,24 @@
       </tags>
   </entry>
   <entry>
-    <title>回溯算法解决01背包问题</title>
-    <url>/2021/09/02/%E5%9B%9E%E6%BA%AF%E6%B3%95%E8%A7%A3%E5%86%B301%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98(Java)/</url>
-    <content><![CDATA[<p>﻿先前用C语言很容易实现了一个回溯算法，但转到Java后由于面向对象的原因，一时不知道如何处理变量。今天学习了static和final关键字，正好做一个练习。<br><strong>static: 定义一个类变量，使当前变量可以此类中的任意方法访问</strong><br><strong>final: 定义一个常量</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> Foundation;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Bag</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 回溯法实现01背包问题及final, static关键字的使用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-02 16:00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> N = <span class="number">3</span>;  <span class="comment">//3件物品</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> W = <span class="number">16</span>; <span class="comment">//限重16</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []w = &#123;<span class="number">10</span>, <span class="number">8</span>, <span class="number">5</span>&#125;; <span class="comment">//每件物品的重量</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []v = &#123;<span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;; <span class="comment">//每件物品的价值</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> curValue; <span class="comment">//记录当前的价值</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> curWeight;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> bestValue;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []x = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []bestX = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        backtracking(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;最大利润为: &quot;</span> + bestValue);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            System.out.println(bestX[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">backtracking</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (k &gt; N-<span class="number">1</span>) &#123;  <span class="comment">//递归基，结算并退出此重调用</span></span><br><span class="line">            <span class="keyword">if</span> (bestValue &lt; curValue) &#123;</span><br><span class="line">                bestValue = curValue;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">                    bestX[i] = x[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1</span>; i++) &#123; <span class="comment">//循环01</span></span><br><span class="line">                x[k] = i;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    backtracking(k+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (curWeight + w[k] &lt; W) &#123;</span><br><span class="line">                        curWeight += w[k];</span><br><span class="line">                        curValue += v[k];</span><br><span class="line">                        backtracking(k+<span class="number">1</span>);</span><br><span class="line">                        curWeight -= w[k]; <span class="comment">//回溯后还原原先情况</span></span><br><span class="line">                        curValue -= v[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>友元函数无法访问私有成员</title>
+    <url>/2020/11/15/friend/</url>
+    <content><![CDATA[<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>今天在完成一份C++作业时，遇到了一个问题：</p>
+<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p>
+<a id="more"></a>
+
+<p><img src="/2020/11/15/friend/image1.jpg" alt="image1"></p>
+<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p>在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加</p>
+<p><code>port.h</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PORT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PORT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; //头文件中务必加入这两行代码</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//****</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Port</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* brand;</span><br><span class="line">	<span class="keyword">char</span> style[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> bottles;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Port(<span class="keyword">const</span> <span class="keyword">char</span>* br = <span class="string">&quot;none&quot;</span>, <span class="keyword">const</span> <span class="keyword">char</span>* st = <span class="string">&quot;none&quot;</span>, <span class="keyword">int</span> b = <span class="number">0</span>);</span><br><span class="line">	Port(<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	<span class="keyword">virtual</span> ~Port() &#123; <span class="keyword">delete</span>[]brand; &#125;</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> += (<span class="keyword">int</span> b);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span>-=(<span class="keyword">int</span> b);</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Bottlecount</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bottles; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> Port&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>C++</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>C++</tag>
+        <tag>友元</tag>
       </tags>
   </entry>
   <entry>
@@ -655,24 +662,68 @@
       </tags>
   </entry>
   <entry>
-    <title>友元函数无法访问私有成员</title>
-    <url>/2020/11/15/friend/</url>
-    <content><![CDATA[<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>今天在完成一份C++作业时，遇到了一个问题：</p>
-<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p>
-<a id="more"></a>
-
-<p><img src="/2020/11/15/friend/image1.jpg" alt="image1"></p>
-<h1 id="Solve"><a href="#Solve" class="headerlink" title="Solve"></a>Solve</h1><p>在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加</p>
-<p><code>port.h</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PORT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PORT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; //头文件中务必加入这两行代码</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//****</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Port</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* brand;</span><br><span class="line">	<span class="keyword">char</span> style[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> bottles;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Port(<span class="keyword">const</span> <span class="keyword">char</span>* br = <span class="string">&quot;none&quot;</span>, <span class="keyword">const</span> <span class="keyword">char</span>* st = <span class="string">&quot;none&quot;</span>, <span class="keyword">int</span> b = <span class="number">0</span>);</span><br><span class="line">	Port(<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	<span class="keyword">virtual</span> ~Port() &#123; <span class="keyword">delete</span>[]brand; &#125;</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> += (<span class="keyword">int</span> b);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span>-=(<span class="keyword">int</span> b);</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Bottlecount</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bottles; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> Port&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+    <title>回溯算法解决01背包问题</title>
+    <url>/2021/09/02/%E5%9B%9E%E6%BA%AF%E6%B3%95%E8%A7%A3%E5%86%B301%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98(Java)/</url>
+    <content><![CDATA[<p>﻿先前用C语言很容易实现了一个回溯算法，但转到Java后由于面向对象的原因，一时不知道如何处理变量。今天学习了static和final关键字，正好做一个练习。<br><strong>static: 定义一个类变量，使当前变量可以此类中的任意方法访问</strong><br><strong>final: 定义一个常量</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> Foundation;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Bag</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 回溯法实现01背包问题及final, static关键字的使用</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-02 16:00</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bag</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> N = <span class="number">3</span>;  <span class="comment">//3件物品</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> W = <span class="number">16</span>; <span class="comment">//限重16</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []w = &#123;<span class="number">10</span>, <span class="number">8</span>, <span class="number">5</span>&#125;; <span class="comment">//每件物品的重量</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []v = &#123;<span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>&#125;; <span class="comment">//每件物品的价值</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> curValue; <span class="comment">//记录当前的价值</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> curWeight;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> bestValue;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []x = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> []bestX = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        backtracking(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;最大利润为: &quot;</span> + bestValue);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            System.out.println(bestX[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">backtracking</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (k &gt; N-<span class="number">1</span>) &#123;  <span class="comment">//递归基，结算并退出此重调用</span></span><br><span class="line">            <span class="keyword">if</span> (bestValue &lt; curValue) &#123;</span><br><span class="line">                bestValue = curValue;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">                    bestX[i] = x[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1</span>; i++) &#123; <span class="comment">//循环01</span></span><br><span class="line">                x[k] = i;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    backtracking(k+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (curWeight + w[k] &lt; W) &#123;</span><br><span class="line">                        curWeight += w[k];</span><br><span class="line">                        curValue += v[k];</span><br><span class="line">                        backtracking(k+<span class="number">1</span>);</span><br><span class="line">                        curWeight -= w[k]; <span class="comment">//回溯后还原原先情况</span></span><br><span class="line">                        curValue -= v[k];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>C++</tag>
-        <tag>友元</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用conda安装pytorch</title>
+    <url>/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/</url>
+    <content><![CDATA[<h1 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h1><h2 id="Download-amp-install"><a href="#Download-amp-install" class="headerlink" title="Download &amp; install"></a>Download &amp; install</h2><a id="more"></a>
+
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\huawei\miniconda3\Scripts</span><br></pre></td></tr></table></figure>
+
+<p>将以上路径加入到环境变量的path中</p>
+<h2 id="添加清华镜向源"><a href="#添加清华镜向源" class="headerlink" title="添加清华镜向源"></a>添加清华镜向源</h2><p>用途：加快下载速度，否则非常慢</p>
+<p>在开始菜单里找到并打开<u>Anaconda Prompt(miniconda3)</u>,命令行窗口</p>
+<p>复制粘贴以下内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;conda-forge&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;bioconda&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes </span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;msys2&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;menpo&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建pytorch环境"><a href="#创建pytorch环境" class="headerlink" title="创建pytorch环境"></a>创建pytorch环境</h2><p>这里是根据自己的python版本创建</p>
+<p>命令行输出可查看</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -v</span><br></pre></td></tr></table></figure>
+
+<p>例如我的是3.8.3</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
+
+<p>以上命令就根据python的版本创建出了pytorch的环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
+
+<p>激活环境</p>
+<h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><p>以下操作接着刚刚的命令行窗口内</p>
+<h2 id="查看自己的GPU版本"><a href="#查看自己的GPU版本" class="headerlink" title="查看自己的GPU版本"></a>查看自己的GPU版本</h2><p>右键开始菜单栏-任务管理器-性能-GPU</p>
+<p>根据自己的显卡选择CUDA的版本，如果不是英伟达显卡，刚选择None</p>
+<p>安装命令可以在官网里获取</p>
+<h2 id="Download-amp-install-1"><a href="#Download-amp-install-1" class="headerlink" title="Download&amp;install"></a>Download&amp;install</h2><p>建议删除 -c pytorch，否则会默认从官网下载，速度极慢</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python #进行Python</span><br><span class="line">import torch #这步后没有报错说明安装成功</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(pytorch) C:\Users\huawei&gt;pip list</span><br><span class="line">Package      Version</span><br><span class="line">------------ -------------------</span><br><span class="line">certifi      2020.6.20</span><br><span class="line">cffi         1.14.3</span><br><span class="line">mkl-service  2.3.0</span><br><span class="line">numpy        1.19.2</span><br><span class="line">olefile      0.46</span><br><span class="line">Pillow       8.0.1</span><br><span class="line">pip          20.2.4</span><br><span class="line">pycparser    2.20</span><br><span class="line">setuptools   50.3.0.post20201006</span><br><span class="line">six          1.15.0</span><br><span class="line">torch        1.6.0</span><br><span class="line">torchaudio   0.6.0</span><br><span class="line">torchvision  0.2.2</span><br><span class="line">wheel        0.35.1</span><br><span class="line">wincertstore 0.2</span><br></pre></td></tr></table></figure>
+
+<h1 id="库"><a href="#库" class="headerlink" title="库"></a>库</h1><p>直接分次复制到命令行中即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pandas</span><br><span class="line">conda install jupyter notebook</span><br><span class="line">conda install matplotlib</span><br><span class="line">pip install sklearn</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+        <tag>pytorch</tag>
+        <tag>conda</tag>
       </tags>
   </entry>
   <entry>
@@ -765,57 +816,6 @@
       <tags>
         <tag>算法</tag>
         <tag>os</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用conda安装pytorch</title>
-    <url>/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/</url>
-    <content><![CDATA[<h1 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h1><h2 id="Download-amp-install"><a href="#Download-amp-install" class="headerlink" title="Download &amp; install"></a>Download &amp; install</h2><a id="more"></a>
-
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Users\huawei\miniconda3\Scripts</span><br></pre></td></tr></table></figure>
-
-<p>将以上路径加入到环境变量的path中</p>
-<h2 id="添加清华镜向源"><a href="#添加清华镜向源" class="headerlink" title="添加清华镜向源"></a>添加清华镜向源</h2><p>用途：加快下载速度，否则非常慢</p>
-<p>在开始菜单里找到并打开<u>Anaconda Prompt(miniconda3)</u>,命令行窗口</p>
-<p>复制粘贴以下内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;conda-forge&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;bioconda&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes </span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;msys2&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;menpo&#x2F;</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建pytorch环境"><a href="#创建pytorch环境" class="headerlink" title="创建pytorch环境"></a>创建pytorch环境</h2><p>这里是根据自己的python版本创建</p>
-<p>命令行输出可查看</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -v</span><br></pre></td></tr></table></figure>
-
-<p>例如我的是3.8.3</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python&#x3D;3.8.3</span><br></pre></td></tr></table></figure>
-
-<p>以上命令就根据python的版本创建出了pytorch的环境</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
-
-<p>激活环境</p>
-<h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><p>以下操作接着刚刚的命令行窗口内</p>
-<h2 id="查看自己的GPU版本"><a href="#查看自己的GPU版本" class="headerlink" title="查看自己的GPU版本"></a>查看自己的GPU版本</h2><p>右键开始菜单栏-任务管理器-性能-GPU</p>
-<p>根据自己的显卡选择CUDA的版本，如果不是英伟达显卡，刚选择None</p>
-<p>安装命令可以在官网里获取</p>
-<h2 id="Download-amp-install-1"><a href="#Download-amp-install-1" class="headerlink" title="Download&amp;install"></a>Download&amp;install</h2><p>建议删除 -c pytorch，否则会默认从官网下载，速度极慢</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
-
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python #进行Python</span><br><span class="line">import torch #这步后没有报错说明安装成功</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(pytorch) C:\Users\huawei&gt;pip list</span><br><span class="line">Package      Version</span><br><span class="line">------------ -------------------</span><br><span class="line">certifi      2020.6.20</span><br><span class="line">cffi         1.14.3</span><br><span class="line">mkl-service  2.3.0</span><br><span class="line">numpy        1.19.2</span><br><span class="line">olefile      0.46</span><br><span class="line">Pillow       8.0.1</span><br><span class="line">pip          20.2.4</span><br><span class="line">pycparser    2.20</span><br><span class="line">setuptools   50.3.0.post20201006</span><br><span class="line">six          1.15.0</span><br><span class="line">torch        1.6.0</span><br><span class="line">torchaudio   0.6.0</span><br><span class="line">torchvision  0.2.2</span><br><span class="line">wheel        0.35.1</span><br><span class="line">wincertstore 0.2</span><br></pre></td></tr></table></figure>
-
-<h1 id="库"><a href="#库" class="headerlink" title="库"></a>库</h1><p>直接分次复制到命令行中即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda install pandas</span><br><span class="line">conda install jupyter notebook</span><br><span class="line">conda install matplotlib</span><br><span class="line">pip install sklearn</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>ML_DL</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-        <tag>pytorch</tag>
-        <tag>conda</tag>
       </tags>
   </entry>
   <entry>
@@ -1769,8 +1769,8 @@
         <category>天梯赛</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>C++</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
 </search>
