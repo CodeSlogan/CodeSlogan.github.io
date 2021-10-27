@@ -1,6 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ML笔记</title>
+    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
+<h1 id="1-Regression"><a href="#1-Regression" class="headerlink" title="1. Regression"></a>1. Regression</h1><p>如何开始一个深度学习？</p>
+<ol>
+<li><p>Function with unknown parameters</p>
+<p>w and b are unknown parameters</p>
+<p>w -&gt; weight               b-&gt;bias</p>
+</li>
+<li><p>Define loss from training data</p>
+</li>
+<li><p>Optimization</p>
+<a id="more"></a>
+
+<p>梯度下降，算积分，使得Loss趋近于最小</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
+</li>
+</ol>
+<p>​                                                                    可反复增加层数，来达到建立深度神经网络的目的</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
+<h1 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h1><p>模型无法训练起来的原因：</p>
+<ul>
+<li><p>model bias</p>
+<p>参数不够，如同大海捞针，针却不在海里</p>
+</li>
+<li><p>optimization issue</p>
+<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
+</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li>比较不同的模型</li>
+<li>从浅的网络或一些简单的模型开始优化</li>
+<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
+</ol>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
+<h2 id="General-Guide"><a href="#General-Guide" class="headerlink" title="General Guide"></a>General Guide</h2><p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
+<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
+<h2 id="2-1-局部最小值与鞍点"><a href="#2-1-局部最小值与鞍点" class="headerlink" title="2.1 局部最小值与鞍点"></a>2.1 局部最小值与鞍点</h2><p>local minima and saddle point</p>
+<h3 id="Hessian"><a href="#Hessian" class="headerlink" title="Hessian"></a>Hessian</h3><p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
+<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
+<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
+<p>选取特征值为负所对应的特征向量u</p>
+<p>uT<em>H</em>u</p>
+<p>用这种方法可逃离鞍点，降低loss</p>
+<h2 id="2-2-批次与动量"><a href="#2-2-批次与动量" class="headerlink" title="2.2 批次与动量"></a>2.2 批次与动量</h2><p>batch and momentum</p>
+<p>结论：</p>
+<ul>
+<li>small batch size has better performance </li>
+<li>Noisy update is better for training</li>
+</ul>
+<h3 id="Small-Batch-vs-Large-Batch"><a href="#Small-Batch-vs-Large-Batch" class="headerlink" title="Small Batch vs Large Batch"></a>Small Batch vs Large Batch</h3><p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
+<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
+<ul>
+<li><p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
+</li>
+<li><p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
+</li>
+<li><p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
+</li>
+<li><p>noisy的数据有利于训练</p>
+</li>
+<li><p>small batch有助于跳出局部最优解</p>
+</li>
+</ul>
+<hr>
+<p>未完待续……</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
+</li>
+<li><p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -112,88 +194,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ML笔记</title>
-    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
-<h1 id="1-Regression"><a href="#1-Regression" class="headerlink" title="1. Regression"></a>1. Regression</h1><p>如何开始一个深度学习？</p>
-<ol>
-<li><p>Function with unknown parameters</p>
-<p>w and b are unknown parameters</p>
-<p>w -&gt; weight               b-&gt;bias</p>
-</li>
-<li><p>Define loss from training data</p>
-</li>
-<li><p>Optimization</p>
-<a id="more"></a>
-
-<p>梯度下降，算积分，使得Loss趋近于最小</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
-</li>
-</ol>
-<p>​                                                                    可反复增加层数，来达到建立深度神经网络的目的</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
-<h1 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h1><p>模型无法训练起来的原因：</p>
-<ul>
-<li><p>model bias</p>
-<p>参数不够，如同大海捞针，针却不在海里</p>
-</li>
-<li><p>optimization issue</p>
-<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<ol>
-<li>比较不同的模型</li>
-<li>从浅的网络或一些简单的模型开始优化</li>
-<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
-</ol>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
-<h2 id="General-Guide"><a href="#General-Guide" class="headerlink" title="General Guide"></a>General Guide</h2><p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
-<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
-<h2 id="2-1-局部最小值与鞍点"><a href="#2-1-局部最小值与鞍点" class="headerlink" title="2.1 局部最小值与鞍点"></a>2.1 局部最小值与鞍点</h2><p>local minima and saddle point</p>
-<h3 id="Hessian"><a href="#Hessian" class="headerlink" title="Hessian"></a>Hessian</h3><p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
-<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
-<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
-<p>选取特征值为负所对应的特征向量u</p>
-<p>uT<em>H</em>u</p>
-<p>用这种方法可逃离鞍点，降低loss</p>
-<h2 id="2-2-批次与动量"><a href="#2-2-批次与动量" class="headerlink" title="2.2 批次与动量"></a>2.2 批次与动量</h2><p>batch and momentum</p>
-<p>结论：</p>
-<ul>
-<li>small batch size has better performance </li>
-<li>Noisy update is better for training</li>
-</ul>
-<h3 id="Small-Batch-vs-Large-Batch"><a href="#Small-Batch-vs-Large-Batch" class="headerlink" title="Small Batch vs Large Batch"></a>Small Batch vs Large Batch</h3><p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
-<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
-<ul>
-<li><p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
-</li>
-<li><p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
-</li>
-<li><p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
-</li>
-<li><p>noisy的数据有利于训练</p>
-</li>
-<li><p>small batch有助于跳出局部最优解</p>
-</li>
-</ul>
-<hr>
-<p>未完待续……</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
-<li><p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
-</li>
-<li><p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ML_DL</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git配置</title>
     <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
@@ -222,6 +222,43 @@
       <tags>
         <tag>git</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java3D安装教程</title>
+    <url>/2021/08/31/Java3D%E5%AE%89%E8%A3%85(idea%E7%89%88)/</url>
+    <content><![CDATA[<p>﻿正值学习计算机图形学期间，学校选用的是比较冷门的Java3D，网上的安装教程也比较少，安装教程仅供参考。</p>
+<h2 id="1-JDK安装"><a href="#1-JDK安装" class="headerlink" title="1. JDK安装"></a>1. JDK安装</h2><p><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a> 点击下载<br>可以下载1.8或11稳定版本，这里记得要在我的电脑中配置环境，由于教程众多这里不再赘述</p>
+<h2 id="2-Java-3D-1-5-1"><a href="#2-Java-3D-1-5-1" class="headerlink" title="2. Java 3D 1.5.1"></a>2. Java 3D 1.5.1</h2><p><a href="https://www.oracle.com/java/technologies/java-archive-downloads-java-client-downloads.html#java3d-1.5.1-oth-JPR">Java3d</a> 点击下载<br>根据自己的系统选取，例如本人用的是windows，则选java3d-1-5-1-windows-i586.exe（代表32位）</p>
+<p>这里注意一点，<strong>JDK和Java3D的位数需相同</strong>，例如JDK用的32位，Java3D库也需32位</p>
+<h2 id="3-idea的安装"><a href="#3-idea的安装" class="headerlink" title="3. idea的安装"></a>3. idea的安装</h2><p><a href="https://www.jetbrains.com/idea/download/#section=windows">idea</a> 点击下载<br>下载community版本即可，如有激活码或其它途径可下载ultimate版本</p>
+<p>以上三样安装安装好之后，即可打开idea进行配置</p>
+<hr>
+<ul>
+<li>ddl文件配置<br>将Java3D bin目录文件下的ddl文件拷贝至JDK bin目录下，否则将报异常UnsatisfiedLinkError<br><img src="https://img-blog.csdnimg.cn/a18d09f5566a41139089d644d1b65e16.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li><p>打开idea，选取环境，创建项目<br>右键External Libraries下的环境，打开库设置<br><img src="https://img-blog.csdnimg.cn/b5905b2f4dc64757a793c53205ce59e8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li><p>添加jar包<br><img src="https://img-blog.csdnimg.cn/62dc4948f18b48e2b1c8fd798638048d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li><p>找到java3d的安装位置，默认是在以下路径<br>\Java3D\1.5.1\lib\ext<br>将jar包导入即可<br>（64版本的Java安装路径可能无(x86)）<br><img src="https://img-blog.csdnimg.cn/17291c13493348de938ad5c925db2cfb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+</li>
+<li><p>最后用代码测试结果</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.j3d.utils.universe.*;</span><br><span class="line"><span class="keyword">import</span> com.sun.j3d.utils.geometry.ColorCube;</span><br><span class="line"><span class="keyword">import</span> javax.media.j3d.*;</span><br><span class="line"><span class="keyword">import</span> javax.vecmath.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.GraphicsConfiguration;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Simple Java 3D example program to display a spinning cube.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloUniverse</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">swing</span>.<span class="title">JFrame</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> SimpleUniverse univ = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> BranchGroup scene = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BranchGroup <span class="title">createSceneGraph</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Create the root of the branch graph</span></span><br><span class="line">        BranchGroup objRoot = <span class="keyword">new</span> BranchGroup();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the TransformGroup node and initialize it to the</span></span><br><span class="line">        <span class="comment">// identity. Enable the TRANSFORM_WRITE capability so that</span></span><br><span class="line">        <span class="comment">// our behavior code can modify it at run time. Add it to</span></span><br><span class="line">        <span class="comment">// the root of the subgraph.</span></span><br><span class="line">        TransformGroup objTrans = <span class="keyword">new</span> TransformGroup();</span><br><span class="line">        objTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);</span><br><span class="line">        objRoot.addChild(objTrans);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a simple Shape3D node; add it to the scene graph.</span></span><br><span class="line">        objTrans.addChild(<span class="keyword">new</span> ColorCube(<span class="number">0.4</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a new Behavior object that will perform the</span></span><br><span class="line">        <span class="comment">// desired operation on the specified transform and add</span></span><br><span class="line">        <span class="comment">// it into the scene graph.</span></span><br><span class="line">        Transform3D yAxis = <span class="keyword">new</span> Transform3D();</span><br><span class="line">        Alpha rotationAlpha = <span class="keyword">new</span> Alpha(-<span class="number">1</span>, <span class="number">4000</span>);</span><br><span class="line"></span><br><span class="line">        RotationInterpolator rotator =</span><br><span class="line">                <span class="keyword">new</span> RotationInterpolator(rotationAlpha, objTrans, yAxis,</span><br><span class="line">                        <span class="number">0.0f</span>, (<span class="keyword">float</span>) Math.PI*<span class="number">2.0f</span>);</span><br><span class="line">        BoundingSphere bounds =</span><br><span class="line">                <span class="keyword">new</span> BoundingSphere(<span class="keyword">new</span> Point3d(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>), <span class="number">100.0</span>);</span><br><span class="line">        rotator.setSchedulingBounds(bounds);</span><br><span class="line">        objRoot.addChild(rotator);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Have Java 3D perform optimizations on this scene graph.</span></span><br><span class="line">        objRoot.compile();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> objRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Canvas3D <span class="title">createUniverse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Get the preferred graphics configuration for the default screen</span></span><br><span class="line">        GraphicsConfiguration config =</span><br><span class="line">                SimpleUniverse.getPreferredConfiguration();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a Canvas3D using the preferred configuration</span></span><br><span class="line">        Canvas3D c = <span class="keyword">new</span> Canvas3D(config);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create simple universe with view branch</span></span><br><span class="line">        univ = <span class="keyword">new</span> SimpleUniverse(c);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// This will move the ViewPlatform back a bit so the</span></span><br><span class="line">        <span class="comment">// objects in the scene can be viewed.</span></span><br><span class="line">        univ.getViewingPlatform().setNominalViewingTransform();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensure at least 5 msec per frame (i.e., &lt; 200Hz)</span></span><br><span class="line">        univ.getViewer().getView().setMinimumFrameCycleTime(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates new form HelloUniverse</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HelloUniverse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Initialize the GUI components</span></span><br><span class="line">        initComponents();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create Canvas3D and SimpleUniverse; add canvas to drawing panel</span></span><br><span class="line">        Canvas3D c = createUniverse();</span><br><span class="line">        drawingPanel.add(c, java.awt.BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the content branch and add it to the universe</span></span><br><span class="line">        scene = createSceneGraph();</span><br><span class="line">        univ.addBranchGraph(scene);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ----------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** This method is called from within the constructor to</span></span><br><span class="line"><span class="comment">     * initialize the form.</span></span><br><span class="line"><span class="comment">     * WARNING: Do NOT modify this code. The content of this method is</span></span><br><span class="line"><span class="comment">     * always regenerated by the Form Editor.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Generated Code &quot;&gt;//GEN-BEGIN:initComponents</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initComponents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        drawingPanel = <span class="keyword">new</span> javax.swing.JPanel();</span><br><span class="line"></span><br><span class="line">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span><br><span class="line">        setTitle(<span class="string">&quot;HelloUniverse&quot;</span>);</span><br><span class="line">        drawingPanel.setLayout(<span class="keyword">new</span> java.awt.BorderLayout());</span><br><span class="line"></span><br><span class="line">        drawingPanel.setPreferredSize(<span class="keyword">new</span> java.awt.Dimension(<span class="number">250</span>, <span class="number">250</span>));</span><br><span class="line">        getContentPane().add(drawingPanel, java.awt.BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        pack();</span><br><span class="line">    &#125;<span class="comment">// &lt;/editor-fold&gt;//GEN-END:initComponents</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args the command line arguments</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        java.awt.EventQueue.invokeLater(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">new</span> HelloUniverse().setVisible(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Variables declaration - do not modify//GEN-BEGIN:variables</span></span><br><span class="line">    <span class="keyword">private</span> javax.swing.JPanel drawingPanel;</span><br><span class="line">    <span class="comment">// End of variables declaration//GEN-END:variables</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/16801d2d51e14c77b61470634777efb4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<ul>
+<li>安装成功！！</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -287,43 +324,6 @@
       </categories>
       <tags>
         <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java3D安装教程</title>
-    <url>/2021/08/31/Java3D%E5%AE%89%E8%A3%85(idea%E7%89%88)/</url>
-    <content><![CDATA[<p>﻿正值学习计算机图形学期间，学校选用的是比较冷门的Java3D，网上的安装教程也比较少，安装教程仅供参考。</p>
-<h2 id="1-JDK安装"><a href="#1-JDK安装" class="headerlink" title="1. JDK安装"></a>1. JDK安装</h2><p><a href="https://www.oracle.com/java/technologies/javase-downloads.html">JDK</a> 点击下载<br>可以下载1.8或11稳定版本，这里记得要在我的电脑中配置环境，由于教程众多这里不再赘述</p>
-<h2 id="2-Java-3D-1-5-1"><a href="#2-Java-3D-1-5-1" class="headerlink" title="2. Java 3D 1.5.1"></a>2. Java 3D 1.5.1</h2><p><a href="https://www.oracle.com/java/technologies/java-archive-downloads-java-client-downloads.html#java3d-1.5.1-oth-JPR">Java3d</a> 点击下载<br>根据自己的系统选取，例如本人用的是windows，则选java3d-1-5-1-windows-i586.exe（代表32位）</p>
-<p>这里注意一点，<strong>JDK和Java3D的位数需相同</strong>，例如JDK用的32位，Java3D库也需32位</p>
-<h2 id="3-idea的安装"><a href="#3-idea的安装" class="headerlink" title="3. idea的安装"></a>3. idea的安装</h2><p><a href="https://www.jetbrains.com/idea/download/#section=windows">idea</a> 点击下载<br>下载community版本即可，如有激活码或其它途径可下载ultimate版本</p>
-<p>以上三样安装安装好之后，即可打开idea进行配置</p>
-<hr>
-<ul>
-<li>ddl文件配置<br>将Java3D bin目录文件下的ddl文件拷贝至JDK bin目录下，否则将报异常UnsatisfiedLinkError<br><img src="https://img-blog.csdnimg.cn/a18d09f5566a41139089d644d1b65e16.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li><p>打开idea，选取环境，创建项目<br>右键External Libraries下的环境，打开库设置<br><img src="https://img-blog.csdnimg.cn/b5905b2f4dc64757a793c53205ce59e8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-</li>
-<li><p>添加jar包<br><img src="https://img-blog.csdnimg.cn/62dc4948f18b48e2b1c8fd798638048d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-</li>
-<li><p>找到java3d的安装位置，默认是在以下路径<br>\Java3D\1.5.1\lib\ext<br>将jar包导入即可<br>（64版本的Java安装路径可能无(x86)）<br><img src="https://img-blog.csdnimg.cn/17291c13493348de938ad5c925db2cfb.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-</li>
-<li><p>最后用代码测试结果</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.j3d.utils.universe.*;</span><br><span class="line"><span class="keyword">import</span> com.sun.j3d.utils.geometry.ColorCube;</span><br><span class="line"><span class="keyword">import</span> javax.media.j3d.*;</span><br><span class="line"><span class="keyword">import</span> javax.vecmath.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.GraphicsConfiguration;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Simple Java 3D example program to display a spinning cube.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloUniverse</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">swing</span>.<span class="title">JFrame</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> SimpleUniverse univ = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> BranchGroup scene = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BranchGroup <span class="title">createSceneGraph</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Create the root of the branch graph</span></span><br><span class="line">        BranchGroup objRoot = <span class="keyword">new</span> BranchGroup();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the TransformGroup node and initialize it to the</span></span><br><span class="line">        <span class="comment">// identity. Enable the TRANSFORM_WRITE capability so that</span></span><br><span class="line">        <span class="comment">// our behavior code can modify it at run time. Add it to</span></span><br><span class="line">        <span class="comment">// the root of the subgraph.</span></span><br><span class="line">        TransformGroup objTrans = <span class="keyword">new</span> TransformGroup();</span><br><span class="line">        objTrans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);</span><br><span class="line">        objRoot.addChild(objTrans);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a simple Shape3D node; add it to the scene graph.</span></span><br><span class="line">        objTrans.addChild(<span class="keyword">new</span> ColorCube(<span class="number">0.4</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a new Behavior object that will perform the</span></span><br><span class="line">        <span class="comment">// desired operation on the specified transform and add</span></span><br><span class="line">        <span class="comment">// it into the scene graph.</span></span><br><span class="line">        Transform3D yAxis = <span class="keyword">new</span> Transform3D();</span><br><span class="line">        Alpha rotationAlpha = <span class="keyword">new</span> Alpha(-<span class="number">1</span>, <span class="number">4000</span>);</span><br><span class="line"></span><br><span class="line">        RotationInterpolator rotator =</span><br><span class="line">                <span class="keyword">new</span> RotationInterpolator(rotationAlpha, objTrans, yAxis,</span><br><span class="line">                        <span class="number">0.0f</span>, (<span class="keyword">float</span>) Math.PI*<span class="number">2.0f</span>);</span><br><span class="line">        BoundingSphere bounds =</span><br><span class="line">                <span class="keyword">new</span> BoundingSphere(<span class="keyword">new</span> Point3d(<span class="number">0.0</span>,<span class="number">0.0</span>,<span class="number">0.0</span>), <span class="number">100.0</span>);</span><br><span class="line">        rotator.setSchedulingBounds(bounds);</span><br><span class="line">        objRoot.addChild(rotator);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Have Java 3D perform optimizations on this scene graph.</span></span><br><span class="line">        objRoot.compile();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> objRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Canvas3D <span class="title">createUniverse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Get the preferred graphics configuration for the default screen</span></span><br><span class="line">        GraphicsConfiguration config =</span><br><span class="line">                SimpleUniverse.getPreferredConfiguration();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create a Canvas3D using the preferred configuration</span></span><br><span class="line">        Canvas3D c = <span class="keyword">new</span> Canvas3D(config);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create simple universe with view branch</span></span><br><span class="line">        univ = <span class="keyword">new</span> SimpleUniverse(c);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// This will move the ViewPlatform back a bit so the</span></span><br><span class="line">        <span class="comment">// objects in the scene can be viewed.</span></span><br><span class="line">        univ.getViewingPlatform().setNominalViewingTransform();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensure at least 5 msec per frame (i.e., &lt; 200Hz)</span></span><br><span class="line">        univ.getViewer().getView().setMinimumFrameCycleTime(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Creates new form HelloUniverse</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HelloUniverse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Initialize the GUI components</span></span><br><span class="line">        initComponents();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create Canvas3D and SimpleUniverse; add canvas to drawing panel</span></span><br><span class="line">        Canvas3D c = createUniverse();</span><br><span class="line">        drawingPanel.add(c, java.awt.BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Create the content branch and add it to the universe</span></span><br><span class="line">        scene = createSceneGraph();</span><br><span class="line">        univ.addBranchGraph(scene);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ----------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** This method is called from within the constructor to</span></span><br><span class="line"><span class="comment">     * initialize the form.</span></span><br><span class="line"><span class="comment">     * WARNING: Do NOT modify this code. The content of this method is</span></span><br><span class="line"><span class="comment">     * always regenerated by the Form Editor.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Generated Code &quot;&gt;//GEN-BEGIN:initComponents</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initComponents</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        drawingPanel = <span class="keyword">new</span> javax.swing.JPanel();</span><br><span class="line"></span><br><span class="line">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span><br><span class="line">        setTitle(<span class="string">&quot;HelloUniverse&quot;</span>);</span><br><span class="line">        drawingPanel.setLayout(<span class="keyword">new</span> java.awt.BorderLayout());</span><br><span class="line"></span><br><span class="line">        drawingPanel.setPreferredSize(<span class="keyword">new</span> java.awt.Dimension(<span class="number">250</span>, <span class="number">250</span>));</span><br><span class="line">        getContentPane().add(drawingPanel, java.awt.BorderLayout.CENTER);</span><br><span class="line"></span><br><span class="line">        pack();</span><br><span class="line">    &#125;<span class="comment">// &lt;/editor-fold&gt;//GEN-END:initComponents</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args the command line arguments</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        java.awt.EventQueue.invokeLater(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">new</span> HelloUniverse().setVisible(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Variables declaration - do not modify//GEN-BEGIN:variables</span></span><br><span class="line">    <span class="keyword">private</span> javax.swing.JPanel drawingPanel;</span><br><span class="line">    <span class="comment">// End of variables declaration//GEN-END:variables</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/16801d2d51e14c77b61470634777efb4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<ul>
-<li>安装成功！！</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -454,6 +454,9 @@
 <p>声明x是一个自变量</p>
 <h2 id="mean"><a href="#mean" class="headerlink" title="mean()"></a>mean()</h2><p>平均值</p>
 ]]></content>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
   </entry>
   <entry>
     <title>Python笔记</title>
@@ -599,22 +602,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Dev-C++调试配置</title>
-    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p> 私聊博主</p>
-]]></content>
-      <categories>
-        <category>C/C++</category>
-      </categories>
-  </entry>
-  <entry>
     <title>友元函数无法访问私有成员</title>
     <url>/2020/11/15/friend/</url>
     <content><![CDATA[<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>今天在完成一份C++作业时，遇到了一个问题：</p>
@@ -671,6 +658,52 @@
       </tags>
   </entry>
   <entry>
+    <title>Dev-C++调试配置</title>
+    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
+<ol>
+<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
+<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
+<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
+</ol>
+<p><strong>zlib1.dll</strong>文件的链接如下：</p>
+<p> 私聊博主</p>
+]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>并查集</title>
+    <url>/2021/09/22/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍的是并查集，它属于我们所学的数据结构树的一个特例，经常用于求解各结点之间的关联问题</p>
+<h1 id="1-初始化结点"><a href="#1-初始化结点" class="headerlink" title="1. 初始化结点"></a>1. 初始化结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-查找一个结点的根结点"><a href="#2-查找一个结点的根结点" class="headerlink" title="2. 查找一个结点的根结点"></a>2. 查找一个结点的根结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x) <span class="comment">//递归基，直至找到根结点</span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]); <span class="comment">//使结点直接指向根结点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-合并"><a href="#3-合并" class="headerlink" title="3. 合并"></a>3. 合并</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x); <span class="comment">//找到x结点的根结点</span></span><br><span class="line">    y = get(y); </span><br><span class="line">    <span class="keyword">if</span>(x != y) <span class="comment">//若二者不等</span></span><br><span class="line">        father[y] = x; <span class="comment">//让y指向x</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-例题-luogu"><a href="#4-例题-luogu" class="headerlink" title="4. 例题(luogu)"></a>4. 例题(luogu)</h1><h2 id="4-1-题目背景"><a href="#4-1-题目背景" class="headerlink" title="4.1 题目背景"></a>4.1 题目背景</h2><p>若某个家族人员过于庞大，要判断两个是否是亲戚，确实还很不容易，现在给出某个亲戚关系图，求任意给出的两个人是否具有亲戚关系。</p>
+<h2 id="4-2-题目描述"><a href="#4-2-题目描述" class="headerlink" title="4.2 题目描述"></a>4.2 题目描述</h2><p>规定：x和y是亲戚，y和z是亲戚，那么x和z也是亲戚。如果x,y是亲戚，那么x的亲戚都是y的亲戚，y的亲戚也都是x的亲戚。</p>
+<h2 id="4-3-输入格式"><a href="#4-3-输入格式" class="headerlink" title="4.3 输入格式"></a>4.3 输入格式</h2><p>第一行：三个整数n,m,p，（n&lt;=5000,m&lt;=5000,p&lt;=5000），分别表示有n个人，m个亲戚关系，询问p对亲戚关系。</p>
+<p>以下m行：每行两个数Mi，Mj，1&lt;=Mi，Mj&lt;=N，表示Mi和Mj具有亲戚关系。</p>
+<p>接下来p行：每行两个数Pi，Pj，询问Pi和Pj是否具有亲戚关系。</p>
+<h2 id="4-4-输出格式"><a href="#4-4-输出格式" class="headerlink" title="4.4 输出格式"></a>4.4 输出格式</h2><p>P行，每行一个’Yes’或’No’。表示第i个询问的答案为“具有”或“不具有”亲戚关系。</p>
+<h2 id="4-5-输入输出样例"><a href="#4-5-输入输出样例" class="headerlink" title="4.5 输入输出样例"></a>4.5 输入输出样例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 5 3</span><br><span class="line">1 2</span><br><span class="line">1 5</span><br><span class="line">3 4</span><br><span class="line">5 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br><span class="line">5 6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-6-solution"><a href="#4-6-solution" class="headerlink" title="4.6 solution"></a>4.6 solution</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, p, a, b, c, d, father[<span class="number">5005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x);</span><br><span class="line">    y = get(y);</span><br><span class="line">    <span class="keyword">if</span>(x != y)</span><br><span class="line">        father[y] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        merge(a, b);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; d;</span><br><span class="line">        c = get(c);</span><br><span class="line">        d = get(d);</span><br><span class="line">        <span class="keyword">if</span>(c == d)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>天梯赛</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用conda安装pytorch</title>
     <url>/2020/11/01/%E7%94%A8conda%E5%AE%89%E8%A3%85pytorch/</url>
     <content><![CDATA[<h1 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h1><h2 id="Download-amp-install"><a href="#Download-amp-install" class="headerlink" title="Download &amp; install"></a>Download &amp; install</h2><a id="more"></a>
@@ -683,7 +716,7 @@
 <p>复制粘贴以下内容</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;conda-forge&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;bioconda&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes </span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;msys2&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;menpo&#x2F;</span><br></pre></td></tr></table></figure>
 
-<h2 id="创建pytorch环境"><a href="#创建pytorch环境" class="headerlink" title="创建pytorch环境"></a>创建pytorch环境</h2><p>这里是根据自己的python版本创建</p>
+<h2 id="创建Pytorch环境"><a href="#创建Pytorch环境" class="headerlink" title="创建Pytorch环境"></a>创建Pytorch环境</h2><p>这里是根据自己的python版本创建</p>
 <p>命令行输出可查看</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -v</span><br></pre></td></tr></table></figure>
 
@@ -719,37 +752,6 @@
         <tag>ML</tag>
         <tag>pytorch</tag>
         <tag>conda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>并查集</title>
-    <url>/2021/09/22/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[<p>﻿</p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍的是并查集，它属于我们所学的数据结构树的一个特例，经常用于求解各结点之间的关联问题</p>
-<h1 id="1-初始化结点"><a href="#1-初始化结点" class="headerlink" title="1. 初始化结点"></a>1. 初始化结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-查找一个结点的根结点"><a href="#2-查找一个结点的根结点" class="headerlink" title="2. 查找一个结点的根结点"></a>2. 查找一个结点的根结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x) <span class="comment">//递归基，直至找到根结点</span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]); <span class="comment">//使结点直接指向根结点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-合并"><a href="#3-合并" class="headerlink" title="3. 合并"></a>3. 合并</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x); <span class="comment">//找到x结点的根结点</span></span><br><span class="line">    y = get(y); </span><br><span class="line">    <span class="keyword">if</span>(x != y) <span class="comment">//若二者不等</span></span><br><span class="line">        father[y] = x; <span class="comment">//让y指向x</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-例题-luogu"><a href="#4-例题-luogu" class="headerlink" title="4. 例题(luogu)"></a>4. 例题(luogu)</h1><h2 id="4-1-题目背景"><a href="#4-1-题目背景" class="headerlink" title="4.1 题目背景"></a>4.1 题目背景</h2><p>若某个家族人员过于庞大，要判断两个是否是亲戚，确实还很不容易，现在给出某个亲戚关系图，求任意给出的两个人是否具有亲戚关系。</p>
-<h2 id="4-2-题目描述"><a href="#4-2-题目描述" class="headerlink" title="4.2 题目描述"></a>4.2 题目描述</h2><p>规定：x和y是亲戚，y和z是亲戚，那么x和z也是亲戚。如果x,y是亲戚，那么x的亲戚都是y的亲戚，y的亲戚也都是x的亲戚。</p>
-<h2 id="4-3-输入格式"><a href="#4-3-输入格式" class="headerlink" title="4.3 输入格式"></a>4.3 输入格式</h2><p>第一行：三个整数n,m,p，（n&lt;=5000,m&lt;=5000,p&lt;=5000），分别表示有n个人，m个亲戚关系，询问p对亲戚关系。</p>
-<p>以下m行：每行两个数Mi，Mj，1&lt;=Mi，Mj&lt;=N，表示Mi和Mj具有亲戚关系。</p>
-<p>接下来p行：每行两个数Pi，Pj，询问Pi和Pj是否具有亲戚关系。</p>
-<h2 id="4-4-输出格式"><a href="#4-4-输出格式" class="headerlink" title="4.4 输出格式"></a>4.4 输出格式</h2><p>P行，每行一个’Yes’或’No’。表示第i个询问的答案为“具有”或“不具有”亲戚关系。</p>
-<h2 id="4-5-输入输出样例"><a href="#4-5-输入输出样例" class="headerlink" title="4.5 输入输出样例"></a>4.5 输入输出样例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 5 3</span><br><span class="line">1 2</span><br><span class="line">1 5</span><br><span class="line">3 4</span><br><span class="line">5 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br><span class="line">5 6</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-6-solution"><a href="#4-6-solution" class="headerlink" title="4.6 solution"></a>4.6 solution</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, p, a, b, c, d, father[<span class="number">5005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x);</span><br><span class="line">    y = get(y);</span><br><span class="line">    <span class="keyword">if</span>(x != y)</span><br><span class="line">        father[y] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        merge(a, b);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; d;</span><br><span class="line">        c = get(c);</span><br><span class="line">        d = get(d);</span><br><span class="line">        <span class="keyword">if</span>(c == d)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>天梯赛</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
