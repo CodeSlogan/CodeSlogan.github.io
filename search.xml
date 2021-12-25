@@ -225,71 +225,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HTML5笔记</title>
-    <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>事先声明，本文是以Java后端开发的角度来学习HTML，并没有像前端那么细致。重点记录的是表单的使用</p>
-<h1 id="1-知识点框架图"><a href="#1-知识点框架图" class="headerlink" title="1. 知识点框架图"></a>1. 知识点框架图</h1><p><img src="https://img-blog.csdnimg.cn/7015119a17b649f298bec1f9d2537532.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="HTML总结"></p>
-<h1 id="2-表单标签模板"><a href="#2-表单标签模板" class="headerlink" title="2. 表单标签模板"></a>2. 表单标签模板</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;1.我的第一个网页.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 密码输入框input type=&quot;password&quot;   --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">readonly</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>表单的创建关键词为<code>form</code>，action代表所要跳转的网页，method表示采用的提交方法</p>
-<p><img src="https://img-blog.csdnimg.cn/21e3cf4b8abd48d1830d0ae42d50eb88.png#pic_center" alt="在这里插入图片描述"><br>每条语句的基本格式为<code>&lt;p&gt;</code>包含<code>&lt;input&gt;</code>，其中<code>type</code>表示表单的类型，此处text表示文本框，password表示密码框（输入时屏幕显示为*）。<br><code>name</code>关键字强行建议在每条input语句中加上！！！因为其代表着所要提交信息的名称</p>
-<ul>
-<li>placeholder 提示信息，这里为“请输入用户名”</li>
-<li>readonly 代表只读，将无法在密码框中输入任何信息</li>
-<li>required 代表非空，这里用户名必须填写，否则将无法提交</li>
-</ul>
-<h2 id="2-1-get-post"><a href="#2-1-get-post" class="headerlink" title="2.1 get/post"></a>2.1 get/post</h2><table>
-<thead>
-<tr>
-<th></th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>get</td>
-<td>不安全，不能提交大文件，但高效，提交信息会显示在url里</td>
-</tr>
-<tr>
-<td>post</td>
-<td>安全</td>
-</tr>
-</tbody></table>
-<h1 id="3-表单"><a href="#3-表单" class="headerlink" title="3. 表单"></a>3. 表单</h1><h2 id="3-1-单选框与多选框"><a href="#3-1-单选框与多选框" class="headerlink" title="3.1 单选框与多选框"></a>3.1 单选框与多选框</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>性别:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;boy&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>男</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;girl&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>女</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>爱好：</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sleep&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>睡觉</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;code&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>敲代码</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;eat&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>吃饭</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;run&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>跑步</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/a5d7446d87ef404f9a111b08ffa5b64c.png#pic_center" alt="在这里插入图片描述"><br>所见即所得，重点在体会<code>name</code>和 <code>value</code>的区别。举个例子，如果选择性别男，然后提交。url中就会显示 <em>name=boy</em> </p>
-<h2 id="3-2-下拉可选"><a href="#3-2-下拉可选" class="headerlink" title="3.2 下拉可选"></a>3.2 下拉可选</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>国籍：</span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;country&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;CHINA&quot;</span>&gt;</span>中国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;US&quot;</span>&gt;</span>美国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;GERMANY&quot;</span>&gt;</span>德国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/0976f01680b8456bb5b973888139c80b.png#pic_center" alt="在这里插入图片描述"><br>如图即为所求</p>
-<h2 id="3-3-按钮"><a href="#3-3-按钮" class="headerlink" title="3.3 按钮"></a>3.3 按钮</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>按钮：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;btn1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;变长&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;input type=&quot;image&quot; src=&quot;../resources/image/12.png&quot;&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/0ab2b462ca7f49b7b79ae27e15e9d54c.png#pic_center" alt="在这里插入图片描述"></p>
-<p>可以通过在<code>value</code>里设置值，来对应到按钮上</p>
-<h2 id="3-4-文件上传"><a href="#3-4-文件上传" class="headerlink" title="3.4 文件上传"></a>3.4 文件上传</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;files&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://img-blog.csdnimg.cn/c028c05871194ae9954e3e85f72b117a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-5-大文本域"><a href="#3-5-大文本域" class="headerlink" title="3.5 大文本域"></a>3.5 大文本域</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>反馈：</span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;textarea&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span>&gt;</span>请输入<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/ccdefe40beb84732b45fae6190548d21.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-6-提交与重置按钮"><a href="#3-6-提交与重置按钮" class="headerlink" title="3.6 提交与重置按钮"></a>3.6 提交与重置按钮</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置内容&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/f4453365553642608980919b5d0b4d97.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-7-滑块"><a href="#3-7-滑块" class="headerlink" title="3.7 滑块"></a>3.7 滑块</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>音量：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;voice&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/04bad82d044c44a3b03ce9617b1a4f92.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-8-数字"><a href="#3-8-数字" class="headerlink" title="3.8 数字"></a>3.8 数字</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>数字：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;num&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/5accf1dacdbe42adbd0c7aa4b2217c98.png#pic_center" alt="在这里插入图片描述"><br>可以通过<code>step</code>改变每点击一次变化的步长</p>
-<h2 id="3-9-搜索框"><a href="#3-9-搜索框" class="headerlink" title="3.9 搜索框"></a>3.9 搜索框</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span> <span class="attr">name</span>=<span class="string">&quot;search&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/d2e3d020e2414df197f3104e6698665d.png#pic_center" alt="在这里插入图片描述"></p>
-<br>
-将HTML标签与图中一一对应，就能很快明白其使用方法，无须强行记忆。
-
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.bilibili.com/video/BV1x4411V75C?p=12">【狂神说Java】HTML5完整教学通俗易懂</a></p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java3D安装教程</title>
     <url>/2021/08/31/Java3D%E5%AE%89%E8%A3%85(idea%E7%89%88)/</url>
     <content><![CDATA[<p>﻿正值学习计算机图形学期间，学校选用的是比较冷门的Java3D，网上的安装教程也比较少，安装教程仅供参考。</p>
@@ -391,6 +326,71 @@
       </tags>
   </entry>
   <entry>
+    <title>HTML5笔记</title>
+    <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>事先声明，本文是以Java后端开发的角度来学习HTML，并没有像前端那么细致。重点记录的是表单的使用</p>
+<h1 id="1-知识点框架图"><a href="#1-知识点框架图" class="headerlink" title="1. 知识点框架图"></a>1. 知识点框架图</h1><p><img src="https://img-blog.csdnimg.cn/7015119a17b649f298bec1f9d2537532.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="HTML总结"></p>
+<h1 id="2-表单标签模板"><a href="#2-表单标签模板" class="headerlink" title="2. 表单标签模板"></a>2. 表单标签模板</h1><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;1.我的第一个网页.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 密码输入框input type=&quot;password&quot;   --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">readonly</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>表单的创建关键词为<code>form</code>，action代表所要跳转的网页，method表示采用的提交方法</p>
+<p><img src="https://img-blog.csdnimg.cn/21e3cf4b8abd48d1830d0ae42d50eb88.png#pic_center" alt="在这里插入图片描述"><br>每条语句的基本格式为<code>&lt;p&gt;</code>包含<code>&lt;input&gt;</code>，其中<code>type</code>表示表单的类型，此处text表示文本框，password表示密码框（输入时屏幕显示为*）。<br><code>name</code>关键字强行建议在每条input语句中加上！！！因为其代表着所要提交信息的名称</p>
+<ul>
+<li>placeholder 提示信息，这里为“请输入用户名”</li>
+<li>readonly 代表只读，将无法在密码框中输入任何信息</li>
+<li>required 代表非空，这里用户名必须填写，否则将无法提交</li>
+</ul>
+<h2 id="2-1-get-post"><a href="#2-1-get-post" class="headerlink" title="2.1 get/post"></a>2.1 get/post</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>get</td>
+<td>不安全，不能提交大文件，但高效，提交信息会显示在url里</td>
+</tr>
+<tr>
+<td>post</td>
+<td>安全</td>
+</tr>
+</tbody></table>
+<h1 id="3-表单"><a href="#3-表单" class="headerlink" title="3. 表单"></a>3. 表单</h1><h2 id="3-1-单选框与多选框"><a href="#3-1-单选框与多选框" class="headerlink" title="3.1 单选框与多选框"></a>3.1 单选框与多选框</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>性别:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;boy&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>男</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;girl&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>女</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>爱好：</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sleep&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>睡觉</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;code&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>敲代码</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;eat&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>吃饭</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;run&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>跑步</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/a5d7446d87ef404f9a111b08ffa5b64c.png#pic_center" alt="在这里插入图片描述"><br>所见即所得，重点在体会<code>name</code>和 <code>value</code>的区别。举个例子，如果选择性别男，然后提交。url中就会显示 <em>name=boy</em> </p>
+<h2 id="3-2-下拉可选"><a href="#3-2-下拉可选" class="headerlink" title="3.2 下拉可选"></a>3.2 下拉可选</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>国籍：</span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;country&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;CHINA&quot;</span>&gt;</span>中国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;US&quot;</span>&gt;</span>美国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;GERMANY&quot;</span>&gt;</span>德国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/0976f01680b8456bb5b973888139c80b.png#pic_center" alt="在这里插入图片描述"><br>如图即为所求</p>
+<h2 id="3-3-按钮"><a href="#3-3-按钮" class="headerlink" title="3.3 按钮"></a>3.3 按钮</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>按钮：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;btn1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;变长&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;input type=&quot;image&quot; src=&quot;../resources/image/12.png&quot;&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/0ab2b462ca7f49b7b79ae27e15e9d54c.png#pic_center" alt="在这里插入图片描述"></p>
+<p>可以通过在<code>value</code>里设置值，来对应到按钮上</p>
+<h2 id="3-4-文件上传"><a href="#3-4-文件上传" class="headerlink" title="3.4 文件上传"></a>3.4 文件上传</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;files&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://img-blog.csdnimg.cn/c028c05871194ae9954e3e85f72b117a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-5-大文本域"><a href="#3-5-大文本域" class="headerlink" title="3.5 大文本域"></a>3.5 大文本域</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>反馈：</span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;textarea&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span>&gt;</span>请输入<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/ccdefe40beb84732b45fae6190548d21.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-6-提交与重置按钮"><a href="#3-6-提交与重置按钮" class="headerlink" title="3.6 提交与重置按钮"></a>3.6 提交与重置按钮</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置内容&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/f4453365553642608980919b5d0b4d97.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-7-滑块"><a href="#3-7-滑块" class="headerlink" title="3.7 滑块"></a>3.7 滑块</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>音量：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;voice&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/04bad82d044c44a3b03ce9617b1a4f92.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-8-数字"><a href="#3-8-数字" class="headerlink" title="3.8 数字"></a>3.8 数字</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>数字：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;num&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/5accf1dacdbe42adbd0c7aa4b2217c98.png#pic_center" alt="在这里插入图片描述"><br>可以通过<code>step</code>改变每点击一次变化的步长</p>
+<h2 id="3-9-搜索框"><a href="#3-9-搜索框" class="headerlink" title="3.9 搜索框"></a>3.9 搜索框</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span> <span class="attr">name</span>=<span class="string">&quot;search&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/d2e3d020e2414df197f3104e6698665d.png#pic_center" alt="在这里插入图片描述"></p>
+<br>
+将HTML标签与图中一一对应，就能很快明白其使用方法，无须强行记忆。
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.bilibili.com/video/BV1x4411V75C?p=12">【狂神说Java】HTML5完整教学通俗易懂</a></p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matlab笔记</title>
     <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="小操作"><a href="#小操作" class="headerlink" title="小操作"></a>小操作</h2><ul>
@@ -456,49 +456,6 @@
 ]]></content>
       <tags>
         <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot入门级项目hnucisys</title>
-    <url>/2021/12/24/SpringBoot%E5%85%A5%E9%97%A8%E7%BA%A7%E9%A1%B9%E7%9B%AEhnucisys/</url>
-    <content><![CDATA[<h1 id="项目源地址"><a href="#项目源地址" class="headerlink" title="项目源地址"></a>项目源地址</h1><p><a href="https://github.com/CodeSlogan/hnucisys">竞赛信息系统</a><br><a href="https://github.com/CodeSlogan/hnucisys">https://github.com/CodeSlogan/hnucisys</a></p>
-<h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><p>JDK 1.8<br>MySQL 8.0<br>Maven 3.8.1 </p>
-<h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1><p>《阿里巴巴Java开发手册》1.3.1 (终极版)</p>
-<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;互联网、信息技术的不断发展使得传统的Web项目的弊端不断展露，主要表现为性能低、数据持久、网络流量高，用户的需求也在随着时代变迁而增加，传统的Web项目越发不能满足人们的需求。在进行大学生对竞赛网站需求的调查中发现，用户需要的不仅是满足其基本需求的网站，更需要有新的功能出现，针对此调查结果研究设计出满足用户需求的竞赛信息网站。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;本系统后端采用<strong>SpringBoot</strong>+<strong>MyBatis</strong>框架，前端使用<strong>HTML</strong>+<strong>CSS</strong>+<strong>JS</strong>技术设计竞赛信息网站，以<strong>MySQL</strong>作为后台数据库，内置<strong>Tomcat</strong>服务器，在开发过程中采用敏捷开发，最终实现用户对竞赛信息查询、寻找竞赛队友、创建队伍等功能，满足用户的需求。</p>
-<h1 id="项目展示"><a href="#项目展示" class="headerlink" title="项目展示"></a>项目展示</h1><p>本系统分普通用户与管理员登录，管理员登录页面如下，为竞赛信息后台系统：</p>
-<h2 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h2><p><img src="https://img-blog.csdnimg.cn/549c55350c594c539647fd71c2a134bd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="back"></p>
-<br>
-
-<h2 id="用户首页"><a href="#用户首页" class="headerlink" title="用户首页"></a>用户首页</h2><p><img src="https://img-blog.csdnimg.cn/93e6b7eec55045d191768b4f30a4a65c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="index"></p>
-<br>
-
-<h2 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h2><p><img src="https://img-blog.csdnimg.cn/04dc0543a33b4932a1fdb840f4725c54.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mypage"></p>
-<br>
-
-<h2 id="消息界面"><a href="#消息界面" class="headerlink" title="消息界面"></a>消息界面</h2><p><img src="https://img-blog.csdnimg.cn/602e407643af4e1884b0d0faae8183be.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="news"></p>
-<br>
-
-<h2 id="队友推荐"><a href="#队友推荐" class="headerlink" title="队友推荐"></a>队友推荐</h2><p><img src="https://img-blog.csdnimg.cn/79aaffc7aabb440cb07a72da01786d76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mate"></p>
-<br>
-
-<h2 id="队伍推荐"><a href="#队伍推荐" class="headerlink" title="队伍推荐"></a>队伍推荐</h2><p><img src="https://img-blog.csdnimg.cn/173b234d73314d5cae89c73d87b84ba2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="team"></p>
-<br>
-
-
-
-<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p>感谢我的5个队友们lzy&amp;wdj&amp;wcy&amp;lyx&amp;xd，以及后援团的隋哥！！！</p>
-<p>让弱鸡的我当了一把项目经理的快感</p>
-<p>感谢狂神说</p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-        <tag>Java</tag>
-        <tag>SpringBoot</tag>
-        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -645,6 +602,73 @@
       </tags>
   </entry>
   <entry>
+    <title>SpringBoot入门级项目hnucisys</title>
+    <url>/2021/12/24/SpringBoot%E5%85%A5%E9%97%A8%E7%BA%A7%E9%A1%B9%E7%9B%AEhnucisys/</url>
+    <content><![CDATA[<h1 id="项目源地址"><a href="#项目源地址" class="headerlink" title="项目源地址"></a>项目源地址</h1><p><a href="https://github.com/CodeSlogan/hnucisys">竞赛信息系统</a><br><a href="https://github.com/CodeSlogan/hnucisys">https://github.com/CodeSlogan/hnucisys</a></p>
+<h1 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h1><p>JDK 1.8<br>MySQL 8.0<br>Maven 3.8.1 </p>
+<h1 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h1><p>《阿里巴巴Java开发手册》1.3.1 (终极版)</p>
+<h1 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;互联网、信息技术的不断发展使得传统的Web项目的弊端不断展露，主要表现为性能低、数据持久、网络流量高，用户的需求也在随着时代变迁而增加，传统的Web项目越发不能满足人们的需求。在进行大学生对竞赛网站需求的调查中发现，用户需要的不仅是满足其基本需求的网站，更需要有新的功能出现，针对此调查结果研究设计出满足用户需求的竞赛信息网站。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;本系统后端采用<strong>SpringBoot</strong>+<strong>MyBatis</strong>框架，前端使用<strong>HTML</strong>+<strong>CSS</strong>+<strong>JS</strong>技术设计竞赛信息网站，以<strong>MySQL</strong>作为后台数据库，内置<strong>Tomcat</strong>服务器，在开发过程中采用敏捷开发，最终实现用户对竞赛信息查询、寻找竞赛队友、创建队伍等功能，满足用户的需求。</p>
+<h1 id="项目展示"><a href="#项目展示" class="headerlink" title="项目展示"></a>项目展示</h1><p>本系统分普通用户与管理员登录，管理员登录页面如下，为竞赛信息后台系统：</p>
+<h2 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h2><p><img src="https://img-blog.csdnimg.cn/549c55350c594c539647fd71c2a134bd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="back"></p>
+<br>
+
+<h2 id="用户首页"><a href="#用户首页" class="headerlink" title="用户首页"></a>用户首页</h2><p><img src="https://img-blog.csdnimg.cn/93e6b7eec55045d191768b4f30a4a65c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="index"></p>
+<br>
+
+<h2 id="个人主页"><a href="#个人主页" class="headerlink" title="个人主页"></a>个人主页</h2><p><img src="https://img-blog.csdnimg.cn/04dc0543a33b4932a1fdb840f4725c54.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mypage"></p>
+<br>
+
+<h2 id="消息界面"><a href="#消息界面" class="headerlink" title="消息界面"></a>消息界面</h2><p><img src="https://img-blog.csdnimg.cn/602e407643af4e1884b0d0faae8183be.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="news"></p>
+<br>
+
+<h2 id="队友推荐"><a href="#队友推荐" class="headerlink" title="队友推荐"></a>队友推荐</h2><p><img src="https://img-blog.csdnimg.cn/79aaffc7aabb440cb07a72da01786d76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mate"></p>
+<br>
+
+<h2 id="队伍推荐"><a href="#队伍推荐" class="headerlink" title="队伍推荐"></a>队伍推荐</h2><p><img src="https://img-blog.csdnimg.cn/173b234d73314d5cae89c73d87b84ba2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="team"></p>
+<br>
+
+
+
+<h1 id="项目管理心得"><a href="#项目管理心得" class="headerlink" title="项目管理心得"></a>项目管理心得</h1><p>由于本次软件工程课程设计挑选的技术栈是我们同学从未接触过的，在平时的课程中，我们也仅仅学习了JavaSE，对Java用于开发的流程知之甚少。我作为小组组长，根据先前的开发经验，整理出了一份学习路线，从jdbc连接数据库，到Mybatis持久层框架的学习，最后再到SpringBoot。队员们在有条不紊的学习下，顺利掌握了开发流程，队员们凭借其个人能力与团队协作，解决了无数的bug，为项目最后交付提供了保证。为了能够协同开发，我们将项目部署在了Github，并通过idea内置的git工具，完成自己分配到的任务的提交，最后我们拥有了近150次的代码提交记录。</p>
+<p>在开始时，我意识到如果项目失败，很大一部分原因会归结为缺少开发经验。但是，由于队员们强大的自学能力以及正确的学习路线，这一风险并没有发生。</p>
+<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p>感谢我的5个队友们lzy&amp;wdj&amp;wcy&amp;lyx&amp;xd，以及后援团的隋哥！！！</p>
+<p>让啥也不太会我当了一把项目经理的快感</p>
+<p>感谢狂神说Java</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>web</tag>
+        <tag>SpringBoot</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>割圆法Pi</title>
+    <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
+    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。 </p>
+<a id="more"></a>
+
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><p>首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式<code>S=pi*r^2</code>求出pi</p>
+<p>按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式<code>S=1/2*a*b*sina</code>求出一个三角形的面积。</p>
+<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" alt="image1"></p>
+<p>观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi</p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p2.bmp" alt="image2"></p>
+<p>另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="方法1-1"><a href="#方法1-1" class="headerlink" title="方法1"></a>方法1</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: com.codeslogan.Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Test_Pi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-18 19:06</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_Pi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0.0</span>; <span class="comment">//面积</span></span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">10.0</span>; <span class="comment">//半径</span></span><br><span class="line">        <span class="keyword">double</span> myPi = <span class="number">0.0</span>; <span class="comment">//PI</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span> ; i++) &#123;</span><br><span class="line">​            <span class="keyword">double</span> n = pow(<span class="number">2</span>,i); <span class="comment">//圆的分割块数</span></span><br><span class="line">​            s = n * <span class="number">1</span>/<span class="number">2</span> * pow(r,<span class="number">2</span>) * sin(toRadians(<span class="number">360</span>/n)); <span class="comment">//S=1/2*a*b*sina</span></span><br><span class="line">​            myPi = s / pow(r,<span class="number">2</span>); <span class="comment">// s=pi*r^2</span></span><br><span class="line">​            System.out.println(myPi);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法2-1"><a href="#方法2-1" class="headerlink" title="方法2"></a>方法2</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.pow;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatePI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">double</span> s;</span><br><span class="line">        <span class="keyword">double</span> totOfS = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> a = getSquareSide(r);</span><br><span class="line">        totOfS+=a*a;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> h = getTriangleH(a, r); <span class="comment">//获取三角形的高</span></span><br><span class="line">            s=a*h/<span class="number">2</span>;</span><br><span class="line">            totOfS += s*pow(<span class="number">2</span>,i);</span><br><span class="line">            a = getTriangleC(h, a); <span class="comment">//获取斜边长</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> pi = totOfS/pow(r,<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Pi is &quot;</span> + pi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getSquareSide</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">2</span>) * r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleH</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> h = r - sqrt(pow(r,<span class="number">2</span>) - pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleC</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> y = sqrt(pow(h,<span class="number">2</span>)+pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dev-C++调试配置</title>
     <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
@@ -681,28 +705,6 @@
       </tags>
   </entry>
   <entry>
-    <title>割圆法Pi</title>
-    <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
-    <content><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。 </p>
-<a id="more"></a>
-
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><p>首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式<code>S=pi*r^2</code>求出pi</p>
-<p>按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式<code>S=1/2*a*b*sina</code>求出一个三角形的面积。</p>
-<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" alt="image1"></p>
-<p>观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi</p>
-<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p2.bmp" alt="image2"></p>
-<p>另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="方法1-1"><a href="#方法1-1" class="headerlink" title="方法1"></a>方法1</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: com.codeslogan.Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Test_Pi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-18 19:06</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_Pi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0.0</span>; <span class="comment">//面积</span></span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">10.0</span>; <span class="comment">//半径</span></span><br><span class="line">        <span class="keyword">double</span> myPi = <span class="number">0.0</span>; <span class="comment">//PI</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span> ; i++) &#123;</span><br><span class="line">​            <span class="keyword">double</span> n = pow(<span class="number">2</span>,i); <span class="comment">//圆的分割块数</span></span><br><span class="line">​            s = n * <span class="number">1</span>/<span class="number">2</span> * pow(r,<span class="number">2</span>) * sin(toRadians(<span class="number">360</span>/n)); <span class="comment">//S=1/2*a*b*sina</span></span><br><span class="line">​            myPi = s / pow(r,<span class="number">2</span>); <span class="comment">// s=pi*r^2</span></span><br><span class="line">​            System.out.println(myPi);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="方法2-1"><a href="#方法2-1" class="headerlink" title="方法2"></a>方法2</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.pow;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatePI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">double</span> s;</span><br><span class="line">        <span class="keyword">double</span> totOfS = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> a = getSquareSide(r);</span><br><span class="line">        totOfS+=a*a;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> h = getTriangleH(a, r); <span class="comment">//获取三角形的高</span></span><br><span class="line">            s=a*h/<span class="number">2</span>;</span><br><span class="line">            totOfS += s*pow(<span class="number">2</span>,i);</span><br><span class="line">            a = getTriangleC(h, a); <span class="comment">//获取斜边长</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> pi = totOfS/pow(r,<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Pi is &quot;</span> + pi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getSquareSide</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">2</span>) * r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleH</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> h = r - sqrt(pow(r,<span class="number">2</span>) - pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleC</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> y = sqrt(pow(h,<span class="number">2</span>)+pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>回溯算法解决01背包问题</title>
     <url>/2021/09/02/%E5%9B%9E%E6%BA%AF%E6%B3%95%E8%A7%A3%E5%86%B301%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98(Java)/</url>
     <content><![CDATA[<p>﻿先前用C语言很容易实现了一个回溯算法，但转到Java后由于面向对象的原因，一时不知道如何处理变量。今天学习了static和final关键字，正好做一个练习。<br><strong>static: 定义一个类变量，使当前变量可以此类中的任意方法访问</strong><br><strong>final: 定义一个常量</strong></p>
@@ -714,36 +716,6 @@
       </categories>
       <tags>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>并查集</title>
-    <url>/2021/09/22/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍的是并查集，它属于我们所学的数据结构树的一个特例，经常用于求解各结点之间的关联问题</p>
-<h1 id="1-初始化结点"><a href="#1-初始化结点" class="headerlink" title="1. 初始化结点"></a>1. 初始化结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-查找一个结点的根结点"><a href="#2-查找一个结点的根结点" class="headerlink" title="2. 查找一个结点的根结点"></a>2. 查找一个结点的根结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x) <span class="comment">//递归基，直至找到根结点</span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]); <span class="comment">//使结点直接指向根结点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-合并"><a href="#3-合并" class="headerlink" title="3. 合并"></a>3. 合并</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x); <span class="comment">//找到x结点的根结点</span></span><br><span class="line">    y = get(y); </span><br><span class="line">    <span class="keyword">if</span>(x != y) <span class="comment">//若二者不等</span></span><br><span class="line">        father[y] = x; <span class="comment">//让y指向x</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-例题-luogu"><a href="#4-例题-luogu" class="headerlink" title="4. 例题(luogu)"></a>4. 例题(luogu)</h1><h2 id="4-1-题目背景"><a href="#4-1-题目背景" class="headerlink" title="4.1 题目背景"></a>4.1 题目背景</h2><p>若某个家族人员过于庞大，要判断两个是否是亲戚，确实还很不容易，现在给出某个亲戚关系图，求任意给出的两个人是否具有亲戚关系。</p>
-<h2 id="4-2-题目描述"><a href="#4-2-题目描述" class="headerlink" title="4.2 题目描述"></a>4.2 题目描述</h2><p>规定：x和y是亲戚，y和z是亲戚，那么x和z也是亲戚。如果x,y是亲戚，那么x的亲戚都是y的亲戚，y的亲戚也都是x的亲戚。</p>
-<h2 id="4-3-输入格式"><a href="#4-3-输入格式" class="headerlink" title="4.3 输入格式"></a>4.3 输入格式</h2><p>第一行：三个整数n,m,p，（n&lt;=5000,m&lt;=5000,p&lt;=5000），分别表示有n个人，m个亲戚关系，询问p对亲戚关系。</p>
-<p>以下m行：每行两个数Mi，Mj，1&lt;=Mi，Mj&lt;=N，表示Mi和Mj具有亲戚关系。</p>
-<p>接下来p行：每行两个数Pi，Pj，询问Pi和Pj是否具有亲戚关系。</p>
-<h2 id="4-4-输出格式"><a href="#4-4-输出格式" class="headerlink" title="4.4 输出格式"></a>4.4 输出格式</h2><p>P行，每行一个’Yes’或’No’。表示第i个询问的答案为“具有”或“不具有”亲戚关系。</p>
-<h2 id="4-5-输入输出样例"><a href="#4-5-输入输出样例" class="headerlink" title="4.5 输入输出样例"></a>4.5 输入输出样例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 5 3</span><br><span class="line">1 2</span><br><span class="line">1 5</span><br><span class="line">3 4</span><br><span class="line">5 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br><span class="line">5 6</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-6-solution"><a href="#4-6-solution" class="headerlink" title="4.6 solution"></a>4.6 solution</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, p, a, b, c, d, father[<span class="number">5005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x);</span><br><span class="line">    y = get(y);</span><br><span class="line">    <span class="keyword">if</span>(x != y)</span><br><span class="line">        father[y] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        merge(a, b);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; d;</span><br><span class="line">        c = get(c);</span><br><span class="line">        d = get(d);</span><br><span class="line">        <span class="keyword">if</span>(c == d)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>天梯赛</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -795,6 +767,36 @@
         <tag>ML</tag>
         <tag>pytorch</tag>
         <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>并查集</title>
+    <url>/2021/09/22/%E5%A4%A9%E6%A2%AF%E8%B5%9B%E5%B9%B6%E6%9F%A5%E9%9B%86/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文介绍的是并查集，它属于我们所学的数据结构树的一个特例，经常用于求解各结点之间的关联问题</p>
+<h1 id="1-初始化结点"><a href="#1-初始化结点" class="headerlink" title="1. 初始化结点"></a>1. 初始化结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-查找一个结点的根结点"><a href="#2-查找一个结点的根结点" class="headerlink" title="2. 查找一个结点的根结点"></a>2. 查找一个结点的根结点</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x) <span class="comment">//递归基，直至找到根结点</span></span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]); <span class="comment">//使结点直接指向根结点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-合并"><a href="#3-合并" class="headerlink" title="3. 合并"></a>3. 合并</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x); <span class="comment">//找到x结点的根结点</span></span><br><span class="line">    y = get(y); </span><br><span class="line">    <span class="keyword">if</span>(x != y) <span class="comment">//若二者不等</span></span><br><span class="line">        father[y] = x; <span class="comment">//让y指向x</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-例题-luogu"><a href="#4-例题-luogu" class="headerlink" title="4. 例题(luogu)"></a>4. 例题(luogu)</h1><h2 id="4-1-题目背景"><a href="#4-1-题目背景" class="headerlink" title="4.1 题目背景"></a>4.1 题目背景</h2><p>若某个家族人员过于庞大，要判断两个是否是亲戚，确实还很不容易，现在给出某个亲戚关系图，求任意给出的两个人是否具有亲戚关系。</p>
+<h2 id="4-2-题目描述"><a href="#4-2-题目描述" class="headerlink" title="4.2 题目描述"></a>4.2 题目描述</h2><p>规定：x和y是亲戚，y和z是亲戚，那么x和z也是亲戚。如果x,y是亲戚，那么x的亲戚都是y的亲戚，y的亲戚也都是x的亲戚。</p>
+<h2 id="4-3-输入格式"><a href="#4-3-输入格式" class="headerlink" title="4.3 输入格式"></a>4.3 输入格式</h2><p>第一行：三个整数n,m,p，（n&lt;=5000,m&lt;=5000,p&lt;=5000），分别表示有n个人，m个亲戚关系，询问p对亲戚关系。</p>
+<p>以下m行：每行两个数Mi，Mj，1&lt;=Mi，Mj&lt;=N，表示Mi和Mj具有亲戚关系。</p>
+<p>接下来p行：每行两个数Pi，Pj，询问Pi和Pj是否具有亲戚关系。</p>
+<h2 id="4-4-输出格式"><a href="#4-4-输出格式" class="headerlink" title="4.4 输出格式"></a>4.4 输出格式</h2><p>P行，每行一个’Yes’或’No’。表示第i个询问的答案为“具有”或“不具有”亲戚关系。</p>
+<h2 id="4-5-输入输出样例"><a href="#4-5-输入输出样例" class="headerlink" title="4.5 输入输出样例"></a>4.5 输入输出样例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 5 3</span><br><span class="line">1 2</span><br><span class="line">1 5</span><br><span class="line">3 4</span><br><span class="line">5 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 3</span><br><span class="line">5 6</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-6-solution"><a href="#4-6-solution" class="headerlink" title="4.6 solution"></a>4.6 solution</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, p, a, b, c, d, father[<span class="number">5005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(father[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> father[x] = get(father[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = get(x);</span><br><span class="line">    y = get(y);</span><br><span class="line">    <span class="keyword">if</span>(x != y)</span><br><span class="line">        father[y] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        father[i] = i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        merge(a, b);        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; d;</span><br><span class="line">        c = get(c);</span><br><span class="line">        d = get(d);</span><br><span class="line">        <span class="keyword">if</span>(c == d)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>天梯赛</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
