@@ -567,59 +567,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot入门级项目hnucisys</title>
-    <url>/2021/12/24/SpringBoot%E5%85%A5%E9%97%A8%E7%BA%A7%E9%A1%B9%E7%9B%AEhnucisys/</url>
-    <content><![CDATA[<h1>项目源地址</h1>
-<p><a href="https://github.com/CodeSlogan/hnucisys">竞赛信息系统</a><br>
-<a href="https://github.com/CodeSlogan/hnucisys">https://github.com/CodeSlogan/hnucisys</a></p>
-<h1>运行环境</h1>
-<p>JDK 1.8<br>
-MySQL 8.0<br>
-Maven 3.8.1</p>
-<h1>代码规范</h1>
-<p>《阿里巴巴Java开发手册》1.3.1 (终极版)</p>
-<h1>项目介绍</h1>
-<p>    互联网、信息技术的不断发展使得传统的Web项目的弊端不断展露，主要表现为性能低、数据持久、网络流量高，用户的需求也在随着时代变迁而增加，传统的Web项目越发不能满足人们的需求。在进行大学生对竞赛网站需求的调查中发现，用户需要的不仅是满足其基本需求的网站，更需要有新的功能出现，针对此调查结果研究设计出满足用户需求的竞赛信息网站。</p>
-<p>    本系统后端采用<strong>SpringBoot</strong>+<strong>MyBatis</strong>框架，前端使用<strong>HTML</strong>+<strong>CSS</strong>+<strong>JS</strong>技术设计竞赛信息网站，以<strong>MySQL</strong>作为后台数据库，内置<strong>Tomcat</strong>服务器，在开发过程中采用敏捷开发，最终实现用户对竞赛信息查询、寻找竞赛队友、创建队伍等功能，满足用户的需求。</p>
-<h1>项目展示</h1>
-<p>本系统分普通用户与管理员登录，管理员登录页面如下，为竞赛信息后台系统：</p>
-<h2 id="后台">后台</h2>
-<p><img src="https://img-blog.csdnimg.cn/549c55350c594c539647fd71c2a134bd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="back"></p>
-<br>
-<h2 id="用户首页">用户首页</h2>
-<p><img src="https://img-blog.csdnimg.cn/93e6b7eec55045d191768b4f30a4a65c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="index"></p>
-<br>
-<h2 id="个人主页">个人主页</h2>
-<p><img src="https://img-blog.csdnimg.cn/04dc0543a33b4932a1fdb840f4725c54.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mypage"></p>
-<br>
-<h2 id="消息界面">消息界面</h2>
-<p><img src="https://img-blog.csdnimg.cn/602e407643af4e1884b0d0faae8183be.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="news"></p>
-<br>
-<h2 id="队友推荐">队友推荐</h2>
-<p><img src="https://img-blog.csdnimg.cn/79aaffc7aabb440cb07a72da01786d76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mate"></p>
-<br>
-<h2 id="队伍推荐">队伍推荐</h2>
-<p><img src="https://img-blog.csdnimg.cn/173b234d73314d5cae89c73d87b84ba2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="team"></p>
-<br>
-<h1>项目管理心得</h1>
-<p>由于本次软件工程课程设计挑选的技术栈是我们同学从未接触过的，在平时的课程中，我们也仅仅学习了JavaSE，对Java用于开发的流程知之甚少。我作为小组组长，根据先前的开发经验，整理出了一份学习路线，从jdbc连接数据库，到Mybatis持久层框架的学习，最后再到SpringBoot。队员们在有条不紊的学习下，顺利掌握了开发流程，队员们凭借其个人能力与团队协作，解决了无数的bug，为项目最后交付提供了保证。为了能够协同开发，我们将项目部署在了Github，并通过idea内置的git工具，完成自己分配到的任务的提交，最后我们拥有了近150次的代码提交记录。</p>
-<p>在开始时，我意识到如果项目失败，很大一部分原因会归结为缺少开发经验。但是，由于队员们强大的自学能力以及正确的学习路线，这一风险并没有发生。</p>
-<h1>致谢</h1>
-<p>感谢我的5个队友们lzy&amp;wdj&amp;wcy&amp;lyx&amp;xd，以及后援团的隋哥！！！</p>
-<p>让啥也不太会我当了一把项目经理的快感</p>
-<p>感谢狂神说Java</p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
-        <tag>Java</tag>
-        <tag>SpringBoot</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python笔记</title>
     <url>/2020/10/28/Python%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1>Python基础语法</h1>
@@ -756,6 +703,59 @@ world</p>
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot入门级项目hnucisys</title>
+    <url>/2021/12/24/SpringBoot%E5%85%A5%E9%97%A8%E7%BA%A7%E9%A1%B9%E7%9B%AEhnucisys/</url>
+    <content><![CDATA[<h1>项目源地址</h1>
+<p><a href="https://github.com/CodeSlogan/hnucisys">竞赛信息系统</a><br>
+<a href="https://github.com/CodeSlogan/hnucisys">https://github.com/CodeSlogan/hnucisys</a></p>
+<h1>运行环境</h1>
+<p>JDK 1.8<br>
+MySQL 8.0<br>
+Maven 3.8.1</p>
+<h1>代码规范</h1>
+<p>《阿里巴巴Java开发手册》1.3.1 (终极版)</p>
+<h1>项目介绍</h1>
+<p>    互联网、信息技术的不断发展使得传统的Web项目的弊端不断展露，主要表现为性能低、数据持久、网络流量高，用户的需求也在随着时代变迁而增加，传统的Web项目越发不能满足人们的需求。在进行大学生对竞赛网站需求的调查中发现，用户需要的不仅是满足其基本需求的网站，更需要有新的功能出现，针对此调查结果研究设计出满足用户需求的竞赛信息网站。</p>
+<p>    本系统后端采用<strong>SpringBoot</strong>+<strong>MyBatis</strong>框架，前端使用<strong>HTML</strong>+<strong>CSS</strong>+<strong>JS</strong>技术设计竞赛信息网站，以<strong>MySQL</strong>作为后台数据库，内置<strong>Tomcat</strong>服务器，在开发过程中采用敏捷开发，最终实现用户对竞赛信息查询、寻找竞赛队友、创建队伍等功能，满足用户的需求。</p>
+<h1>项目展示</h1>
+<p>本系统分普通用户与管理员登录，管理员登录页面如下，为竞赛信息后台系统：</p>
+<h2 id="后台">后台</h2>
+<p><img src="https://img-blog.csdnimg.cn/549c55350c594c539647fd71c2a134bd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="back"></p>
+<br>
+<h2 id="用户首页">用户首页</h2>
+<p><img src="https://img-blog.csdnimg.cn/93e6b7eec55045d191768b4f30a4a65c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="index"></p>
+<br>
+<h2 id="个人主页">个人主页</h2>
+<p><img src="https://img-blog.csdnimg.cn/04dc0543a33b4932a1fdb840f4725c54.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mypage"></p>
+<br>
+<h2 id="消息界面">消息界面</h2>
+<p><img src="https://img-blog.csdnimg.cn/602e407643af4e1884b0d0faae8183be.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="news"></p>
+<br>
+<h2 id="队友推荐">队友推荐</h2>
+<p><img src="https://img-blog.csdnimg.cn/79aaffc7aabb440cb07a72da01786d76.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="mate"></p>
+<br>
+<h2 id="队伍推荐">队伍推荐</h2>
+<p><img src="https://img-blog.csdnimg.cn/173b234d73314d5cae89c73d87b84ba2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="team"></p>
+<br>
+<h1>项目管理心得</h1>
+<p>由于本次软件工程课程设计挑选的技术栈是我们同学从未接触过的，在平时的课程中，我们也仅仅学习了JavaSE，对Java用于开发的流程知之甚少。我作为小组组长，根据先前的开发经验，整理出了一份学习路线，从jdbc连接数据库，到Mybatis持久层框架的学习，最后再到SpringBoot。队员们在有条不紊的学习下，顺利掌握了开发流程，队员们凭借其个人能力与团队协作，解决了无数的bug，为项目最后交付提供了保证。为了能够协同开发，我们将项目部署在了Github，并通过idea内置的git工具，完成自己分配到的任务的提交，最后我们拥有了近150次的代码提交记录。</p>
+<p>在开始时，我意识到如果项目失败，很大一部分原因会归结为缺少开发经验。但是，由于队员们强大的自学能力以及正确的学习路线，这一风险并没有发生。</p>
+<h1>致谢</h1>
+<p>感谢我的5个队友们lzy&amp;wdj&amp;wcy&amp;lyx&amp;xd，以及后援团的隋哥！！！</p>
+<p>让啥也不太会我当了一把项目经理的快感</p>
+<p>感谢狂神说Java</p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>Java</tag>
+        <tag>SpringBoot</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -1085,7 +1085,11 @@ world</p>
 <h1>单链表</h1>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// head表示链表头</span></span><br><span class="line"><span class="comment">// e表示当前结点下的值</span></span><br><span class="line"><span class="comment">// ne表示当前结点的下一结点</span></span><br><span class="line"><span class="comment">// idx相当于指针</span></span><br><span class="line"><span class="keyword">int</span> head, e[N], ne[N], idx;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化单链表</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    head = <span class="number">-1</span>, idx = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将值为x的数插入链表头</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_to_head</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[idx] = x, ne[idx] = head, head = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将x插入下标是k的点的后面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[idx] = x, ne[idx] = ne[k], ne[k] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下标是k的点的后一个点移除</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    ne[k] = ne[ne[k]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.acwing.com/problem/content/828/">AcWing826.单链表</a></p>
-<h1>邻接表</h1>
+<h2 id="双链表">双链表</h2>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> e[N], l[N], r[N], idx;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将0定义为头结点，1定义为尾结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    r[<span class="number">0</span>] = <span class="number">1</span>, l[<span class="number">1</span>] = <span class="number">0</span>, idx = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在第k个点的右侧插入x</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[idx] = x;</span><br><span class="line">    r[idx] = r[k];</span><br><span class="line">    l[idx] = k;</span><br><span class="line">    l[r[k]] = idx;</span><br><span class="line">    r[k] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除第k个位置上的点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    r[l[k]] = r[k];</span><br><span class="line">    l[r[k]] = l[k];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在最左边插入一个结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertL</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = x;</span><br><span class="line">    l[idx]=<span class="number">0</span>;</span><br><span class="line">    r[idx]=r[<span class="number">0</span>];</span><br><span class="line">    r[<span class="number">0</span>]=idx;</span><br><span class="line">    l[r[idx]]=idx;</span><br><span class="line">    idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在最右边插入一个结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertR</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = x;</span><br><span class="line">    r[idx]=<span class="number">1</span>;</span><br><span class="line">    l[idx]=l[<span class="number">1</span>];</span><br><span class="line">    r[l[idx]]=idx;</span><br><span class="line">    l[<span class="number">1</span>]=idx++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.acwing.com/problem/content/829/">AcWing827.双链表</a></p>
+<h1>栈</h1>
+<h1>队列</h1>
 <h1>KMP</h1>
 <h1>Trie</h1>
 <h1>并查集</h1>
