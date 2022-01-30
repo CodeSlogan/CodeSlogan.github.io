@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ML笔记</title>
+    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
+<h1>1. Regression</h1>
+<p>如何开始一个深度学习？</p>
+<ol>
+<li>
+<p>Function with unknown parameters</p>
+<p>w and b are unknown parameters</p>
+<p>w -&gt; weight               b-&gt;bias</p>
+</li>
+<li>
+<p>Define loss from training data</p>
+</li>
+<li>
+<p>Optimization</p>
+<a id="more"></a>
+<p>梯度下降，算积分，使得Loss趋近于最小</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
+</li>
+</ol>
+<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
+<h1>2. Classification</h1>
+<p>模型无法训练起来的原因：</p>
+<ul>
+<li>
+<p>model bias</p>
+<p>参数不够，如同大海捞针，针却不在海里</p>
+</li>
+<li>
+<p>optimization issue</p>
+<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
+</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li>比较不同的模型</li>
+<li>从浅的网络或一些简单的模型开始优化</li>
+<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
+</ol>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
+<h2 id="General-Guide">General Guide</h2>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
+<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
+<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
+<p>local minima and saddle point</p>
+<h3 id="Hessian">Hessian</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
+<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
+<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
+<p>选取特征值为负所对应的特征向量u</p>
+<p>uT<em>H</em>u</p>
+<p>用这种方法可逃离鞍点，降低loss</p>
+<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
+<p>batch and momentum</p>
+<p>结论：</p>
+<ul>
+<li>small batch size has better performance</li>
+<li>Noisy update is better for training</li>
+</ul>
+<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
+<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
+<ul>
+<li>
+<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
+</li>
+<li>
+<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
+</li>
+<li>
+<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
+</li>
+<li>
+<p>noisy的数据有利于训练</p>
+</li>
+<li>
+<p>small batch有助于跳出局部最优解</p>
+</li>
+</ul>
+<hr>
+<p>未完待续……</p>
+<h1>参考资料</h1>
+<ol>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
+</li>
+<li>
+<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -124,107 +225,6 @@
 ]]></content>
       <categories>
         <category>KG</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ML笔记</title>
-    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
-<h1>1. Regression</h1>
-<p>如何开始一个深度学习？</p>
-<ol>
-<li>
-<p>Function with unknown parameters</p>
-<p>w and b are unknown parameters</p>
-<p>w -&gt; weight               b-&gt;bias</p>
-</li>
-<li>
-<p>Define loss from training data</p>
-</li>
-<li>
-<p>Optimization</p>
-<a id="more"></a>
-<p>梯度下降，算积分，使得Loss趋近于最小</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
-</li>
-</ol>
-<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
-<h1>2. Classification</h1>
-<p>模型无法训练起来的原因：</p>
-<ul>
-<li>
-<p>model bias</p>
-<p>参数不够，如同大海捞针，针却不在海里</p>
-</li>
-<li>
-<p>optimization issue</p>
-<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<ol>
-<li>比较不同的模型</li>
-<li>从浅的网络或一些简单的模型开始优化</li>
-<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
-</ol>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
-<h2 id="General-Guide">General Guide</h2>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
-<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
-<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
-<p>local minima and saddle point</p>
-<h3 id="Hessian">Hessian</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
-<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
-<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
-<p>选取特征值为负所对应的特征向量u</p>
-<p>uT<em>H</em>u</p>
-<p>用这种方法可逃离鞍点，降低loss</p>
-<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
-<p>batch and momentum</p>
-<p>结论：</p>
-<ul>
-<li>small batch size has better performance</li>
-<li>Noisy update is better for training</li>
-</ul>
-<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
-<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
-<ul>
-<li>
-<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
-</li>
-<li>
-<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
-</li>
-<li>
-<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
-</li>
-<li>
-<p>noisy的数据有利于训练</p>
-</li>
-<li>
-<p>small batch有助于跳出局部最优解</p>
-</li>
-</ul>
-<hr>
-<p>未完待续……</p>
-<h1>参考资料</h1>
-<ol>
-<li>
-<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
-</li>
-<li>
-<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ML_DL</category>
       </categories>
       <tags>
         <tag>ML</tag>
@@ -485,6 +485,88 @@
       </tags>
   </entry>
   <entry>
+    <title>Matlab笔记</title>
+    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1>基本操作</h1>
+<h2 id="小操作">小操作</h2>
+<ul>
+<li>添加注释 Ctrl+R   %</li>
+<li>取消注释 Ctrl+T</li>
+<li>清空工作区变量 clear</li>
+<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
+<li>clear;clc  表示初始化</li>
+<li>分号;表示不显示运行结果</li>
+</ul>
+<a id="more"></a>
+<h2 id="输入输出函数-input-disp">输入输出函数(input(), disp())</h2>
+<p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
+<p>行向量 a = [1 2 3]</p>
+<p>列向量 a = [1;2;3]</p>
+<hr>
+<p>A = input(‘请输入A：’)</p>
+<h2 id="num2str">num2str</h2>
+<p>将数字转化为字符串</p>
+<p>a = 40               40</p>
+<p>num2str(a)      ‘40’</p>
+<h2 id="字符串的拼接">字符串的拼接</h2>
+<p>strcat(‘a的取值为’, a)</p>
+<p>[‘a的取值为’ a]</p>
+<h2 id="sum">sum()</h2>
+<p>如果是一维向量，则直接求和</p>
+<p>如果是多维，默认对列向量求和</p>
+<hr>
+<p>sum(E, 1) 对列向量求和</p>
+<p>sum(E, 2) 对行向量求和</p>
+<p>sum(E(:)) 对整个矩阵求和</p>
+<h2 id="提取矩阵中的元素">提取矩阵中的元素</h2>
+<p>A(3,2)     表示第三行第二列</p>
+<p>A(3,:)      表示第三行所有元素</p>
+<p>A(:,2)      表示第二列所有元素</p>
+<p>:表示取所有元素</p>
+<hr>
+<p>A([2,5],:)    只取第二行和第五行</p>
+<p>A(2:5,:)       只取第二行到第五行</p>
+<p>A(2:2:5,:)    取第二行和第四行</p>
+<hr>
+<p>A(2:end,:)   取第二行到最后一行</p>
+<p>A(2:end-1,:)   取第二行到倒数第2行</p>
+<hr>
+<p>A(:)将矩阵输出为一个列向量</p>
+<h2 id="size">size()</h2>
+<p>返回几行几列</p>
+<p>size(A, 1) 返回行</p>
+<p>size(A, 2) 返回列</p>
+<h2 id="repmat">repmat()</h2>
+<p>B = repmat(A, 2, 1)</p>
+<p>把A看成一个整体，2行1列个A</p>
+<h2 id="inv-求逆阵">inv()求逆阵</h2>
+<p>inv(B)</p>
+<h2 id="矩阵对应元素相乘除">矩阵对应元素相乘除</h2>
+<h3 id>.*   ./</h3>
+<p>区别直接乘除</p>
+<h3 id="-2">.</h3>
+<p>点针对每个元素进行操作</p>
+<h2 id="特征值和特征向量">特征值和特征向量</h2>
+<p>V = eig(B)         取特征值</p>
+<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
+<h2 id="find">find()</h2>
+<p>返回不为0的矩阵的索引</p>
+<p>ind = find(X)</p>
+<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
+<p>[r,c] = find(D == Max_eig, 1)</p>
+<h1>定义一个函数</h1>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
+<h1>定义一个具有自变量的方程</h1>
+<p>y=@(x) kx+b</p>
+<p>声明x是一个自变量</p>
+<h2 id="mean">mean()</h2>
+<p>平均值</p>
+]]></content>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python笔记</title>
     <url>/2020/10/28/Python%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1>Python基础语法</h1>
@@ -624,88 +706,6 @@ world</p>
       </tags>
   </entry>
   <entry>
-    <title>Matlab笔记</title>
-    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1>基本操作</h1>
-<h2 id="小操作">小操作</h2>
-<ul>
-<li>添加注释 Ctrl+R   %</li>
-<li>取消注释 Ctrl+T</li>
-<li>清空工作区变量 clear</li>
-<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
-<li>clear;clc  表示初始化</li>
-<li>分号;表示不显示运行结果</li>
-</ul>
-<a id="more"></a>
-<h2 id="输入输出函数-input-disp">输入输出函数(input(), disp())</h2>
-<p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
-<p>行向量 a = [1 2 3]</p>
-<p>列向量 a = [1;2;3]</p>
-<hr>
-<p>A = input(‘请输入A：’)</p>
-<h2 id="num2str">num2str</h2>
-<p>将数字转化为字符串</p>
-<p>a = 40               40</p>
-<p>num2str(a)      ‘40’</p>
-<h2 id="字符串的拼接">字符串的拼接</h2>
-<p>strcat(‘a的取值为’, a)</p>
-<p>[‘a的取值为’ a]</p>
-<h2 id="sum">sum()</h2>
-<p>如果是一维向量，则直接求和</p>
-<p>如果是多维，默认对列向量求和</p>
-<hr>
-<p>sum(E, 1) 对列向量求和</p>
-<p>sum(E, 2) 对行向量求和</p>
-<p>sum(E(:)) 对整个矩阵求和</p>
-<h2 id="提取矩阵中的元素">提取矩阵中的元素</h2>
-<p>A(3,2)     表示第三行第二列</p>
-<p>A(3,:)      表示第三行所有元素</p>
-<p>A(:,2)      表示第二列所有元素</p>
-<p>:表示取所有元素</p>
-<hr>
-<p>A([2,5],:)    只取第二行和第五行</p>
-<p>A(2:5,:)       只取第二行到第五行</p>
-<p>A(2:2:5,:)    取第二行和第四行</p>
-<hr>
-<p>A(2:end,:)   取第二行到最后一行</p>
-<p>A(2:end-1,:)   取第二行到倒数第2行</p>
-<hr>
-<p>A(:)将矩阵输出为一个列向量</p>
-<h2 id="size">size()</h2>
-<p>返回几行几列</p>
-<p>size(A, 1) 返回行</p>
-<p>size(A, 2) 返回列</p>
-<h2 id="repmat">repmat()</h2>
-<p>B = repmat(A, 2, 1)</p>
-<p>把A看成一个整体，2行1列个A</p>
-<h2 id="inv-求逆阵">inv()求逆阵</h2>
-<p>inv(B)</p>
-<h2 id="矩阵对应元素相乘除">矩阵对应元素相乘除</h2>
-<h3 id>.*   ./</h3>
-<p>区别直接乘除</p>
-<h3 id="-2">.</h3>
-<p>点针对每个元素进行操作</p>
-<h2 id="特征值和特征向量">特征值和特征向量</h2>
-<p>V = eig(B)         取特征值</p>
-<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
-<h2 id="find">find()</h2>
-<p>返回不为0的矩阵的索引</p>
-<p>ind = find(X)</p>
-<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
-<p>[r,c] = find(D == Max_eig, 1)</p>
-<h1>定义一个函数</h1>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
-<h1>定义一个具有自变量的方程</h1>
-<p>y=@(x) kx+b</p>
-<p>声明x是一个自变量</p>
-<h2 id="mean">mean()</h2>
-<p>平均值</p>
-]]></content>
-      <tags>
-        <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot入门级项目hnucisys</title>
     <url>/2021/12/24/SpringBoot%E5%85%A5%E9%97%A8%E7%BA%A7%E9%A1%B9%E7%9B%AEhnucisys/</url>
     <content><![CDATA[<h1>项目源地址</h1>
@@ -795,33 +795,6 @@ Maven 3.8.1</p>
       </tags>
   </entry>
   <entry>
-    <title>割圆法Pi</title>
-    <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
-    <content><![CDATA[<h1>题目</h1>
-<p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。</p>
-<a id="more"></a>
-<h1>分析</h1>
-<h2 id="方法1">方法1</h2>
-<p>首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式<code>S=pi*r^2</code>求出pi</p>
-<p>按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式<code>S=1/2*a*b*sina</code>求出一个三角形的面积。</p>
-<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" alt="image1"></p>
-<p>观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi</p>
-<h2 id="方法2">方法2</h2>
-<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p2.bmp" alt="image2"></p>
-<p>另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。</p>
-<h1>代码</h1>
-<h2 id="方法1-2">方法1</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: com.codeslogan.Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Test_Pi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-18 19:06</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_Pi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0.0</span>; <span class="comment">//面积</span></span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">10.0</span>; <span class="comment">//半径</span></span><br><span class="line">        <span class="keyword">double</span> myPi = <span class="number">0.0</span>; <span class="comment">//PI</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span> ; i++) &#123;</span><br><span class="line">​            <span class="keyword">double</span> n = pow(<span class="number">2</span>,i); <span class="comment">//圆的分割块数</span></span><br><span class="line">​            s = n * <span class="number">1</span>/<span class="number">2</span> * pow(r,<span class="number">2</span>) * sin(toRadians(<span class="number">360</span>/n)); <span class="comment">//S=1/2*a*b*sina</span></span><br><span class="line">​            myPi = s / pow(r,<span class="number">2</span>); <span class="comment">// s=pi*r^2</span></span><br><span class="line">​            System.out.println(myPi);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="方法2-2">方法2</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.pow;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatePI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">double</span> s;</span><br><span class="line">        <span class="keyword">double</span> totOfS = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> a = getSquareSide(r);</span><br><span class="line">        totOfS+=a*a;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> h = getTriangleH(a, r); <span class="comment">//获取三角形的高</span></span><br><span class="line">            s=a*h/<span class="number">2</span>;</span><br><span class="line">            totOfS += s*pow(<span class="number">2</span>,i);</span><br><span class="line">            a = getTriangleC(h, a); <span class="comment">//获取斜边长</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> pi = totOfS/pow(r,<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Pi is &quot;</span> + pi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getSquareSide</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">2</span>) * r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleH</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> h = r - sqrt(pow(r,<span class="number">2</span>) - pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleC</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> y = sqrt(pow(h,<span class="number">2</span>)+pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>miniconda的使用</title>
     <url>/2020/11/01/miniconda%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1>Miniconda</h1>
@@ -872,6 +845,33 @@ Maven 3.8.1</p>
         <tag>ML</tag>
         <tag>pytorch</tag>
         <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>割圆法Pi</title>
+    <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
+    <content><![CDATA[<h1>题目</h1>
+<p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。</p>
+<a id="more"></a>
+<h1>分析</h1>
+<h2 id="方法1">方法1</h2>
+<p>首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式<code>S=pi*r^2</code>求出pi</p>
+<p>按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式<code>S=1/2*a*b*sina</code>求出一个三角形的面积。</p>
+<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" alt="image1"></p>
+<p>观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi</p>
+<h2 id="方法2">方法2</h2>
+<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p2.bmp" alt="image2"></p>
+<p>另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。</p>
+<h1>代码</h1>
+<h2 id="方法1-2">方法1</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: com.codeslogan.Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Test_Pi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-18 19:06</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_Pi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0.0</span>; <span class="comment">//面积</span></span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">10.0</span>; <span class="comment">//半径</span></span><br><span class="line">        <span class="keyword">double</span> myPi = <span class="number">0.0</span>; <span class="comment">//PI</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span> ; i++) &#123;</span><br><span class="line">​            <span class="keyword">double</span> n = pow(<span class="number">2</span>,i); <span class="comment">//圆的分割块数</span></span><br><span class="line">​            s = n * <span class="number">1</span>/<span class="number">2</span> * pow(r,<span class="number">2</span>) * sin(toRadians(<span class="number">360</span>/n)); <span class="comment">//S=1/2*a*b*sina</span></span><br><span class="line">​            myPi = s / pow(r,<span class="number">2</span>); <span class="comment">// s=pi*r^2</span></span><br><span class="line">​            System.out.println(myPi);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方法2-2">方法2</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.pow;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatePI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">double</span> s;</span><br><span class="line">        <span class="keyword">double</span> totOfS = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> a = getSquareSide(r);</span><br><span class="line">        totOfS+=a*a;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> h = getTriangleH(a, r); <span class="comment">//获取三角形的高</span></span><br><span class="line">            s=a*h/<span class="number">2</span>;</span><br><span class="line">            totOfS += s*pow(<span class="number">2</span>,i);</span><br><span class="line">            a = getTriangleC(h, a); <span class="comment">//获取斜边长</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> pi = totOfS/pow(r,<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Pi is &quot;</span> + pi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getSquareSide</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">2</span>) * r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleH</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> h = r - sqrt(pow(r,<span class="number">2</span>) - pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleC</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> y = sqrt(pow(h,<span class="number">2</span>)+pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1077,7 +1077,7 @@ Maven 3.8.1</p>
       </tags>
   </entry>
   <entry>
-    <title>机试-数据结构</title>
+    <title>机试-数据结构&amp;STL</title>
     <url>/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h1>前言</h1>
 <p>记录算法竞赛中经过考察的数据结构，其中包括树与图的存储，高级数据结构并查集，Hash表的实现，KMP，栈与队列，以及STL中各容器的使用，需要重点掌握</p>
@@ -1143,7 +1143,7 @@ Maven 3.8.1</p>
 </ol>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下标从1开始，2x为左结点，2x+1为右结点</span></span><br><span class="line"><span class="comment">// size指向堆的最后一个元素</span></span><br><span class="line">heap[++size] = x; up(size);</span><br><span class="line">heap[<span class="number">1</span>];</span><br><span class="line">heap[<span class="number">1</span>] = heap[size]; size--; down(<span class="number">1</span>);</span><br><span class="line">heap[k] = heap[size]; size--; down(k); up(k);</span><br><span class="line">heap[k] = x; down(k); up(k);</span><br></pre></td></tr></table></figure>
 <h2 id="堆排序">堆排序</h2>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 建堆</span></span><br><span class="line"><span class="keyword">int</span> h[N], se;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = n / <span class="number">2</span>; i; i--) down(i);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = u;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span> * u &lt;= sz &amp;&amp; h[<span class="number">2</span>*u] &lt; h[t]) t = <span class="number">2</span> * u;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= sz &amp;&amp; h[<span class="number">2</span>*u+<span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (t != u) &#123;</span><br><span class="line">        swap(h[u], h[t]);</span><br><span class="line">        down(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (u / <span class="number">2</span> &amp;&amp; h[u / <span class="number">2</span>] &gt; h[u]) &#123;</span><br><span class="line">        swap(h[u / <span class="number">2</span>], h[u]);</span><br><span class="line">        u /= <span class="number">2</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 建堆</span></span><br><span class="line"><span class="keyword">int</span> h[N], size;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = n / <span class="number">2</span>; i; i--) down(i);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = u;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span> * u &lt;= size &amp;&amp; h[<span class="number">2</span>*u] &lt; h[t]) t = <span class="number">2</span> * u;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">2</span> * u + <span class="number">1</span> &lt;= size &amp;&amp; h[<span class="number">2</span>*u+<span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span> * u + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (t != u) &#123;</span><br><span class="line">        swap(h[u], h[t]);</span><br><span class="line">        down(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (u / <span class="number">2</span> &amp;&amp; h[u / <span class="number">2</span>] &gt; h[u]) &#123;</span><br><span class="line">        swap(h[u / <span class="number">2</span>], h[u]);</span><br><span class="line">        u /= <span class="number">2</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><a href="https://www.acwing.com/problem/content/description/840/">AcWing838.堆排序</a></p>
 <h2 id="带映射堆">带映射堆</h2>
 <ul>
@@ -1154,7 +1154,20 @@ Maven 3.8.1</p>
 <h2 id="模拟堆">模拟堆</h2>
 <img src="/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220129214620020.png" alt="image-20220129214620020" style="zoom:67%;">
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> h[N], ph[N], hp[N], sz;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">heap_swap</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    swap(ph[hp[a]],ph[hp[b]]);</span><br><span class="line">    swap(hp[a], hp[b]);</span><br><span class="line">    swap(h[a], h[b]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = u;</span><br><span class="line">    <span class="keyword">if</span> (u*<span class="number">2</span> &lt;= sz &amp;&amp; h[u*<span class="number">2</span>] &lt; h[t]) t = <span class="number">2</span>*u;</span><br><span class="line">    <span class="keyword">if</span> (u*<span class="number">2</span>+<span class="number">1</span> &lt;= sz &amp;&amp; h[u*<span class="number">2</span>+<span class="number">1</span>] &lt; h[t]) t = <span class="number">2</span>*u+<span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (t != u) &#123;</span><br><span class="line">        heap_swap(t, u);</span><br><span class="line">        down(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (u/<span class="number">2</span> &amp;&amp; h[u/<span class="number">2</span>] &gt; h[u]) &#123;</span><br><span class="line">        heap_swap(u/<span class="number">2</span>, u);</span><br><span class="line">        u /= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (n -- ) &#123;</span><br><span class="line">        <span class="keyword">char</span> op[<span class="number">10</span>];</span><br><span class="line">        <span class="keyword">int</span> k, x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>, op);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(op, <span class="string">&quot;I&quot;</span>)) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">            sz++;</span><br><span class="line">            m++;</span><br><span class="line">            h[sz] = x;</span><br><span class="line">            ph[m] = sz;</span><br><span class="line">            hp[sz] = m;</span><br><span class="line">            up(sz);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(op, <span class="string">&quot;PM&quot;</span>)) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, h[<span class="number">1</span>]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(op, <span class="string">&quot;DM&quot;</span>)) &#123;</span><br><span class="line">            heap_swap(<span class="number">1</span>, sz);</span><br><span class="line">            sz--;</span><br><span class="line">            down(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(op, <span class="string">&quot;D&quot;</span>)) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;k);</span><br><span class="line">            k = ph[k];</span><br><span class="line">            heap_swap(k, sz);</span><br><span class="line">            sz--;</span><br><span class="line">            down(k), up(k);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">strcmp</span>(op, <span class="string">&quot;C&quot;</span>)) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;k, &amp;x);</span><br><span class="line">            k = ph[k];</span><br><span class="line">            h[k] = x;</span><br><span class="line">            down(k), up(k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>Hash表</h1>
+<h1>Hash表(散列表)</h1>
+<p>散列表，又叫哈希表（Hash Table），是能够通过给定的关键字的值直接访问到具体对应的值的一个数据结构。也就是说，把关键字映射到一个表中的位置来直接访问记录，以加快访问速度。</p>
+<p>典型的以<strong>空间换时间</strong>的存储结构</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 取质作为哈希函数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100000</span>;;i++) &#123;</span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j*j &lt; i; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i % j == <span class="number">0</span>) &#123;</span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="冲突处理方式">冲突处理方式</h2>
+<p>由于Hash表是将大规模的数映射到一个相对较小的数组空间上，必然会出现两个值的键相同的情况，这被称为<strong>哈希冲突</strong>，也叫<strong>哈希碰撞</strong></p>
+<h3 id="开放寻址法">开放寻址法</h3>
+<p>若冲突，则直接往后一位</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">200003</span>, null = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> h[N];</span><br><span class="line"></span><br><span class="line"><span class="built_in">memset</span>(h, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 能找到，则返回这个数的下标；找不到，则返回该数应该插入的位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (h[k] != null &amp;&amp; h[k] != x) &#123;</span><br><span class="line">        k++;</span><br><span class="line">        <span class="keyword">if</span> (k == N) k = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="拉链法">拉链法</h3>
+<p>以<strong>单链表</strong>的形式来处理冲突</p>
+<img src="/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/image-20220130135638951.png" alt="Hash-拉链法" style="zoom:50%;">
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;</span><br><span class="line"></span><br><span class="line"><span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h); <span class="comment">// #include &lt;cstring&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">    </span><br><span class="line">    e[idx] = x, ne[idx] = h[k], h[k] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k = (x % N + N) % N;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = h[k]; i != <span class="number">-1</span>; i = ne[i]) </span><br><span class="line">        <span class="keyword">if</span> (e[i] == x)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h2 id="字符串哈希">字符串哈希</h2>
 <h1>参考资料</h1>
 <p><a href="www.acwing.com">AcWing算法基础课</a></p>
 ]]></content>
