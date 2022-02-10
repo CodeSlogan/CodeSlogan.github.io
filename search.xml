@@ -2625,7 +2625,7 @@ Maven 3.8.1</p>
 <p><a href="https://www.acwing.com/problem/content/description/697/">AcWing695.劣马</a></p>
 <h2 id="匈牙利算法">匈牙利算法</h2>
 <blockquote>
-<p>二分配对算法。实现均匀分配，某一数有多个配对选项，而另一个数只有一个，为此进行合理分配，实现匹配的最大化</p>
+<p>二分配对算法，“月老算法”。实现均匀分配，某一数有多个配对选项，而另一个数只有一个，为此进行合理分配，实现匹配的最大化</p>
 </blockquote>
 <p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(mn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">mn</span><span class="mclose">)</span></span></span></span>，实际运行时间远小于它</p>
 <img src="/2022/02/03/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/Users\huawei\AppData\Roaming\Typora\typora-user-images\image-20220210163356387.png" alt="image-20220210163356387" style="zoom:67%;">
