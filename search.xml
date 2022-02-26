@@ -1,107 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ML笔记</title>
-    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
-<h1>1. Regression</h1>
-<p>如何开始一个深度学习？</p>
-<ol>
-<li>
-<p>Function with unknown parameters</p>
-<p>w and b are unknown parameters</p>
-<p>w -&gt; weight               b-&gt;bias</p>
-</li>
-<li>
-<p>Define loss from training data</p>
-</li>
-<li>
-<p>Optimization</p>
-<a id="more"></a>
-<p>梯度下降，算积分，使得Loss趋近于最小</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
-</li>
-</ol>
-<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
-<h1>2. Classification</h1>
-<p>模型无法训练起来的原因：</p>
-<ul>
-<li>
-<p>model bias</p>
-<p>参数不够，如同大海捞针，针却不在海里</p>
-</li>
-<li>
-<p>optimization issue</p>
-<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<ol>
-<li>比较不同的模型</li>
-<li>从浅的网络或一些简单的模型开始优化</li>
-<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
-</ol>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
-<h2 id="General-Guide">General Guide</h2>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
-<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
-<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
-<p>local minima and saddle point</p>
-<h3 id="Hessian">Hessian</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
-<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
-<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
-<p>选取特征值为负所对应的特征向量u</p>
-<p>uT<em>H</em>u</p>
-<p>用这种方法可逃离鞍点，降低loss</p>
-<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
-<p>batch and momentum</p>
-<p>结论：</p>
-<ul>
-<li>small batch size has better performance</li>
-<li>Noisy update is better for training</li>
-</ul>
-<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
-<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
-<ul>
-<li>
-<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
-</li>
-<li>
-<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
-</li>
-<li>
-<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
-</li>
-<li>
-<p>noisy的数据有利于训练</p>
-</li>
-<li>
-<p>small batch有助于跳出局部最优解</p>
-</li>
-</ul>
-<hr>
-<p>未完待续……</p>
-<h1>参考资料</h1>
-<ol>
-<li>
-<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
-</li>
-<li>
-<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ML_DL</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -225,6 +124,107 @@
 ]]></content>
       <categories>
         <category>KG</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ML笔记</title>
+    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
+<h1>1. Regression</h1>
+<p>如何开始一个深度学习？</p>
+<ol>
+<li>
+<p>Function with unknown parameters</p>
+<p>w and b are unknown parameters</p>
+<p>w -&gt; weight               b-&gt;bias</p>
+</li>
+<li>
+<p>Define loss from training data</p>
+</li>
+<li>
+<p>Optimization</p>
+<a id="more"></a>
+<p>梯度下降，算积分，使得Loss趋近于最小</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
+</li>
+</ol>
+<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
+<h1>2. Classification</h1>
+<p>模型无法训练起来的原因：</p>
+<ul>
+<li>
+<p>model bias</p>
+<p>参数不够，如同大海捞针，针却不在海里</p>
+</li>
+<li>
+<p>optimization issue</p>
+<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
+</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li>比较不同的模型</li>
+<li>从浅的网络或一些简单的模型开始优化</li>
+<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
+</ol>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
+<h2 id="General-Guide">General Guide</h2>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
+<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
+<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
+<p>local minima and saddle point</p>
+<h3 id="Hessian">Hessian</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
+<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
+<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
+<p>选取特征值为负所对应的特征向量u</p>
+<p>uT<em>H</em>u</p>
+<p>用这种方法可逃离鞍点，降低loss</p>
+<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
+<p>batch and momentum</p>
+<p>结论：</p>
+<ul>
+<li>small batch size has better performance</li>
+<li>Noisy update is better for training</li>
+</ul>
+<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
+<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
+<ul>
+<li>
+<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
+</li>
+<li>
+<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
+</li>
+<li>
+<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
+</li>
+<li>
+<p>noisy的数据有利于训练</p>
+</li>
+<li>
+<p>small batch有助于跳出局部最优解</p>
+</li>
+</ul>
+<hr>
+<p>未完待续……</p>
+<h1>参考资料</h1>
+<ol>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
+</li>
+<li>
+<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ML_DL</category>
       </categories>
       <tags>
         <tag>ML</tag>
@@ -2672,6 +2672,7 @@ Maven 3.8.1</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">char</span> s1[N], s2[N];</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; s1 + <span class="number">1</span> &gt;&gt; s2 + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            f[i][j] = max(f[i<span class="number">-1</span>][j], f[i][j<span class="number">-1</span>]);</span><br><span class="line">            <span class="keyword">if</span> (s1[i] == s2[j]) f[i][j] = max(f[i][j], f[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.acwing.com/problem/content/description/899/">AcWing.最长公共子序列</a></p>
 <h1>区间DP</h1>
+<h2 id="石子合并">石子合并</h2>
 <ul>
 <li>状态表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[i,j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>：从第<code>i</code>堆石子到第<code>j</code>堆石子合并所需的代价</li>
 <li>状态计算：将区间划分成<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>i</mi><mo separator="true">,</mo><mi>k</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[i,k]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose">]</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[k+1,j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mi>i</mi><mo separator="true">,</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>j</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">k = i, i+1, ..., j-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></li>
@@ -2725,9 +2726,7 @@ Maven 3.8.1</p>
 <p>最后的结果需要对式<strong>求和</strong><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo separator="true">,</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mn>2</mn><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">f[n][i],i=1, 2,...,n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">...</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span></span></span></span></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++)</span><br><span class="line">            f[i][j] = (f[i<span class="number">-1</span>][j<span class="number">-1</span>] + f[i-j][j]) % mod;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) res = (res + f[n][i]) % mod;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1>数位统计DP</h1>
-<blockquote>
-<p>计数问题</p>
-</blockquote>
+<h2 id="计数问题">计数问题</h2>
 <p>给定两个整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span>，求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> 之间的所有数字中 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>∼</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">0∼9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">9</span></span></span></span> 的出现次数。</p>
 <ul>
 <li>
@@ -2804,7 +2803,7 @@ Maven 3.8.1</p>
 </ul>
 <p>枚举出上下左右的4个点，<code>(i,j)</code>由它们的最大值转移而来</p>
 <p>如果一个点的<code>dp[][]</code>不为初始化值<code>-1</code>，那么就说明计算过，不必再次计算。这也是记忆化搜索的一个特点。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">310</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> f[N][N], h[N][N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 引用：v相当于f[x][y]</span></span><br><span class="line">    <span class="keyword">int</span> &amp;v = f[x][y];</span><br><span class="line">    <span class="keyword">if</span> (v != <span class="number">-1</span>) <span class="keyword">return</span> v;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 无格可走，最小为1</span></span><br><span class="line">    v = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">1</span> &amp;&amp; a &lt;= n &amp;&amp; b &gt;= <span class="number">1</span> &amp;&amp; b &lt;= m &amp;&amp; h[a][b] &lt; h[x][y]) </span><br><span class="line">            v = max(v, dp(a, b) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; h[i][j]; <span class="comment">// 读入高度</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化状态为-1</span></span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span> f);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 枚举每一个点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            res = max(res, dp(i, j));</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">310</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> f[N][N], h[N][N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 引用：v相当于f[x][y]</span></span><br><span class="line">    <span class="keyword">int</span> &amp;v = f[x][y];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用了记忆化搜索过程中的结果</span></span><br><span class="line">    <span class="keyword">if</span> (v != <span class="number">-1</span>) <span class="keyword">return</span> v;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 无格可走，最小为1</span></span><br><span class="line">    v = <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">1</span> &amp;&amp; a &lt;= n &amp;&amp; b &gt;= <span class="number">1</span> &amp;&amp; b &lt;= m &amp;&amp; h[a][b] &lt; h[x][y]) </span><br><span class="line">            <span class="comment">// 记忆化搜索</span></span><br><span class="line">            v = max(v, dp(a, b) + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; h[i][j]; <span class="comment">// 读入高度</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化状态为-1</span></span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="keyword">sizeof</span> f);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 枚举每一个点，取最大值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            res = max(res, dp(i, j));</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.acwing.com/problem/content/description/903/">901.滑雪</a></p>
 <h1>参考资料</h1>
 <p><a href="https://www.acwing.com/activity/content/11/">AcWing算法基础课，欢迎大家报名，强推噢！！！y总带你感受算法之美！</a></p>
@@ -2861,14 +2860,21 @@ Maven 3.8.1</p>
 </blockquote>
 <p>开辟一个数组，记录每一个点是由哪个点转移而来</p>
 <p>但最后输出的结果为<strong>倒序</strong></p>
-<h2 id="BFS之冲出迷宫">BFS之冲出迷宫</h2>
+<h2 id="冲出迷宫">冲出迷宫</h2>
 <img src="/2022/02/03/%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%9B%BE%E8%AE%BA/image-20220204193443623.png" alt="image-20220204193443623" style="zoom:67%;">
+<blockquote>
+<p>BFS</p>
+</blockquote>
 <p>这道除了用到了BFS外，还有两处之前没有掌握的地方</p>
 <ol>
 <li>距离的记录：运用DP动态规划，记录下每一层点到起点的距离</li>
 <li>路径过程的记录：用一个数组记录当前点的前一个点</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> g[N][N]; <span class="comment">// 记录图</span></span><br><span class="line"><span class="keyword">int</span> d[N][N]; <span class="comment">// 记录距离的同时标记此点是否已访问</span></span><br><span class="line">PII q[N*N], path[N][N]; <span class="comment">// 模拟队列，记录过程路径</span></span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">-1</span>;</span><br><span class="line">    q[++tt] = &#123;<span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">-1</span>, <span class="keyword">sizeof</span> d); <span class="comment">// 初始化为-1</span></span><br><span class="line">    d[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (hh &lt;= tt) &#123;</span><br><span class="line">        <span class="keyword">auto</span> t = q[hh++];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = t.x + dx[i], y = t.y + dy[i];</span><br><span class="line">            <span class="keyword">if</span> (x &gt;= <span class="number">1</span> &amp;&amp; x &lt;= n &amp;&amp; y &gt;= <span class="number">1</span> &amp;&amp; y &lt;= m &amp;&amp; g[x][y] == <span class="number">0</span> &amp;&amp; d[x][y] == <span class="number">-1</span>) &#123;</span><br><span class="line">                d[x][y] = d[t.x][t.y] + <span class="number">1</span>; <span class="comment">// *DP记录下每一层的距离</span></span><br><span class="line">                path[x][y] = t; <span class="comment">// *记录下当前点的下一个点</span></span><br><span class="line">                q[++tt] = &#123;x, y&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> d[n][m];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;g[i][j]);</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dfs() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 反向遍历，得到起点到终点的路径</span></span><br><span class="line">    <span class="keyword">int</span> a = n, b = m;</span><br><span class="line">    <span class="keyword">while</span> (a &gt;= <span class="number">1</span> || b &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">auto</span> t = path[a][b];</span><br><span class="line">        a = t.first, b = t.second;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// BFS</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; PII;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> g[N][N]; <span class="comment">// 记录图</span></span><br><span class="line"><span class="keyword">int</span> d[N][N]; <span class="comment">// 记录距离的同时标记此点是否已访问</span></span><br><span class="line">PII q[N*N], path[N][N]; <span class="comment">// 模拟队列，记录过程路径</span></span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">-1</span>;</span><br><span class="line">    q[++tt] = &#123;<span class="number">1</span>, <span class="number">1</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">-1</span>, <span class="keyword">sizeof</span> d); <span class="comment">// 初始化为-1</span></span><br><span class="line">    d[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (hh &lt;= tt) &#123;</span><br><span class="line">        <span class="keyword">auto</span> t = q[hh++];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = t.x + dx[i], y = t.y + dy[i];</span><br><span class="line">            <span class="keyword">if</span> (x &gt;= <span class="number">1</span> &amp;&amp; x &lt;= n &amp;&amp; y &gt;= <span class="number">1</span> &amp;&amp; y &lt;= m &amp;&amp; g[x][y] == <span class="number">0</span> &amp;&amp; d[x][y] == <span class="number">-1</span>) &#123;</span><br><span class="line">                d[x][y] = d[t.x][t.y] + <span class="number">1</span>; <span class="comment">// *DP记录下每一层的距离</span></span><br><span class="line">                path[x][y] = t; <span class="comment">// *记录下当前点的下一个点</span></span><br><span class="line">                q[++tt] = &#123;x, y&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> d[n][m];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;g[i][j]);</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dfs() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 反向遍历，得到起点到终点的路径</span></span><br><span class="line">    <span class="keyword">int</span> a = n, b = m;</span><br><span class="line">    <span class="keyword">while</span> (a &gt;= <span class="number">1</span> || b &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">auto</span> t = path[a][b];</span><br><span class="line">        a = t.first, b = t.second;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>DFS</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> g[N][N]; <span class="comment">// 记录图</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> minPath = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">bool</span> st[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> step)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x == n &amp;&amp; y == m) &#123;</span><br><span class="line">        minPath = min(minPath, step);</span><br><span class="line">        <span class="keyword">return</span> minPath;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">        <span class="keyword">if</span> (a &gt;= <span class="number">1</span> &amp;&amp; a &lt;= n &amp;&amp; b &gt;= <span class="number">1</span> &amp;&amp; b &lt;= m &amp;&amp; g[a][b] == <span class="number">0</span> &amp;&amp; !st[a][b]) &#123;</span><br><span class="line">            st[x][y] = <span class="literal">true</span>; <span class="comment">// 标记已访问</span></span><br><span class="line">            dfs(a, b, step + <span class="number">1</span>);</span><br><span class="line">            st[x][y] = <span class="literal">false</span>; <span class="comment">// 恢复现场</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;g[i][j]);</span><br><span class="line">            </span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; minPath &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1>树与图</h1>
 <p>树可以被看作一种特殊的图（只有一个根结点）</p>
 <p>图的存储方式分别两种：</p>
