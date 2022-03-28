@@ -102,6 +102,124 @@
       </tags>
   </entry>
   <entry>
+    <title>Git配置</title>
+    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
+<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<a id="more"></a>
+<h1>版本控制工具</h1>
+<p>大致分为3种</p>
+<h2 id="本地版本控制">本地版本控制</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
+<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
+<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
+<h1>Git环境配置</h1>
+<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
+<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
+<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
+<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+<h2 id="SSH公钥">SSH公钥</h2>
+<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
+<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
+<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
+<h1>Git的工作流程</h1>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
+<h1>致谢</h1>
+<p>狂神说</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML5笔记</title>
+    <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
+    <content><![CDATA[<h1>前言</h1>
+<p>事先声明，本文是以Java后端开发的角度来学习HTML，并没有像前端那么细致。重点记录的是表单的使用</p>
+<h1>1. 知识点框架图</h1>
+<p><img src="https://img-blog.csdnimg.cn/7015119a17b649f298bec1f9d2537532.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="HTML总结"></p>
+<h1>2. 表单标签模板</h1>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;1.我的第一个网页.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 密码输入框input type=&quot;password&quot;   --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">readonly</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>表单的创建关键词为<code>form</code>，action代表所要跳转的网页，method表示采用的提交方法</p>
+<p><img src="https://img-blog.csdnimg.cn/21e3cf4b8abd48d1830d0ae42d50eb88.png#pic_center" alt="在这里插入图片描述"><br>
+每条语句的基本格式为<code>&lt;p&gt;</code>包含<code>&lt;input&gt;</code>，其中<code>type</code>表示表单的类型，此处text表示文本框，password表示密码框（输入时屏幕显示为*）。<br>
+<code>name</code>关键字强行建议在每条input语句中加上！！！因为其代表着所要提交信息的名称</p>
+<ul>
+<li>placeholder 提示信息，这里为“请输入用户名”</li>
+<li>readonly 代表只读，将无法在密码框中输入任何信息</li>
+<li>required 代表非空，这里用户名必须填写，否则将无法提交</li>
+</ul>
+<h2 id="2-1-get-post">2.1 get/post</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get</td>
+<td>不安全，不能提交大文件，但高效，提交信息会显示在url里</td>
+</tr>
+<tr>
+<td>post</td>
+<td>安全</td>
+</tr>
+</tbody>
+</table>
+<h1>3. 表单</h1>
+<h2 id="3-1-单选框与多选框">3.1 单选框与多选框</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>性别:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;boy&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>男</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;girl&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>女</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>爱好：</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sleep&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>睡觉</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;code&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>敲代码</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;eat&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>吃饭</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;run&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>跑步</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/a5d7446d87ef404f9a111b08ffa5b64c.png#pic_center" alt="在这里插入图片描述"><br>
+所见即所得，重点在体会<code>name</code>和 <code>value</code>的区别。举个例子，如果选择性别男，然后提交。url中就会显示 <em>name=boy</em></p>
+<h2 id="3-2-下拉可选">3.2 下拉可选</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>国籍：</span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;country&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;CHINA&quot;</span>&gt;</span>中国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;US&quot;</span>&gt;</span>美国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;GERMANY&quot;</span>&gt;</span>德国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/0976f01680b8456bb5b973888139c80b.png#pic_center" alt="在这里插入图片描述"><br>
+如图即为所求</p>
+<h2 id="3-3-按钮">3.3 按钮</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>按钮：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;btn1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;变长&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;input type=&quot;image&quot; src=&quot;../resources/image/12.png&quot;&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/0ab2b462ca7f49b7b79ae27e15e9d54c.png#pic_center" alt="在这里插入图片描述"></p>
+<p>可以通过在<code>value</code>里设置值，来对应到按钮上</p>
+<h2 id="3-4-文件上传">3.4 文件上传</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;files&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/c028c05871194ae9954e3e85f72b117a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-5-大文本域">3.5 大文本域</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>反馈：</span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;textarea&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span>&gt;</span>请输入<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/ccdefe40beb84732b45fae6190548d21.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-6-提交与重置按钮">3.6 提交与重置按钮</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置内容&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/f4453365553642608980919b5d0b4d97.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-7-滑块">3.7 滑块</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>音量：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;voice&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/04bad82d044c44a3b03ce9617b1a4f92.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="3-8-数字">3.8 数字</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>数字：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;num&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/5accf1dacdbe42adbd0c7aa4b2217c98.png#pic_center" alt="在这里插入图片描述"><br>
+可以通过<code>step</code>改变每点击一次变化的步长</p>
+<h2 id="3-9-搜索框">3.9 搜索框</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span> <span class="attr">name</span>=<span class="string">&quot;search&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/d2e3d020e2414df197f3104e6698665d.png#pic_center" alt="在这里插入图片描述"></p>
+<br>
+将HTML标签与图中一一对应，就能很快明白其使用方法，无须强行记忆。
+<h1>参考资料</h1>
+<p><a href="https://www.bilibili.com/video/BV1x4411V75C?p=12">【狂神说Java】HTML5完整教学通俗易懂</a></p>
+]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -228,124 +346,6 @@
       </categories>
       <tags>
         <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git配置</title>
-    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
-<a id="more"></a>
-<h1>版本控制工具</h1>
-<p>大致分为3种</p>
-<h2 id="本地版本控制">本地版本控制</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
-<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
-<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
-<h1>Git环境配置</h1>
-<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
-<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
-<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
-<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH公钥">SSH公钥</h2>
-<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
-<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
-<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
-<h1>Git的工作流程</h1>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
-<h1>致谢</h1>
-<p>狂神说</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTML5笔记</title>
-    <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
-    <content><![CDATA[<h1>前言</h1>
-<p>事先声明，本文是以Java后端开发的角度来学习HTML，并没有像前端那么细致。重点记录的是表单的使用</p>
-<h1>1. 知识点框架图</h1>
-<p><img src="https://img-blog.csdnimg.cn/7015119a17b649f298bec1f9d2537532.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="HTML总结"></p>
-<h1>2. 表单标签模板</h1>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;1.我的第一个网页.html&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入用户名&quot;</span> <span class="attr">required</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 密码输入框input type=&quot;password&quot;   --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;pwd&quot;</span> <span class="attr">readonly</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>表单的创建关键词为<code>form</code>，action代表所要跳转的网页，method表示采用的提交方法</p>
-<p><img src="https://img-blog.csdnimg.cn/21e3cf4b8abd48d1830d0ae42d50eb88.png#pic_center" alt="在这里插入图片描述"><br>
-每条语句的基本格式为<code>&lt;p&gt;</code>包含<code>&lt;input&gt;</code>，其中<code>type</code>表示表单的类型，此处text表示文本框，password表示密码框（输入时屏幕显示为*）。<br>
-<code>name</code>关键字强行建议在每条input语句中加上！！！因为其代表着所要提交信息的名称</p>
-<ul>
-<li>placeholder 提示信息，这里为“请输入用户名”</li>
-<li>readonly 代表只读，将无法在密码框中输入任何信息</li>
-<li>required 代表非空，这里用户名必须填写，否则将无法提交</li>
-</ul>
-<h2 id="2-1-get-post">2.1 get/post</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>特点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>get</td>
-<td>不安全，不能提交大文件，但高效，提交信息会显示在url里</td>
-</tr>
-<tr>
-<td>post</td>
-<td>安全</td>
-</tr>
-</tbody>
-</table>
-<h1>3. 表单</h1>
-<h2 id="3-1-单选框与多选框">3.1 单选框与多选框</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>性别:</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;boy&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>男</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">value</span>=<span class="string">&quot;girl&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span>/&gt;</span>女</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>爱好：</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sleep&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>睡觉</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;code&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>敲代码</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;eat&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>吃饭</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">value</span>=<span class="string">&quot;run&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span>跑步</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/a5d7446d87ef404f9a111b08ffa5b64c.png#pic_center" alt="在这里插入图片描述"><br>
-所见即所得，重点在体会<code>name</code>和 <code>value</code>的区别。举个例子，如果选择性别男，然后提交。url中就会显示 <em>name=boy</em></p>
-<h2 id="3-2-下拉可选">3.2 下拉可选</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>国籍：</span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;country&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;CHINA&quot;</span>&gt;</span>中国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;US&quot;</span>&gt;</span>美国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;GERMANY&quot;</span>&gt;</span>德国<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/0976f01680b8456bb5b973888139c80b.png#pic_center" alt="在这里插入图片描述"><br>
-如图即为所求</p>
-<h2 id="3-3-按钮">3.3 按钮</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>按钮：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;btn1&quot;</span> <span class="attr">value</span>=<span class="string">&quot;变长&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        &lt;input type=&quot;image&quot; src=&quot;../resources/image/12.png&quot;&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/0ab2b462ca7f49b7b79ae27e15e9d54c.png#pic_center" alt="在这里插入图片描述"></p>
-<p>可以通过在<code>value</code>里设置值，来对应到按钮上</p>
-<h2 id="3-4-文件上传">3.4 文件上传</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;files&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/c028c05871194ae9954e3e85f72b117a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-5-大文本域">3.5 大文本域</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>反馈：</span><br><span class="line">        <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;textarea&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span>&gt;</span>请输入<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/ccdefe40beb84732b45fae6190548d21.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-6-提交与重置按钮">3.6 提交与重置按钮</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置内容&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/f4453365553642608980919b5d0b4d97.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-7-滑块">3.7 滑块</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>音量：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">name</span>=<span class="string">&quot;voice&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/04bad82d044c44a3b03ce9617b1a4f92.png#pic_center" alt="在这里插入图片描述"></p>
-<h2 id="3-8-数字">3.8 数字</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>数字：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;num&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/5accf1dacdbe42adbd0c7aa4b2217c98.png#pic_center" alt="在这里插入图片描述"><br>
-可以通过<code>step</code>改变每点击一次变化的步长</p>
-<h2 id="3-9-搜索框">3.9 搜索框</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索：</span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span> <span class="attr">name</span>=<span class="string">&quot;search&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/d2e3d020e2414df197f3104e6698665d.png#pic_center" alt="在这里插入图片描述"></p>
-<br>
-将HTML标签与图中一一对应，就能很快明白其使用方法，无须强行记忆。
-<h1>参考资料</h1>
-<p><a href="https://www.bilibili.com/video/BV1x4411V75C?p=12">【狂神说Java】HTML5完整教学通俗易懂</a></p>
-]]></content>
-      <categories>
-        <category>web</category>
-      </categories>
-      <tags>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
@@ -1043,132 +1043,6 @@ Maven 3.8.1</p>
       </tags>
   </entry>
   <entry>
-    <title>论文阅读Knowledge Vault</title>
-    <url>/2021/11/25/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBKnowledge%20Vault/</url>
-    <content><![CDATA[<h1>题目归属及框架</h1>
-<p><img src="https://img-blog.csdnimg.cn/7fb48eac4a8641b6b70a02ead96decb4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>
-<img src="https://img-blog.csdnimg.cn/160789c05d3c4cdfb0b00f3f23bd33a1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/833a0d828acf4b968e9e77d300fd0482.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<h1>前言</h1>
-<p>谷歌公司正在打造人类历史上最大的知识库<code>Knowledge Vault</code></p>
-<p>这个被冠以<code>Knowledge Vault</code>之名的知识库无需任何人工干预，就能<strong>自动搜集</strong>源自互联网的信息并将其整合成单一的事实库，内容涉及世界、人物以及相关对象。这种知识采集机制达到的广度和精度，正在日益成为各种便于机器人和智能手机理解人们对其提问的系统的基础。它有望让“谷歌”超越搜索引擎功能，像“甲骨文”（Oracle）数据库那样回答问题，甚至还能从新的视角来考察人类历史。</p>
-<p>这在篇文章中，作者分析了knowledge vault(KV)知识库这一自动化的过程是如何运转的。</p>
-<h1>概述</h1>
-<p>当今世界上已经存在了很多成熟的知识库，但要使知识库的规模更大，需要探索一种自动化的方法来构建数据库。因此，作者在本文提出了一种<u>web规模的概率知识融合方法</u>，将从web上抽取的资源与现有的知识库（如freebase）相结合，并使用了<strong>监督学习</strong>。正因如此，KV的规模以以往的知识库都要来的大。</p>
-<p>关键词：知识库；知识抽取；概率方法；机器学习</p>
-<h1>动机</h1>
-<ul>
-<li>
-<p>现有的知识库虽然到达了比较大的规模，但仍具有<u>不完整性</u>，例如Freebase中，71%的人没有出生地。</p>
-</li>
-<li>
-<p>直接从web资源上摘录下来的信息，具有较大的<u>噪声</u>，数据无法直接利用，有很多可信度不高。</p>
-</li>
-</ul>
-<h1>贡献</h1>
-<ol>
-<li>使用已有知识库里的先验知识，与web上爬取下来的带有噪声的数据相结合。利用已有的三元组，经过知识推理判断新三元组的正确性，<strong>先验概率模型</strong>的出现解决了抽取过程中出现错误的问题。</li>
-<li>KV的规模比相同的知识库大。</li>
-<li>对不同的抽取方法及先验概率方法进行了详细的比较。</li>
-</ol>
-<h1>KV组件</h1>
-<ul>
-<li>抽取器<strong>Extractors</strong>：负责从web资源抽取知识，每个抽取器会对实体分配一个置信分数，以此表明该三元组的正确率</li>
-<li>基于图的先验概率模型<strong>Graph-based priors</strong>：负责基于已有的知识库，来计算每个三元组的先验概率</li>
-<li>知识融合<strong>Knowledge fusion</strong>：负责基于抽取器和先验概率模型，计算三元组的正确的概率</li>
-</ul>
-<p>s subject，p predictate</p>
-<p>o object，G ExPxE的三维矩阵</p>
-<p>当G(s,p,o)=1时，表示为正三元组</p>
-<p>Pr(G(s, p, o) = 1|·) 计算其正确概率</p>
-<h1>Local closed world assumption(LCWA)</h1>
-<p>这是KV知识库的底层假设，所有的抽取和概率计算基于它，内容如下：</p>
-<blockquote>
-<p>O(s,p) as the set of existing object values for a given s and p.<br>
-给定一个(s,p,o)，如果(s,p,o) ∈ O(s,p)，则它是正确的<br>
-如果 (s,p,o) !∈ O(s,p)并且 |O(s,p)| &gt; 0，则它是错误的<br>
-如果|O(s,p)| = 0，我们就不打标签并把(s,p,o)扔出训练和测试集</p>
-</blockquote>
-<h1>抽取器(Extractors)</h1>
-<h2 id="抽取方法">抽取方法</h2>
-<h3 id="Text-documents-TXT">Text documents(TXT)</h3>
-<ol>
-<li>运行一套标准的NLP工具，做命名实体识别，词类标注，依赖分析和实体链接</li>
-<li>用远程监督训练关系抽取器。对每一个感兴趣的谓词，从现有知识库提取含有这个谓词的实体对。然后在txt中进行匹配，抽取句子的特征和模式。</li>
-</ol>
-<p>为每一个谓词用逻辑回归拟合一个分类器：</p>
-<p>输入：含有该谓词的sentences的features和patterns</p>
-<p>训练集：根据LCWA进行标注的sentences</p>
-<h3 id="HTML-trees-DOM">HTML trees (DOM)</h3>
-<p>输入：实体特征向量的词汇化路径</p>
-<p>输出：被抽取三元组的得分</p>
-<h3 id="HTML-tables-TBL">HTML tables (TBL)</h3>
-<ol>
-<li>执行了一个命名实体链接</li>
-<li>用已有的知识库，识别表格中每一列实体的关系。模棱两可的列将被直接的抛弃。</li>
-<li>被抽取三元组的得分由命名实体链接系统返回</li>
-</ol>
-<h3 id="Human-Annotated-pages-ANO">Human Annotated pages(ANO)</h3>
-<p><a href="http://xn--schema-vp7i3lqe9zyy410cmfx899fkz4c85a.org">为不同的谓词定义了从schema.org</a>（语义库）到FB的手工映射。</p>
-<p>被抽取三元组的得分由命名实体链接系统返回</p>
-<h2 id="抽取器比较">抽取器比较</h2>
-<p>通过为不同的方法计算AOC曲线，来进行比较</p>
-<p><img src="https://img-blog.csdnimg.cn/2d956601fd884690917e3afe47e7c77c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>从抽取的数量，以及抽取的三元组的正确度，进行比较后得出，DOM抽取器的表现最好</p>
-<h2 id="抽取器结果合并">抽取器结果合并</h2>
-<p>为每一个三元组<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>p</mi><mo separator="true">,</mo><mi>o</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">t = (s, p, o)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">o</span><span class="mclose">)</span></span></span></span>建立特征向量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></p>
-<p>特征向量由两个值组成：</p>
-<ol>
-<li>抽取这个三元组所用到的源数据的数量的平方根</li>
-<li>抽取三元组用到的所有源数据抽取器打分的平均分</li>
-</ol>
-<h1>基于图的先验概念计算(Priors)</h1>
-<p>Web上抽取的事实可能是不正确的，我们用Freebase上面已经存在的三元组来拟合一个先验模型，这个模型能够计算任何给定的三元组的正确概率，即使之前在Freebase里面不存在。下面给出两种算法：</p>
-<h2 id="路径排序算法">路径排序算法</h2>
-<p>Path ranking algorithm (PRA)</p>
-<p>在实体集合中，对于每个s，从s开始在图里面随机地walk，如果能够到对应地o，我们就把这个路径记下来，这可以看作是一种规则（rule）。<br>
-<img src="https://img-blog.csdnimg.cn/d8a43a34b42a4cd6a92725aacdda9f8c.png#pic_center" alt="在这里插入图片描述"><br>
-<img src="https://img-blog.csdnimg.cn/00ee1087e00145c396e801458a7249c5.png#pic_center" alt="在这里插入图片描述"></p>
-<p>每一个实体对都会有很多这样的rule，我们拟合一个二分类器来合并这些路径（得到公共路径）。这个时候我们成功地把一个确定的关系（谓词）p转化为了很多这样的路径，然后再训练一个分类器，以这些路径为特征，来推导谓词p。每个谓词p，都训练一个分类器。</p>
-<h2 id="Neural-network-model-MLP">Neural network model (MLP)</h2>
-<p>作者为每一个谓词关联了一个向量，不同于常规方法的是，使用了一个标准的多元感知层来捕获交互信息，计算三元组的概率<br>
-<img src="https://img-blog.csdnimg.cn/10314d9968ad4bf4b1c28a04cb818122.png#pic_center" alt="在这里插入图片描述"></p>
-<p>其中A向量为L x (3K)的矩阵，3K同时是u,w,v的维度，以此来作为第一层的权重</p>
-<p>β为L x 1 的向量，作为第二层的权重。</p>
-<p>作者令L=K=60，最后参数的时间复杂度为O(L+LK+KE+KP)</p>
-<p>经过实验，MLP和PRA取得了一样的效果。</p>
-<h1>Extractors + Priors</h1>
-<p><img src="https://img-blog.csdnimg.cn/b6c4822c5c65411eb10f9fadc04026e7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>这里的抽取器与先验概率模型合并的方法，与上文的抽取器结果合并方法相同。通过文中Figure 4的图像我们得出，两个模型合并后取得了显著的效果。<br>
-<img src="https://img-blog.csdnimg.cn/4e5b322c94a144dfb178f53eabf40f2e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
-<p>图中的横坐标表示估计的三元组的正确的概率</p>
-<p>纵坐标对应其三元组的个数，从图中得出以下结论：</p>
-<ul>
-<li>不确定的三元组的数量下降</li>
-<li>提高高可信度事实的数量</li>
-</ul>
-<h1>思考</h1>
-<p>关于知识图谱的思考，下面这些问题还未有很好的解决方案，仍在探索中</p>
-<ol>
-<li>事实之间的<strong>互斥性</strong>：字面意思说是互斥性，在实际的例子中更准确的表达是事实并不一定是互斥的，也有可能是包含关系。例如，我们可能有一个事实，说奥巴马出生在檀香山，另一个说他出生在夏威夷，这些并不是相互排斥的</li>
-<li>事实之间的<strong>软相关性</strong>：我们预计一个人的出生日期比他们孩子的出生日期早15到50年</li>
-<li>值可以在多个抽象层次上表示：我们可以不同的<strong>粒度</strong>上表示世界，也就是宏观和微观。这同时也解决了上述提到的事实之间的互斥性</li>
-<li>事实的<strong>时效性</strong>：有些事实只是暂时的。例如，谷歌的现任CEO是拉里•佩奇，但从2001年到2011年，CEO是埃里克•施密特。这两个事实都是正确的，但只是在指定的时间间隔内。</li>
-<li>添加<strong>新</strong>的实体和关系：添加新的实体所带来的冗余和同义关系</li>
-</ol>
-<h1>总结</h1>
-<p>在本文中，作者描述了如何构建一个web规模的概率知识库，称之为知识库。</p>
-<p>与以前的工作相比，作者将多个提取源与从现有知识库中（<em>如 FB</em>）获得的<strong>先验知识融合</strong>在一起。得到的知识库大约是现有自动构造的知识库的38倍。</p>
-<p>作者希望在未来，能够继续扩大KV，存储更多关于世界的知识，并利用这个资源来帮助各种下游应用，如问题解答、基于实体的搜索等。</p>
-]]></content>
-      <categories>
-        <category>KG</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文阅读Neural Association Models</title>
     <url>/2021/12/03/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBNeural%20Association%20Models/</url>
     <content><![CDATA[<h1>论文题目归属及框架</h1>
@@ -1489,6 +1363,132 @@ Maven 3.8.1</p>
         <tag>算法</tag>
         <tag>C++</tag>
         <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>论文阅读Knowledge Vault</title>
+    <url>/2021/11/25/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BBKnowledge%20Vault/</url>
+    <content><![CDATA[<h1>题目归属及框架</h1>
+<p><img src="https://img-blog.csdnimg.cn/7fb48eac4a8641b6b70a02ead96decb4.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/160789c05d3c4cdfb0b00f3f23bd33a1.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/833a0d828acf4b968e9e77d300fd0482.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h1>前言</h1>
+<p>谷歌公司正在打造人类历史上最大的知识库<code>Knowledge Vault</code></p>
+<p>这个被冠以<code>Knowledge Vault</code>之名的知识库无需任何人工干预，就能<strong>自动搜集</strong>源自互联网的信息并将其整合成单一的事实库，内容涉及世界、人物以及相关对象。这种知识采集机制达到的广度和精度，正在日益成为各种便于机器人和智能手机理解人们对其提问的系统的基础。它有望让“谷歌”超越搜索引擎功能，像“甲骨文”（Oracle）数据库那样回答问题，甚至还能从新的视角来考察人类历史。</p>
+<p>这在篇文章中，作者分析了knowledge vault(KV)知识库这一自动化的过程是如何运转的。</p>
+<h1>概述</h1>
+<p>当今世界上已经存在了很多成熟的知识库，但要使知识库的规模更大，需要探索一种自动化的方法来构建数据库。因此，作者在本文提出了一种<u>web规模的概率知识融合方法</u>，将从web上抽取的资源与现有的知识库（如freebase）相结合，并使用了<strong>监督学习</strong>。正因如此，KV的规模以以往的知识库都要来的大。</p>
+<p>关键词：知识库；知识抽取；概率方法；机器学习</p>
+<h1>动机</h1>
+<ul>
+<li>
+<p>现有的知识库虽然到达了比较大的规模，但仍具有<u>不完整性</u>，例如Freebase中，71%的人没有出生地。</p>
+</li>
+<li>
+<p>直接从web资源上摘录下来的信息，具有较大的<u>噪声</u>，数据无法直接利用，有很多可信度不高。</p>
+</li>
+</ul>
+<h1>贡献</h1>
+<ol>
+<li>使用已有知识库里的先验知识，与web上爬取下来的带有噪声的数据相结合。利用已有的三元组，经过知识推理判断新三元组的正确性，<strong>先验概率模型</strong>的出现解决了抽取过程中出现错误的问题。</li>
+<li>KV的规模比相同的知识库大。</li>
+<li>对不同的抽取方法及先验概率方法进行了详细的比较。</li>
+</ol>
+<h1>KV组件</h1>
+<ul>
+<li>抽取器<strong>Extractors</strong>：负责从web资源抽取知识，每个抽取器会对实体分配一个置信分数，以此表明该三元组的正确率</li>
+<li>基于图的先验概率模型<strong>Graph-based priors</strong>：负责基于已有的知识库，来计算每个三元组的先验概率</li>
+<li>知识融合<strong>Knowledge fusion</strong>：负责基于抽取器和先验概率模型，计算三元组的正确的概率</li>
+</ul>
+<p>s subject，p predictate</p>
+<p>o object，G ExPxE的三维矩阵</p>
+<p>当G(s,p,o)=1时，表示为正三元组</p>
+<p>Pr(G(s, p, o) = 1|·) 计算其正确概率</p>
+<h1>Local closed world assumption(LCWA)</h1>
+<p>这是KV知识库的底层假设，所有的抽取和概率计算基于它，内容如下：</p>
+<blockquote>
+<p>O(s,p) as the set of existing object values for a given s and p.<br>
+给定一个(s,p,o)，如果(s,p,o) ∈ O(s,p)，则它是正确的<br>
+如果 (s,p,o) !∈ O(s,p)并且 |O(s,p)| &gt; 0，则它是错误的<br>
+如果|O(s,p)| = 0，我们就不打标签并把(s,p,o)扔出训练和测试集</p>
+</blockquote>
+<h1>抽取器(Extractors)</h1>
+<h2 id="抽取方法">抽取方法</h2>
+<h3 id="Text-documents-TXT">Text documents(TXT)</h3>
+<ol>
+<li>运行一套标准的NLP工具，做命名实体识别，词类标注，依赖分析和实体链接</li>
+<li>用远程监督训练关系抽取器。对每一个感兴趣的谓词，从现有知识库提取含有这个谓词的实体对。然后在txt中进行匹配，抽取句子的特征和模式。</li>
+</ol>
+<p>为每一个谓词用逻辑回归拟合一个分类器：</p>
+<p>输入：含有该谓词的sentences的features和patterns</p>
+<p>训练集：根据LCWA进行标注的sentences</p>
+<h3 id="HTML-trees-DOM">HTML trees (DOM)</h3>
+<p>输入：实体特征向量的词汇化路径</p>
+<p>输出：被抽取三元组的得分</p>
+<h3 id="HTML-tables-TBL">HTML tables (TBL)</h3>
+<ol>
+<li>执行了一个命名实体链接</li>
+<li>用已有的知识库，识别表格中每一列实体的关系。模棱两可的列将被直接的抛弃。</li>
+<li>被抽取三元组的得分由命名实体链接系统返回</li>
+</ol>
+<h3 id="Human-Annotated-pages-ANO">Human Annotated pages(ANO)</h3>
+<p><a href="http://xn--schema-vp7i3lqe9zyy410cmfx899fkz4c85a.org">为不同的谓词定义了从schema.org</a>（语义库）到FB的手工映射。</p>
+<p>被抽取三元组的得分由命名实体链接系统返回</p>
+<h2 id="抽取器比较">抽取器比较</h2>
+<p>通过为不同的方法计算AOC曲线，来进行比较</p>
+<p><img src="https://img-blog.csdnimg.cn/2d956601fd884690917e3afe47e7c77c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>从抽取的数量，以及抽取的三元组的正确度，进行比较后得出，DOM抽取器的表现最好</p>
+<h2 id="抽取器结果合并">抽取器结果合并</h2>
+<p>为每一个三元组<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><mo stretchy="false">(</mo><mi>s</mi><mo separator="true">,</mo><mi>p</mi><mo separator="true">,</mo><mi>o</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">t = (s, p, o)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">s</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">o</span><span class="mclose">)</span></span></span></span>建立特征向量<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(t)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span></span></span></span></p>
+<p>特征向量由两个值组成：</p>
+<ol>
+<li>抽取这个三元组所用到的源数据的数量的平方根</li>
+<li>抽取三元组用到的所有源数据抽取器打分的平均分</li>
+</ol>
+<h1>基于图的先验概念计算(Priors)</h1>
+<p>Web上抽取的事实可能是不正确的，我们用Freebase上面已经存在的三元组来拟合一个先验模型，这个模型能够计算任何给定的三元组的正确概率，即使之前在Freebase里面不存在。下面给出两种算法：</p>
+<h2 id="路径排序算法">路径排序算法</h2>
+<p>Path ranking algorithm (PRA)</p>
+<p>在实体集合中，对于每个s，从s开始在图里面随机地walk，如果能够到对应地o，我们就把这个路径记下来，这可以看作是一种规则（rule）。<br>
+<img src="https://img-blog.csdnimg.cn/d8a43a34b42a4cd6a92725aacdda9f8c.png#pic_center" alt="在这里插入图片描述"><br>
+<img src="https://img-blog.csdnimg.cn/00ee1087e00145c396e801458a7249c5.png#pic_center" alt="在这里插入图片描述"></p>
+<p>每一个实体对都会有很多这样的rule，我们拟合一个二分类器来合并这些路径（得到公共路径）。这个时候我们成功地把一个确定的关系（谓词）p转化为了很多这样的路径，然后再训练一个分类器，以这些路径为特征，来推导谓词p。每个谓词p，都训练一个分类器。</p>
+<h2 id="Neural-network-model-MLP">Neural network model (MLP)</h2>
+<p>作者为每一个谓词关联了一个向量，不同于常规方法的是，使用了一个标准的多元感知层来捕获交互信息，计算三元组的概率<br>
+<img src="https://img-blog.csdnimg.cn/10314d9968ad4bf4b1c28a04cb818122.png#pic_center" alt="在这里插入图片描述"></p>
+<p>其中A向量为L x (3K)的矩阵，3K同时是u,w,v的维度，以此来作为第一层的权重</p>
+<p>β为L x 1 的向量，作为第二层的权重。</p>
+<p>作者令L=K=60，最后参数的时间复杂度为O(L+LK+KE+KP)</p>
+<p>经过实验，MLP和PRA取得了一样的效果。</p>
+<h1>Extractors + Priors</h1>
+<p><img src="https://img-blog.csdnimg.cn/b6c4822c5c65411eb10f9fadc04026e7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>这里的抽取器与先验概率模型合并的方法，与上文的抽取器结果合并方法相同。通过文中Figure 4的图像我们得出，两个模型合并后取得了显著的效果。<br>
+<img src="https://img-blog.csdnimg.cn/4e5b322c94a144dfb178f53eabf40f2e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_19,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<p>图中的横坐标表示估计的三元组的正确的概率</p>
+<p>纵坐标对应其三元组的个数，从图中得出以下结论：</p>
+<ul>
+<li>不确定的三元组的数量下降</li>
+<li>提高高可信度事实的数量</li>
+</ul>
+<h1>思考</h1>
+<p>关于知识图谱的思考，下面这些问题还未有很好的解决方案，仍在探索中</p>
+<ol>
+<li>事实之间的<strong>互斥性</strong>：字面意思说是互斥性，在实际的例子中更准确的表达是事实并不一定是互斥的，也有可能是包含关系。例如，我们可能有一个事实，说奥巴马出生在檀香山，另一个说他出生在夏威夷，这些并不是相互排斥的</li>
+<li>事实之间的<strong>软相关性</strong>：我们预计一个人的出生日期比他们孩子的出生日期早15到50年</li>
+<li>值可以在多个抽象层次上表示：我们可以不同的<strong>粒度</strong>上表示世界，也就是宏观和微观。这同时也解决了上述提到的事实之间的互斥性</li>
+<li>事实的<strong>时效性</strong>：有些事实只是暂时的。例如，谷歌的现任CEO是拉里•佩奇，但从2001年到2011年，CEO是埃里克•施密特。这两个事实都是正确的，但只是在指定的时间间隔内。</li>
+<li>添加<strong>新</strong>的实体和关系：添加新的实体所带来的冗余和同义关系</li>
+</ol>
+<h1>总结</h1>
+<p>在本文中，作者描述了如何构建一个web规模的概率知识库，称之为知识库。</p>
+<p>与以前的工作相比，作者将多个提取源与从现有知识库中（<em>如 FB</em>）获得的<strong>先验知识融合</strong>在一起。得到的知识库大约是现有自动构造的知识库的38倍。</p>
+<p>作者希望在未来，能够继续扩大KV，存储更多关于世界的知识，并利用这个资源来帮助各种下游应用，如问题解答、基于实体的搜索等。</p>
+]]></content>
+      <categories>
+        <category>KG</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -2772,6 +2772,9 @@ Maven 3.8.1</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">6010</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> h[N], e[N], ne[N], idx;</span><br><span class="line"><span class="keyword">int</span> happy[N];</span><br><span class="line"><span class="keyword">bool</span> st[N];</span><br><span class="line"><span class="keyword">int</span> f[N][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">    f[u][<span class="number">1</span>] = happy[u];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i]) &#123;</span><br><span class="line">        <span class="keyword">int</span> j = e[i];</span><br><span class="line">        dfs(j);</span><br><span class="line">        <span class="comment">// 上司不去舞会</span></span><br><span class="line">        f[u][<span class="number">0</span>] += max(f[j][<span class="number">0</span>], f[j][<span class="number">1</span>]);</span><br><span class="line">        <span class="comment">// 上司去舞会</span></span><br><span class="line">        f[u][<span class="number">1</span>] += f[j][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cin</span> &gt;&gt; happy[i];</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        st[a] = <span class="literal">true</span>;</span><br><span class="line">        add(b, a);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> root = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(st[root]) root++;</span><br><span class="line">    dfs(root);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max(f[root][<span class="number">0</span>], f[root][<span class="number">1</span>]) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.acwing.com/problem/content/description/287/">285.没有上司的舞会</a></p>
 <h2 id="翻转树边-换根DP">翻转树边(换根DP)</h2>
+<blockquote>
+<p>Keywords: 数组模拟邻接表，树形DP</p>
+</blockquote>
 <p><a href="https://www.acwing.com/problem/content/description/4384/">第一届ACC决赛-翻转树边(原题链接)</a></p>
 <p>给定一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> 个节点的树。</p>
 <p>节点编号为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>∼</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1∼n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∼</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>。</p>
