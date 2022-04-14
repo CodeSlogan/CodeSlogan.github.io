@@ -102,43 +102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git配置</title>
-    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
-<a id="more"></a>
-<h1>版本控制工具</h1>
-<p>大致分为3种</p>
-<h2 id="本地版本控制">本地版本控制</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
-<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
-<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
-<h1>Git环境配置</h1>
-<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
-<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
-<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
-<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH公钥">SSH公钥</h2>
-<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
-<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
-<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
-<h1>Git的工作流程</h1>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
-<h1>致谢</h1>
-<p>狂神说</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -265,6 +228,43 @@
       </categories>
       <tags>
         <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git配置</title>
+    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
+<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<a id="more"></a>
+<h1>版本控制工具</h1>
+<p>大致分为3种</p>
+<h2 id="本地版本控制">本地版本控制</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
+<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
+<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
+<h1>Git环境配置</h1>
+<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
+<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
+<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
+<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+<h2 id="SSH公钥">SSH公钥</h2>
+<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
+<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
+<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
+<h1>Git的工作流程</h1>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
+<h1>致谢</h1>
+<p>狂神说</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -404,6 +404,87 @@
       </tags>
   </entry>
   <entry>
+    <title>Java上转型对象</title>
+    <url>/2021/10/02/Java%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1>对象转换概念</h1>
+<p>不同类型的基本数据类型变量之间可以进行类型转换（自动转换与强制转换），在Java中对于具有继承关系的对象类型也可以进行转换。Java允许父类类型的引用变量直接引用子类类型的对象。<br>
+<br></p>
+<h1>上转型对象</h1>
+<p>假设，A类是B类的父类，当用子类创建一个对象，并把这个对象的引用放到父类的对象中时，称对象a是对象b的上转型对象。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
+<br>
+<h1>要点分析</h1>
+<h2 id="子类新增">子类新增</h2>
+<ul>
+<li>上转型对象不能访问子类新增的数据域；不能直接访问子类新增的方法（子类中定义的覆盖、隐藏方法不算新增）。只有当对象类型强制转换为子类类型，才能进行相应的调用</li>
+</ul>
+<p><code>Example5_10.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Monkey</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crawl</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;crawling&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> <span class="keyword">extends</span> <span class="title">Monkey</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d =<span class="number">0</span>; <span class="comment">//子类新增的数据域</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">computer</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123; <span class="comment">//子类新增的方法</span></span><br><span class="line">        <span class="keyword">int</span> c=a*b;</span><br><span class="line">        System.out.println(c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;***&quot;</span>+s+<span class="string">&quot;***&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example5_10</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Monkey monkey = <span class="keyword">new</span> People();</span><br><span class="line">        monkey.crySpeak(<span class="string">&quot;I love this game&quot;</span>); <span class="comment">//调用子类，重写不算新增</span></span><br><span class="line">        monkey.crawl();</span><br><span class="line">        <span class="comment">//monkey.computer(10,10); //上转型后，子类新增的方法失去</span></span><br><span class="line">        <span class="comment">//System.out.println(monkey.d);//上转型后，子类新增的变量失去</span></span><br><span class="line">        People people = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (monkey <span class="keyword">instanceof</span> People) </span><br><span class="line">            <span class="comment">// instanceof判断money是否为People类所创建的对象</span></span><br><span class="line">            people=(People)monkey; <span class="comment">//把上转型对象强制转化为子类的对象</span></span><br><span class="line">        people.computer(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">        System.out.println(people.d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">***I love this game***</span><br><span class="line">crawling</span><br><span class="line">100</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>在上述的例子中，父类为<code>Monkey</code>，子类为<code>People</code>。其中，在子类中，<code>int d</code>为新增变量，<code>computer</code>为新增方法，因此上转型对象无法直接调用这两个。强制转换为子类类型后，才能正常调用。</p>
+<h2 id="覆盖隐藏">覆盖隐藏</h2>
+<ul>
+<li>上转型对象可以访问子类从父类继承来的数据域、方法或子类中对父类覆盖重写的<strong>实例方法</strong>，但不能直接访问子类中对父类<strong>隐藏重写</strong>的静态方法和对父类隐藏定义的数据域。</li>
+<li>如果子类覆盖了父类的某个实例方法后，当用上转型对象调用这个实例方法时，一定是调用<strong>子类</strong>中的这个<strong>实例</strong>方法。</li>
+<li>如果子类隐藏了父类的某个静态方法后，当用上转型对象调用这个静态方法时，一定是调用<strong>父类</strong>中的这个<strong>静态</strong>方法，而不是子类中的这个静态方法，输出的值若为静态变量也应该是父类中的静态变量。</li>
+</ul>
+<p><code>MethodOverride.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Child c=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(c.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent p=<span class="keyword">new</span> Parent();</span><br><span class="line">        System.out.println(p.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent pc=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(pc.getClassName());</span><br><span class="line">        System.out.println(pc.getX());</span><br><span class="line">        System.out.println(pc.getZ());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z = <span class="number">10</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Parent!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> y =<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z =<span class="number">11</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(x+<span class="string">&quot; &quot;</span>+y);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Child!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">----------------</span><br><span class="line">this is Parent!</span><br><span class="line">----------------</span><br><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">6</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>在上述<code>MethodOverride</code>文件中，父类为<code>Parent</code>，子类为<code>Child</code>。前两个对象为具体类的实例化，因此调用的是自己所属类的实例方法。<br>
+第三个为上转型对象，<code>getClassName()</code>是对父类的重写方法，因此调用的是子类的<code>getClassName()</code>，由于是子类的方法，所以方法中的x,y为间接访问数据域也为子类的。<code>getX()</code>也是一个道理。<br>
+<code>getZ()</code>为静态方法，子类虽然对静态变量及静态方法进行了隐藏，但无法直接访问。根据静态调用看左边的原则，调用的应该是父类的<code>getZ()</code>，z值也为父类的数据域。</p>
+<h2 id="数据域">数据域</h2>
+<ul>
+<li>子类从父类继承来的方法如果没有被覆盖或隐藏，此方法中如果存在成员变量调用，则此调用是针对父类的成员变量的调用。</li>
+</ul>
+<p><code>HidingDemo.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HidingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A  x = <span class="keyword">new</span> B();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1) x.i is &quot;</span> + x.i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2) (B)x.i is &quot;</span> + ((B)x).i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3) x.j is &quot;</span> + x.j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(4) ((B)x).j is &quot;</span> + ((B)x).j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(5) x.m1() is &quot;</span> + x.m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6) ((B)x).m1() is &quot;</span> + ((B)x).m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7) x.m2() is &quot;</span> + x.m2());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8) x.m3() is &quot;</span> + x.m3());</span><br><span class="line">        System.out.println(<span class="string">&quot;(9) x.z is &quot;</span> + x.z);</span><br><span class="line">        System.out.println(<span class="string">&quot;(10) x.w is &quot;</span> + x.w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> z = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> w = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m3&quot;</span> + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1) x.i is 1</span><br><span class="line">&#x2F;&#x2F;上转型对象实例数据域看父类</span><br><span class="line">(2) (B)x.i is 2</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(3) x.j is 11</span><br><span class="line">&#x2F;&#x2F;上转型对象静态数据域看父类</span><br><span class="line">(4) ((B)x).j is 12</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(5) x.m1() is A&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;静态方法看父类（左）</span><br><span class="line">(6) ((B)x).m1() is B&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(7) x.m2() is B&#39;s instance m2</span><br><span class="line">&#x2F;&#x2F;实例方法重写，看子类</span><br><span class="line">(8) x.m3() is A&#39;s instance m3 11</span><br><span class="line">&#x2F;&#x2F;继承来的方法，子类没有其对应的重写，结果看父类</span><br><span class="line">&#x2F;&#x2F;若其中有涉及数据域，无论是静态数据，还是实例数据，都应该是父类的数据域</span><br><span class="line">(9) x.z is 3</span><br><span class="line">&#x2F;&#x2F;显而易见，继承而来的实例数据</span><br><span class="line">(10) x.z is 13</span><br><span class="line">&#x2F;&#x2F;继承而来的静态数据</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<ol>
+<li>继承而来（子类没有对其进行额外的操作），全部看父类的内容</li>
+<li>强转后，无条件看强转后的内容</li>
+<li>数据域默认看的是父类</li>
+<li>如果调用了上转型对象调用了父类的方法，那么对应的数据，也应该是父类的数据，即使子类对变量进行了覆盖</li>
+</ol>
+<h2 id="不变的强转">不变的强转</h2>
+<p>上转型对象即使采用父类做一个强制转换，所访问到的被覆盖的实例方法依旧是子类的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br><span class="line">a.getX();</span><br><span class="line">((A)a).getX(); <span class="comment">//a.getX();</span></span><br></pre></td></tr></table></figure>
+<p>简单来说就是，原来它的类型本来就是A，再转为A相当于没转。</p>
+<p><code>TestChange.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestChange</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal x=<span class="keyword">new</span> Tiger();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1):x.news is &quot;</span>+x.news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2):((Tiger)x).news is &quot;</span>+((Tiger)x).news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3):x.smile() is &quot;</span>+x.smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(4):((Tiger)x).smile() is &quot;</span>+((Tiger)x).smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(5):((Animal)x).getNews() is &quot;</span>+((Animal)x).getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6):x.getNews() is &quot;</span>+x.getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7):x.getMessage() is &quot;</span>+x.getMessage());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8):((Tiger)x).eat() is &quot;</span>+((Tiger)x).eat());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Animal&#x27;s news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Animal&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Animal&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Tiger&#x27;s  news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Tiger&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123; <span class="comment">//隐藏</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Tiger&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123; <span class="comment">//覆盖</span></span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//新增的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">eat</span><span class="params">()</span></span>&#123; <span class="comment">//新</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;need eat meat&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1):x.news is Animal&#39;s news</span><br><span class="line">&#x2F;&#x2F; 默认访问父类的成员变量</span><br><span class="line">(2):((Tiger)x).news is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(3):x.smile() is smile from Animal</span><br><span class="line">&#x2F;&#x2F; 静态方法看左</span><br><span class="line">(4):((Tiger)x).smile() is smile from Tiger</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(5):((Animal)x).getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 不变的强转,易错点</span><br><span class="line">(6):x.getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 5与6是等效的</span><br><span class="line">(7):x.getMessage() is Animal&#39;s message</span><br><span class="line">&#x2F;&#x2F; 继承来的方法，访问变量看的是父类</span><br><span class="line">(8):((Tiger)x).eat() is need eat meat</span><br><span class="line">&#x2F;&#x2F; 访问子类新增需要强转</span><br></pre></td></tr></table></figure>
+<p>经过上面的沉淀，到这里应该没有问题了，有问题底下留言</p>
+<h1>动态绑定机制</h1>
+<p><code>DynamicBindingDemo.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicBindingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        m(<span class="keyword">new</span> GraduateStudent());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Student());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Person());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Object());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">(Object x)</span> </span>&#123;</span><br><span class="line">        System.out.println(x.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Object</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraduateStudent</span> <span class="keyword">extends</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这道题要注意分析题目，不要看成构造函数。<code>m()</code>方法本质上是调用了每个类中的<code>toString()</code>，根据继承关系分析<code>toString()</code>方法来自哪个类就能得出答案。GraduateStudent是Student的子类，Student是Person的子类，Person是Object的子类。在调用<code>toString()</code>方法时，如果创建的是GraduateStudent的一个实例，JVM会依次在类GraduateStudent，Student，Person中查找<code>toString()</code>方法的实现，一旦找到一个，就停止查找，然后调用这个先找到的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Person</span><br><span class="line">-----</span><br><span class="line">java.lang.Object@12a3a380</span><br></pre></td></tr></table></figure>
+<h1>构造方法链</h1>
+<p>定义：Java中，用子类构造一个实例对象时，系统会自行在执行子类的构造方法前沿着继承链依次调用所有父类的无参构造方法（按继承关系由其顶层父类至当前子类依次调用，无论其是否在子类的构造方法中被显式调用），这称为构造方法链。</p>
+<p>本小节讨论的是上转型对象的构造方法，以及构造方法调用实例方法所出现的情况，具体如下：</p>
+<p><code>TestC.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  value = <span class="number">5</span>;</span><br><span class="line">    A( ) &#123;</span><br><span class="line">        setValue(<span class="number">10</span>);</span><br><span class="line">        System.out.println( <span class="string">&quot;A:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">2</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    B( ) &#123;</span><br><span class="line">        <span class="comment">//super();</span></span><br><span class="line">        System.out.println( <span class="string">&quot;B:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">5</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestC</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[ ] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">new</span> A( );</span><br><span class="line">        <span class="keyword">new</span> B( );</span><br><span class="line">        A c =<span class="keyword">new</span> B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行答案如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A:20</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br></pre></td></tr></table></figure>
+<p>刚刚接触这道题我是有点意外的，没想到Java还能这么考，感觉自己平常学的Java和老师教的Java不是一个东西，但是还是得默默承受(4.0 yyds！！！) 话不多说，进入正题</p>
+<ul>
+<li>第一值输出为20，创建的是父类对象，调用其构造方法+实例方法，结果无需多言</li>
+<li>第二组为两个50，在创建<code>B</code>对象时，因为它是<code>A</code>类的子类，默认会先调用A的构造方法。但是在A的构造方法中，调用了个实例方法。根据前面的知识我们知道，<strong>如果子类对父类的实例方法进行了重写覆盖，那么优先调用的应该是子类的实例方法</strong>，所以<code>value</code>值为50。</li>
+<li>第三组的答案与第二组相同，道理同上，作为上转型只是一个障眼法。</li>
+</ul>
+<h1>参考资料</h1>
+<p><a href="https://hd.hainanu.edu.cn/cs/info/1019/1026.htm">某海大某张姓老师</a></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Matlab笔记</title>
     <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1>基本操作</h1>
@@ -483,87 +564,6 @@
 ]]></content>
       <tags>
         <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java上转型对象</title>
-    <url>/2021/10/02/Java%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h1>对象转换概念</h1>
-<p>不同类型的基本数据类型变量之间可以进行类型转换（自动转换与强制转换），在Java中对于具有继承关系的对象类型也可以进行转换。Java允许父类类型的引用变量直接引用子类类型的对象。<br>
-<br></p>
-<h1>上转型对象</h1>
-<p>假设，A类是B类的父类，当用子类创建一个对象，并把这个对象的引用放到父类的对象中时，称对象a是对象b的上转型对象。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
-<br>
-<h1>要点分析</h1>
-<h2 id="子类新增">子类新增</h2>
-<ul>
-<li>上转型对象不能访问子类新增的数据域；不能直接访问子类新增的方法（子类中定义的覆盖、隐藏方法不算新增）。只有当对象类型强制转换为子类类型，才能进行相应的调用</li>
-</ul>
-<p><code>Example5_10.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Monkey</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crawl</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;crawling&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> <span class="keyword">extends</span> <span class="title">Monkey</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d =<span class="number">0</span>; <span class="comment">//子类新增的数据域</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">computer</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123; <span class="comment">//子类新增的方法</span></span><br><span class="line">        <span class="keyword">int</span> c=a*b;</span><br><span class="line">        System.out.println(c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;***&quot;</span>+s+<span class="string">&quot;***&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example5_10</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Monkey monkey = <span class="keyword">new</span> People();</span><br><span class="line">        monkey.crySpeak(<span class="string">&quot;I love this game&quot;</span>); <span class="comment">//调用子类，重写不算新增</span></span><br><span class="line">        monkey.crawl();</span><br><span class="line">        <span class="comment">//monkey.computer(10,10); //上转型后，子类新增的方法失去</span></span><br><span class="line">        <span class="comment">//System.out.println(monkey.d);//上转型后，子类新增的变量失去</span></span><br><span class="line">        People people = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (monkey <span class="keyword">instanceof</span> People) </span><br><span class="line">            <span class="comment">// instanceof判断money是否为People类所创建的对象</span></span><br><span class="line">            people=(People)monkey; <span class="comment">//把上转型对象强制转化为子类的对象</span></span><br><span class="line">        people.computer(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">        System.out.println(people.d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">***I love this game***</span><br><span class="line">crawling</span><br><span class="line">100</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p>在上述的例子中，父类为<code>Monkey</code>，子类为<code>People</code>。其中，在子类中，<code>int d</code>为新增变量，<code>computer</code>为新增方法，因此上转型对象无法直接调用这两个。强制转换为子类类型后，才能正常调用。</p>
-<h2 id="覆盖隐藏">覆盖隐藏</h2>
-<ul>
-<li>上转型对象可以访问子类从父类继承来的数据域、方法或子类中对父类覆盖重写的<strong>实例方法</strong>，但不能直接访问子类中对父类<strong>隐藏重写</strong>的静态方法和对父类隐藏定义的数据域。</li>
-<li>如果子类覆盖了父类的某个实例方法后，当用上转型对象调用这个实例方法时，一定是调用<strong>子类</strong>中的这个<strong>实例</strong>方法。</li>
-<li>如果子类隐藏了父类的某个静态方法后，当用上转型对象调用这个静态方法时，一定是调用<strong>父类</strong>中的这个<strong>静态</strong>方法，而不是子类中的这个静态方法，输出的值若为静态变量也应该是父类中的静态变量。</li>
-</ul>
-<p><code>MethodOverride.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Child c=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(c.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent p=<span class="keyword">new</span> Parent();</span><br><span class="line">        System.out.println(p.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent pc=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(pc.getClassName());</span><br><span class="line">        System.out.println(pc.getX());</span><br><span class="line">        System.out.println(pc.getZ());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z = <span class="number">10</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Parent!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> y =<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z =<span class="number">11</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(x+<span class="string">&quot; &quot;</span>+y);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Child!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">----------------</span><br><span class="line">this is Parent!</span><br><span class="line">----------------</span><br><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">6</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
-<p>在上述<code>MethodOverride</code>文件中，父类为<code>Parent</code>，子类为<code>Child</code>。前两个对象为具体类的实例化，因此调用的是自己所属类的实例方法。<br>
-第三个为上转型对象，<code>getClassName()</code>是对父类的重写方法，因此调用的是子类的<code>getClassName()</code>，由于是子类的方法，所以方法中的x,y为间接访问数据域也为子类的。<code>getX()</code>也是一个道理。<br>
-<code>getZ()</code>为静态方法，子类虽然对静态变量及静态方法进行了隐藏，但无法直接访问。根据静态调用看左边的原则，调用的应该是父类的<code>getZ()</code>，z值也为父类的数据域。</p>
-<h2 id="数据域">数据域</h2>
-<ul>
-<li>子类从父类继承来的方法如果没有被覆盖或隐藏，此方法中如果存在成员变量调用，则此调用是针对父类的成员变量的调用。</li>
-</ul>
-<p><code>HidingDemo.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HidingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A  x = <span class="keyword">new</span> B();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1) x.i is &quot;</span> + x.i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2) (B)x.i is &quot;</span> + ((B)x).i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3) x.j is &quot;</span> + x.j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(4) ((B)x).j is &quot;</span> + ((B)x).j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(5) x.m1() is &quot;</span> + x.m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6) ((B)x).m1() is &quot;</span> + ((B)x).m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7) x.m2() is &quot;</span> + x.m2());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8) x.m3() is &quot;</span> + x.m3());</span><br><span class="line">        System.out.println(<span class="string">&quot;(9) x.z is &quot;</span> + x.z);</span><br><span class="line">        System.out.println(<span class="string">&quot;(10) x.w is &quot;</span> + x.w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> z = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> w = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m3&quot;</span> + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1) x.i is 1</span><br><span class="line">&#x2F;&#x2F;上转型对象实例数据域看父类</span><br><span class="line">(2) (B)x.i is 2</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(3) x.j is 11</span><br><span class="line">&#x2F;&#x2F;上转型对象静态数据域看父类</span><br><span class="line">(4) ((B)x).j is 12</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(5) x.m1() is A&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;静态方法看父类（左）</span><br><span class="line">(6) ((B)x).m1() is B&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(7) x.m2() is B&#39;s instance m2</span><br><span class="line">&#x2F;&#x2F;实例方法重写，看子类</span><br><span class="line">(8) x.m3() is A&#39;s instance m3 11</span><br><span class="line">&#x2F;&#x2F;继承来的方法，子类没有其对应的重写，结果看父类</span><br><span class="line">&#x2F;&#x2F;若其中有涉及数据域，无论是静态数据，还是实例数据，都应该是父类的数据域</span><br><span class="line">(9) x.z is 3</span><br><span class="line">&#x2F;&#x2F;显而易见，继承而来的实例数据</span><br><span class="line">(10) x.z is 13</span><br><span class="line">&#x2F;&#x2F;继承而来的静态数据</span><br></pre></td></tr></table></figure>
-<p>总结：</p>
-<ol>
-<li>继承而来（子类没有对其进行额外的操作），全部看父类的内容</li>
-<li>强转后，无条件看强转后的内容</li>
-<li>数据域默认看的是父类</li>
-<li>如果调用了上转型对象调用了父类的方法，那么对应的数据，也应该是父类的数据，即使子类对变量进行了覆盖</li>
-</ol>
-<h2 id="不变的强转">不变的强转</h2>
-<p>上转型对象即使采用父类做一个强制转换，所访问到的被覆盖的实例方法依旧是子类的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br><span class="line">a.getX();</span><br><span class="line">((A)a).getX(); <span class="comment">//a.getX();</span></span><br></pre></td></tr></table></figure>
-<p>简单来说就是，原来它的类型本来就是A，再转为A相当于没转。</p>
-<p><code>TestChange.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestChange</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal x=<span class="keyword">new</span> Tiger();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1):x.news is &quot;</span>+x.news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2):((Tiger)x).news is &quot;</span>+((Tiger)x).news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3):x.smile() is &quot;</span>+x.smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(4):((Tiger)x).smile() is &quot;</span>+((Tiger)x).smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(5):((Animal)x).getNews() is &quot;</span>+((Animal)x).getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6):x.getNews() is &quot;</span>+x.getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7):x.getMessage() is &quot;</span>+x.getMessage());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8):((Tiger)x).eat() is &quot;</span>+((Tiger)x).eat());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Animal&#x27;s news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Animal&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Animal&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Tiger&#x27;s  news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Tiger&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123; <span class="comment">//隐藏</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Tiger&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123; <span class="comment">//覆盖</span></span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//新增的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">eat</span><span class="params">()</span></span>&#123; <span class="comment">//新</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;need eat meat&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1):x.news is Animal&#39;s news</span><br><span class="line">&#x2F;&#x2F; 默认访问父类的成员变量</span><br><span class="line">(2):((Tiger)x).news is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(3):x.smile() is smile from Animal</span><br><span class="line">&#x2F;&#x2F; 静态方法看左</span><br><span class="line">(4):((Tiger)x).smile() is smile from Tiger</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(5):((Animal)x).getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 不变的强转,易错点</span><br><span class="line">(6):x.getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 5与6是等效的</span><br><span class="line">(7):x.getMessage() is Animal&#39;s message</span><br><span class="line">&#x2F;&#x2F; 继承来的方法，访问变量看的是父类</span><br><span class="line">(8):((Tiger)x).eat() is need eat meat</span><br><span class="line">&#x2F;&#x2F; 访问子类新增需要强转</span><br></pre></td></tr></table></figure>
-<p>经过上面的沉淀，到这里应该没有问题了，有问题底下留言</p>
-<h1>动态绑定机制</h1>
-<p><code>DynamicBindingDemo.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicBindingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        m(<span class="keyword">new</span> GraduateStudent());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Student());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Person());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Object());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">(Object x)</span> </span>&#123;</span><br><span class="line">        System.out.println(x.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Object</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraduateStudent</span> <span class="keyword">extends</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这道题要注意分析题目，不要看成构造函数。<code>m()</code>方法本质上是调用了每个类中的<code>toString()</code>，根据继承关系分析<code>toString()</code>方法来自哪个类就能得出答案。GraduateStudent是Student的子类，Student是Person的子类，Person是Object的子类。在调用<code>toString()</code>方法时，如果创建的是GraduateStudent的一个实例，JVM会依次在类GraduateStudent，Student，Person中查找<code>toString()</code>方法的实现，一旦找到一个，就停止查找，然后调用这个先找到的</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Person</span><br><span class="line">-----</span><br><span class="line">java.lang.Object@12a3a380</span><br></pre></td></tr></table></figure>
-<h1>构造方法链</h1>
-<p>定义：Java中，用子类构造一个实例对象时，系统会自行在执行子类的构造方法前沿着继承链依次调用所有父类的无参构造方法（按继承关系由其顶层父类至当前子类依次调用，无论其是否在子类的构造方法中被显式调用），这称为构造方法链。</p>
-<p>本小节讨论的是上转型对象的构造方法，以及构造方法调用实例方法所出现的情况，具体如下：</p>
-<p><code>TestC.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  value = <span class="number">5</span>;</span><br><span class="line">    A( ) &#123;</span><br><span class="line">        setValue(<span class="number">10</span>);</span><br><span class="line">        System.out.println( <span class="string">&quot;A:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">2</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    B( ) &#123;</span><br><span class="line">        <span class="comment">//super();</span></span><br><span class="line">        System.out.println( <span class="string">&quot;B:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">5</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestC</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[ ] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">new</span> A( );</span><br><span class="line">        <span class="keyword">new</span> B( );</span><br><span class="line">        A c =<span class="keyword">new</span> B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>运行答案如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A:20</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br></pre></td></tr></table></figure>
-<p>刚刚接触这道题我是有点意外的，没想到Java还能这么考，感觉自己平常学的Java和老师教的Java不是一个东西，但是还是得默默承受(4.0 yyds！！！) 话不多说，进入正题</p>
-<ul>
-<li>第一值输出为20，创建的是父类对象，调用其构造方法+实例方法，结果无需多言</li>
-<li>第二组为两个50，在创建<code>B</code>对象时，因为它是<code>A</code>类的子类，默认会先调用A的构造方法。但是在A的构造方法中，调用了个实例方法。根据前面的知识我们知道，<strong>如果子类对父类的实例方法进行了重写覆盖，那么优先调用的应该是子类的实例方法</strong>，所以<code>value</code>值为50。</li>
-<li>第三组的答案与第二组相同，道理同上，作为上转型只是一个障眼法。</li>
-</ul>
-<h1>参考资料</h1>
-<p><a href="https://hd.hainanu.edu.cn/cs/info/1019/1026.htm">某海大某张姓老师</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -795,33 +795,6 @@ Maven 3.8.1</p>
       </tags>
   </entry>
   <entry>
-    <title>割圆法Pi</title>
-    <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
-    <content><![CDATA[<h1>题目</h1>
-<p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。</p>
-<a id="more"></a>
-<h1>分析</h1>
-<h2 id="方法1">方法1</h2>
-<p>首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式<code>S=pi*r^2</code>求出pi</p>
-<p>按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式<code>S=1/2*a*b*sina</code>求出一个三角形的面积。</p>
-<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" alt="image1"></p>
-<p>观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi</p>
-<h2 id="方法2">方法2</h2>
-<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p2.bmp" alt="image2"></p>
-<p>另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。</p>
-<h1>代码</h1>
-<h2 id="方法1-2">方法1</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: com.codeslogan.Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Test_Pi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-18 19:06</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_Pi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0.0</span>; <span class="comment">//面积</span></span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">10.0</span>; <span class="comment">//半径</span></span><br><span class="line">        <span class="keyword">double</span> myPi = <span class="number">0.0</span>; <span class="comment">//PI</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span> ; i++) &#123;</span><br><span class="line">​            <span class="keyword">double</span> n = pow(<span class="number">2</span>,i); <span class="comment">//圆的分割块数</span></span><br><span class="line">​            s = n * <span class="number">1</span>/<span class="number">2</span> * pow(r,<span class="number">2</span>) * sin(toRadians(<span class="number">360</span>/n)); <span class="comment">//S=1/2*a*b*sina</span></span><br><span class="line">​            myPi = s / pow(r,<span class="number">2</span>); <span class="comment">// s=pi*r^2</span></span><br><span class="line">​            System.out.println(myPi);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="方法2-2">方法2</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.pow;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatePI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">double</span> s;</span><br><span class="line">        <span class="keyword">double</span> totOfS = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> a = getSquareSide(r);</span><br><span class="line">        totOfS+=a*a;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> h = getTriangleH(a, r); <span class="comment">//获取三角形的高</span></span><br><span class="line">            s=a*h/<span class="number">2</span>;</span><br><span class="line">            totOfS += s*pow(<span class="number">2</span>,i);</span><br><span class="line">            a = getTriangleC(h, a); <span class="comment">//获取斜边长</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> pi = totOfS/pow(r,<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Pi is &quot;</span> + pi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getSquareSide</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">2</span>) * r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleH</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> h = r - sqrt(pow(r,<span class="number">2</span>) - pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleC</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> y = sqrt(pow(h,<span class="number">2</span>)+pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>miniconda的使用</title>
     <url>/2020/11/01/miniconda%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1>Miniconda</h1>
@@ -897,6 +870,33 @@ Maven 3.8.1</p>
         <tag>算法</tag>
         <tag>C++</tag>
         <tag>DFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>割圆法Pi</title>
+    <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
+    <content><![CDATA[<h1>题目</h1>
+<p>采用割圆术计算圆周率，即对一个圆先割出一个正方形，再割出4个等腰三角形，再割出8个等腰三角形，后面依此类推，把这些割出的图形面积相加即为圆的面积，然后除以圆的半径的平方，最终得到圆周率。</p>
+<a id="more"></a>
+<h1>分析</h1>
+<h2 id="方法1">方法1</h2>
+<p>首先这道题所描述的割圆法，与我们以往认知的割圆法有所不同，本题是以面积趋近圆，最后用数学公式<code>S=pi*r^2</code>求出pi</p>
+<p>按照题目所述先割正方形，再割三角形的方法，用代码实现极为复杂。通过分析题目我们得知，可以将每次分割的三角形与起初的正方形结合，看作一个正多边形求解。通过连接圆心，将正多边形分解为三角形，利用数学公式<code>S=1/2*a*b*sina</code>求出一个三角形的面积。</p>
+<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p1.bmp" alt="image1"></p>
+<p>观察规律得知三角形的个数为4，8，16呈2的指数次幂递增，易得多边形面积，可得pi</p>
+<h2 id="方法2">方法2</h2>
+<p><img src="/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/p2.bmp" alt="image2"></p>
+<p>另一种方法利用勾股定理，代替了角度。首先利用半径得出了正方形的边长，进而根据边长与半径的关系计算出三角形的高，得出单个三角形的面积，如上图。然后利用勾股定理算出三角形的斜边长c，作为下一个三角形的底边长。因此类推，面积易得。</p>
+<h1>代码</h1>
+<h2 id="方法1-2">方法1</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>: com.codeslogan.Foundation</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ClassName</span>: Test_Pi</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: codeslogan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021-09-18 19:06</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test_Pi</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> s = <span class="number">0.0</span>; <span class="comment">//面积</span></span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">10.0</span>; <span class="comment">//半径</span></span><br><span class="line">        <span class="keyword">double</span> myPi = <span class="number">0.0</span>; <span class="comment">//PI</span></span><br><span class="line"></span><br><span class="line">​        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">100</span> ; i++) &#123;</span><br><span class="line">​            <span class="keyword">double</span> n = pow(<span class="number">2</span>,i); <span class="comment">//圆的分割块数</span></span><br><span class="line">​            s = n * <span class="number">1</span>/<span class="number">2</span> * pow(r,<span class="number">2</span>) * sin(toRadians(<span class="number">360</span>/n)); <span class="comment">//S=1/2*a*b*sina</span></span><br><span class="line">​            myPi = s / pow(r,<span class="number">2</span>); <span class="comment">// s=pi*r^2</span></span><br><span class="line">​            System.out.println(myPi);</span><br><span class="line">​        &#125;</span><br><span class="line">​    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方法2-2">方法2</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.Foundation;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.pow;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CalculatePI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">double</span> s;</span><br><span class="line">        <span class="keyword">double</span> totOfS = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">double</span> r = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">double</span> a = getSquareSide(r);</span><br><span class="line">        totOfS+=a*a;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">double</span> h = getTriangleH(a, r); <span class="comment">//获取三角形的高</span></span><br><span class="line">            s=a*h/<span class="number">2</span>;</span><br><span class="line">            totOfS += s*pow(<span class="number">2</span>,i);</span><br><span class="line">            a = getTriangleC(h, a); <span class="comment">//获取斜边长</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> pi = totOfS/pow(r,<span class="number">2</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;Pi is &quot;</span> + pi);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getSquareSide</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sqrt(<span class="number">2</span>) * r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleH</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> h = r - sqrt(pow(r,<span class="number">2</span>) - pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">getTriangleC</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> y = sqrt(pow(h,<span class="number">2</span>)+pow(a/<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1568,304 +1568,6 @@ Maven 3.8.1</p>
       </tags>
   </entry>
   <entry>
-    <title>2022-Java3D复习</title>
-    <url>/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/</url>
-    <content><![CDATA[<h1>常用类</h1>
-<h2 id="VirtualUniverse类、Locale类与HiResCoord类之间的关系">VirtualUniverse类、Locale类与HiResCoord类之间的关系</h2>
-<p>Virtual Universe 包含 Locale 包含 BranchGroup</p>
-<p>每一个Locale对象都具有一个高分辨率大尺度坐标系，每一个Locale对象的高分辨率大尺度坐标系都用3个高分辨率大尺度数来定义其原点的坐标值x,y,z（用HiResCoord类定义）。</p>
-<p>VirtualUniverse类定义的对象是包含所有场景图的最高级别的容器。</p>
-<h2 id="SimpleUniverse类">SimpleUniverse类</h2>
-<p>该类可快速地设置一个最小的用户环境，并且很容易使一个Java3D应用程序运行起来。该实用程序类创建了场景图中与观察相关的所有必须对象。该类创建了一个Locale, 一个单独的ViewingPlatform和一个Viewer观察者对象。但此类不适合复杂应用程序。</p>
-<p>SimpleUniverse 包含 Locale 包含 BranchGroup 包含 TransformGroup 包含ViewPlatform</p>
-<h2 id="Bounds类">Bounds类</h2>
-<p>用于限定特定操作的作用范围</p>
-<p>用于确定某种动作或行为的范围。</p>
-<p>用于确定某种全景操作的应用范围</p>
-<h2 id="SharedGroup类">SharedGroup类</h2>
-<p>共享子图。SharedGroup节点作为共享子图的根节点。Link叶子节点链接向该SharedGroup节点，并不是将共享子图集成到当前场景图中。一个SharedGroup节点允许多个Link叶子节点同时通过链接的方式共享该子图。</p>
-<h2 id="View类">View类</h2>
-<p>观察模型。应用Java3D观察模型编写的应用程序在不修改场景图的情况下，能够将可视化后的图像显示到各种不同的显示设备上</p>
-<p>“一次编写到处运行”</p>
-<h2 id="ViewPlatform类">ViewPlatform类</h2>
-<p>在虚拟世界中的观察平台。一个ViewPlatform叶子节点在虚拟世界中定义了一个坐标系和一个具有相关原点或参考点的参考框架。ViewPlatform作为观察对象的依附点，并且其作为一个可视化器观察的基点。</p>
-<h2 id="ViewingPlatform类">ViewingPlatform类</h2>
-<p>Java3D的三种坐标系：世界坐标系，观察坐标系，显示器坐标系</p>
-<p><strong>透视投影</strong>：当给定视点、观察方向与投影平面后，将世界坐标系转换为观察坐标系，对观察坐标系中的三维物体通过比例变换向投影平面投影。</p>
-<p><strong>平行投影</strong>：将空间的三维形体分别向3个坐标平面进行平行投影，分别形成主视图、俯视图与侧视图。</p>
-<h2 id="Shape3D类">Shape3D类</h2>
-<p>Shaped3D类定义所有的几何体。它包含几何体与该几何体的外观属性。</p>
-<p>几何体部分定义三维空间体的几何形状，外观属性部分定义颜色、材质等属性。</p>
-<p>一个Shaped3D类包含一个Geometry几何组件列表和唯一一个Appearance外观组件对象。P55</p>
-<h2 id="Appearance类">Appearance类</h2>
-<p>定义所有与显示相关的外观状态，这些状态可设置为一个Shaped3D节点的组件对象。</p>
-<p>Appearance类包含ColoringAttributes类，PointAttributes类，LineAttributes类，PolygonAttributes类，Rendering Attributes类，Transparency Attributes，Material类， Texture类</p>
-<h2 id="BranchGroup类">BranchGroup类</h2>
-<p>一个BranchGroup作为一个场景图分支的根。</p>
-<p>BranchGroup对象是<strong>唯一能插入</strong>到一个Locale对象中的对象。</p>
-<p>以BranchGroup节点为根的场景图子图是一个编辑单元。</p>
-<h2 id="TransformGroup类">TransformGroup类</h2>
-<p>TransformGroup节点通过Transform3D对象定义了一个唯一的3D空间坐标变换，该变换可对其子节点进行位置、方向及比例变换。</p>
-<h2 id="GeometryArray类">GeometryArray类</h2>
-<p>GeometryArray类是PointArray类，LineArray类，TriangleArray类，QuadArray类， GeometryStripArray类，IndexedGeometryArray类的直接父类</p>
-<p>GeometryArray类的对象中包含独立的位置坐标数组、颜色数组、法向量数组、纹理坐标数组和顶点属性。</p>
-<p>在数组中的所有颜色值必须在[0.0,1.0]范围内。所有法向量必须是模长为1的单位向量。</p>
-<h2 id="PointArray类">PointArray类</h2>
-<p>PointArray类是组织与定义点的数组类。</p>
-<h2 id="PointAttributes类">PointAttributes类</h2>
-<p>PointAttributes类的对象用来定义点的各种属性。</p>
-<p>点属性包括：</p>
-<p>Size：定义点的大小，以像素为单位</p>
-<p>Antialiasing：反走样，使外形接近于一个圆形</p>
-<h2 id="IndexedPointArray类">IndexedPointArray类</h2>
-<p>从定义好的所有点的坐标与颜色数组中选择出一部分点进行显示。</p>
-<h2 id="IndexedLineArray类">IndexedLineArray类</h2>
-<p>从定义好的所有线的坐标与颜色数组中选择出一部分线进行显示。</p>
-<h2 id="IndexedTriangleArray类">IndexedTriangleArray类</h2>
-<p>从给定的顶点中选择出一定数量的顶点，允许顶点重复，形成若干三角形。</p>
-<h2 id="IndexedQuadArray类">IndexedQuadArray类</h2>
-<p>从给定的顶点中选择出一定数量的顶点，允许顶点重复，形成若干四边面。</p>
-<h2 id="LineArray类">LineArray类</h2>
-<p>LineArray类生成的线段是不连续的，线段的连接方式：0-1，2-3，4-5等，其中，1、2之间与3、4之间不连接。</p>
-<h2 id="LineAttributes类">LineAttributes类</h2>
-<p>LineAttributes类定义所有与线的显示相关的属性与状态。</p>
-<h2 id="LineStripArray类">LineStripArray类</h2>
-<p>将定义好的数据点分组，然后分别连成几段连续的线段，分成几个组，就连成几条带（几个Strip）。各条带之间互不连接。</p>
-<h2 id="PolygonAttributes类">PolygonAttributes类</h2>
-<p>PolygonAttributes类用来定义多边形显示时的相关属性。这些基本多边形包括三角形、三角形带、三角形扇、四边形。</p>
-<p>多边形的三种<strong>显示模式</strong>：以点的方式显示、轮廓线方式显示、填充多边形方式显示</p>
-<p>POLYGON_POINT：多边形以顶点方式显示，则只显示所有顶点。</p>
-<p>POLYGON_LINE：多边形以线方式显示</p>
-<p>POLYGON_FILL：以填充的多边形面的方式显示，这种模式是默认显示模式。</p>
-<h2 id="TriangleArray类">TriangleArray类</h2>
-<p>三角面TriangleArray类以一维顶点数组给出顶点的坐标值，从前向后依次以3个顶点形成一个三角形，并且上一个三角形与下一个三角形之间没有公用顶点。</p>
-<h2 id="TriangleStripArray类">TriangleStripArray类</h2>
-<p>三角带。stripVertexCounts数组的大小表示分为几个子三角形Strip带。两个Strip之间没有公用顶点。在同一个三角形Strip内，所有三角形都相互连接在一起的，相邻的三角形之间有公共边。用这种方式生成的曲面具有指向相同侧的法向量。</p>
-<h2 id="TriangleFanArray类">TriangleFanArray类</h2>
-<p>三角扇。在组织三角形时，以第一个顶点为公用顶点，依次与其余顶点分别连接形成三角形。用这种方法生成的一系列三角形公用第一个顶点。其中给定的顶点 数最少为3个。所有三角形具有指向同侧的法向量。</p>
-<h2 id="QuadArray类">QuadArray类</h2>
-<p>四边面。QuadArray类以顶点坐标数组中给出的一维顶点数组，从前向后依次以4个顶点形成一个四边形面，并且相邻两个四边形面之间没有公用顶点。给定的总的顶点数必须是4的倍数。</p>
-<h2 id="ColoringAttributes类">ColoringAttributes类</h2>
-<p>ColoringAttributes类定义所选择的颜色与光照模型（阴影模型）。</p>
-<h2 id="Material类">Material类</h2>
-<p>Material类的对象定义一个三维物体在光照情况下的外观。</p>
-<p>如果在一个Appearance类的对象中的Material类的对象一项为null，则光照效果对所有包含该Appearance类的对象的节点不起作用。</p>
-<p>包含于Appearance类</p>
-<p>环境光颜色Ambient color</p>
-<p>散射光颜色Diffuse color</p>
-<p>镜面反射光颜色Specular color</p>
-<p>物体放射的光颜色Emissive color</p>
-<p>物体的发亮特性Shininess</p>
-<p>颜色靶子Color target</p>
-<h2 id="TransparencyAttributes类">TransparencyAttributes类</h2>
-<p>TransparencyAttributes类的对象定义所有几何体透明度的属性。</p>
-<h2 id="Light类">Light类</h2>
-<p>该类为抽象类，其中定义的一组参数属性所有类型的光。这些参数包括光颜色、光照开关标志和一个光的作用范围</p>
-<p>光源的类型包括平行光源、点光源、环境光</p>
-<h2 id="PointLight类">PointLight类</h2>
-<p>点光源PointLight类在三维空间的一个<strong>固定点</strong>上定义一种<strong>衰减</strong>的光源，该类光源从光发出点出发，在所有方向的辐射是相等的。</p>
-<p>一个点光源通过其衰减系数反映其衰减，该衰减随着距光源中心距离的增加而增加。</p>
-<p>点光源的衰减系数：固定衰减、线性衰减、二次方衰减</p>
-<h2 id="DirectionalLight类">DirectionalLight类</h2>
-<p>平行光源。DirectionalLight类定义了一种光源在<strong>无限远处有方向</strong>的光</p>
-<h2 id="AmbientLight类">AmbientLight类</h2>
-<p>环境光源。环境光源是指来自于<strong>所有方向</strong>的一种光源。</p>
-<h2 id="Vector3f类">Vector3f类</h2>
-<p>Vector3f类是一个包含有3个单精度浮点元素x,y,z的向量。如果该向量表示一个法向量，则该向量应该单位化为一个单位向量。</p>
-<h2 id="Transform3D类">Transform3D类</h2>
-<p>Transform3D类的对象是一种内部表达为4x4的双精度类型的矩阵，该矩阵是以行的方式存放的。一个Transform3D类的对象用来执行平移、旋转、变比例等坐标变换。</p>
-<h2 id="TransformGroup类及其与Transform3D类之间的关系">TransformGroup类及其与Transform3D类之间的关系</h2>
-<p>多个Transform3D对象的组合形成一个总的坐标变换矩阵。</p>
-<p>所有表示各种几何变换的Transform3D类的对象必须包含在一个TransformGroup类的对象中，表示对在该TransformGroup类的对象中的三维图形所进行的坐标变换。</p>
-<ol>
-<li>
-<p>如果表示一种几何变换的Transform3D对象没有加入到该TransformGroup类的对象中，则该变换对在该TransformGroup类的对象中的三维图形不起作用。</p>
-</li>
-<li>
-<p>可以一次定义一个总的坐标变换矩阵，并以此创建一个Transform3D对象，将该Transform3D对象加入到TransformGroup类的对象中。</p>
-</li>
-<li>
-<p>也可以分步定义多个不同类型的坐标变换矩阵，然后依次创建多个Transform3D对象，每个Transform3D对象表示一种坐标变换，将这些Transform3D对象依次加入到一个TransformGroup类的对象中，则以Transform3D对象的加入次序，依次对三维图形进行变换，Java 3D系统形成最后总的坐标变换。</p>
-</li>
-<li>
-<p>如果在一个TransformGroup节点中没有定义任何的坐标变换，也就是没有加入任何的Transform3D对象，则该TransformGroup节点拥有一个缺省的4*4坐标变换矩阵，但该矩阵为单位矩阵，表示对几何体不进行任何几何变换。</p>
-</li>
-</ol>
-<hr>
-<h1>基础概念</h1>
-<p><strong>线架模型</strong>(Wire Frame)：以<code>线段</code>、<code>圆弧</code>和<code>一些简单的曲线</code>来表示一个三维模型。</p>
-<p><strong>Brep边界面模型</strong>(Boundary Representation)：将一个封闭的几何体模型所使用的多边形面称为该几何体的Brep边界面。所有的多面体模型都是一种Brep边界面模型。</p>
-<p><strong>非均匀有理B样条曲面</strong>Non Uniform Rational B-Spline(NURBS)</p>
-<p>曲面几何模型的特点是光滑的曲面表示，现在多数曲面几何模型以非均匀有理B样条曲面为基础</p>
-<p>在Brep边界面表示中最常用的数据结构：<code>翼边数据结构</code>、<code>半边数据结构</code></p>
-<p><strong>Solid实体</strong></p>
-<p>Solid实体几何模型主要通过组成该几何体的边界面所形成的半空间来表示一个物体。物体内部的所有属性都是相同的。</p>
-<p><strong>CSG构造实体几何</strong>(Constructive Solid Geometry)</p>
-<p>通过简单实体(如立方体﹑圆柱体、球体﹑圆锥体、扫描表示法产生的体等)之间的正则布尔运算生成比较复杂的体。其用一种二叉树结构来表示相关实体以及相关的并、交、差布尔运算操作。</p>
-<p>CSG树只反映了物体的构造过程与方式，并不反映实体的面、边、顶点等几何信息及其之间关系。因此，这种表示又称为实体的隐式模型或过程模型</p>
-<p><strong>VOXEL体素模型</strong>(Volume Element)</p>
-<p><em>三维图形显示的最小单元</em></p>
-<p>规则体素空间是将一个立方体分别沿x、y、z轴进行等间距均匀分割所形成的，每一个体素都是一个小立方体。小立方体的中心点称为立方体的格点。</p>
-<p>体素与体素之间的连接关系有3种：6连通、18连通、26连通</p>
-<p><strong>DEXEL深度元素模型</strong>(Depth Element)</p>
-<p>DEXEL模型就是用一射线与一个几何体的Brep边界面模型求交，两交点之间属于几何体内部的这段线段称为DEXEL。对于DEXEL模型,通常用一组群到三组群的射线组与几何体的交点来表示一个几何体。</p>
-<p><strong>优点</strong>：只需要存储射线组群的交点坐标，可以大大压缩存储空间，并且布尔运算是DEXEL线段间的线性运算，运算速度快、精度高。</p>
-<p><strong>缺点</strong>：失去了每个体素的所拥有的属性信息。</p>
-<p>因此DEXEL模型和VOXEL模型之间可相互转换。</p>
-<h2 id="Java3D高分辨率大尺度坐标系">Java3D高分辨率大尺度坐标系</h2>
-<p>32个字节，即<code>256</code>个二进制位的定点数来表示一个数</p>
-<h2 id="默认情况下Java3D的坐标系">默认情况下Java3D的坐标系</h2>
-<p>默认情况下，Java 3D坐标系采用右手坐标系统，坐标系原点在显示器的中心，x轴水平向右，y轴垂直向上，z轴指向观察者。默认情况下，坐标单位为米。</p>
-<p>如图所示：</p>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image002.jpg" alt="https://img-blog.csdnimg.cn/20210105211825780.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDIwNjQ4,size_16,color_FFFFFF,t_70"></p>
-<h2 id="P34页的图">P34页的图</h2>
-<p>包含谁，谁能加到谁里面？</p>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image004.png" alt="https://img-blog.csdnimg.cn/20210102185034190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDIwNjQ4,size_16,color_FFFFFF,t_70"></p>
-<h2 id="多边形可视化填充算法">多边形可视化填充算法</h2>
-<h3 id="种子填色算法">种子填色算法</h3>
-<p>种子填色算法首先在要填充的多边形区域内选择一个填色种子点( Seed Point)，然后以该种子点为基础，通过与多边形边界的像素点相比较进行填色。</p>
-<p>种子填色算法主要有<code>四邻法</code>（如左图）和<code>八邻法</code>（如右图）：</p>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image006.jpg" alt="img"></p>
-<p>四邻法所走的填充路线为：上、下、左、右。在填充时要判断当前填充象素点与</p>
-<p>边界象素点之间的关系。如果要填充的象素点在多边形的边界之内，则进⾏填充；</p>
-<p>如果要填充的象素点在多边形的边界之外，则不填充；如果要填充的象素点正好</p>
-<p>在多边形的边界上，则保留边界象素点颜色。</p>
-<p>八邻法所⾛的填充路线为：上、下、左、右、左上、左下、右上、右下。在填充</p>
-<p>时要判断当前填充象素点与边界象素点之间的关系</p>
-<h3 id="扫描线填色算法-Scan-Line-Filling">扫描线填色算法(Scan-Line Filling)</h3>
-<p>每一条扫描线从上向下以一个像素单位为间隔逐次向下扫描。对每一条扫描线与多边形求交。将交点按x值从小到大排序。用<strong>奇偶计数法</strong>判断多边形内部的点对。</p>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image007.png" alt="img"></p>
-<p>出现点重合时采取的处理方法：</p>
-<p>1首先按照多边形顶点顺时针方向标明：A、B、C、D、E、F、G</p>
-<p>2扫描线6：扫描到3个顶点，G点处两点重合，按奇偶计数法会出现错误。于是将入线FG的G点的y轴坐标向下移动1个像素单位（我理解为逆时针方向）。</p>
-<p>3扫描线7：扫描到3个顶点，D点处两点重合，按奇偶计数法会出现错误。于是将入线CD的D点的y轴坐标向上移动1个像素单位（我理解为逆时针方向）。</p>
-<p>如果判断出多边形中有水平边，则将该水平边首先画出，不用求该边与扫描线的交点。</p>
-<h2 id="三次Bezier曲线及其性质">三次Bezier曲线及其性质</h2>
-<ol>
-<li>端点性质</li>
-</ol>
-<p>C(0)=P0,  C(1)=Pn</p>
-<p>该性质说明一段Bezier曲线通过其首与末控制顶点</p>
-<ol start="2">
-<li>
-<p>端点的切线矢量（详细见书）</p>
-</li>
-<li>
-<p>Bezier曲线的端点曲率 （详细见书）</p>
-</li>
-<li>
-<p>对称性</p>
-</li>
-</ol>
-<p>对于一段Bezier曲线及其控制顶点，若保持原全部控制顶点的位置不变，只把控制顶点次序编号颠倒过来，则新生成的这段Bezier曲线形状不变，但参数的增长方向相反。</p>
-<ol start="5">
-<li>凸包性</li>
-</ol>
-<p>一段Bezier曲线严格地位于其控制多边形形成的凸包之内。</p>
-<ol start="6">
-<li>变差缩减性</li>
-</ol>
-<p>对于一段平面Bezier曲线C(u)，平面内任意一条直线与其交点的个数不多于该直线与其控制多边形的交点个数。</p>
-<h2 id="Bezier曲线、曲面拼接的连续性">Bezier曲线、曲面拼接的连续性</h2>
-<p>（1）C0连续：0阶参数连续，第一段曲线的终点与第二段曲线的起点位置重合。</p>
-<p>（2）C1连续：一阶参数连续，两相拼接的曲线在拼接点处重合，拼接处有相同的一阶导数。</p>
-<p>（3）C2连续：二阶参数连续，两相拼接的曲线在拼接点处重合，拼接处有相同的一阶导数和二阶导数。</p>
-<p>（4）G0连续：0阶几何连续，第一段曲线的终点与第二段曲线的起点位置重合，称为G0连续，同时也是C0连续。</p>
-<p>（5）G1连续：1阶几何连续，两相拼接的曲线在拼接点处重合，切线方向相同，但大小不等。</p>
-<p>（6）G2连续：2阶几何连续，两相拼接的曲线段在拼接点处重合，在拼接点处C0连续、C1连续，在拼接点处二阶导数方向相同，但大小不等。</p>
-<p>曲线、曲面的G0（或C0）拼接可保证曲线、曲面在拼接点处是<strong>连接</strong>在一起的。</p>
-<p>曲线、曲面的G1（或C1）拼接可保证曲线、曲面在拼接点处是<strong>光顺</strong>的。</p>
-<h2 id="Bezier曲面的性质-F">Bezier曲面的性质-F</h2>
-<p>（1）端点性质</p>
-<p>Bezier曲面的4个角点与控制多边形网格的4个角控制顶点重合。</p>
-<p>（2）边界线</p>
-<p>Bezier曲面S(u,v)的4条边界线S(0,v)、S(1,v)、S(u,0)、S(u,1)分别由对应的控制网格的4条边界控制多边形形成。</p>
-<p>（3）曲面端点的切平面</p>
-<p>由通过该端点的两个控制多边形的边所形成的平面和Bezier曲面在该端点的切平面重合。例如，对于曲面角点S(0,0)，切平面为控制顶点P0，0、P0，1、P1，0所形成的平面。</p>
-<p>（4）凸包性</p>
-<p>Bezier曲面位于其控制网格所形成的凸包之内。</p>
-<p>（5）变差递减性</p>
-<p>空间任意条直线与Bezier曲面交点的个数不多于该直线与其控制多边形网格的交点个数。</p>
-<h2 id="隐藏线、隐藏面消除算法">隐藏线、隐藏面消除算法</h2>
-<p>通常面向视点的所有边都是可见的，将这些边画出来。被前面的可见面隐藏的所有边都是不可见的，不用将这些画出来，或者画成虚线形式。以这种方式显示 的形体和用眼睛看到的三维物品相同。将这种消除所有隐藏边的算法称为隐藏线消除算法。</p>
-<p>当给定视点与观察方向后，对视点来讲，并不是所有的面都可见，可见面是由视点与观察方向及面的法向量决定。只需显示可见的面，无须显示隐藏的面，这种算法叫做隐藏面消除算法。</p>
-<p>隐藏面的消除与隐藏线消除有时是相互关联的。由隐藏线所围成的面是隐藏面，两个隐藏面所共有的线为隐藏线。</p>
-<h2 id="Z-Buffer隐藏面消除算法">Z Buffer隐藏面消除算法</h2>
-<p>在显示器的像素点阵建立两种缓冲存储单元阵列：Z Buffer 和C Buffer阵列。</p>
-<p>从视点出发通过每个像素点发出一条射线，Z Buffer阵列存储距离视点最近的多边形与射线交点z坐标，C Buffer阵列存储对应的交点所在面颜色。</p>
-<h2 id="区域排序消隐算法">区域排序消隐算法</h2>
-<p>区域排序消隐算法就是在图像空间中，将组成几何体的所有多边形按照z坐标深度值从小到大排序，然后用前面的可见多边形去切割后面的多边形，将后面的多边形切割为可见与不可见两部分，最后将所有可见多边形显示出来，就为几何体消隐后的图像。</p>
-<h2 id="最小包围矩形、最小包围圆">最小包围矩形、最小包围圆</h2>
-<p>用对边分别平行于两个坐标轴的边形成一个最小包围矩形</p>
-<p>求法如下：求所有几何数据点的最小x、y值与最大x、y值，则由这两点定义的平行于两坐标轴的矩形就是最小包围矩形</p>
-<h2 id="最小包围盒、最小包围球">最小包围盒、最小包围球</h2>
-<p>最小包围盒指用三对分别平行于坐标平面的最小六面体（长方体）包围一个三维几何体。最小包围盒是指该六面体正好包围该三维几何体，在所有包围该三维几何体的六面体中，它是最小的。</p>
-<h2 id="同一平面内点与多边形的包含判定算法-F">同一平面内点与多边形的包含判定算法-F</h2>
-<h3 id="凸多边形的叉积判断法">凸多边形的叉积判断法</h3>
-<p>首先假定按逆时针方向计算的叉积为正，则按顺时针⽅向计算的叉积为负。从给定的一个点向多边形的各个顶点做向量。然后，按顶点顺序逐个计算每相邻两向量之间的叉积。如果所有的叉积符号相同，说明点在多边形内；反之，则在多边形外。（右手螺旋定则：逆正顺反）</p>
-<p>补充：</p>
-<p>叉积的一个重要性质是可以通过它的符号判断两矢量相互之间的顺逆时针关系：</p>
-<p>若 P × Q &gt; 0 , 则P在Q的顺时针方向</p>
-<p>若 P × Q &lt; 0 , 则P在Q的逆时针方向</p>
-<p>若 P × Q = 0 , 则P与Q共线，但可能同向也可能反向）</p>
-<h3 id="夹角之和检验法">夹角之和检验法</h3>
-<p>首先将要判断的点与多边形的各个顶点依次连接形成一系列向量，然后按照顶点 顺序求相邻两向量之间的夹角。假定按逆时针方向计算的角度为正，按顺时针方向计算的角度为负。如果所有的夹角符号相同（或和为360度），说明点在多边形内；反之，则在多边形外。</p>
-<h3 id="交点计数检验法">交点计数检验法</h3>
-<p>从要判断的点向右做一条射线，求出射线与多边形交点的个数。如果交点的个数是奇数，则点在多边形内；反之，则在多边形外。（奇内偶外，同2异1）</p>
-<h2 id="局部光照明计算模型">局部光照明计算模型</h2>
-<h3 id="环境光部分计算">环境光部分计算</h3>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image009.png" alt="img"></p>
-<p>Ed表示P点所反射的环境光的强度</p>
-<p>R为P点的漫反射系数（介于0和1之间）</p>
-<p>Id为照射在P点的入射环境光的强度</p>
-<h3 id="直射光强度计算">直射光强度计算</h3>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image011.png" alt="img"></p>
-<p>Es表示直射光反射的总光强</p>
-<p>Is为直射光的入射光强</p>
-<p>R为P点的漫反射系数（介于0和1之间）</p>
-<p>W为P点的镜面反射系数，介于0和1之间</p>
-<p>i为直射光在P点与法向量的夹角</p>
-<p>n为控制高光聚散的系数，它与P点的材料有关</p>
-<h3 id="透射光强度计算">透射光强度计算</h3>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image013.png" alt="img"></p>
-<p>Et为从几何体内部经几何体表面P点处透射出的光强度</p>
-<p>T为P点的透射系数（取值介于0到1之间）</p>
-<p>Ib为从物体内部到达几何体表面P点处的入射光强度</p>
-<h3 id="P点处总的光强度计算">P点处总的光强度计算</h3>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image015.png" alt="img"></p>
-<h2 id="Gouraud算法和Phong算法及区别-F">Gouraud算法和Phong算法及区别-F</h2>
-<h3 id="Gouraud算法">Gouraud算法</h3>
-<p>首先计算各个平⾯多边形的法向量，由该法向量确定各个多边形顶点处的单位法向量，再由每个顶点的单位法向量通过<strong>向量合成方式</strong>计算各公共顶点的单位法向量；然后应用<strong>局部光照明模型</strong>计算各多边形顶点处的光颜色、光强度值，通过对各多边形顶点的光颜⾊、光强度值的<strong>线性插值</strong>求出多边形边及内部所有点的光颜色、光强度值。</p>
-<p>Gouraud 算法的优点是计算量小。</p>
-<p>Gouraud 算法的缺点：高光区域有时会出现异常；当对曲面用不同的多边形进行分割时会产生不同的显示效果；Gouraud明暗处理会造成表面上出现过亮或过暗的条纹，称为马赫带（Mach_band）效应。</p>
-<h3 id="Phong-算法">Phong 算法</h3>
-<p>首先计算各个平面多边形的法向量，由该法向量确定各个多边形顶点处的单位法向量，再由每个顶点的单位法向量通过向量合成方式计算各公共顶点的单位法向量；通过对平面多边形各顶点的法向量进行<strong>双线性插值</strong>，计算出平面多边形内部各点的法向量；再由所有这些点的法向量，通过<strong>局部光照模型</strong>计算平面多边形内部所有点的光颜色与光强度值。</p>
-<p>Phone 算法的优点：Phong 算法显示的图形比Gouraud 算法更真实，能够产生正确的高光区域；</p>
-<p>缺点：由于是先计算出平面上各点的法向量，然后再计算各点的光强度，所以 Phong 算法计算量远大于 Gouraud 算法；针对某些多边形分割的曲面，Phong 算法不如 Gouraud 算法好</p>
-<h2 id="Whitted整体光照明模型">Whitted整体光照明模型</h2>
-<p>计算公式及各参数的含义</p>
-<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image017.png" alt="img"></p>
-<p>Ic：通过局部光照明模型计算出的光强度，也可采⽤ Phong 模型计算。</p>
-<p>Is：为来⾃于其它⼏何体的镜⾯反射⽅向的⼊射光强度。</p>
-<p>kS：为镜⾯反射系数，为 0～1 之间⼀个常数。</p>
-<p>It：为来⾃于其它⼏何体的折射⽅向光强。</p>
-<p>kt：为透射系数，是 0～1 之间的常数。</p>
-<p>Whitted 光照模型是⼀个递归的计算模型。</p>
-<h2 id="光线追踪算法">光线追踪算法</h2>
-<p>光线追踪算法是一种在由多光源与多个几何体组成的场景中，对几何体进行消隐与整体光强度计算的算法。光线追踪算法沿着到达视点的光线的反方向进行跟踪，经过屏幕上每一个像素点，找出所跟踪的光线与几何体的交点，在该交点处分别沿反射方向与折射方向再进行跟踪，找出影响该点光强度的所有光源，通过迭代、累加计算跟踪点的光颜色与光强度。</p>
-<hr>
-<p>私聊博主获取打印版，<code>^_^</code></p>
-<h1>参考资源</h1>
-<p>《Java3D与计算机三维动态图形网络编程设计》高新瑞著，清华大学出版社</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>计算机图形学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS笔记</title>
     <url>/2021/10/05/JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p></p>
@@ -2289,6 +1991,304 @@ Maven 3.8.1</p>
       </categories>
       <tags>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022-Java3D复习</title>
+    <url>/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/</url>
+    <content><![CDATA[<h1>常用类</h1>
+<h2 id="VirtualUniverse类、Locale类与HiResCoord类之间的关系">VirtualUniverse类、Locale类与HiResCoord类之间的关系</h2>
+<p>Virtual Universe 包含 Locale 包含 BranchGroup</p>
+<p>每一个Locale对象都具有一个高分辨率大尺度坐标系，每一个Locale对象的高分辨率大尺度坐标系都用3个高分辨率大尺度数来定义其原点的坐标值x,y,z（用HiResCoord类定义）。</p>
+<p>VirtualUniverse类定义的对象是包含所有场景图的最高级别的容器。</p>
+<h2 id="SimpleUniverse类">SimpleUniverse类</h2>
+<p>该类可快速地设置一个最小的用户环境，并且很容易使一个Java3D应用程序运行起来。该实用程序类创建了场景图中与观察相关的所有必须对象。该类创建了一个Locale, 一个单独的ViewingPlatform和一个Viewer观察者对象。但此类不适合复杂应用程序。</p>
+<p>SimpleUniverse 包含 Locale 包含 BranchGroup 包含 TransformGroup 包含ViewPlatform</p>
+<h2 id="Bounds类">Bounds类</h2>
+<p>用于限定特定操作的作用范围</p>
+<p>用于确定某种动作或行为的范围。</p>
+<p>用于确定某种全景操作的应用范围</p>
+<h2 id="SharedGroup类">SharedGroup类</h2>
+<p>共享子图。SharedGroup节点作为共享子图的根节点。Link叶子节点链接向该SharedGroup节点，并不是将共享子图集成到当前场景图中。一个SharedGroup节点允许多个Link叶子节点同时通过链接的方式共享该子图。</p>
+<h2 id="View类">View类</h2>
+<p>观察模型。应用Java3D观察模型编写的应用程序在不修改场景图的情况下，能够将可视化后的图像显示到各种不同的显示设备上</p>
+<p>“一次编写到处运行”</p>
+<h2 id="ViewPlatform类">ViewPlatform类</h2>
+<p>在虚拟世界中的观察平台。一个ViewPlatform叶子节点在虚拟世界中定义了一个坐标系和一个具有相关原点或参考点的参考框架。ViewPlatform作为观察对象的依附点，并且其作为一个可视化器观察的基点。</p>
+<h2 id="ViewingPlatform类">ViewingPlatform类</h2>
+<p>Java3D的三种坐标系：世界坐标系，观察坐标系，显示器坐标系</p>
+<p><strong>透视投影</strong>：当给定视点、观察方向与投影平面后，将世界坐标系转换为观察坐标系，对观察坐标系中的三维物体通过比例变换向投影平面投影。</p>
+<p><strong>平行投影</strong>：将空间的三维形体分别向3个坐标平面进行平行投影，分别形成主视图、俯视图与侧视图。</p>
+<h2 id="Shape3D类">Shape3D类</h2>
+<p>Shaped3D类定义所有的几何体。它包含几何体与该几何体的外观属性。</p>
+<p>几何体部分定义三维空间体的几何形状，外观属性部分定义颜色、材质等属性。</p>
+<p>一个Shaped3D类包含一个Geometry几何组件列表和唯一一个Appearance外观组件对象。P55</p>
+<h2 id="Appearance类">Appearance类</h2>
+<p>定义所有与显示相关的外观状态，这些状态可设置为一个Shaped3D节点的组件对象。</p>
+<p>Appearance类包含ColoringAttributes类，PointAttributes类，LineAttributes类，PolygonAttributes类，Rendering Attributes类，Transparency Attributes，Material类， Texture类</p>
+<h2 id="BranchGroup类">BranchGroup类</h2>
+<p>一个BranchGroup作为一个场景图分支的根。</p>
+<p>BranchGroup对象是<strong>唯一能插入</strong>到一个Locale对象中的对象。</p>
+<p>以BranchGroup节点为根的场景图子图是一个编辑单元。</p>
+<h2 id="TransformGroup类">TransformGroup类</h2>
+<p>TransformGroup节点通过Transform3D对象定义了一个唯一的3D空间坐标变换，该变换可对其子节点进行位置、方向及比例变换。</p>
+<h2 id="GeometryArray类">GeometryArray类</h2>
+<p>GeometryArray类是PointArray类，LineArray类，TriangleArray类，QuadArray类， GeometryStripArray类，IndexedGeometryArray类的直接父类</p>
+<p>GeometryArray类的对象中包含独立的位置坐标数组、颜色数组、法向量数组、纹理坐标数组和顶点属性。</p>
+<p>在数组中的所有颜色值必须在[0.0,1.0]范围内。所有法向量必须是模长为1的单位向量。</p>
+<h2 id="PointArray类">PointArray类</h2>
+<p>PointArray类是组织与定义点的数组类。</p>
+<h2 id="PointAttributes类">PointAttributes类</h2>
+<p>PointAttributes类的对象用来定义点的各种属性。</p>
+<p>点属性包括：</p>
+<p>Size：定义点的大小，以像素为单位</p>
+<p>Antialiasing：反走样，使外形接近于一个圆形</p>
+<h2 id="IndexedPointArray类">IndexedPointArray类</h2>
+<p>从定义好的所有点的坐标与颜色数组中选择出一部分点进行显示。</p>
+<h2 id="IndexedLineArray类">IndexedLineArray类</h2>
+<p>从定义好的所有线的坐标与颜色数组中选择出一部分线进行显示。</p>
+<h2 id="IndexedTriangleArray类">IndexedTriangleArray类</h2>
+<p>从给定的顶点中选择出一定数量的顶点，允许顶点重复，形成若干三角形。</p>
+<h2 id="IndexedQuadArray类">IndexedQuadArray类</h2>
+<p>从给定的顶点中选择出一定数量的顶点，允许顶点重复，形成若干四边面。</p>
+<h2 id="LineArray类">LineArray类</h2>
+<p>LineArray类生成的线段是不连续的，线段的连接方式：0-1，2-3，4-5等，其中，1、2之间与3、4之间不连接。</p>
+<h2 id="LineAttributes类">LineAttributes类</h2>
+<p>LineAttributes类定义所有与线的显示相关的属性与状态。</p>
+<h2 id="LineStripArray类">LineStripArray类</h2>
+<p>将定义好的数据点分组，然后分别连成几段连续的线段，分成几个组，就连成几条带（几个Strip）。各条带之间互不连接。</p>
+<h2 id="PolygonAttributes类">PolygonAttributes类</h2>
+<p>PolygonAttributes类用来定义多边形显示时的相关属性。这些基本多边形包括三角形、三角形带、三角形扇、四边形。</p>
+<p>多边形的三种<strong>显示模式</strong>：以点的方式显示、轮廓线方式显示、填充多边形方式显示</p>
+<p>POLYGON_POINT：多边形以顶点方式显示，则只显示所有顶点。</p>
+<p>POLYGON_LINE：多边形以线方式显示</p>
+<p>POLYGON_FILL：以填充的多边形面的方式显示，这种模式是默认显示模式。</p>
+<h2 id="TriangleArray类">TriangleArray类</h2>
+<p>三角面TriangleArray类以一维顶点数组给出顶点的坐标值，从前向后依次以3个顶点形成一个三角形，并且上一个三角形与下一个三角形之间没有公用顶点。</p>
+<h2 id="TriangleStripArray类">TriangleStripArray类</h2>
+<p>三角带。stripVertexCounts数组的大小表示分为几个子三角形Strip带。两个Strip之间没有公用顶点。在同一个三角形Strip内，所有三角形都相互连接在一起的，相邻的三角形之间有公共边。用这种方式生成的曲面具有指向相同侧的法向量。</p>
+<h2 id="TriangleFanArray类">TriangleFanArray类</h2>
+<p>三角扇。在组织三角形时，以第一个顶点为公用顶点，依次与其余顶点分别连接形成三角形。用这种方法生成的一系列三角形公用第一个顶点。其中给定的顶点 数最少为3个。所有三角形具有指向同侧的法向量。</p>
+<h2 id="QuadArray类">QuadArray类</h2>
+<p>四边面。QuadArray类以顶点坐标数组中给出的一维顶点数组，从前向后依次以4个顶点形成一个四边形面，并且相邻两个四边形面之间没有公用顶点。给定的总的顶点数必须是4的倍数。</p>
+<h2 id="ColoringAttributes类">ColoringAttributes类</h2>
+<p>ColoringAttributes类定义所选择的颜色与光照模型（阴影模型）。</p>
+<h2 id="Material类">Material类</h2>
+<p>Material类的对象定义一个三维物体在光照情况下的外观。</p>
+<p>如果在一个Appearance类的对象中的Material类的对象一项为null，则光照效果对所有包含该Appearance类的对象的节点不起作用。</p>
+<p>包含于Appearance类</p>
+<p>环境光颜色Ambient color</p>
+<p>散射光颜色Diffuse color</p>
+<p>镜面反射光颜色Specular color</p>
+<p>物体放射的光颜色Emissive color</p>
+<p>物体的发亮特性Shininess</p>
+<p>颜色靶子Color target</p>
+<h2 id="TransparencyAttributes类">TransparencyAttributes类</h2>
+<p>TransparencyAttributes类的对象定义所有几何体透明度的属性。</p>
+<h2 id="Light类">Light类</h2>
+<p>该类为抽象类，其中定义的一组参数属性所有类型的光。这些参数包括光颜色、光照开关标志和一个光的作用范围</p>
+<p>光源的类型包括平行光源、点光源、环境光</p>
+<h2 id="PointLight类">PointLight类</h2>
+<p>点光源PointLight类在三维空间的一个<strong>固定点</strong>上定义一种<strong>衰减</strong>的光源，该类光源从光发出点出发，在所有方向的辐射是相等的。</p>
+<p>一个点光源通过其衰减系数反映其衰减，该衰减随着距光源中心距离的增加而增加。</p>
+<p>点光源的衰减系数：固定衰减、线性衰减、二次方衰减</p>
+<h2 id="DirectionalLight类">DirectionalLight类</h2>
+<p>平行光源。DirectionalLight类定义了一种光源在<strong>无限远处有方向</strong>的光</p>
+<h2 id="AmbientLight类">AmbientLight类</h2>
+<p>环境光源。环境光源是指来自于<strong>所有方向</strong>的一种光源。</p>
+<h2 id="Vector3f类">Vector3f类</h2>
+<p>Vector3f类是一个包含有3个单精度浮点元素x,y,z的向量。如果该向量表示一个法向量，则该向量应该单位化为一个单位向量。</p>
+<h2 id="Transform3D类">Transform3D类</h2>
+<p>Transform3D类的对象是一种内部表达为4x4的双精度类型的矩阵，该矩阵是以行的方式存放的。一个Transform3D类的对象用来执行平移、旋转、变比例等坐标变换。</p>
+<h2 id="TransformGroup类及其与Transform3D类之间的关系">TransformGroup类及其与Transform3D类之间的关系</h2>
+<p>多个Transform3D对象的组合形成一个总的坐标变换矩阵。</p>
+<p>所有表示各种几何变换的Transform3D类的对象必须包含在一个TransformGroup类的对象中，表示对在该TransformGroup类的对象中的三维图形所进行的坐标变换。</p>
+<ol>
+<li>
+<p>如果表示一种几何变换的Transform3D对象没有加入到该TransformGroup类的对象中，则该变换对在该TransformGroup类的对象中的三维图形不起作用。</p>
+</li>
+<li>
+<p>可以一次定义一个总的坐标变换矩阵，并以此创建一个Transform3D对象，将该Transform3D对象加入到TransformGroup类的对象中。</p>
+</li>
+<li>
+<p>也可以分步定义多个不同类型的坐标变换矩阵，然后依次创建多个Transform3D对象，每个Transform3D对象表示一种坐标变换，将这些Transform3D对象依次加入到一个TransformGroup类的对象中，则以Transform3D对象的加入次序，依次对三维图形进行变换，Java 3D系统形成最后总的坐标变换。</p>
+</li>
+<li>
+<p>如果在一个TransformGroup节点中没有定义任何的坐标变换，也就是没有加入任何的Transform3D对象，则该TransformGroup节点拥有一个缺省的4*4坐标变换矩阵，但该矩阵为单位矩阵，表示对几何体不进行任何几何变换。</p>
+</li>
+</ol>
+<hr>
+<h1>基础概念</h1>
+<p><strong>线架模型</strong>(Wire Frame)：以<code>线段</code>、<code>圆弧</code>和<code>一些简单的曲线</code>来表示一个三维模型。</p>
+<p><strong>Brep边界面模型</strong>(Boundary Representation)：将一个封闭的几何体模型所使用的多边形面称为该几何体的Brep边界面。所有的多面体模型都是一种Brep边界面模型。</p>
+<p><strong>非均匀有理B样条曲面</strong>Non Uniform Rational B-Spline(NURBS)</p>
+<p>曲面几何模型的特点是光滑的曲面表示，现在多数曲面几何模型以非均匀有理B样条曲面为基础</p>
+<p>在Brep边界面表示中最常用的数据结构：<code>翼边数据结构</code>、<code>半边数据结构</code></p>
+<p><strong>Solid实体</strong></p>
+<p>Solid实体几何模型主要通过组成该几何体的边界面所形成的半空间来表示一个物体。物体内部的所有属性都是相同的。</p>
+<p><strong>CSG构造实体几何</strong>(Constructive Solid Geometry)</p>
+<p>通过简单实体(如立方体﹑圆柱体、球体﹑圆锥体、扫描表示法产生的体等)之间的正则布尔运算生成比较复杂的体。其用一种二叉树结构来表示相关实体以及相关的并、交、差布尔运算操作。</p>
+<p>CSG树只反映了物体的构造过程与方式，并不反映实体的面、边、顶点等几何信息及其之间关系。因此，这种表示又称为实体的隐式模型或过程模型</p>
+<p><strong>VOXEL体素模型</strong>(Volume Element)</p>
+<p><em>三维图形显示的最小单元</em></p>
+<p>规则体素空间是将一个立方体分别沿x、y、z轴进行等间距均匀分割所形成的，每一个体素都是一个小立方体。小立方体的中心点称为立方体的格点。</p>
+<p>体素与体素之间的连接关系有3种：6连通、18连通、26连通</p>
+<p><strong>DEXEL深度元素模型</strong>(Depth Element)</p>
+<p>DEXEL模型就是用一射线与一个几何体的Brep边界面模型求交，两交点之间属于几何体内部的这段线段称为DEXEL。对于DEXEL模型,通常用一组群到三组群的射线组与几何体的交点来表示一个几何体。</p>
+<p><strong>优点</strong>：只需要存储射线组群的交点坐标，可以大大压缩存储空间，并且布尔运算是DEXEL线段间的线性运算，运算速度快、精度高。</p>
+<p><strong>缺点</strong>：失去了每个体素的所拥有的属性信息。</p>
+<p>因此DEXEL模型和VOXEL模型之间可相互转换。</p>
+<h2 id="Java3D高分辨率大尺度坐标系">Java3D高分辨率大尺度坐标系</h2>
+<p>32个字节，即<code>256</code>个二进制位的定点数来表示一个数</p>
+<h2 id="默认情况下Java3D的坐标系">默认情况下Java3D的坐标系</h2>
+<p>默认情况下，Java 3D坐标系采用右手坐标系统，坐标系原点在显示器的中心，x轴水平向右，y轴垂直向上，z轴指向观察者。默认情况下，坐标单位为米。</p>
+<p>如图所示：</p>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image002.jpg" alt="https://img-blog.csdnimg.cn/20210105211825780.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDIwNjQ4,size_16,color_FFFFFF,t_70"></p>
+<h2 id="P34页的图">P34页的图</h2>
+<p>包含谁，谁能加到谁里面？</p>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image004.png" alt="https://img-blog.csdnimg.cn/20210102185034190.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDIwNjQ4,size_16,color_FFFFFF,t_70"></p>
+<h2 id="多边形可视化填充算法">多边形可视化填充算法</h2>
+<h3 id="种子填色算法">种子填色算法</h3>
+<p>种子填色算法首先在要填充的多边形区域内选择一个填色种子点( Seed Point)，然后以该种子点为基础，通过与多边形边界的像素点相比较进行填色。</p>
+<p>种子填色算法主要有<code>四邻法</code>（如左图）和<code>八邻法</code>（如右图）：</p>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image006.jpg" alt="img"></p>
+<p>四邻法所走的填充路线为：上、下、左、右。在填充时要判断当前填充象素点与</p>
+<p>边界象素点之间的关系。如果要填充的象素点在多边形的边界之内，则进⾏填充；</p>
+<p>如果要填充的象素点在多边形的边界之外，则不填充；如果要填充的象素点正好</p>
+<p>在多边形的边界上，则保留边界象素点颜色。</p>
+<p>八邻法所⾛的填充路线为：上、下、左、右、左上、左下、右上、右下。在填充</p>
+<p>时要判断当前填充象素点与边界象素点之间的关系</p>
+<h3 id="扫描线填色算法-Scan-Line-Filling">扫描线填色算法(Scan-Line Filling)</h3>
+<p>每一条扫描线从上向下以一个像素单位为间隔逐次向下扫描。对每一条扫描线与多边形求交。将交点按x值从小到大排序。用<strong>奇偶计数法</strong>判断多边形内部的点对。</p>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image007.png" alt="img"></p>
+<p>出现点重合时采取的处理方法：</p>
+<p>1首先按照多边形顶点顺时针方向标明：A、B、C、D、E、F、G</p>
+<p>2扫描线6：扫描到3个顶点，G点处两点重合，按奇偶计数法会出现错误。于是将入线FG的G点的y轴坐标向下移动1个像素单位（我理解为逆时针方向）。</p>
+<p>3扫描线7：扫描到3个顶点，D点处两点重合，按奇偶计数法会出现错误。于是将入线CD的D点的y轴坐标向上移动1个像素单位（我理解为逆时针方向）。</p>
+<p>如果判断出多边形中有水平边，则将该水平边首先画出，不用求该边与扫描线的交点。</p>
+<h2 id="三次Bezier曲线及其性质">三次Bezier曲线及其性质</h2>
+<ol>
+<li>端点性质</li>
+</ol>
+<p>C(0)=P0,  C(1)=Pn</p>
+<p>该性质说明一段Bezier曲线通过其首与末控制顶点</p>
+<ol start="2">
+<li>
+<p>端点的切线矢量（详细见书）</p>
+</li>
+<li>
+<p>Bezier曲线的端点曲率 （详细见书）</p>
+</li>
+<li>
+<p>对称性</p>
+</li>
+</ol>
+<p>对于一段Bezier曲线及其控制顶点，若保持原全部控制顶点的位置不变，只把控制顶点次序编号颠倒过来，则新生成的这段Bezier曲线形状不变，但参数的增长方向相反。</p>
+<ol start="5">
+<li>凸包性</li>
+</ol>
+<p>一段Bezier曲线严格地位于其控制多边形形成的凸包之内。</p>
+<ol start="6">
+<li>变差缩减性</li>
+</ol>
+<p>对于一段平面Bezier曲线C(u)，平面内任意一条直线与其交点的个数不多于该直线与其控制多边形的交点个数。</p>
+<h2 id="Bezier曲线、曲面拼接的连续性">Bezier曲线、曲面拼接的连续性</h2>
+<p>（1）C0连续：0阶参数连续，第一段曲线的终点与第二段曲线的起点位置重合。</p>
+<p>（2）C1连续：一阶参数连续，两相拼接的曲线在拼接点处重合，拼接处有相同的一阶导数。</p>
+<p>（3）C2连续：二阶参数连续，两相拼接的曲线在拼接点处重合，拼接处有相同的一阶导数和二阶导数。</p>
+<p>（4）G0连续：0阶几何连续，第一段曲线的终点与第二段曲线的起点位置重合，称为G0连续，同时也是C0连续。</p>
+<p>（5）G1连续：1阶几何连续，两相拼接的曲线在拼接点处重合，切线方向相同，但大小不等。</p>
+<p>（6）G2连续：2阶几何连续，两相拼接的曲线段在拼接点处重合，在拼接点处C0连续、C1连续，在拼接点处二阶导数方向相同，但大小不等。</p>
+<p>曲线、曲面的G0（或C0）拼接可保证曲线、曲面在拼接点处是<strong>连接</strong>在一起的。</p>
+<p>曲线、曲面的G1（或C1）拼接可保证曲线、曲面在拼接点处是<strong>光顺</strong>的。</p>
+<h2 id="Bezier曲面的性质-F">Bezier曲面的性质-F</h2>
+<p>（1）端点性质</p>
+<p>Bezier曲面的4个角点与控制多边形网格的4个角控制顶点重合。</p>
+<p>（2）边界线</p>
+<p>Bezier曲面S(u,v)的4条边界线S(0,v)、S(1,v)、S(u,0)、S(u,1)分别由对应的控制网格的4条边界控制多边形形成。</p>
+<p>（3）曲面端点的切平面</p>
+<p>由通过该端点的两个控制多边形的边所形成的平面和Bezier曲面在该端点的切平面重合。例如，对于曲面角点S(0,0)，切平面为控制顶点P0，0、P0，1、P1，0所形成的平面。</p>
+<p>（4）凸包性</p>
+<p>Bezier曲面位于其控制网格所形成的凸包之内。</p>
+<p>（5）变差递减性</p>
+<p>空间任意条直线与Bezier曲面交点的个数不多于该直线与其控制多边形网格的交点个数。</p>
+<h2 id="隐藏线、隐藏面消除算法">隐藏线、隐藏面消除算法</h2>
+<p>通常面向视点的所有边都是可见的，将这些边画出来。被前面的可见面隐藏的所有边都是不可见的，不用将这些画出来，或者画成虚线形式。以这种方式显示 的形体和用眼睛看到的三维物品相同。将这种消除所有隐藏边的算法称为隐藏线消除算法。</p>
+<p>当给定视点与观察方向后，对视点来讲，并不是所有的面都可见，可见面是由视点与观察方向及面的法向量决定。只需显示可见的面，无须显示隐藏的面，这种算法叫做隐藏面消除算法。</p>
+<p>隐藏面的消除与隐藏线消除有时是相互关联的。由隐藏线所围成的面是隐藏面，两个隐藏面所共有的线为隐藏线。</p>
+<h2 id="Z-Buffer隐藏面消除算法">Z Buffer隐藏面消除算法</h2>
+<p>在显示器的像素点阵建立两种缓冲存储单元阵列：Z Buffer 和C Buffer阵列。</p>
+<p>从视点出发通过每个像素点发出一条射线，Z Buffer阵列存储距离视点最近的多边形与射线交点z坐标，C Buffer阵列存储对应的交点所在面颜色。</p>
+<h2 id="区域排序消隐算法">区域排序消隐算法</h2>
+<p>区域排序消隐算法就是在图像空间中，将组成几何体的所有多边形按照z坐标深度值从小到大排序，然后用前面的可见多边形去切割后面的多边形，将后面的多边形切割为可见与不可见两部分，最后将所有可见多边形显示出来，就为几何体消隐后的图像。</p>
+<h2 id="最小包围矩形、最小包围圆">最小包围矩形、最小包围圆</h2>
+<p>用对边分别平行于两个坐标轴的边形成一个最小包围矩形</p>
+<p>求法如下：求所有几何数据点的最小x、y值与最大x、y值，则由这两点定义的平行于两坐标轴的矩形就是最小包围矩形</p>
+<h2 id="最小包围盒、最小包围球">最小包围盒、最小包围球</h2>
+<p>最小包围盒指用三对分别平行于坐标平面的最小六面体（长方体）包围一个三维几何体。最小包围盒是指该六面体正好包围该三维几何体，在所有包围该三维几何体的六面体中，它是最小的。</p>
+<h2 id="同一平面内点与多边形的包含判定算法-F">同一平面内点与多边形的包含判定算法-F</h2>
+<h3 id="凸多边形的叉积判断法">凸多边形的叉积判断法</h3>
+<p>首先假定按逆时针方向计算的叉积为正，则按顺时针⽅向计算的叉积为负。从给定的一个点向多边形的各个顶点做向量。然后，按顶点顺序逐个计算每相邻两向量之间的叉积。如果所有的叉积符号相同，说明点在多边形内；反之，则在多边形外。（右手螺旋定则：逆正顺反）</p>
+<p>补充：</p>
+<p>叉积的一个重要性质是可以通过它的符号判断两矢量相互之间的顺逆时针关系：</p>
+<p>若 P × Q &gt; 0 , 则P在Q的顺时针方向</p>
+<p>若 P × Q &lt; 0 , 则P在Q的逆时针方向</p>
+<p>若 P × Q = 0 , 则P与Q共线，但可能同向也可能反向）</p>
+<h3 id="夹角之和检验法">夹角之和检验法</h3>
+<p>首先将要判断的点与多边形的各个顶点依次连接形成一系列向量，然后按照顶点 顺序求相邻两向量之间的夹角。假定按逆时针方向计算的角度为正，按顺时针方向计算的角度为负。如果所有的夹角符号相同（或和为360度），说明点在多边形内；反之，则在多边形外。</p>
+<h3 id="交点计数检验法">交点计数检验法</h3>
+<p>从要判断的点向右做一条射线，求出射线与多边形交点的个数。如果交点的个数是奇数，则点在多边形内；反之，则在多边形外。（奇内偶外，同2异1）</p>
+<h2 id="局部光照明计算模型">局部光照明计算模型</h2>
+<h3 id="环境光部分计算">环境光部分计算</h3>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image009.png" alt="img"></p>
+<p>Ed表示P点所反射的环境光的强度</p>
+<p>R为P点的漫反射系数（介于0和1之间）</p>
+<p>Id为照射在P点的入射环境光的强度</p>
+<h3 id="直射光强度计算">直射光强度计算</h3>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image011.png" alt="img"></p>
+<p>Es表示直射光反射的总光强</p>
+<p>Is为直射光的入射光强</p>
+<p>R为P点的漫反射系数（介于0和1之间）</p>
+<p>W为P点的镜面反射系数，介于0和1之间</p>
+<p>i为直射光在P点与法向量的夹角</p>
+<p>n为控制高光聚散的系数，它与P点的材料有关</p>
+<h3 id="透射光强度计算">透射光强度计算</h3>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image013.png" alt="img"></p>
+<p>Et为从几何体内部经几何体表面P点处透射出的光强度</p>
+<p>T为P点的透射系数（取值介于0到1之间）</p>
+<p>Ib为从物体内部到达几何体表面P点处的入射光强度</p>
+<h3 id="P点处总的光强度计算">P点处总的光强度计算</h3>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image015.png" alt="img"></p>
+<h2 id="Gouraud算法和Phong算法及区别-F">Gouraud算法和Phong算法及区别-F</h2>
+<h3 id="Gouraud算法">Gouraud算法</h3>
+<p>首先计算各个平⾯多边形的法向量，由该法向量确定各个多边形顶点处的单位法向量，再由每个顶点的单位法向量通过<strong>向量合成方式</strong>计算各公共顶点的单位法向量；然后应用<strong>局部光照明模型</strong>计算各多边形顶点处的光颜色、光强度值，通过对各多边形顶点的光颜⾊、光强度值的<strong>线性插值</strong>求出多边形边及内部所有点的光颜色、光强度值。</p>
+<p>Gouraud 算法的优点是计算量小。</p>
+<p>Gouraud 算法的缺点：高光区域有时会出现异常；当对曲面用不同的多边形进行分割时会产生不同的显示效果；Gouraud明暗处理会造成表面上出现过亮或过暗的条纹，称为马赫带（Mach_band）效应。</p>
+<h3 id="Phong-算法">Phong 算法</h3>
+<p>首先计算各个平面多边形的法向量，由该法向量确定各个多边形顶点处的单位法向量，再由每个顶点的单位法向量通过向量合成方式计算各公共顶点的单位法向量；通过对平面多边形各顶点的法向量进行<strong>双线性插值</strong>，计算出平面多边形内部各点的法向量；再由所有这些点的法向量，通过<strong>局部光照模型</strong>计算平面多边形内部所有点的光颜色与光强度值。</p>
+<p>Phone 算法的优点：Phong 算法显示的图形比Gouraud 算法更真实，能够产生正确的高光区域；</p>
+<p>缺点：由于是先计算出平面上各点的法向量，然后再计算各点的光强度，所以 Phong 算法计算量远大于 Gouraud 算法；针对某些多边形分割的曲面，Phong 算法不如 Gouraud 算法好</p>
+<h2 id="Whitted整体光照明模型">Whitted整体光照明模型</h2>
+<p>计算公式及各参数的含义</p>
+<p><img src="/2022/01/06/Java3D%E5%B8%B8%E7%94%A8%E7%B1%BB/clip_image017.png" alt="img"></p>
+<p>Ic：通过局部光照明模型计算出的光强度，也可采⽤ Phong 模型计算。</p>
+<p>Is：为来⾃于其它⼏何体的镜⾯反射⽅向的⼊射光强度。</p>
+<p>kS：为镜⾯反射系数，为 0～1 之间⼀个常数。</p>
+<p>It：为来⾃于其它⼏何体的折射⽅向光强。</p>
+<p>kt：为透射系数，是 0～1 之间的常数。</p>
+<p>Whitted 光照模型是⼀个递归的计算模型。</p>
+<h2 id="光线追踪算法">光线追踪算法</h2>
+<p>光线追踪算法是一种在由多光源与多个几何体组成的场景中，对几何体进行消隐与整体光强度计算的算法。光线追踪算法沿着到达视点的光线的反方向进行跟踪，经过屏幕上每一个像素点，找出所跟踪的光线与几何体的交点，在该交点处分别沿反射方向与折射方向再进行跟踪，找出影响该点光强度的所有光源，通过迭代、累加计算跟踪点的光颜色与光强度。</p>
+<hr>
+<p>私聊博主获取打印版，<code>^_^</code></p>
+<h1>参考资源</h1>
+<p>《Java3D与计算机三维动态图形网络编程设计》高新瑞著，清华大学出版社</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>计算机图形学</tag>
       </tags>
   </entry>
   <entry>
@@ -3690,6 +3690,23 @@ Maven 3.8.1</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">char</span> s1[N], s2[N];</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; s1 + <span class="number">1</span> &gt;&gt; s2 + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ ) </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            f[i][j] = max(f[i<span class="number">-1</span>][j], f[i][j<span class="number">-1</span>]);</span><br><span class="line">            <span class="keyword">if</span> (s1[i] == s2[j]) f[i][j] = max(f[i][j], f[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[n][m] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.acwing.com/problem/content/description/899/">AcWing.最长公共子序列</a></p>
 <p><a href="https://www.acwing.com/problem/content/1224/">第七届蓝桥杯省赛C++A组——密码脱落(类似题)</a></p>
+<h2 id="最短编辑距离">最短编辑距离</h2>
+<p>给定两个字符串 A 和 B，现在要将 A 经过若干操作变为 B，可进行的操作有：</p>
+<ol>
+<li>删除–将字符串 A 中的某个字符删除。</li>
+<li>插入–在字符串 A 的某个位置插入某个字符。</li>
+<li>替换–将字符串 A 中的某个字符替换为另一个字符。</li>
+</ol>
+<p>现在请你求出，将 A 变为 B 至少需要进行多少次操作。</p>
+<hr>
+<p>状态表示<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">f[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>：A的前i的字符与B的前j个字符成功匹配需要操作的最少次数</p>
+<p>状态计算：</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f[i-1][j]+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>：删除操作，A的前i-1个字符已经与b的前j个字符匹配上，选择删除A的第i个字符</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f[i][j-1]+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>：插入操作，A的前i个字符已经与b的前j-1个字符匹配上，选择在A中插入一个与B[j]相同的字符完成匹配</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">f[i-1][j-1]+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>：修改操作，当AB待比较的两个字符不相等时，改变A中的第i个字符，使其与B相等。而在这之前A的i-1个字符与B的j-1个字符相等</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="keyword">char</span> a[N], b[N];</span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>, &amp;n, a + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>, &amp;m, b + <span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= m; i++) f[<span class="number">0</span>][i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) f[i][<span class="number">0</span>] = i;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            f[i][j] = min(f[i<span class="number">-1</span>][j] + <span class="number">1</span>, f[i][j<span class="number">-1</span>] + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (a[i] == b[j]) f[i][j] = min(f[i][j], f[i<span class="number">-1</span>][j<span class="number">-1</span>]);</span><br><span class="line">            <span class="keyword">else</span> f[i][j] = min(f[i][j], f[i<span class="number">-1</span>][j<span class="number">-1</span>] + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, f[n][m]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1>区间DP</h1>
 <p>这里选取了区间DP非常有代表性的三道题，三题之间层层递进，有助于理解好区间DP</p>
 <p><a href="https://www.acwing.com/solution/content/13945/">区间DP常用代码模板，点击链接或如下：</a></p>
