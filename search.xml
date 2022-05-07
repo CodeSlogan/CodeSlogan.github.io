@@ -102,43 +102,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git配置</title>
-    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
-<a id="more"></a>
-<h1>版本控制工具</h1>
-<p>大致分为3种</p>
-<h2 id="本地版本控制">本地版本控制</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
-<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
-<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
-<h1>Git环境配置</h1>
-<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
-<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
-<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
-<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH公钥">SSH公钥</h2>
-<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
-<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
-<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
-<h1>Git的工作流程</h1>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
-<h1>致谢</h1>
-<p>狂神说</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -265,6 +228,43 @@
       </categories>
       <tags>
         <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git配置</title>
+    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
+<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<a id="more"></a>
+<h1>版本控制工具</h1>
+<p>大致分为3种</p>
+<h2 id="本地版本控制">本地版本控制</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
+<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
+<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
+<h1>Git环境配置</h1>
+<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
+<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
+<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
+<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+<h2 id="SSH公钥">SSH公钥</h2>
+<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
+<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
+<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
+<h1>Git的工作流程</h1>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
+<h1>致谢</h1>
+<p>狂神说</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -947,6 +947,74 @@ Maven 3.8.1</p>
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>红黑树学习笔记</title>
+    <url>/2022/05/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E7%BA%A2%E9%BB%91%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html">点击此链接进行红黑树模拟</a></p>
+<h2 id="前言">前言</h2>
+<p>所有的红黑树的插入删除操作都与<strong>二叉搜索树</strong>（BST）的操作类似，只不过红黑树在BST的基础上，多出了维护红黑树性质的操作。而红黑树的性质有以下5条：</p>
+<ol>
+<li>所有的结点要么红，要么黑</li>
+<li>根结点必为黑</li>
+<li>叶子结点（NULL结点）全为黑</li>
+<li>任意两个红色结点必不相邻</li>
+<li>任意结点往下到任意叶子结点的简单路径上所包含的黑点个数相同</li>
+</ol>
+<hr>
+<p><img src="https://img-blog.csdnimg.cn/5c9527ba1e7b449fb4b4e5190464809f.png" width="70%"></p>
+<h2 id="插入">插入</h2>
+<p>（看叔叔结点的脸色）<br>
+待插入的结点<strong>默认是红色</strong>。因为如果是黑色，每插入一个结点，由于路径上的黑色结点数会发生改变，就要进行调整；如果默认是红色的话，只有当出现两个相邻连续的红色结点时，才要进行调整</p>
+<ul>
+<li>待插入的结点是树的根结点，则染成黑色</li>
+<li>待插入的结点的父结点是<strong>黑色</strong>，则此时满足红黑树的性质，不用做出任何改变</li>
+<li>待插入的结点的父结点是红色（爷结点必然为黑色），此时要考虑其叔叔结点的颜色
+<ul>
+<li>如果叔叔结点也是红色，则把父结点和叔叔结点染成黑色，爷结点染成红色；再把当前结点设置为爷结点，继续上述操作，直至根结点，相当于往上递归</li>
+<li>如果叔叔结点是黑色，则需要进行旋转操作。如果待插入的结点是父结点的右孩子，则要先进行左旋，转换为是左孩子的情况（如果在右边，则孩子应该旋转至靠右的情况）。然后再父结点为中心，进行右旋，此时父结点会成为这个区域最上面的那一个结点；同时，交换父结点和爷结点的颜色。这样就解决了因为插入导致两个相邻红色结点的情况</li>
+</ul>
+</li>
+</ul>
+<h2 id="删除">删除</h2>
+<p>回顾BST的删除操作，主要可以归为三类。</p>
+<ol>
+<li>所删除的结点无左右孩子，直接删除即可</li>
+<li>所删除的结点只有左（右）孩子其中一个，删除该结点，但该结点的颜色被其左或右孩子继承（这点在RBT删除操作中非常常见， 一个结点虽然被删除了，但是它的颜色将会在那个位置上保留下来）</li>
+<li>所删除的结点同时拥有左右孩子，则默认找该结点的后继结点来代替这一结点，完成逻辑上的删除，从而转换成删除该后继结点，进而转换成情况一或二</li>
+</ol>
+<p>基于以上分析，对于RBT的删除操作，我们只用讨论其无左右孩子，或者只有一个左右孩子的情况。<br>
+接着我们讨论如何维护颜色</p>
+<ul>
+<li>当删除的结点为黑色且只有一个左右孩子，这里只用讨论其孩子为红色的情况（因为其它情况可以统一归为第三类讨论），孩子继承其父结点的黑色</li>
+<li>当删除的结点为红色且无孩子时，直接删除即可，因为不会改变性质</li>
+<li>当删除的结点为黑色且无孩子时，或者有一个为黑色的孩子，那么此时该位置会产生一个双黑结点（这是为了维护性质5）</li>
+</ul>
+<p>那么我们的问题就进一步转换成了<strong>如何消除这个双黑结点</strong>（维护性质1）<br>
+（看兄弟结点的脸色，一个大的目标就是要把<strong>兄弟</strong>结点染成<strong>黑色</strong>，兄弟结点的<strong>右孩子</strong>染成<strong>红色</strong>）<br>
+首先如果该位置的兄弟结点为红色（父结点必为黑），交换兄弟结点与父结点的颜色，同时左旋。这样就把该位置的<strong>兄弟结点</strong>变为了<strong>黑色</strong>，这样就转换成了下面的情况。<br>
+如果该位置的兄弟结点为黑色，此时就要考虑它的两个孩子的颜色。根据排列组合，它的两个孩子会出现4种情况，分别为<strong>黑红</strong>、<strong>红红</strong>、<strong>红黑</strong>、<strong>黑黑</strong>。其中，黑红、红红可以归为一类讨论，所以我们的工作量就是讨论三类情况</p>
+<ol>
+<li>黑黑。解决问题的状态。此时当前结点为双黑结点，兄弟结点也为黑。把当前结点和兄弟结点<strong>同时褪掉一层黑色</strong>，则当前结点变为普通的黑色结点，兄弟结点变为红色结点。但是为了维护性质5，我们要在<strong>父结点上加上一重黑色</strong>，如果父亲结点原来为红色，那么加上一重黑色后，当前循环终止；如果父亲结点原来为黑色，则会变为双黑结点。这个操作一句话解释就是：把双黑的情况往上传导，直至根结点</li>
+<li>红黑。这是一种过渡状态（不能最终解决问题）。兄弟结点的右孩子为黑色，我们目标是把其染成<strong>红色</strong>，具体操作如下：交换兄弟结点与其左孩子的颜色，同时将兄弟结点右旋。这样就转换成了右孩子是红色的情况。</li>
+<li>黑红、红红。解决问题的状态。此时父结点的颜色是未知的，什么颜色都可以，不影响。交换父结点与兄弟结点的颜色，同时将右孩子从红色染成黑色，然后将兄弟结点左旋。这样就成功把双黑结点消成普通黑色结点</li>
+</ol>
+<hr>
+<p>能阅读到这里，说明你还是认可我的笔记的，希望对你有用！！</p>
+<h2 id="参考资料">参考资料</h2>
+<ol>
+<li><a href="https://www.bilibili.com/video/BV1Ar4y1Q7Js?spm_id_from=333.851.header_right.fav_list.click">AcWing Y总1小时搞定红黑树</a></li>
+<li>王道408-2023年数据结构考研复习指导</li>
+<li><a href="https://blog.csdn.net/xiaofeng10330111/article/details/106080394">对红黑树的认识总结-张彦峰ZYF</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>红黑树</tag>
       </tags>
   </entry>
   <entry>
@@ -1824,7 +1892,7 @@ Maven 3.8.1</p>
 <p><code>document.getElementById()</code></p>
 <p><code>document.getElementsByTagName()</code></p>
 <p>以及CSS选择器<code>document.getElementsByClassName()</code>。</p>
-<h2 id="插入">插入</h2>
+<h2 id="插入-2">插入</h2>
 <h3 id="追加">追加</h3>
 <p><code>appendChild</code>方法加结点添加至此末尾</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;js&quot;</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;list&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;javase&quot;</span>&gt;</span>javase<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;javaee&quot;</span>&gt;</span>javaee<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;javame&quot;</span>&gt;</span>javame<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> </span></span><br><span class="line"><span class="javascript">    	js = <span class="built_in">document</span>.getElementById(<span class="string">&quot;js&quot;</span>),</span></span><br><span class="line"><span class="javascript">        list = <span class="built_in">document</span>.getElementById(<span class="string">&quot;list&quot;</span>);</span></span><br><span class="line">    list.appendChild(js)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1852,7 +1920,7 @@ Maven 3.8.1</p>
 <p>第二种是修改<code>innerText</code>或<code>textContent</code>属性，这样可以自动对字符串进行HTML编码，保证无法设置任何HTML标签：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> aa = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;h1&#x27;</span>)</span><br><span class="line">aa.innerText=<span class="string">&quot;abcdedf&quot;</span></span><br><span class="line">aa.textContent=<span class="string">&quot;aaa&quot;</span></span><br></pre></td></tr></table></figure>
 <p>两者的区别在于读取属性时，<code>innerText</code>不返回隐藏元素的文本，而<code>textContent</code>返回所有文本。</p>
-<h2 id="删除">删除</h2>
+<h2 id="删除-2">删除</h2>
 <p>删除结点，首先定位到要删除的文档标签，可以通过id名</p>
 <p>获取当前标签的父元素</p>
 <p>通过父元素来移除当前标签，从而达到删除的效果</p>
