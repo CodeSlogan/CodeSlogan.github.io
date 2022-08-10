@@ -102,6 +102,228 @@
       </tags>
   </entry>
   <entry>
+    <title>C++要点复习</title>
+    <url>/2022/07/26/C++%E8%A6%81%E7%82%B9%E5%A4%8D%E4%B9%A0/</url>
+    <content><![CDATA[<h1>前言</h1>
+<p>为了准备秋招及春招，现阶段的任务是将所学过的知识进行复习，并串联起来。<br>
+首当其冲的就是编程语言的复习，C++自己平时写的也比较多，但仍有很多语法细节不太记得了，这里浅记一些<strong>平常容易忽略的要点</strong>。</p>
+<h1>C++基础入门</h1>
+<h2 id="一维数组数组名">一维数组数组名</h2>
+<p>一维数组名称的<strong>用途</strong>：</p>
+<ol>
+<li>可以统计整个数组在内存中的长度（单位：字节B）</li>
+<li>可以获取数组在内存中的首地址</li>
+</ol>
+<p>已知一个数组的数组名，求数组元素的个数，如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;整个数组所占内存空间为： &quot;</span> &lt;&lt; <span class="keyword">sizeof</span>(arr) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;每个元素所占内存空间为： &quot;</span> &lt;&lt; <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;数组的元素个数为： &quot;</span> &lt;&lt; <span class="keyword">sizeof</span>(arr) / <span class="keyword">sizeof</span>(arr[<span class="number">0</span>]) &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>可以通过数组名获取到数组首地址：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;数组首地址为： &quot;</span> &lt;&lt; (<span class="keyword">int</span>)arr &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;数组中第一个元素地址为： &quot;</span> &lt;&lt; (<span class="keyword">int</span>)&amp;arr[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;数组中第二个元素地址为： &quot;</span> &lt;&lt; (<span class="keyword">int</span>)&amp;arr[<span class="number">1</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>这里首地址即为第一个元素的地址</p>
+<h2 id="指针">指针</h2>
+<h3 id="指针所占内存空间">指针所占内存空间</h3>
+<p>所有指针类型在32位操作系统下是<strong>4个字节</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(<span class="keyword">int</span> *) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(<span class="keyword">char</span> *) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(<span class="keyword">float</span> *) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(<span class="keyword">double</span> *) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<h3 id="空指针和野指针">空指针和野指针</h3>
+<p>空指针：指针变量指向内存中编号为0的空间</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> * p = <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<p>用途：初始化指针变量<br>
+注意：空指针指向的内存是不可以访问的</p>
+<hr>
+<p>野指针：指针变量指向非法的内存空间</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> * p = (<span class="keyword">int</span> *)<span class="number">0x1100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问野指针报错 </span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; *p &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>两者共同点：都不能访问</p>
+<h3 id="const修饰指针">const修饰指针</h3>
+<p>const修饰指针有三种情况：</p>
+<ol>
+<li>
+<p>const修饰指针   — 常量指针 (const int * p)<br>
+const修饰的是指针，指针指向可以改，指针指向的值不可以更改</p>
+</li>
+<li>
+<p>const修饰常量   — 指针常量 (int * const p)<br>
+const修饰的是常量，指针指向不可以改，指针指向的值可以更改</p>
+</li>
+<li>
+<p>const即修饰指针，又修饰常量 (const int * const p)<br>
+const既修饰指针又修饰常量，两者均不可修改</p>
+</li>
+</ol>
+<h3 id="指针和数组">指针和数组</h3>
+<p>利用指针访问数组中的元素</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>* p = arr;  <span class="comment">//指向数组的指针</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第一个元素： &quot;</span> &lt;&lt; arr[<span class="number">0</span>] &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;指针访问第一个元素： &quot;</span> &lt;&lt; *p &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;指针访问第二个元素： &quot;</span> &lt;&lt; *(p+<span class="number">1</span>) &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//利用指针遍历数组</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; *p &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	p++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="指针和函数">指针和函数</h3>
+<p>利用指针作函数参数，可以修改实参的值</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 地址传递</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap2</span><span class="params">(<span class="keyword">int</span> * p1, <span class="keyword">int</span> *p2)</span> <span class="comment">// 声明与定义</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = *p1;</span><br><span class="line">	*p1 = *p2;</span><br><span class="line">	*p2 = temp;</span><br><span class="line">&#125;</span><br><span class="line">swap(&amp;a, &amp;b);  <span class="comment">// 调用传参</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>如果是数组名作为函数参数的话，两种写法<strong>效果相同</strong>，因为数组名就代表了首元素的地址</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span> * arr, <span class="keyword">int</span> len)</span>  <span class="comment">//int * arr 也可以写为int arr[]</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len - <span class="number">1</span> - i; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">int</span> temp = arr[j];</span><br><span class="line">				arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">				arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结构体">结构体</h2>
+<h3 id="结构体指针">结构体指针</h3>
+<p>通过指针访问结构体中的成员<br>
+利用操作符 <code>-&gt; </code>可以通过结构体指针访问结构体属性</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">student stu = &#123; <span class="string">&quot;张三&quot;</span>,<span class="number">18</span>,<span class="number">100</span>&#125;;</span><br><span class="line">student * p = &amp;stu;</span><br><span class="line">p-&gt;score = <span class="number">80</span>; <span class="comment">//指针通过 -&gt; 操作符可以访问成员</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; p-&gt;name &lt;&lt; <span class="string">&quot; 年龄：&quot;</span> &lt;&lt; p-&gt;age &lt;&lt; <span class="string">&quot; 分数：&quot;</span> &lt;&lt; p-&gt;score &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="函数参数">函数参数</h3>
+<p>结构体作函数参数时，如果不想修改主函数中的数据，用值传递，反之用地址传递</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 声明</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStudent2</span><span class="params">(student *stu)</span></span>;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">printStudent2(&amp;stu);</span><br></pre></td></tr></table></figure>
+<h1>C++核心编程</h1>
+<h2 id="内存4大分区">内存4大分区</h2>
+<p>C++程序在执行时，将内存大方向划分为<strong>4个区域</strong>：</p>
+<ul>
+<li>代码区：存放函数体的二进制代码，由操作系统进行管理的。特点<em>共享</em>、<em>只读</em>。</li>
+<li>全局区：存放全局变量、静态变量、常量，该区域的数据在程序结束后由操作系统释放</li>
+<li>栈区：由编译器自动分配释放，存放函数的参数值，局部变量等</li>
+<li>堆区：由程序员分配和释放内存(new)，若程序员不释放(delete)，程序结束时由操作系统回收</li>
+</ul>
+<h2 id="new操作符">new操作符</h2>
+<p>C++中利用<code>new</code>操作符在<strong>堆区</strong>开辟数据<br>
+利用new创建的数据，会返回<strong>该数据对应的类型的指针</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* a = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">10</span>); <span class="comment">// 创建一个值为10变量</span></span><br></pre></td></tr></table></figure>
+<p>开辟数组</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">delete</span>[] arr;</span><br></pre></td></tr></table></figure>
+<h2 id="引用-指针常量">引用&amp;(指针常量)</h2>
+<p>作用：给变量起别名，本质上还是原来那个变量</p>
+<ul>
+<li>引用必须初始化</li>
+<li>引用在初始化后，不可以改变（易错）</li>
+</ul>
+<hr>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line"><span class="comment">//int &amp;c; //错误，引用必须初始化</span></span><br><span class="line"><span class="keyword">int</span>&amp; c = a; <span class="comment">//一旦初始化后，就不可以更改</span></span><br><span class="line">c = b; <span class="comment">//这是赋值操作，不是更改引用，a的值也会改变</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a = &quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 20</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;b = &quot;</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 20</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;c = &quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+<p>由于c是a的别名，c在被重新赋值后，a也会随之改变<br>
+这个特点也印证了，引用本质上是一个<strong>指针常量</strong>，即指针指向的值可以修改，但是指针的指向不允许修改。</p>
+<h3 id="引用作函数参数">引用作函数参数</h3>
+<p>可以代替指针，实现函数内修改实参的操作</p>
+<p>通过引用参数产生的效果同按地址传递是一样的。引用的语法更清楚简单</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mySwap03</span><span class="params">(<span class="keyword">int</span>&amp; a, <span class="keyword">int</span>&amp; b)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> temp = a;</span><br><span class="line">	a = b;</span><br><span class="line">	b = temp;</span><br><span class="line">&#125;</span><br><span class="line">mySwap03(a, b);</span><br></pre></td></tr></table></figure>
+<h2 id="函数重载">函数重载</h2>
+<p>函数名可以相同，提高复用性</p>
+<p>函数重载满足<strong>条件</strong>：</p>
+<ol>
+<li>同一个作用域下</li>
+<li>函数名称相同</li>
+<li>函数参数类型、个数、顺序至少要有一个不同</li>
+</ol>
+<p>注：函数返回值不可以作为函数重载条件</p>
+<h2 id="类与对象">类与对象</h2>
+<h3 id="构造-析构函数写法">构造/析构函数写法</h3>
+<p>类的定义</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;无参构造函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		mAge = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Person(<span class="keyword">int</span> age) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有参构造函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		mAge = age;</span><br><span class="line">	&#125;</span><br><span class="line">	Person(<span class="keyword">const</span> Person&amp; p) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;拷贝构造函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		mAge = p.mAge;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//析构函数在释放内存之前调用</span></span><br><span class="line">	~Person() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;析构函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> mAge;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>利用类创建对象</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">Person man1; <span class="comment">// 无参构造</span></span><br><span class="line"><span class="function">Person <span class="title">man2</span><span class="params">(<span class="number">100</span>)</span></span>; <span class="comment">// 有参构建</span></span><br><span class="line"><span class="function">Person <span class="title">newman</span><span class="params">(man)</span></span>; <span class="comment">// 拷贝构造函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="深拷贝与浅拷贝">深拷贝与浅拷贝</h3>
+<p>浅拷贝：简单的赋值拷贝操作<br>
+深拷贝：在堆区重新申请空间，进行拷贝操作</p>
+<p>如果属性有在堆区开辟的，一定要自己提供拷贝构造函数，防止浅拷贝带来的重复释放内存空间的问题</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;无参构造函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Person(<span class="keyword">int</span> age, <span class="keyword">int</span> height) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;有参构造函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		m_age = age;</span><br><span class="line">		m_height = <span class="keyword">new</span> <span class="keyword">int</span>(height);  <span class="comment">// 堆区开辟</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//拷贝构造函数  </span></span><br><span class="line">	Person(<span class="keyword">const</span> Person&amp; p) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;拷贝构造函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="comment">//如果不利用深拷贝在堆区创建新内存，会导致浅拷贝带来的重复释放堆区问题</span></span><br><span class="line">		m_age = p.m_age;  <span class="comment">// 非堆区开辟</span></span><br><span class="line">		m_height = <span class="keyword">new</span> <span class="keyword">int</span>(*p.m_height);  <span class="comment">// 堆区开辟</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//析构函数</span></span><br><span class="line">	~Person() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;析构函数!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (m_height != <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">delete</span> m_height;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> m_age;</span><br><span class="line">	<span class="keyword">int</span>* m_height; <span class="comment">// 堆区开辟</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="列表初始化">列表初始化</h3>
+<p>一种简化语法的操作</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">	<span class="comment">////传统方式初始化</span></span><br><span class="line">	<span class="comment">//Person(int a, int b, int c) &#123;</span></span><br><span class="line">	<span class="comment">//	m_A = a;</span></span><br><span class="line">	<span class="comment">//	m_B = b;</span></span><br><span class="line">	<span class="comment">//	m_C = c;</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//初始化列表方式初始化</span></span><br><span class="line">	Person(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) :m_A(a), m_B(b), m_C(c) &#123;&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> m_A;</span><br><span class="line">	<span class="keyword">int</span> m_B;</span><br><span class="line">	<span class="keyword">int</span> m_C;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="静态成员变量">静态成员变量</h3>
+<p>即可以通过对象名访问，也可以通过类名访问(<code>类名::静态成员变量名</code>)<br>
+静态成员变量<strong>特点</strong>：</p>
+<ol>
+<li>在编译阶段分配内存</li>
+<li>类内声明，类外初始化</li>
+<li>所有对象共享同一份数据</li>
+</ol>
+<p>定义与初始化：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> m_A; <span class="comment">//静态成员变量</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> m_B; <span class="comment">// 如果设为私有，类外也无法直接访问</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> Person::m_A = <span class="number">10</span>; <span class="comment">// 初始化</span></span><br><span class="line"><span class="keyword">int</span> Person::m_B = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">Person p1;</span><br><span class="line">p1.m_A; <span class="comment">// 创建对象，利用对象名调用</span></span><br><span class="line">Person::m_A; <span class="comment">// 直接通过类名调用</span></span><br></pre></td></tr></table></figure>
+<h3 id="this指针（重要）">this指针（重要）</h3>
+<p>this指针在Java中也存在，不过用法上还是略有区别</p>
+<p>this指针指向被调用的成员函数所属的对象</p>
+<p>this指针的用途：</p>
+<ul>
+<li>当形参和成员变量同名时，可用this指针来区分</li>
+<li>在类的非静态成员函数中返回对象本身，可使用return *this</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person(<span class="keyword">int</span> age)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//1、当形参和成员变量同名时，可用this指针来区分</span></span><br><span class="line">		<span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function">Person&amp; <span class="title">PersonAddPerson</span><span class="params">(Person p)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;age += p.age;</span><br><span class="line">		<span class="comment">//返回对象本身</span></span><br><span class="line">		<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 因返回的是对象本身，所以可以连续调用</span></span><br><span class="line">p2.PersonAddPerson(p1).PersonAddPerson(p1).PersonAddPerson(p1);</span><br></pre></td></tr></table></figure>
+<h3 id="友元">友元</h3>
+<p>友元分为三种：</p>
+<ul>
+<li>全局函数作友元</li>
+<li>类作友元</li>
+<li>成员函数作友元</li>
+</ul>
+<p>第一种最简单，直接声明前加上<code>friend</code>关键字，放在类的最前头即可</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">goodGay</span><span class="params">(Building * building)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>第二种需要考虑到类定义的顺序<br>
+被友元访问的那个类，需要<strong>事先声明</strong>，顺序如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	B *b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">friend</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span>;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>第三种成员函数作友元，与类友元类似，不过只有类中特定的一个成员函数可以访问。总体形式一样，区别在于声明语句</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">friend</span> <span class="keyword">void</span> <span class="title">goodGay::visit</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<h3 id="运算符重载">运算符重载</h3>
+<p>不能重载的运算符有5种，分别是<code>.</code>、<code>-&gt;</code>、<code>sizeof</code>、<code>?:</code>、<code>::</code></p>
+<h4 id="加号">加号</h4>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Person() &#123;&#125;;</span><br><span class="line">	Person(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_A = a;</span><br><span class="line">		<span class="keyword">this</span>-&gt;m_B = b;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//成员函数实现 + 号运算符重载</span></span><br><span class="line">	Person <span class="keyword">operator</span>+(<span class="keyword">const</span> Person&amp; p) &#123;</span><br><span class="line">		Person temp;</span><br><span class="line">		temp.m_A = <span class="keyword">this</span>-&gt;m_A + p.m_A;</span><br><span class="line">		temp.m_B = <span class="keyword">this</span>-&gt;m_B + p.m_B;</span><br><span class="line">		<span class="keyword">return</span> temp;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> m_A;</span><br><span class="line">	<span class="keyword">int</span> m_B;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//全局函数运算符重载 可以发生函数重载 </span></span><br><span class="line">Person <span class="keyword">operator</span>+(<span class="keyword">const</span> Person&amp; p2, <span class="keyword">int</span> val)  </span><br><span class="line">&#123;</span><br><span class="line">	Person temp;</span><br><span class="line">	temp.m_A = p2.m_A + val;</span><br><span class="line">	temp.m_B = p2.m_B + val;</span><br><span class="line">	<span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用方法</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">Person <span class="title">p1</span><span class="params">(<span class="number">10</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function">Person <span class="title">p2</span><span class="params">(<span class="number">20</span>, <span class="number">20</span>)</span></span>;</span><br><span class="line">Person p3 = p2 + p1;</span><br><span class="line">Person p4 = p3 + <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="左移">左移</h4>
+<p>只能在全局函数中实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全局函数实现左移重载</span></span><br><span class="line"><span class="comment">//ostream对象只能有一个</span></span><br><span class="line">ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; out, Person&amp; p) &#123;</span><br><span class="line">	out &lt;&lt; <span class="string">&quot;a:&quot;</span> &lt;&lt; p.m_A &lt;&lt; <span class="string">&quot; b:&quot;</span> &lt;&lt; p.m_B;</span><br><span class="line">	<span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并且要作为友元，放在原类中</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; out, Person&amp; p);</span><br></pre></td></tr></table></figure>
+<h2 id="继承">继承</h2>
+<h3 id="基本语法">基本语法</h3>
+<p>class A : public B;</p>
+<p>A 类称为子类 或 派生类<br>
+B 类称为父类 或 基类</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">	<span class="keyword">int</span> m_A;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="keyword">int</span> m_B;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">int</span> m_C;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//公共继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son1</span> :</span><span class="keyword">public</span> Base1</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		m_A; <span class="comment">//可访问 public权限</span></span><br><span class="line">		m_B; <span class="comment">//可访问 protected权限</span></span><br><span class="line">		<span class="comment">//m_C; //不可访问</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="成员函数变量同名">成员函数变量同名</h3>
+<ol>
+<li>子类对象可以直接访问到子类中同名成员</li>
+<li>子类对象加作用域可以访问到父类同名成员</li>
+<li>当子类与父类拥有同名的成员函数，子类会隐藏父类中同名成员函数，加作用域可以访问到父类中同名函数</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">s.m_A; <span class="comment">// 子类的变量</span></span><br><span class="line">s.Base::m_A; <span class="comment">// 父类的变量，加类名访问</span></span><br><span class="line">s.func(); <span class="comment">// 子类的函数</span></span><br><span class="line">s.Base::func(); <span class="comment">// 父类的函数，加类名访问</span></span><br></pre></td></tr></table></figure>
+<h2 id="多态">多态</h2>
+<blockquote>
+<p>父类指针或引用指向子类对象</p>
+</blockquote>
+<ul>
+<li>静态多态: 函数重载和运算符重载属于静态多态，复用函数名——编译阶段确定函数地址</li>
+<li>动态多态: 派生类和虚函数实现运行时多态——运行阶段确定函数地址</li>
+</ul>
+<p>父类定义一个虚函数，<strong>子类</strong>通过<strong>重写虚函数</strong>实现多态</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="计算器">计算器</h3>
+<p>创建一个计算器父类与加法子类，并重写虚函数</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//多态实现</span></span><br><span class="line"><span class="comment">//抽象计算器类</span></span><br><span class="line"><span class="comment">//多态优点：代码组织结构清晰，可读性强，利于前期和后期的扩展以及维护</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AbstractCalculator</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span> :</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span> <span class="title">getResult</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> m_Num1;</span><br><span class="line">	<span class="keyword">int</span> m_Num2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//加法计算器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddCalculator</span> :</span><span class="keyword">public</span> AbstractCalculator</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">getResult</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> m_Num1 + m_Num2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>使用方法：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建加法计算器</span></span><br><span class="line">AbstractCalculator *abc = <span class="keyword">new</span> AddCalculator;</span><br><span class="line">abc-&gt;m_Num1 = <span class="number">10</span>;</span><br><span class="line">abc-&gt;m_Num2 = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; abc-&gt;m_Num1 &lt;&lt; <span class="string">&quot; + &quot;</span> &lt;&lt; abc-&gt;m_Num2 &lt;&lt; <span class="string">&quot; = &quot;</span> &lt;&lt; abc-&gt;getResult() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="keyword">delete</span> abc;  <span class="comment">//用完了记得销毁</span></span><br></pre></td></tr></table></figure>
+<h2 id="纯虚函数与抽象类">纯虚函数与抽象类</h2>
+<p>这个点也是比较陌生的点，平常很少用到不涉及，且和Java有一定程度上的区别</p>
+<p>考虑到父类一般是抽象类，所编写的纯虚函数可能并不存在对应的实现，因此就要把它定义为<strong>纯虚函数</strong></p>
+<p>纯虚函数语法：<code>virtual 返回值类型 函数名 （参数列表）= 0 ;</code></p>
+<p>当类中有了纯虚函数，这个类也称为==抽象类==</p>
+<p><strong>抽象类特点</strong>：</p>
+<ul>
+<li>无法实例化对象</li>
+<li>子类必须重写抽象类中的纯虚函数，否则也属于抽象类</li>
+<li>类中只要有一个纯虚函数就称为抽象类</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> :</span><span class="keyword">public</span> Base</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;func调用&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="虚析构与纯虚析构">虚析构与纯虚析构</h2>
+<p>存在的问题：多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码</p>
+<p>解决方式：将父类中的析构函数改为<strong>虚析构</strong>或者<strong>纯虚析构</strong></p>
+<p>虚析构和纯虚析构共性：</p>
+<ul>
+<li>可以解决<strong>父类指针释放子类对象</strong>(作用)，提醒子类必须重写自己的析构函数</li>
+<li>都需要有具体的函数实现</li>
+</ul>
+<p>虚析构和纯虚析构区别：</p>
+<ul>
+<li>如果是纯虚析构，该类属于抽象类，无法实例化对象</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">	Animal()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Animal 构造函数调用！&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Speak</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">virtual</span> ~Animal() = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Animal::~Animal()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Animal 纯虚析构函数调用！&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> :</span> <span class="keyword">public</span> Animal &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Cat(<span class="built_in">string</span> name)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cat构造函数调用！&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		m_Name = <span class="keyword">new</span> <span class="built_in">string</span>(name);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *m_Name &lt;&lt; <span class="string">&quot;小猫在说话!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	~Cat()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Cat析构函数调用!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span>-&gt;m_Name != <span class="literal">NULL</span>) &#123;</span><br><span class="line">			<span class="keyword">delete</span> m_Name;</span><br><span class="line">			m_Name = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">string</span>* m_Name;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>未完待续……</p>
+<h1>参考资料</h1>
+<ol>
+<li><a href="https://www.bilibili.com/video/BV1et411b73Z?p=60&amp;vd_source=e970cd535507381ae2c17529a182539e">黑马程序员匠心之作|C++教程从0到1入门编程,学习编程不再难</a></li>
+<li>《C++ Primer》</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -485,88 +707,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Matlab笔记</title>
-    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1>基本操作</h1>
-<h2 id="小操作">小操作</h2>
-<ul>
-<li>添加注释 Ctrl+R   %</li>
-<li>取消注释 Ctrl+T</li>
-<li>清空工作区变量 clear</li>
-<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
-<li>clear;clc  表示初始化</li>
-<li>分号;表示不显示运行结果</li>
-</ul>
-<a id="more"></a>
-<h2 id="输入输出函数-input-disp">输入输出函数(input(), disp())</h2>
-<p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
-<p>行向量 a = [1 2 3]</p>
-<p>列向量 a = [1;2;3]</p>
-<hr>
-<p>A = input(‘请输入A：’)</p>
-<h2 id="num2str">num2str</h2>
-<p>将数字转化为字符串</p>
-<p>a = 40               40</p>
-<p>num2str(a)      ‘40’</p>
-<h2 id="字符串的拼接">字符串的拼接</h2>
-<p>strcat(‘a的取值为’, a)</p>
-<p>[‘a的取值为’ a]</p>
-<h2 id="sum">sum()</h2>
-<p>如果是一维向量，则直接求和</p>
-<p>如果是多维，默认对列向量求和</p>
-<hr>
-<p>sum(E, 1) 对列向量求和</p>
-<p>sum(E, 2) 对行向量求和</p>
-<p>sum(E(:)) 对整个矩阵求和</p>
-<h2 id="提取矩阵中的元素">提取矩阵中的元素</h2>
-<p>A(3,2)     表示第三行第二列</p>
-<p>A(3,:)      表示第三行所有元素</p>
-<p>A(:,2)      表示第二列所有元素</p>
-<p>:表示取所有元素</p>
-<hr>
-<p>A([2,5],:)    只取第二行和第五行</p>
-<p>A(2:5,:)       只取第二行到第五行</p>
-<p>A(2:2:5,:)    取第二行和第四行</p>
-<hr>
-<p>A(2:end,:)   取第二行到最后一行</p>
-<p>A(2:end-1,:)   取第二行到倒数第2行</p>
-<hr>
-<p>A(:)将矩阵输出为一个列向量</p>
-<h2 id="size">size()</h2>
-<p>返回几行几列</p>
-<p>size(A, 1) 返回行</p>
-<p>size(A, 2) 返回列</p>
-<h2 id="repmat">repmat()</h2>
-<p>B = repmat(A, 2, 1)</p>
-<p>把A看成一个整体，2行1列个A</p>
-<h2 id="inv-求逆阵">inv()求逆阵</h2>
-<p>inv(B)</p>
-<h2 id="矩阵对应元素相乘除">矩阵对应元素相乘除</h2>
-<h3 id>.*   ./</h3>
-<p>区别直接乘除</p>
-<h3 id="-2">.</h3>
-<p>点针对每个元素进行操作</p>
-<h2 id="特征值和特征向量">特征值和特征向量</h2>
-<p>V = eig(B)         取特征值</p>
-<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
-<h2 id="find">find()</h2>
-<p>返回不为0的矩阵的索引</p>
-<p>ind = find(X)</p>
-<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
-<p>[r,c] = find(D == Max_eig, 1)</p>
-<h1>定义一个函数</h1>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
-<h1>定义一个具有自变量的方程</h1>
-<p>y=@(x) kx+b</p>
-<p>声明x是一个自变量</p>
-<h2 id="mean">mean()</h2>
-<p>平均值</p>
-]]></content>
-      <tags>
-        <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python笔记</title>
     <url>/2020/10/28/Python%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1>Python基础语法</h1>
@@ -657,7 +797,7 @@ world</p>
 <h3 id="封装">封装</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>():</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;小狗类&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name, age</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sit</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.name.title() + <span class="string">&quot; is now sitting&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">roll_over</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self.name.title() + <span class="string">&quot; rolled over!&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>创建类时，使用构造函数时要使用两个_</p>
-<h3 id="继承">继承</h3>
+<h3 id="继承-2">继承</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ElectricCar</span>(<span class="params">Car</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, make, model, year</span>):</span></span><br><span class="line">        <span class="built_in">super</span>().__init__(self, make, model, year)</span><br></pre></td></tr></table></figure>
 <p>super()是一个特殊的函数，帮助python将子类和父类关联起来。父类因为被称为超类，super因此而得名</p>
 <h2 id="文件读取">文件读取</h2>
@@ -704,6 +844,104 @@ world</p>
       <tags>
         <tag>Python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Matlab笔记</title>
+    <url>/2021/05/05/Matlab%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1>基本操作</h1>
+<h2 id="小操作">小操作</h2>
+<ul>
+<li>添加注释 Ctrl+R   %</li>
+<li>取消注释 Ctrl+T</li>
+<li>清空工作区变量 clear</li>
+<li>清除命令行里操作过的命令，使屏幕变干净 clc</li>
+<li>clear;clc  表示初始化</li>
+<li>分号;表示不显示运行结果</li>
+</ul>
+<a id="more"></a>
+<h2 id="输入输出函数-input-disp">输入输出函数(input(), disp())</h2>
+<p>disp用法类似C语言中的printf, 结尾无所谓分号</p>
+<p>行向量 a = [1 2 3]</p>
+<p>列向量 a = [1;2;3]</p>
+<hr>
+<p>A = input(‘请输入A：’)</p>
+<h2 id="num2str">num2str</h2>
+<p>将数字转化为字符串</p>
+<p>a = 40               40</p>
+<p>num2str(a)      ‘40’</p>
+<h2 id="字符串的拼接">字符串的拼接</h2>
+<p>strcat(‘a的取值为’, a)</p>
+<p>[‘a的取值为’ a]</p>
+<h2 id="sum">sum()</h2>
+<p>如果是一维向量，则直接求和</p>
+<p>如果是多维，默认对列向量求和</p>
+<hr>
+<p>sum(E, 1) 对列向量求和</p>
+<p>sum(E, 2) 对行向量求和</p>
+<p>sum(E(:)) 对整个矩阵求和</p>
+<h2 id="提取矩阵中的元素">提取矩阵中的元素</h2>
+<p>A(3,2)     表示第三行第二列</p>
+<p>A(3,:)      表示第三行所有元素</p>
+<p>A(:,2)      表示第二列所有元素</p>
+<p>:表示取所有元素</p>
+<hr>
+<p>A([2,5],:)    只取第二行和第五行</p>
+<p>A(2:5,:)       只取第二行到第五行</p>
+<p>A(2:2:5,:)    取第二行和第四行</p>
+<hr>
+<p>A(2:end,:)   取第二行到最后一行</p>
+<p>A(2:end-1,:)   取第二行到倒数第2行</p>
+<hr>
+<p>A(:)将矩阵输出为一个列向量</p>
+<h2 id="size">size()</h2>
+<p>返回几行几列</p>
+<p>size(A, 1) 返回行</p>
+<p>size(A, 2) 返回列</p>
+<h2 id="repmat">repmat()</h2>
+<p>B = repmat(A, 2, 1)</p>
+<p>把A看成一个整体，2行1列个A</p>
+<h2 id="inv-求逆阵">inv()求逆阵</h2>
+<p>inv(B)</p>
+<h2 id="矩阵对应元素相乘除">矩阵对应元素相乘除</h2>
+<h3 id>.*   ./</h3>
+<p>区别直接乘除</p>
+<h3 id="-2">.</h3>
+<p>点针对每个元素进行操作</p>
+<h2 id="特征值和特征向量">特征值和特征向量</h2>
+<p>V = eig(B)         取特征值</p>
+<p>[V, D] = eig(B)  得到特征向量和特征值，并且特征值和特征向量一一对应</p>
+<h2 id="find">find()</h2>
+<p>返回不为0的矩阵的索引</p>
+<p>ind = find(X)</p>
+<p>ind = find(X, 2) 返回前两个不为0值的索引</p>
+<p>[r,c] = find(D == Max_eig, 1)</p>
+<h1>定义一个函数</h1>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[输出变量]</span> = 函数名称<span class="params">(输入变量）  </span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的中间部分都是函数体</span></span></span><br><span class="line"><span class="function"><span class="params"> 函数的最后要用end结尾</span></span></span><br><span class="line"><span class="function"><span class="params"> 输出变量和输入变量可以有多个，用逗号隔开</span></span></span><br><span class="line"><span class="function"><span class="params">function [a,b,c]=test(d,e,f)</span></span></span><br><span class="line">    a=d+e;</span><br><span class="line">    b=e+f;</span><br><span class="line">    c=f+d;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">自定义的函数要单独放在一个m文件中，不可以直接放在主函数里面（和其他大多数语言不同）</span><br></pre></td></tr></table></figure>
+<h1>定义一个具有自变量的方程</h1>
+<p>y=@(x) kx+b</p>
+<p>声明x是一个自变量</p>
+<h2 id="mean">mean()</h2>
+<p>平均值</p>
+]]></content>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dev-C++调试配置</title>
+    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
+<ol>
+<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
+<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
+<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
+</ol>
+<p><strong>zlib1.dll</strong>文件的链接如下：</p>
+<p>私聊博主</p>
+]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
   </entry>
   <entry>
     <title>SpringBoot入门级项目hnucisys</title>
@@ -756,42 +994,6 @@ Maven 3.8.1</p>
         <tag>Java</tag>
         <tag>SpringBoot</tag>
         <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dev-C++调试配置</title>
-    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p>私聊博主</p>
-]]></content>
-      <categories>
-        <category>C/C++</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>友元函数无法访问私有成员</title>
-    <url>/2020/11/15/friend/</url>
-    <content><![CDATA[<h1>Problem</h1>
-<p>今天在完成一份C++作业时，遇到了一个问题：</p>
-<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p>
-<a id="more"></a>
-<p><img src="/2020/11/15/friend/image1.jpg" alt="image1"></p>
-<h1>Solve</h1>
-<p>在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加</p>
-<p><code>port.h</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PORT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PORT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; //头文件中务必加入这两行代码</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//****</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Port</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* brand;</span><br><span class="line">	<span class="keyword">char</span> style[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> bottles;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Port(<span class="keyword">const</span> <span class="keyword">char</span>* br = <span class="string">&quot;none&quot;</span>, <span class="keyword">const</span> <span class="keyword">char</span>* st = <span class="string">&quot;none&quot;</span>, <span class="keyword">int</span> b = <span class="number">0</span>);</span><br><span class="line">	Port(<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	<span class="keyword">virtual</span> ~Port() &#123; <span class="keyword">delete</span>[]brand; &#125;</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> += (<span class="keyword">int</span> b);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span>-=(<span class="keyword">int</span> b);</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Bottlecount</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bottles; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> Port&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C/C++</category>
-      </categories>
-      <tags>
-        <tag>友元</tag>
       </tags>
   </entry>
   <entry>
@@ -849,6 +1051,102 @@ Maven 3.8.1</p>
         <tag>ML</tag>
         <tag>Pytorch</tag>
         <tag>Conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>三道题带你复习C++和Java</title>
+    <url>/2022/08/04/%E4%B8%89%E9%81%93%E9%A2%98%E5%B8%A6%E4%BD%A0%E7%AE%80%E5%8D%95%E5%A4%8D%E4%B9%A0C++%E5%92%8CJava/</url>
+    <content><![CDATA[<h1>前言</h1>
+<p>前段时间有一个面试要考Java，在翻复习资料时，发现了三道题（谢谢张老师）基本上概括了一个语言的常用语法。特此记录，围绕这三道题用不同的语言编写，以便后续进行快速地复习。如果想要详细复习，请看<a href="https://blog.csdn.net/comscience/article/details/125995569?spm=1001.2014.3001.5501">C/C++要点复习</a></p>
+<h1>问题一</h1>
+<h2 id="问题描述">问题描述</h2>
+<p>请从控制台输入一个三角形的三条边长，并判断这三条边能不能构成一个三角形。</p>
+<p>如能构成，请打印输出这个三角形的周长（要求输出宽度为8，保留两位小数），如不能构成，请打印输出具体提示。</p>
+<p>考察点：<strong>输入</strong>、<strong>输出</strong>、<strong>if条件判断</strong></p>
+<h2 id="Java">Java</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTriangle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> []a = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">3</span>];</span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            System.out.print(<span class="string">&quot;第&quot;</span>+ (i+<span class="number">1</span>) + <span class="string">&quot;条边的边长：&quot;</span>);</span><br><span class="line">            a[i] = scanner.nextDouble();</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(a);</span><br><span class="line">        <span class="keyword">if</span> (a[<span class="number">0</span>] + a[<span class="number">1</span>] &gt; a[<span class="number">2</span>]) &#123;</span><br><span class="line">            <span class="keyword">double</span> c = a[<span class="number">0</span>]+a[<span class="number">1</span>]+a[<span class="number">2</span>];</span><br><span class="line">            System.out.printf(<span class="string">&quot;三角形的周长为：%8.2f\n&quot;</span>, c);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;无法构成三角形&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C">C++</h2>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> a[<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第&quot;</span> &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">&quot;条边的边长：&quot;</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a, a + <span class="number">3</span>);</span><br><span class="line">	<span class="keyword">if</span> (a[<span class="number">0</span>] + a[<span class="number">1</span>] &gt; a[<span class="number">2</span>]) &#123;</span><br><span class="line">		<span class="keyword">double</span> c = a[<span class="number">0</span>] + a[<span class="number">1</span>] + a[<span class="number">2</span>];</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;三角形的周长为： % 8.2f\n&quot;</span>, c);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;无法构成三角形&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>问题二</h1>
+<h2 id="题目描述">题目描述</h2>
+<p>编写一个ZPoint类，其中包括：</p>
+<ul>
+<li>两个私有成员double型变量x、y</li>
+<li>一个构造方法ZPoint(double  x,double y)</li>
+<li>两个访问器分别访问x和y</li>
+<li>一个静态方法distance(ZPoint p,ZPoint q)计算两点p、q的距离</li>
+<li>一个实例方法distance(double x,double y)计算形参定义的点与当前点对象之间的距离。</li>
+</ul>
+<p>在此基础上再编写一个测试类Test，用ZPoint实例化两个点对象（11,9）和（100,21.5），然后打印输出这两个点对象之间的距离，此外打印输出点对象（11,9）与x=71,y=19所定义的点的距离。</p>
+<p>考察点：<strong>类的定义与创建</strong>、<strong>实例方法</strong>、<strong>静态方法</strong></p>
+<h2 id="Java-2">Java</h2>
+<h3 id="ZPoint-java">ZPoint.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZPoint</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ZPoint</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getX</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getY</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">distance</span><span class="params">(ZPoint p, ZPoint q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> disX = Math.abs(p.getX() - q.getX());</span><br><span class="line">        <span class="keyword">double</span> disY = Math.abs(p.getY() - q.getY());</span><br><span class="line">        <span class="keyword">double</span> dis = Math.sqrt(disX*disX + disY*disY);</span><br><span class="line">        <span class="keyword">return</span> dis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> disX = Math.abs(<span class="keyword">this</span>.x - x);</span><br><span class="line">        <span class="keyword">double</span> disY = Math.abs(<span class="keyword">this</span>.y - y);</span><br><span class="line">        <span class="keyword">double</span> dis = Math.sqrt(disX*disX + disY*disY);</span><br><span class="line">        <span class="keyword">return</span> dis;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Test-java">Test.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ZPoint p1 = <span class="keyword">new</span> ZPoint(<span class="number">11</span>, <span class="number">9</span>);</span><br><span class="line">        ZPoint p2 = <span class="keyword">new</span> ZPoint(<span class="number">100</span>, <span class="number">21.5</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;两个点对象之间的距离为:&quot;</span>);</span><br><span class="line">        System.out.println(ZPoint.distance(p1, p2));</span><br><span class="line">        System.out.println(<span class="string">&quot;点对象（11,9）与x=71,y=19所定义的点的距离为：&quot;</span>);</span><br><span class="line">        System.out.println(p1.distance(<span class="number">71</span>,<span class="number">19</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="C-2">C++</h2>
+<p>当在类的外部定义静态成员时，不能重复static关键字<br>
+该关键字只能出现在类内部的声明语句</p>
+<h3 id="ZPoint-h">ZPoint.h</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> ZPOINT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZPOINT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ZPoint</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	ZPoint(<span class="keyword">double</span> x, <span class="keyword">double</span> y);</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">getX</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">getY</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">double</span> <span class="title">distance</span><span class="params">(ZPoint&amp; p, ZPoint&amp; q)</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">double</span> x;</span><br><span class="line">	<span class="keyword">double</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> </span></span><br></pre></td></tr></table></figure>
+<h3 id="ZPoint-cpp">ZPoint.cpp</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ZPoint.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line">ZPoint::ZPoint(<span class="keyword">double</span> x, <span class="keyword">double</span> y) &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;x = x;</span><br><span class="line">	<span class="keyword">this</span>-&gt;y = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ZPoint::getX</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>-&gt;x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ZPoint::getY</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>-&gt;y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ZPoint::distance</span><span class="params">(<span class="keyword">double</span> x, <span class="keyword">double</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> disX = <span class="built_in">abs</span>(<span class="keyword">this</span>-&gt;x - x);</span><br><span class="line">	<span class="keyword">double</span> disY = <span class="built_in">abs</span>(<span class="keyword">this</span>-&gt;y - y);</span><br><span class="line">	<span class="keyword">double</span> dis = <span class="built_in">sqrt</span>(disX * disX + disY * disY);</span><br><span class="line">	<span class="keyword">return</span> dis;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当在类的外部定义静态成员时，不能重复static关键字</span></span><br><span class="line"><span class="comment">// 该关键字只能出现在类内部的声明语句</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">ZPoint::distance</span><span class="params">(ZPoint&amp; p, ZPoint&amp; q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> disX = <span class="built_in">abs</span>(p.getX() - q.getX());</span><br><span class="line">	<span class="keyword">double</span> disY = <span class="built_in">abs</span>(p.getY() - q.getY());</span><br><span class="line">	<span class="keyword">double</span> dis = <span class="built_in">sqrt</span>(disX * disX + disY * disY);</span><br><span class="line">	<span class="keyword">return</span> dis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Test-cpp">Test.cpp</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ZPoint.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">ZPoint <span class="title">p1</span><span class="params">(<span class="number">11</span>, <span class="number">9</span>)</span></span>;</span><br><span class="line">	<span class="function">ZPoint <span class="title">p2</span><span class="params">(<span class="number">100</span>, <span class="number">21.5</span>)</span></span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;两个点对象之间的距离为：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ZPoint::distance(p1, p2) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;点对象（11,9）与x=71,y=19所定义的点的距离为：&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p1.distance(<span class="number">71</span>, <span class="number">19</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>问题三</h1>
+<h2 id="问题描述-2">问题描述</h2>
+<p>请运用面向对象程序设计思想编写完成几何对象的面积计算程序，具体要求为：GeometricObject（抽象类）、Circle、Cylinder和Rectangle之间的继承关系如下图所示，</p>
+<img src="https://img-blog.csdnimg.cn/d2824d6e4283428da2156e0c872a6c98.png" width="“60%”" height="“60%”">
+<p>请分按类图分别实现这四个类；</p>
+<p>然后编写一测试类GeoAreaSum，在该类中编写一个方法求数组中所有几何对象的面积之和，其方法头为：sumArea(GeometricObject[ ] a)</p>
+<p>再在GeoAreaSum的main方法中创建一个包括三个对象（一个半径为5的圆、一个半径为10、高为5的圆柱体和一个宽和高分别为6和8的矩形）的GeometricObject数组，使用sumArea方法计算出它们的总面积并在屏幕上打印输出。</p>
+<p>(2) 另请思考如果将Cylinder与GeometricObject的继承关系改成与Cylinder与Circle的继承关系，同时将Cylinder中的私有变量r去掉，Cylinder又该如何编写？<br>
+<img src="https://img-blog.csdnimg.cn/3affb2f15e9b4a59887b09011e1e4062.png" width="“60%”" height="“60%”"></p>
+<p>考察点：<strong>继承</strong>、<strong>多态</strong>、<strong>接口</strong>、<strong>抽象类</strong>、<strong>虚函数</strong>，<strong>纯虚函数</strong>、<strong>虚基类</strong></p>
+<h2 id="C-3">C++</h2>
+<p>如果子类调用父类带参数的构造方法，只能使用<strong>列表生成式</strong></p>
+<h3 id="GeometricObject-h">GeometricObject.h</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> GEOMETRIC_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GEOMETRIC_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PI acos(-1)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GeometricObject</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">virtual</span> ~GeometricObject() &#123; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> :</span> <span class="keyword">public</span> GeometricObject</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Circle();</span><br><span class="line">	Circle(<span class="keyword">double</span> r);</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">getR</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">double</span> r;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> :</span> <span class="keyword">public</span> GeometricObject</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Rectangle();</span><br><span class="line">	Rectangle(<span class="keyword">double</span> w, <span class="keyword">double</span> h);</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">double</span> w;</span><br><span class="line">	<span class="keyword">double</span> h;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cylinder</span> :</span> <span class="keyword">public</span> Circle</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Cylinder();</span><br><span class="line">	Cylinder(<span class="keyword">double</span> h, <span class="keyword">double</span> r);</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">double</span> h;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需要使用指针数组</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sumArea</span><span class="params">(GeometricObject *a[], <span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// !GEOMETRIC_H</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="GeometricObject-cpp">GeometricObject.cpp</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;GeometricObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">Circle::Circle() &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;r = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Circle::Circle(<span class="keyword">double</span> r) &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;r = r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Circle::getR</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>-&gt;r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Circle::findArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> PI * r * r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Circle::findPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span> * PI * r;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rectangle::Rectangle() &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;w = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">this</span>-&gt;h = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rectangle::Rectangle(<span class="keyword">double</span> w, <span class="keyword">double</span> h) &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;w = w;</span><br><span class="line">	<span class="keyword">this</span>-&gt;h = h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Rectangle::findArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> w * h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Rectangle::findPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span> * (w + h);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Cylinder::Cylinder(): Circle(<span class="number">0</span>) &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;h = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果子类调用父类带参数的构造方法，只能使用列表生成式</span></span><br><span class="line">Cylinder::Cylinder(<span class="keyword">double</span> h, <span class="keyword">double</span> r) : Circle(r) &#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;h = h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cylinder::findArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span> * PI * getR() * h + <span class="number">2</span> * PI * getR() * getR();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cylinder::findPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span> * PI * getR() * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">sumArea</span><span class="params">(GeometricObject* a[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		sum += a[i]-&gt;findArea();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="GeoAreaSum-cpp">GeoAreaSum.cpp</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;GeometricObject.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    GeometricObject *objects[<span class="number">3</span>];</span><br><span class="line">    objects[<span class="number">0</span>] = <span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">    objects[<span class="number">1</span>] = <span class="keyword">new</span> Cylinder(<span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">    objects[<span class="number">2</span>] = <span class="keyword">new</span> Rectangle(<span class="number">6</span>, <span class="number">8</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;总面积为:&quot;</span> &lt;&lt; sumArea(objects, <span class="number">3</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Java-3">Java</h2>
+<h3 id="GeometricObject-java">GeometricObject.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">GeometricObject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Circle-java">Circle.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">GeometricObject</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> r;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(<span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.r = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getR</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.PI*r*r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>*Math.PI*r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Rectangle-java">Rectangle.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">GeometricObject</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> w;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> h;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> w, <span class="keyword">double</span> h)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.w = w;</span><br><span class="line">        <span class="keyword">this</span>.h = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> w*h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>*(w+h);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Cylinder-java">Cylinder.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cylinder</span> <span class="keyword">extends</span> <span class="title">Circle</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> h;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cylinder</span><span class="params">(<span class="keyword">double</span> h, <span class="keyword">double</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(r);</span><br><span class="line">        <span class="keyword">this</span>.h = h;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>*Math.PI*getR()*h+<span class="number">2</span>*Math.PI*getR()*getR();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findPerimeter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>*Math.PI*getR()*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="GeoAreaSum-java">GeoAreaSum.java</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GeoAreaSum</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sumArea</span><span class="params">(GeometricObject[] a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (GeometricObject geometricObject : a) &#123;</span><br><span class="line">            sum += geometricObject.findArea();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        GeometricObject[] objects = <span class="keyword">new</span> GeometricObject[<span class="number">3</span>];</span><br><span class="line">        objects[<span class="number">0</span>] = <span class="keyword">new</span> Circle(<span class="number">5</span>);</span><br><span class="line">        objects[<span class="number">1</span>] = <span class="keyword">new</span> Cylinder(<span class="number">5</span>,<span class="number">10</span>);</span><br><span class="line">        objects[<span class="number">2</span>] = <span class="keyword">new</span> Rectangle(<span class="number">6</span>,<span class="number">8</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;总面积为:&quot;</span> + sumArea(objects));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>参考资料</h1>
+<ol>
+<li><a href="https://blog.csdn.net/aquapisces/article/details/104371658?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165960691316781647566870%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&amp;request_id=165960691316781647566870&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-104371658-null-null.142%5Ev39%5Econtrol&amp;utm_term=c%2B%2B%20%E5%AD%90%E7%B1%BB%E8%AE%BF%E9%97%AE%E7%88%B6%E7%B1%BB%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95&amp;spm=1018.2226.3001.4187">C++子类继承父类时如何写构造函数</a></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>友元函数无法访问私有成员</title>
+    <url>/2020/11/15/friend/</url>
+    <content><![CDATA[<h1>Problem</h1>
+<p>今天在完成一份C++作业时，遇到了一个问题：</p>
+<p>已经将函数作为友元放在了Port类，在分文件编写时仍然提示无法访问类中的私有成员</p>
+<a id="more"></a>
+<p><img src="/2020/11/15/friend/image1.jpg" alt="image1"></p>
+<h1>Solve</h1>
+<p>在头文件中加入两行代码，这可能也是我的一个习惯问题，iostream只在方法文件中添加</p>
+<p><code>port.h</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> PORT_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PORT_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt; //头文件中务必加入这两行代码</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;<span class="comment">//****</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Port</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* brand;</span><br><span class="line">	<span class="keyword">char</span> style[<span class="number">20</span>];</span><br><span class="line">	<span class="keyword">int</span> bottles;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Port(<span class="keyword">const</span> <span class="keyword">char</span>* br = <span class="string">&quot;none&quot;</span>, <span class="keyword">const</span> <span class="keyword">char</span>* st = <span class="string">&quot;none&quot;</span>, <span class="keyword">int</span> b = <span class="number">0</span>);</span><br><span class="line">	Port(<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	<span class="keyword">virtual</span> ~Port() &#123; <span class="keyword">delete</span>[]brand; &#125;</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Port&amp; p);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span> += (<span class="keyword">int</span> b);</span><br><span class="line">	Port&amp; <span class="keyword">operator</span>-=(<span class="keyword">int</span> b);</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">Bottlecount</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> bottles; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> ostream&amp; <span class="keyword">operator</span>&lt;&lt;(ostream&amp; os, <span class="keyword">const</span> Port&amp; p);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>友元</tag>
       </tags>
   </entry>
   <entry>
@@ -1151,13 +1449,15 @@ Maven 3.8.1</p>
 但请注意，<strong>列举出来并不是让大家一门一门连着学完</strong>。作为转专业的学生，不推荐这么做，应该优先掌握好一门，横向学习其它专业知识。这里推荐C/C++</p>
 <h3 id="C-C">C/C++</h3>
 <p>普遍认为这是每一个计算机同学都要学的语言，并且应该放第一门。虽然正式的项目中很少用到它，但是它的语言特性，比如指针，内存管理，可以使我们更好地去理解计算机更底层的知识。并且这是算法竞赛（重要性后面说）中最推荐的一门语言<br>
-初学者还经常问的一个问题就是<strong>C和C++有什么联系</strong>，可以理解成C++包含了C语言，并且在C语言面向过程的基础上，加上了面向对象的特性。所以想节约时间的话推荐直接学C++，但是由于C++可以两种特性混用，所以实际学习时要在这点做好区分。不差时间还是扎实一点，从C到C++<br>
-<a href="https://www.acwing.com/activity/content/21/">acwing语法基础课</a><br>
-<a href="https://www.icourse163.org/course/ZJU-9001?from=searchPage">mooc浙大翁恺C语言</a> 超赞，没话说，我看的第一门计算机网课<br>
-<a href="https://www.bilibili.com/video/BV1et411b73Z?from=search&amp;seid=8080796558109364061&amp;spm_id_from=333.337.0.0">黑马C++</a> 正如它自己所说，确实是匠心之作。如果已经有C语言的基础了，可以从面向对象开始看，不过不推荐，建议从头过，尤其是指针，数组，字符串这些内容<br>
-《C Primer Plus》<br>
-《C++ Primer》（没有plus，不要买错了）</p>
-<h3 id="Java">Java</h3>
+初学者还经常问的一个问题就是<strong>C和C++有什么联系</strong>，可以理解成C++包含了C语言，并且在C语言面向过程的基础上，加上了面向对象的特性。所以想节约时间的话推荐直接学C++，但是由于C++可以两种特性混用，所以实际学习时要在这点做好区分。不差时间还是扎实一点，从C到C++</p>
+<ul>
+<li><a href="https://www.acwing.com/activity/content/21/">acwing语法基础课</a></li>
+<li><a href="https://www.icourse163.org/course/ZJU-9001?from=searchPage">mooc浙大翁恺C语言</a> 超赞，没话说，我看的第一门计算机网课</li>
+<li><a href="https://www.bilibili.com/video/BV1et411b73Z?from=search&amp;seid=8080796558109364061&amp;spm_id_from=333.337.0.0">黑马C++</a> 正如它自己所说，确实是匠心之作。如果已经有C语言的基础了，可以从面向对象开始看，不过不推荐，建议从头过，尤其是指针，数组，字符串这些内容</li>
+<li>《C Primer Plus》</li>
+<li>《C++ Primer》（没有plus，不要买错了）</li>
+</ul>
+<h3 id="Java-4">Java</h3>
 <p>主要运用在开发领域，如web后端开发。相比较于C++，它是一门完完全全的面向对象编程的语言</p>
 <p><a href="https://www.bilibili.com/video/BV1Wx411f7qN?spm_id_from=333.337.header_right.fav_list.click">博学谷Java</a></p>
 <h3 id="Python">Python</h3>
@@ -1170,26 +1470,40 @@ Maven 3.8.1</p>
 <p>计算机专业的核心专业课包括了数据结构、操作系统、计算机网络、计算机组成原理、数据库原理、算法设计、离散数学等等<br>
 其中上面的前4门又是考研408当中的课，如果想要稳妥的学，并且功利一点的话，可以直接搜B站上的王道考研课来看，但也可以选择观看一些经典的课或书籍。所以我推荐下面的书和视频，但也只涵盖部分作者深有体会的专业课。有些没有被推荐到的，大家B站选择高播放量的即可。</p>
 <h3 id="数据结构">数据结构</h3>
-<p>核心中的核心，重要性就不多说了<br>
-《大话数据结构》：以最通俗的语言，学习最难的课程，推荐看!!!<br>
-《数据结构与算法C语言描述》：有基础了再看<br>
-《数据结构》：学校的用书，也还可以<br>
-<a href="https://www.bilibili.com/video/BV1nJ411V7bd?from=search&amp;seid=6584315197299625698&amp;spm_id_from=333.337.0.0">数据结构与算法基础（青岛大学-王卓）</a><br>
-<a href="https://www.icourse163.org/course/ZJU-93001?from=searchPage#/info">浙大陈越佬佬-数据结构</a></p>
+<p>核心中的核心，重要性就不多说了</p>
+<ul>
+<li>《大话数据结构》：以最通俗的语言，学习最难的课程，推荐看!!!</li>
+<li>《数据结构与算法C语言描述》：有基础了再看</li>
+<li>《数据结构》：学校的用书，也还可以</li>
+<li><a href="https://www.bilibili.com/video/BV1nJ411V7bd?from=search&amp;seid=6584315197299625698&amp;spm_id_from=333.337.0.0">数据结构与算法基础（青岛大学-王卓）</a></li>
+<li><a href="https://www.icourse163.org/course/ZJU-93001?from=searchPage#/info">浙大陈越佬佬-数据结构</a></li>
+</ul>
 <h3 id="操作系统">操作系统</h3>
 <blockquote>
 <p>Learn OS concepts by coding them!</p>
 </blockquote>
-<p>《操作系统原理、实现与实践》<a href="https://www.icourse163.org/course/HIT-1002531008?from=searchPage#/info">配套视频，哈工大操作系统，力荐！国内高校与世界计算机强校接轨的教学方法</a><br>
-《深入理解计算机系统》(大黑书，但是要看很久，对转专业同学来说是硬伤，自行抉择)<br>
-《现代操作系统》</p>
+<ul>
+<li>《操作系统原理、实现与实践》<a href="https://www.icourse163.org/course/HIT-1002531008?from=searchPage#/info">配套视频，哈工大操作系统，力荐！国内高校与世界计算机强校接轨的教学方法</a></li>
+<li>《深入理解计算机系统》(大黑书，但是要看很久，对转专业同学来说是硬伤，自行抉择)</li>
+<li>《现代操作系统》</li>
+</ul>
 <h3 id="计算机网络">计算机网络</h3>
-<p>《计算机网络，谢希仁》（国内少有的好教材）<br>
-《计算机网络：自顶向下》</p>
+<ul>
+<li>《计算机网络，谢希仁》（国内少有的好教材）</li>
+<li>《TCP/IP详解 卷1：协议》（黑书个人更推荐这本）</li>
+<li>《计算机网络：自顶向下》（这本讲的不够深）</li>
+</ul>
 <h3 id="机器学习">机器学习</h3>
-<p>机器学习，以及深度学习都属于人工智能领域，大家如果选择读研，大概率会是相关方向。但不是很建议开始太早，尤其刚转到计算机，可以放到大二下以后，学完概统的时候。最好是在<strong>大三上学期</strong><br>
-《统计学习方法》<br>
-<a href="https://www.bilibili.com/video/BV1Wv411h7kN?from=search&amp;seid=13762809853053247482&amp;spm_id_from=333.337.0.0">李宏毅机器学习，力荐！！</a>，并完成全部作业及课程项目</p>
+<p>机器学习，以及深度学习都属于人工智能领域，大家如果选择读研，大概率会是相关方向。但不是很建议开始太早，尤其刚转到计算机，可以放到大二下以后，学完概统的时候。最好是在<strong>大三上学期</strong></p>
+<ul>
+<li>《统计学习方法》 李航</li>
+<li>《神经网络与深度学习》邱锡鹏</li>
+<li><a href="https://www.bilibili.com/video/BV1Wv411h7kN?from=search&amp;seid=13762809853053247482&amp;spm_id_from=333.337.0.0">李宏毅机器学习，力荐！！</a>，并完成全部作业及课程项目</li>
+<li><a href="https://www.bilibili.com/video/BV1Pa411X76s?spm_id_from=333.337.header_right.fav_list.click&amp;vd_source=e970cd535507381ae2c17529a182539e">(强推|双字)2022吴恩达机器学习</a></li>
+<li><a href="https://www.bilibili.com/video/BV12E411a7Xn?p=107&amp;spm_id_from=pageDriver&amp;vd_source=e970cd535507381ae2c17529a182539e">(强推|双字)2021吴恩达深度学习</a></li>
+<li><a href="https://space.bilibili.com/1567748478/channel/seriesdetail?sid=358497">李沐_动手学深度学习</a></li>
+</ul>
+<p>吴恩达+李宏毅+李沐，三板斧</p>
 <h2 id="竞赛">竞赛</h2>
 <p>做计算机专业的三好学生：<s>品德好，学习好，身体好</s>(当然也很重要啦)<br>
 <strong>数学好，英语好，编程好</strong></p>
@@ -1209,19 +1523,28 @@ Maven 3.8.1</p>
 但即使不参加比赛，算法的学习也是非常重要。学具体的某项技术可以以周为单位，但像数学、算法的学习，要以月甚至年为单位，所以学习的先后孰轻孰重就很明显。而如何看出一个人的计算机水平，主要就看其算法的掌握程度，如果能啃下算法，对于其它专业课的学习会非常的有帮助。<strong>并且快速掌握一门语言，最好的办法就是用它来做题</strong>。</p>
 <p>算法的学习需要至少半年的沉淀，所以可以尽早开始，而平常如有闲暇时间，也可以花在算法上。<br>
 这里主要推荐一下平台及路径：<br>
-<a href="https://www.acwing.com/activity/">AcWing y总yyds !!!，犹豫就败北了这里，非常关键</a><br>
-<strong>语法基础课</strong>-&gt;<strong>算法基础课</strong>-&gt;<strong>算法提高课</strong><br>
-如果准备蓝桥，也可以把蓝桥AB辅导刷了<br>
+<a href="https://www.acwing.com/activity/">AcWing y总yyds !!!，犹豫就败北</a></p>
+<ol>
+<li><strong>语法基础课</strong></li>
+<li><strong>算法基础课</strong></li>
+<li><strong>算法提高课</strong></li>
+<li>蓝桥杯C++AB组辅导课</li>
+</ol>
+<p>如果准备蓝桥，也可以把蓝桥AB辅导刷了<br>
 同时完成课程后的练习题，需要完完全全地静下心来<br>
-（<em>个人认为应该尽早注册这个平台开始学习，卷也要卷对地方。仁者见仁，智者见智吧！</em>）<br>
-《算法笔记》<br>
-《算法竞赛进阶指南》<br>
-《挑战程序设计竞赛》</p>
+（<em>个人认为应该尽早注册这个平台开始学习，卷也要卷对地方。仁者见仁，智者见智吧！</em>）</p>
+<ul>
+<li>《算法笔记》</li>
+<li>《算法竞赛进阶指南》</li>
+<li>《挑战程序设计竞赛》</li>
+</ul>
 <h2 id="学习资源领取">学习资源领取</h2>
 <p>学习资源的整合由18级闫学长牵头制作，全部资料上传于全球最大的“同性交友网站”——github<br>
 <a href="https://github.com/beiyuouo/hainanu-course-comments">海南大学课程攻略共享计划</a><br>
 获取这个资源的第一步需要大家先学会用github，这也是每个计算机学生必会的技能</p>
+<div align="center">
 <img src=" https://img-blog.csdnimg.cn/66e4121bfee24813a3383e87b39c7e84.png " width="60%">
+</div>
 <h2 id="后话">后话</h2>
 <p>最后希望大家养成写博客的习惯，本篇文章就是一个博客。可以在csdn上写，也可以选择自己搭建博客。写博客能够帮助自己更好地回顾知识，减少出现当时懂了，现在却不太记得的情况。<br>
 <a href="https://www.bilibili.com/video/BV1Yb411a7ty?from=search&amp;seid=15232988892765845210&amp;spm_id_from=333.337.0.0">这里</a>推荐一个视频，是CodeSheep up主（可以关注他，干货超多）搭建博客的流程，<a href="https://codeslogan.github.io/">成果可点击此处</a></p>
@@ -4185,7 +4508,7 @@ Maven 3.8.1</p>
 <h2 id="例题-luogu">例题(luogu)</h2>
 <h3 id="题目背景">题目背景</h3>
 <p>若某个家族人员过于庞大，要判断两个是否是亲戚，确实还很不容易，现在给出某个亲戚关系图，求任意给出的两个人是否具有亲戚关系。</p>
-<h3 id="题目描述">题目描述</h3>
+<h3 id="题目描述-2">题目描述</h3>
 <p>规定：x和y是亲戚，y和z是亲戚，那么x和z也是亲戚。如果x,y是亲戚，那么x的亲戚都是y的亲戚，y的亲戚也都是x的亲戚。</p>
 <h3 id="输入格式">输入格式</h3>
 <p>第一行：三个整数n,m,p，（n&lt;=5000,m&lt;=5000,p&lt;=5000），分别表示有n个人，m个亲戚关系，询问p对亲戚关系。</p>
