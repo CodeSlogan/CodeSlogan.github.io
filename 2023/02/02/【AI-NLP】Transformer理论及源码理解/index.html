@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>【AI-NLP】Transformer理论及源码理解 | CodeSlogan</title><meta name="keywords" content="NLP,自然语言处理,Transformer"><meta name="author" content="codeslogan"><meta name="copyright" content="codeslogan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="提出背景 改进了RNN的训练慢的缺点，利用self-attention机制实现并行计算。并且Transformer可以增加到非常深的深度，充分发掘DNN模型的特性，提升模型准确率。同时使用注意力机制更容易关注序列的全局特征，解决了RNN不善处理长距离依赖的问题 本质上是一个seq2seq的模型，因此可用于机器翻译，语音辨识，语音合成等问题    总体结构 整体结构由编码器与解码器组成，一个编码器中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【AI-NLP】Transformer理论及源码理解">
+<meta property="og:url" content="http://example.com/2023/02/02/%E3%80%90AI-NLP%E3%80%91Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:site_name" content="CodeSlogan">
+<meta property="og:description" content="提出背景 改进了RNN的训练慢的缺点，利用self-attention机制实现并行计算。并且Transformer可以增加到非常深的深度，充分发掘DNN模型的特性，提升模型准确率。同时使用注意力机制更容易关注序列的全局特征，解决了RNN不善处理长距离依赖的问题 本质上是一个seq2seq的模型，因此可用于机器翻译，语音辨识，语音合成等问题    总体结构 整体结构由编码器与解码器组成，一个编码器中">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png">
+<meta property="article:published_time" content="2023-02-02T08:07:29.000Z">
+<meta property="article:modified_time" content="2023-02-16T12:21:30.230Z">
+<meta property="article:author" content="codeslogan">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="Transformer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/02/%E3%80%90AI-NLP%E3%80%91Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '【AI-NLP】Transformer理论及源码理解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-16 20:21:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CodeSlogan</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">【AI-NLP】Transformer理论及源码理解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-02T08:07:29.000Z" title="发表于 2023-02-02 16:07:29">2023-02-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-16T12:21:30.230Z" title="更新于 2023-02-16 20:21:30">2023-02-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NLP/">NLP</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="【AI-NLP】Transformer理论及源码理解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>提出背景</h1>
+<p>改进了RNN的训练慢的缺点，利用self-attention机制实现<strong>并行计算</strong>。并且Transformer可以增加到非常深的深度，充分发掘DNN模型的特性，提升模型准确率。同时使用注意力机制更容易关注序列的全局特征，解决了RNN不善处理<strong>长距离依赖</strong>的问题<br>
+本质上是一个seq2seq的模型，因此可用于机器翻译，语音辨识，语音合成等问题</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png" width="40%">
+</div>
+<h1>总体结构</h1>
+<p>整体结构由编码器与解码器组成，一个编码器中可有若干个编码层</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/363a5a5949fb43acb714bb4a0f9a326e.png" width="40%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/e7eadae943594531a4f67b232baa7cf3.png" width="40%">
+</div>
+<p>注意，Encoder中的参数各不相同</p>
+<h2 id="Encoder">Encoder</h2>
+<p>编码器的作用在于，输入一个向量，输出一个等长的向量</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/bd2c8d6e6bf04ef1ab35c64c5c40243a.png" width="30%">
+</div>
+<p>要点：</p>
+<ol>
+<li>使用多头注意力机制，关注全局输入向量的资讯</li>
+<li>使用了残差及layer normalization，避免出现梯度消失问题</li>
+<li>使用前向神经网络，每个位置的单词对应的前馈神经网络都完全一样</li>
+</ol>
+<blockquote>
+<p>Self Attention</p>
+</blockquote>
+<p>query，key，value全由输入向量自身计算得到的一种注意力机制。每一个输入向量分别对应了查询、键、值权重矩阵，用于生成查询、键、值向量，权重矩阵为训练参数</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/e854bb2ab144493d8048dba8627b29be.png" width="60%">
+</div>
+<h2 id="Decoder">Decoder</h2>
+<p>输入有两部分</p>
+<ul>
+<li>编码器最后一层的输出作为key和value</li>
+<li>同时解码器自己的输入经过多头自注意力的计算作为query</li>
+</ul>
+<p>输出为对应的结果序列</p>
+<p>结构与编码器类似，唯一的不同在于Masked Multi-Head Attention使用了掩码机制，不再关注全局的资讯，而是只考虑了当前位置以及当前位置之前的信息，存在时序性</p>
+<h1>细节再探</h1>
+<ol>
+<li>
+<p>Teacher forcing：将真实标签作为decoder的输入，依次预测结果，相当于把正确答案给解码器</p>
+</li>
+<li>
+<p>掩码作用：考虑到Teacher forcing已经将正确答案输入到模型，因此在每次预测一个token时，需要将其及其之后的token先掩盖，保证训练任务和预测任务在执行自回归时，是同样的形式</p>
+</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d4d2bb708e784bb88a85c1e4d23706ff.png" width="60%">
+</div>
+<ol start="3">
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是query和key向量的维度<br>
+在计算注意力权重时除以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，避免了随着<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的增大，即维度增大时，计算出的权重出现过大（softmax后的值非0即1）的情况，从而保留了数据原始的分布，可以使得梯度回传时更加平稳</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/fdd12e352cf64239b00a1df2397af017.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/061bcf1bf4b64acfac3aef3e8a74e6cd.png" width="40%">
+</div>
+<ol start="4">
+<li>使用layer normalize而非batch normalize：ln是针对一个样本内部做归一化；bn针对的是各个样本的特征做归一化，在文本长度变化较大时，这种归一化方式会造成均值方差抖动明显</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/626252a7b2ea4347923d77bbd11a222b.png" width="60%">
+</div>
+<ol start="5">
+<li>多头self attention意在让根据词向量得出的query, key, value向量，进入不同的线性层（子空间），分别进行自注意力计算，捕捉全局丰富的语义信息，再将所有结果concat，拼接回原有的形状，最后再进入一个线性层得到结果</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/dc7dcf762738418297044f4678641186.png" width="30%">
+</div>
+<ol start="6">
+<li>在decoder中计算自注意力时，query来自带有掩码的自注意力计算得出，而key和value来自encoder最后的输出，目的是让Decoder端的单词(token)给予Encoder端对应的单词(token)“更多的关注(attention weight)”</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/6b1d6c8f087e4e5db314a5a9a73c6d72.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d66cea387663441faf417e304735428b.png" width="40%">
+</div>
+<ol start="7">
+<li>自注意力是基于全局信息进行计算，而忽略了<strong>时序信息</strong>（导致任意打乱句子中token的顺序，结果不变），位置编码PE解决了这一问题。PE的长度与embedding相同，使二者可以直接相加。<br>
+计算方式是根据token的文本中的位置，PE向量中偶数位使用sin计算，奇数位使用cos计算。由于三角函数公式不受序列长度的限制，也就是可以对比所遇到序列的更长的序列进行表示</li>
+</ol>
+<h1>源码阅读</h1>
+<h2 id="主函数部分">主函数部分</h2>
+<p>确定了模型的输入部分，由两部分组成encoder的输入，decoder的输入<br>
+将token转换成id后以tensor形式传入模型</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/6d4843e03f3b40d59d6797042dcb22f4.png" width="80%">
+</div>
+<p>P代表填充码，S代表起始，E代表结束。对文本进行了id映射<br>
+模型参数初始化，选用交叉熵损失函数，Adam自适应学习率优化器</p>
+<h2 id="主模型定义">主模型定义</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Transformer</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Transformer, self).__init__()</span><br><span class="line">        self.encoder = Encoder()</span><br><span class="line">        self.decoder = Decoder()</span><br><span class="line">        self.projection = nn.Linear(d_model, tgt_vocab_size, bias=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, enc_inputs, dec_inputs</span>):</span></span><br><span class="line">        enc_outputs, enc_self_attns = self.encoder(enc_inputs)</span><br><span class="line">        dec_outputs, dec_self_attns, dec_enc_attns = self.decoder(dec_inputs, enc_inputs, enc_outputs)</span><br><span class="line">        dec_logits = self.projection(dec_outputs) <span class="comment"># dec_logits : [batch_size x src_vocab_size x tgt_vocab_size]</span></span><br><span class="line">        <span class="keyword">return</span> dec_logits.view(<span class="number">-1</span>, dec_logits.size(<span class="number">-1</span>)), enc_self_attns, dec_self_attns, dec_enc_attns</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>由编码器，解码器及全连接层组成<br>
+<strong>编码器输入</strong> 为<code>1*5</code>的张量，输出为<code>1*5*512</code>的张量（批量大小为1，文本长度为5，embedding向量维度为512），及注意力权重参数<code>6*8*5*5</code><br>
+（6代表编码器中编码层的数量；8代表8头注意力，计算了8次，有8个子空间；<code>5*5</code>代表文本内部的相关性计算的结果）<br>
+<strong>解码器输入</strong>为编码器的输出及解码层输入文本<br>
+输出为注意力计算得出的结果（<code>1*5*512</code>），及解码器掩码自注意力权重参数及交互注意力权重参数<br>
+将解码器的输出作为<strong>全连接层的输入</strong>，通过全连接层将512维向量压缩成7维，对应翻译文本的长度(<code>5*7</code>)</p>
+<h2 id="编码器">编码器</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Encoder</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Encoder, self).__init__()</span><br><span class="line">        <span class="comment"># 词向量5*512</span></span><br><span class="line">        self.src_emb = nn.Embedding(src_vocab_size, d_model)</span><br><span class="line">        <span class="comment"># 位置编码6*512</span></span><br><span class="line">        self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(src_len+<span class="number">1</span>, d_model), freeze=<span class="literal">True</span>)</span><br><span class="line">        self.layers = nn.ModuleList([EncoderLayer() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_layers)])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, enc_inputs</span>):</span>  <span class="comment"># enc_inputs : [batch_size x source_len] [1*5]</span></span><br><span class="line">        enc_outputs = self.src_emb(enc_inputs) + self.pos_emb(torch.LongTensor([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>]]))</span><br><span class="line">        enc_self_attn_mask = get_attn_pad_mask(enc_inputs, enc_inputs)</span><br><span class="line">        enc_self_attns = []</span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">            enc_outputs, enc_self_attn = layer(enc_outputs, enc_self_attn_mask)</span><br><span class="line">            enc_self_attns.append(enc_self_attn)</span><br><span class="line">        <span class="keyword">return</span> enc_outputs, enc_self_attns</span><br></pre></td></tr></table></figure>
+<p>定义词向量，位置向量，并将二者相加，传入编码层中迭代<br>
+位置向量由当前token所在文本中的位置计算得出</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d66cea387663441faf417e304735428b.png" width="40%">
+</div>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># n_position为文本长度，d_model为总向量维度</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sinusoid_encoding_table</span>(<span class="params">n_position, d_model</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cal_angle</span>(<span class="params">position, hid_idx</span>):</span></span><br><span class="line">        <span class="keyword">return</span> position / np.power(<span class="number">10000</span>, <span class="number">2</span> * (hid_idx // <span class="number">2</span>) / d_model)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_posi_angle_vec</span>(<span class="params">position</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [cal_angle(position, hid_j) <span class="keyword">for</span> hid_j <span class="keyword">in</span> <span class="built_in">range</span>(d_model)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6*512</span></span><br><span class="line">    sinusoid_table = np.array([get_posi_angle_vec(pos_i) <span class="keyword">for</span> pos_i <span class="keyword">in</span> <span class="built_in">range</span>(n_position)])</span><br><span class="line">    sinusoid_table[:, <span class="number">0</span>::<span class="number">2</span>] = np.sin(sinusoid_table[:, <span class="number">0</span>::<span class="number">2</span>])  <span class="comment"># dim 2i</span></span><br><span class="line">    sinusoid_table[:, <span class="number">1</span>::<span class="number">2</span>] = np.cos(sinusoid_table[:, <span class="number">1</span>::<span class="number">2</span>])  <span class="comment"># dim 2i+1</span></span><br><span class="line">    <span class="keyword">return</span> torch.FloatTensor(sinusoid_table)</span><br></pre></td></tr></table></figure>
+<h2 id="编码层">编码层</h2>
+<p>由多头自注意力层，以及前向神经网络组成<br>
+QKV均来自编码层输入的embedding<br>
+此时输入输出均为<code>1*5*512</code></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncoderLayer</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(EncoderLayer, self).__init__()</span><br><span class="line">        self.enc_self_attn = MultiHeadAttention()</span><br><span class="line">        self.pos_ffn = PoswiseFeedForwardNet()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, enc_inputs, enc_self_attn_mask</span>):</span></span><br><span class="line">        <span class="comment"># enc_input: torch.Size([1, 5, 512])</span></span><br><span class="line">        <span class="comment"># enc_inputs to same Q,K,V</span></span><br><span class="line">        enc_outputs, attn = self.enc_self_attn(enc_inputs, enc_inputs, enc_inputs, enc_self_attn_mask)</span><br><span class="line">        enc_outputs = self.pos_ffn(enc_outputs)  <span class="comment"># enc_outputs: [batch_size x len_q x d_model]</span></span><br><span class="line">        <span class="comment"># torch.Size([1, 5, 512])</span></span><br><span class="line">        <span class="keyword">return</span> enc_outputs, attn</span><br></pre></td></tr></table></figure>
+<h2 id="多头自注意力层">多头自注意力层</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiHeadAttention</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(MultiHeadAttention, self).__init__()</span><br><span class="line">        self.W_Q = nn.Linear(d_model, d_k * n_heads)</span><br><span class="line">        self.W_K = nn.Linear(d_model, d_k * n_heads)</span><br><span class="line">        self.W_V = nn.Linear(d_model, d_v * n_heads)</span><br><span class="line">        self.linear = nn.Linear(n_heads * d_v, d_model)</span><br><span class="line">        self.layer_norm = nn.LayerNorm(d_model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, Q, K, V, attn_mask</span>):</span></span><br><span class="line">        <span class="comment"># q: [batch_size x len_q x d_model], k: [batch_size x len_k x d_model], v: [batch_size x len_k x d_model]</span></span><br><span class="line">        <span class="comment"># attn_mask: [1 x 5 x 5]</span></span><br><span class="line">        residual, batch_size = Q, Q.size(<span class="number">0</span>)</span><br><span class="line">        <span class="comment"># (B, S, D) -proj-&gt; (B, S, D) -split-&gt; (B, S, H, W) -trans-&gt; (B, H, S, W)</span></span><br><span class="line">        <span class="comment"># torch.Size([1, 8, 5, 64])</span></span><br><span class="line">        q_s = self.W_Q(Q).view(batch_size, <span class="number">-1</span>, n_heads, d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># q_s: [batch_size x n_heads x len_q x d_k]</span></span><br><span class="line">        k_s = self.W_K(K).view(batch_size, <span class="number">-1</span>, n_heads, d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># k_s: [batch_size x n_heads x len_k x d_k]</span></span><br><span class="line">        v_s = self.W_V(V).view(batch_size, <span class="number">-1</span>, n_heads, d_v).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># v_s: [batch_size x n_heads x len_k x d_v]</span></span><br><span class="line">		<span class="comment"># 将mask从1*5*5复制为1*8*5*5</span></span><br><span class="line">        attn_mask = attn_mask.unsqueeze(<span class="number">1</span>).repeat(<span class="number">1</span>, n_heads, <span class="number">1</span>, <span class="number">1</span>) <span class="comment"># attn_mask : [batch_size x n_heads x len_q x len_k]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># context: [batch_size x n_heads x len_q x d_v], attn: [batch_size x n_heads x len_q(=len_k) x len_k(=len_q)]</span></span><br><span class="line">        context, attn = ScaledDotProductAttention()(q_s, k_s, v_s, attn_mask)</span><br><span class="line">        context = context.transpose(<span class="number">1</span>, <span class="number">2</span>).contiguous().view(batch_size, <span class="number">-1</span>, n_heads * d_v) <span class="comment"># context: [batch_size x len_q x n_heads * d_v]</span></span><br><span class="line">        output = self.linear(context)</span><br><span class="line">        <span class="keyword">return</span> self.layer_norm(output + residual), attn <span class="comment"># output: [batch_size x len_q x d_model]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>Q</mi></msub></mrow><annotation encoding="application/x-tex">W_Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">Q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>矩阵与Embedding相乘时，本质是将<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>Q</mi></msub></mrow><annotation encoding="application/x-tex">W_Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">Q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>视为一个线性层，KV同理<br>
+多头计算的步骤是：先映射分头，再计算注意力权重</p>
+<hr>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d4d2bb708e784bb88a85c1e4d23706ff.png" width="60%">
+</div>
+以上公式实现如下
+值得注意是，我们会找出文本序列中是padding的位置，并将其在`attn_mask`对应的位置上设置为True。接着在计算注意力，padding位置将被设置为负无穷，在经过softmax计算后结果基本为0，对当前单词的注意力计算就不会产生影响
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScaledDotProductAttention</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(ScaledDotProductAttention, self).__init__()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, Q, K, V, attn_mask</span>):</span></span><br><span class="line">        scores = torch.matmul(Q, K.transpose(<span class="number">-1</span>, <span class="number">-2</span>)) / np.sqrt(d_k)</span><br><span class="line">        <span class="comment"># padding负无穷</span></span><br><span class="line">        scores.masked_fill_(attn_mask, <span class="number">-1e9</span>) </span><br><span class="line">        attn = nn.Softmax(dim=<span class="number">-1</span>)(scores)</span><br><span class="line">        context = torch.matmul(attn, V)</span><br><span class="line">        <span class="keyword">return</span> context, attn</span><br></pre></td></tr></table></figure>
+<h2 id="前馈神经网络层">前馈神经网络层</h2>
+<p>在前向神经网络层中，使用一维卷积进行计算<br>
+原因在于当kernel_size=1，stride=1，padding=0时，与MLP的节点计算方式一样，变相实现了一个MLP<br>
+<code>nn.Conv1d</code>的输入数据格式只能以三维tensor[batch, channel, length]输入，与<code>nn.Linear</code>输入数据格式不同；<br>
+并且 <code>nn.Conv1d</code>的数据作用位置也不同，<code>nn.Conv1d</code>作用在<strong>第二个</strong>维度channel上，而<code>nn.Linear</code>作用于<strong>第三个</strong>维度</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PoswiseFeedForwardNet</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(PoswiseFeedForwardNet, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv1d(in_channels=d_model, out_channels=d_ff, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv1d(in_channels=d_ff, out_channels=d_model, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.layer_norm = nn.LayerNorm(d_model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, inputs</span>):</span></span><br><span class="line">        residual = inputs  <span class="comment"># inputs : [batch_size, len_q, d_model]</span></span><br><span class="line">        <span class="comment"># nn.Conv1d作用于第2个维度，因此要交换位置</span></span><br><span class="line">        output = nn.ReLU()(self.conv1(inputs.transpose(<span class="number">1</span>, <span class="number">2</span>)))</span><br><span class="line">        output = self.conv2(output).transpose(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> self.layer_norm(output + residual)</span><br></pre></td></tr></table></figure>
+<h2 id="Masked">Masked</h2>
+<p>为解码层的自注意力加入掩码机制，使其无法查看当前及当前以后的序列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_attn_subsequent_mask</span>(<span class="params">seq</span>):</span></span><br><span class="line">    attn_shape = [seq.size(<span class="number">0</span>), seq.size(<span class="number">1</span>), seq.size(<span class="number">1</span>)]</span><br><span class="line">    subsequent_mask = np.triu(np.ones(attn_shape), k=<span class="number">1</span>)</span><br><span class="line">    subsequent_mask = torch.from_numpy(subsequent_mask).byte()</span><br><span class="line">    <span class="keyword">return</span> subsequent_mask</span><br></pre></td></tr></table></figure>
+<h2 id="解码器">解码器</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Decoder</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Decoder, self).__init__()</span><br><span class="line">        <span class="comment"># 7*512</span></span><br><span class="line">        self.tgt_emb = nn.Embedding(tgt_vocab_size, d_model)</span><br><span class="line">        self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(tgt_len+<span class="number">1</span>, d_model), freeze=<span class="literal">True</span>)</span><br><span class="line">        self.layers = nn.ModuleList([DecoderLayer() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_layers)])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, dec_inputs, enc_inputs, enc_outputs</span>):</span>  <span class="comment"># dec_inputs : [batch_size x target_len]</span></span><br><span class="line">        dec_outputs = self.tgt_emb(dec_inputs) + self.pos_emb(torch.LongTensor([[<span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]))</span><br><span class="line">        dec_self_attn_pad_mask = get_attn_pad_mask(dec_inputs, dec_inputs)</span><br><span class="line">        dec_self_attn_subsequent_mask = get_attn_subsequent_mask(dec_inputs)</span><br><span class="line">        <span class="comment"># 将掩码转换为bool类型</span></span><br><span class="line">        dec_self_attn_mask = torch.gt((dec_self_attn_pad_mask + dec_self_attn_subsequent_mask), <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        dec_enc_attn_mask = get_attn_pad_mask(dec_inputs, enc_inputs)</span><br><span class="line"></span><br><span class="line">        dec_self_attns, dec_enc_attns = [], []</span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">            dec_outputs, dec_self_attn, dec_enc_attn = layer(dec_outputs, enc_outputs, dec_self_attn_mask, dec_enc_attn_mask)</span><br><span class="line">            dec_self_attns.append(dec_self_attn)</span><br><span class="line">            dec_enc_attns.append(dec_enc_attn)</span><br><span class="line">        <span class="keyword">return</span> dec_outputs, dec_self_attns, dec_enc_attns</span><br></pre></td></tr></table></figure>
+<h2 id="解码层">解码层</h2>
+<p>定义了两层注意力，分别为自注意力和交互注意力<br>
+其中自注意力为masked<br>
+交互注意力中，Q来自decoder，KV来自encoder</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DecoderLayer</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(DecoderLayer, self).__init__()</span><br><span class="line">        self.dec_self_attn = MultiHeadAttention()</span><br><span class="line">        self.dec_enc_attn = MultiHeadAttention()</span><br><span class="line">        self.pos_ffn = PoswiseFeedForwardNet()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, dec_inputs, enc_outputs, dec_self_attn_mask, dec_enc_attn_mask</span>):</span></span><br><span class="line">        dec_outputs, dec_self_attn = self.dec_self_attn(dec_inputs, dec_inputs, dec_inputs, dec_self_attn_mask)</span><br><span class="line">        dec_outputs, dec_enc_attn = self.dec_enc_attn(dec_outputs, enc_outputs, enc_outputs, dec_enc_attn_mask)</span><br><span class="line">        dec_outputs = self.pos_ffn(dec_outputs)</span><br><span class="line">        <span class="keyword">return</span> dec_outputs, dec_self_attn, dec_enc_attn</span><br></pre></td></tr></table></figure>
+<h1>参考资料</h1>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE">李沐Transformer论文逐段精读【论文精读】</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wv411h7kN?p=49">李宏毅Transformer</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Di4y1c7Zm">Transformer从零详细解读(可能是你见过最通俗易懂的讲解)</a></li>
+<li>源码请见：<a target="_blank" rel="noopener" href="https://github.com/graykode/nlp-tutorial/tree/master/5-1.Transformer">graykode/nlp-tutorial</a></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">codeslogan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://codeslogan.github.io">https://codeslogan.github.io</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">CodeSlogan</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NLP/">NLP</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png" data-sites="facebook,twitter,`,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/images/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/images/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/16/%E3%80%90AI_NLP%E3%80%91InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/"><img class="prev-cover" src="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【AI_NLP】InstructGPT数据标注问题</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/30/hai-AcWing%E8%AE%A1%E5%88%92/"><img class="next-cover" src="/2022/09/30/hai-AcWing%E8%AE%A1%E5%88%92/graph.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">hai-AcWing计划</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/16/%E3%80%90AI_NLP%E3%80%91InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/" title="【AI_NLP】InstructGPT数据标注问题"><img class="cover" src="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-16</div><div class="title">【AI_NLP】InstructGPT数据标注问题</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">codeslogan</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CodeSlogan"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/CodeSlogan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mrchen40@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">If not me, who?</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">提出背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">总体结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encoder"><span class="toc-number">2.1.</span> <span class="toc-text">Encoder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decoder"><span class="toc-number">2.2.</span> <span class="toc-text">Decoder</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">细节再探</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">源码阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E5%87%BD%E6%95%B0%E9%83%A8%E5%88%86"><span class="toc-number">4.1.</span> <span class="toc-text">主函数部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="toc-number">4.2.</span> <span class="toc-text">主模型定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">4.3.</span> <span class="toc-text">编码器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%B1%82"><span class="toc-number">4.4.</span> <span class="toc-text">编码层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%B1%82"><span class="toc-number">4.5.</span> <span class="toc-text">多头自注意力层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">4.6.</span> <span class="toc-text">前馈神经网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Masked"><span class="toc-number">4.7.</span> <span class="toc-text">Masked</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="toc-number">4.8.</span> <span class="toc-text">解码器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%B1%82"><span class="toc-number">4.9.</span> <span class="toc-text">解码层</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/16/%E3%80%90AI_NLP%E3%80%91InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/" title="【AI_NLP】InstructGPT数据标注问题">【AI_NLP】InstructGPT数据标注问题</a><time datetime="2023-02-16T07:12:14.000Z" title="发表于 2023-02-16 15:12:14">2023-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/02/%E3%80%90AI-NLP%E3%80%91Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/" title="【AI-NLP】Transformer理论及源码理解">【AI-NLP】Transformer理论及源码理解</a><time datetime="2023-02-02T08:07:29.000Z" title="发表于 2023-02-02 16:07:29">2023-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/09/30/hai-AcWing%E8%AE%A1%E5%88%92/" title="hai-AcWing计划">hai-AcWing计划</a><time datetime="2022-09-30T02:00:26.000Z" title="发表于 2022-09-30 10:00:26">2022-09-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/27/%E3%80%90%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91CNN%E6%B5%85%E8%AE%B0/" title="从卷积到卷积神经网络">从卷积到卷积神经网络</a><time datetime="2022-08-27T09:17:40.000Z" title="发表于 2022-08-27 17:17:40">2022-08-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/18/%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9F%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%9B%9E%E7%AD%94%E6%8C%89%E7%94%B5%E6%BA%90%E9%94%AE%E5%95%A6/" title="如何启动操作系统？不要只回答按电源键啦">如何启动操作系统？不要只回答按电源键啦</a><time datetime="2022-08-18T04:05:56.000Z" title="发表于 2022-08-18 12:05:56">2022-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By codeslogan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

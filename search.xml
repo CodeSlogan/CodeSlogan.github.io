@@ -1,107 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ML笔记</title>
-    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
-<h1>1. Regression</h1>
-<p>如何开始一个深度学习？</p>
-<ol>
-<li>
-<p>Function with unknown parameters</p>
-<p>w and b are unknown parameters</p>
-<p>w -&gt; weight               b-&gt;bias</p>
-</li>
-<li>
-<p>Define loss from training data</p>
-</li>
-<li>
-<p>Optimization</p>
-<a id="more"></a>
-<p>梯度下降，算积分，使得Loss趋近于最小</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
-</li>
-</ol>
-<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
-<h1>2. Classification</h1>
-<p>模型无法训练起来的原因：</p>
-<ul>
-<li>
-<p>model bias</p>
-<p>参数不够，如同大海捞针，针却不在海里</p>
-</li>
-<li>
-<p>optimization issue</p>
-<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<ol>
-<li>比较不同的模型</li>
-<li>从浅的网络或一些简单的模型开始优化</li>
-<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
-</ol>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
-<h2 id="General-Guide">General Guide</h2>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
-<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
-<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
-<p>local minima and saddle point</p>
-<h3 id="Hessian">Hessian</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
-<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
-<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
-<p>选取特征值为负所对应的特征向量u</p>
-<p>uT<em>H</em>u</p>
-<p>用这种方法可逃离鞍点，降低loss</p>
-<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
-<p>batch and momentum</p>
-<p>结论：</p>
-<ul>
-<li>small batch size has better performance</li>
-<li>Noisy update is better for training</li>
-</ul>
-<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
-<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
-<ul>
-<li>
-<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
-</li>
-<li>
-<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
-</li>
-<li>
-<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
-</li>
-<li>
-<p>noisy的数据有利于训练</p>
-</li>
-<li>
-<p>small batch有助于跳出局部最优解</p>
-</li>
-</ul>
-<hr>
-<p>未完待续……</p>
-<h1>参考资料</h1>
-<ol>
-<li>
-<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
-</li>
-<li>
-<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ML_DL</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>C++要点复习</title>
     <url>/2022/07/26/C++%E8%A6%81%E7%82%B9%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1>前言</h1>
@@ -327,6 +226,107 @@ B 类称为父类 或 基类</p>
       </tags>
   </entry>
   <entry>
+    <title>ML笔记</title>
+    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
+<h1>1. Regression</h1>
+<p>如何开始一个深度学习？</p>
+<ol>
+<li>
+<p>Function with unknown parameters</p>
+<p>w and b are unknown parameters</p>
+<p>w -&gt; weight               b-&gt;bias</p>
+</li>
+<li>
+<p>Define loss from training data</p>
+</li>
+<li>
+<p>Optimization</p>
+<a id="more"></a>
+<p>梯度下降，算积分，使得Loss趋近于最小</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
+</li>
+</ol>
+<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
+<h1>2. Classification</h1>
+<p>模型无法训练起来的原因：</p>
+<ul>
+<li>
+<p>model bias</p>
+<p>参数不够，如同大海捞针，针却不在海里</p>
+</li>
+<li>
+<p>optimization issue</p>
+<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
+</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li>比较不同的模型</li>
+<li>从浅的网络或一些简单的模型开始优化</li>
+<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
+</ol>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
+<h2 id="General-Guide">General Guide</h2>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
+<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
+<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
+<p>local minima and saddle point</p>
+<h3 id="Hessian">Hessian</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
+<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
+<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
+<p>选取特征值为负所对应的特征向量u</p>
+<p>uT<em>H</em>u</p>
+<p>用这种方法可逃离鞍点，降低loss</p>
+<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
+<p>batch and momentum</p>
+<p>结论：</p>
+<ul>
+<li>small batch size has better performance</li>
+<li>Noisy update is better for training</li>
+</ul>
+<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
+<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
+<ul>
+<li>
+<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
+</li>
+<li>
+<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
+</li>
+<li>
+<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
+</li>
+<li>
+<p>noisy的数据有利于训练</p>
+</li>
+<li>
+<p>small batch有助于跳出局部最优解</p>
+</li>
+</ul>
+<hr>
+<p>未完待续……</p>
+<h1>参考资料</h1>
+<ol>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
+</li>
+<li>
+<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -456,43 +456,6 @@ B 类称为父类 或 基类</p>
       </tags>
   </entry>
   <entry>
-    <title>Git配置</title>
-    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
-<a id="more"></a>
-<h1>版本控制工具</h1>
-<p>大致分为3种</p>
-<h2 id="本地版本控制">本地版本控制</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
-<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
-<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
-<h1>Git环境配置</h1>
-<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
-<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
-<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
-<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH公钥">SSH公钥</h2>
-<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
-<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
-<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
-<h1>Git的工作流程</h1>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
-<h1>致谢</h1>
-<p>狂神说</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>工具</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML5笔记</title>
     <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
     <content><![CDATA[<h1>前言</h1>
@@ -574,6 +537,43 @@ B 类称为父类 或 基类</p>
       </tags>
   </entry>
   <entry>
+    <title>Git配置</title>
+    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
+<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<a id="more"></a>
+<h1>版本控制工具</h1>
+<p>大致分为3种</p>
+<h2 id="本地版本控制">本地版本控制</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
+<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
+<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
+<h1>Git环境配置</h1>
+<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
+<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
+<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
+<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+<h2 id="SSH公钥">SSH公钥</h2>
+<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
+<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
+<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
+<h1>Git的工作流程</h1>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
+<h1>致谢</h1>
+<p>狂神说</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java3D安装教程</title>
     <url>/2021/08/31/Java3D%E5%AE%89%E8%A3%85(idea%E7%89%88)/</url>
     <content><![CDATA[<p>正值学习计算机图形学期间，学校选用的是比较冷门的Java3D，网上的安装教程也比较少，安装教程仅供参考。</p>
@@ -620,6 +620,87 @@ B 类称为父类 或 基类</p>
 <ul>
 <li>安装成功！！</li>
 </ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java上转型对象</title>
+    <url>/2021/10/02/Java%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h1>对象转换概念</h1>
+<p>不同类型的基本数据类型变量之间可以进行类型转换（自动转换与强制转换），在Java中对于具有继承关系的对象类型也可以进行转换。Java允许父类类型的引用变量直接引用子类类型的对象。<br>
+<br></p>
+<h1>上转型对象</h1>
+<p>假设，A类是B类的父类，当用子类创建一个对象，并把这个对象的引用放到父类的对象中时，称对象a是对象b的上转型对象。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
+<br>
+<h1>要点分析</h1>
+<h2 id="子类新增">子类新增</h2>
+<ul>
+<li>上转型对象不能访问子类新增的数据域；不能直接访问子类新增的方法（子类中定义的覆盖、隐藏方法不算新增）。只有当对象类型强制转换为子类类型，才能进行相应的调用</li>
+</ul>
+<p><code>Example5_10.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Monkey</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crawl</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;crawling&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> <span class="keyword">extends</span> <span class="title">Monkey</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d =<span class="number">0</span>; <span class="comment">//子类新增的数据域</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">computer</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123; <span class="comment">//子类新增的方法</span></span><br><span class="line">        <span class="keyword">int</span> c=a*b;</span><br><span class="line">        System.out.println(c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;***&quot;</span>+s+<span class="string">&quot;***&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example5_10</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Monkey monkey = <span class="keyword">new</span> People();</span><br><span class="line">        monkey.crySpeak(<span class="string">&quot;I love this game&quot;</span>); <span class="comment">//调用子类，重写不算新增</span></span><br><span class="line">        monkey.crawl();</span><br><span class="line">        <span class="comment">//monkey.computer(10,10); //上转型后，子类新增的方法失去</span></span><br><span class="line">        <span class="comment">//System.out.println(monkey.d);//上转型后，子类新增的变量失去</span></span><br><span class="line">        People people = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (monkey <span class="keyword">instanceof</span> People) </span><br><span class="line">            <span class="comment">// instanceof判断money是否为People类所创建的对象</span></span><br><span class="line">            people=(People)monkey; <span class="comment">//把上转型对象强制转化为子类的对象</span></span><br><span class="line">        people.computer(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">        System.out.println(people.d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">***I love this game***</span><br><span class="line">crawling</span><br><span class="line">100</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>在上述的例子中，父类为<code>Monkey</code>，子类为<code>People</code>。其中，在子类中，<code>int d</code>为新增变量，<code>computer</code>为新增方法，因此上转型对象无法直接调用这两个。强制转换为子类类型后，才能正常调用。</p>
+<h2 id="覆盖隐藏">覆盖隐藏</h2>
+<ul>
+<li>上转型对象可以访问子类从父类继承来的数据域、方法或子类中对父类覆盖重写的<strong>实例方法</strong>，但不能直接访问子类中对父类<strong>隐藏重写</strong>的静态方法和对父类隐藏定义的数据域。</li>
+<li>如果子类覆盖了父类的某个实例方法后，当用上转型对象调用这个实例方法时，一定是调用<strong>子类</strong>中的这个<strong>实例</strong>方法。</li>
+<li>如果子类隐藏了父类的某个静态方法后，当用上转型对象调用这个静态方法时，一定是调用<strong>父类</strong>中的这个<strong>静态</strong>方法，而不是子类中的这个静态方法，输出的值若为静态变量也应该是父类中的静态变量。</li>
+</ul>
+<p><code>MethodOverride.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Child c=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(c.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent p=<span class="keyword">new</span> Parent();</span><br><span class="line">        System.out.println(p.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent pc=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(pc.getClassName());</span><br><span class="line">        System.out.println(pc.getX());</span><br><span class="line">        System.out.println(pc.getZ());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z = <span class="number">10</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Parent!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> y =<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z =<span class="number">11</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(x+<span class="string">&quot; &quot;</span>+y);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Child!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">----------------</span><br><span class="line">this is Parent!</span><br><span class="line">----------------</span><br><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">6</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>在上述<code>MethodOverride</code>文件中，父类为<code>Parent</code>，子类为<code>Child</code>。前两个对象为具体类的实例化，因此调用的是自己所属类的实例方法。<br>
+第三个为上转型对象，<code>getClassName()</code>是对父类的重写方法，因此调用的是子类的<code>getClassName()</code>，由于是子类的方法，所以方法中的x,y为间接访问数据域也为子类的。<code>getX()</code>也是一个道理。<br>
+<code>getZ()</code>为静态方法，子类虽然对静态变量及静态方法进行了隐藏，但无法直接访问。根据静态调用看左边的原则，调用的应该是父类的<code>getZ()</code>，z值也为父类的数据域。</p>
+<h2 id="数据域">数据域</h2>
+<ul>
+<li>子类从父类继承来的方法如果没有被覆盖或隐藏，此方法中如果存在成员变量调用，则此调用是针对父类的成员变量的调用。</li>
+</ul>
+<p><code>HidingDemo.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HidingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A  x = <span class="keyword">new</span> B();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1) x.i is &quot;</span> + x.i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2) (B)x.i is &quot;</span> + ((B)x).i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3) x.j is &quot;</span> + x.j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(4) ((B)x).j is &quot;</span> + ((B)x).j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(5) x.m1() is &quot;</span> + x.m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6) ((B)x).m1() is &quot;</span> + ((B)x).m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7) x.m2() is &quot;</span> + x.m2());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8) x.m3() is &quot;</span> + x.m3());</span><br><span class="line">        System.out.println(<span class="string">&quot;(9) x.z is &quot;</span> + x.z);</span><br><span class="line">        System.out.println(<span class="string">&quot;(10) x.w is &quot;</span> + x.w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> z = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> w = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m3&quot;</span> + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1) x.i is 1</span><br><span class="line">&#x2F;&#x2F;上转型对象实例数据域看父类</span><br><span class="line">(2) (B)x.i is 2</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(3) x.j is 11</span><br><span class="line">&#x2F;&#x2F;上转型对象静态数据域看父类</span><br><span class="line">(4) ((B)x).j is 12</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(5) x.m1() is A&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;静态方法看父类（左）</span><br><span class="line">(6) ((B)x).m1() is B&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(7) x.m2() is B&#39;s instance m2</span><br><span class="line">&#x2F;&#x2F;实例方法重写，看子类</span><br><span class="line">(8) x.m3() is A&#39;s instance m3 11</span><br><span class="line">&#x2F;&#x2F;继承来的方法，子类没有其对应的重写，结果看父类</span><br><span class="line">&#x2F;&#x2F;若其中有涉及数据域，无论是静态数据，还是实例数据，都应该是父类的数据域</span><br><span class="line">(9) x.z is 3</span><br><span class="line">&#x2F;&#x2F;显而易见，继承而来的实例数据</span><br><span class="line">(10) x.z is 13</span><br><span class="line">&#x2F;&#x2F;继承而来的静态数据</span><br></pre></td></tr></table></figure>
+<p>总结：</p>
+<ol>
+<li>继承而来（子类没有对其进行额外的操作），全部看父类的内容</li>
+<li>强转后，无条件看强转后的内容</li>
+<li>数据域默认看的是父类</li>
+<li>如果调用了上转型对象调用了父类的方法，那么对应的数据，也应该是父类的数据，即使子类对变量进行了覆盖</li>
+</ol>
+<h2 id="不变的强转">不变的强转</h2>
+<p>上转型对象即使采用父类做一个强制转换，所访问到的被覆盖的实例方法依旧是子类的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br><span class="line">a.getX();</span><br><span class="line">((A)a).getX(); <span class="comment">//a.getX();</span></span><br></pre></td></tr></table></figure>
+<p>简单来说就是，原来它的类型本来就是A，再转为A相当于没转。</p>
+<p><code>TestChange.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestChange</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal x=<span class="keyword">new</span> Tiger();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1):x.news is &quot;</span>+x.news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2):((Tiger)x).news is &quot;</span>+((Tiger)x).news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3):x.smile() is &quot;</span>+x.smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(4):((Tiger)x).smile() is &quot;</span>+((Tiger)x).smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(5):((Animal)x).getNews() is &quot;</span>+((Animal)x).getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6):x.getNews() is &quot;</span>+x.getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7):x.getMessage() is &quot;</span>+x.getMessage());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8):((Tiger)x).eat() is &quot;</span>+((Tiger)x).eat());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Animal&#x27;s news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Animal&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Animal&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Tiger&#x27;s  news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Tiger&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123; <span class="comment">//隐藏</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Tiger&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123; <span class="comment">//覆盖</span></span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//新增的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">eat</span><span class="params">()</span></span>&#123; <span class="comment">//新</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;need eat meat&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1):x.news is Animal&#39;s news</span><br><span class="line">&#x2F;&#x2F; 默认访问父类的成员变量</span><br><span class="line">(2):((Tiger)x).news is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(3):x.smile() is smile from Animal</span><br><span class="line">&#x2F;&#x2F; 静态方法看左</span><br><span class="line">(4):((Tiger)x).smile() is smile from Tiger</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(5):((Animal)x).getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 不变的强转,易错点</span><br><span class="line">(6):x.getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 5与6是等效的</span><br><span class="line">(7):x.getMessage() is Animal&#39;s message</span><br><span class="line">&#x2F;&#x2F; 继承来的方法，访问变量看的是父类</span><br><span class="line">(8):((Tiger)x).eat() is need eat meat</span><br><span class="line">&#x2F;&#x2F; 访问子类新增需要强转</span><br></pre></td></tr></table></figure>
+<p>经过上面的沉淀，到这里应该没有问题了，有问题底下留言</p>
+<h1>动态绑定机制</h1>
+<p><code>DynamicBindingDemo.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicBindingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        m(<span class="keyword">new</span> GraduateStudent());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Student());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Person());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Object());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">(Object x)</span> </span>&#123;</span><br><span class="line">        System.out.println(x.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Object</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraduateStudent</span> <span class="keyword">extends</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这道题要注意分析题目，不要看成构造函数。<code>m()</code>方法本质上是调用了每个类中的<code>toString()</code>，根据继承关系分析<code>toString()</code>方法来自哪个类就能得出答案。GraduateStudent是Student的子类，Student是Person的子类，Person是Object的子类。在调用<code>toString()</code>方法时，如果创建的是GraduateStudent的一个实例，JVM会依次在类GraduateStudent，Student，Person中查找<code>toString()</code>方法的实现，一旦找到一个，就停止查找，然后调用这个先找到的</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Person</span><br><span class="line">-----</span><br><span class="line">java.lang.Object@12a3a380</span><br></pre></td></tr></table></figure>
+<h1>构造方法链</h1>
+<p>定义：Java中，用子类构造一个实例对象时，系统会自行在执行子类的构造方法前沿着继承链依次调用所有父类的无参构造方法（按继承关系由其顶层父类至当前子类依次调用，无论其是否在子类的构造方法中被显式调用），这称为构造方法链。</p>
+<p>本小节讨论的是上转型对象的构造方法，以及构造方法调用实例方法所出现的情况，具体如下：</p>
+<p><code>TestC.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  value = <span class="number">5</span>;</span><br><span class="line">    A( ) &#123;</span><br><span class="line">        setValue(<span class="number">10</span>);</span><br><span class="line">        System.out.println( <span class="string">&quot;A:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">2</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    B( ) &#123;</span><br><span class="line">        <span class="comment">//super();</span></span><br><span class="line">        System.out.println( <span class="string">&quot;B:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">5</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestC</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[ ] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">new</span> A( );</span><br><span class="line">        <span class="keyword">new</span> B( );</span><br><span class="line">        A c =<span class="keyword">new</span> B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行答案如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A:20</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br></pre></td></tr></table></figure>
+<p>刚刚接触这道题我是有点意外的，没想到Java还能这么考，感觉自己平常学的Java和老师教的Java不是一个东西，但是还是得默默承受(4.0 yyds！！！) 话不多说，进入正题</p>
+<ul>
+<li>第一值输出为20，创建的是父类对象，调用其构造方法+实例方法，结果无需多言</li>
+<li>第二组为两个50，在创建<code>B</code>对象时，因为它是<code>A</code>类的子类，默认会先调用A的构造方法。但是在A的构造方法中，调用了个实例方法。根据前面的知识我们知道，<strong>如果子类对父类的实例方法进行了重写覆盖，那么优先调用的应该是子类的实例方法</strong>，所以<code>value</code>值为50。</li>
+<li>第三组的答案与第二组相同，道理同上，作为上转型只是一个障眼法。</li>
+</ul>
+<h1>参考资料</h1>
+<p><a href="https://hd.hainanu.edu.cn/cs/info/1019/1026.htm">某海大某张姓老师</a></p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -850,103 +931,6 @@ world</p>
       </tags>
   </entry>
   <entry>
-    <title>Java上转型对象</title>
-    <url>/2021/10/02/Java%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%AF%B9%E8%B1%A1/</url>
-    <content><![CDATA[<h1>对象转换概念</h1>
-<p>不同类型的基本数据类型变量之间可以进行类型转换（自动转换与强制转换），在Java中对于具有继承关系的对象类型也可以进行转换。Java允许父类类型的引用变量直接引用子类类型的对象。<br>
-<br></p>
-<h1>上转型对象</h1>
-<p>假设，A类是B类的父类，当用子类创建一个对象，并把这个对象的引用放到父类的对象中时，称对象a是对象b的上转型对象。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
-<br>
-<h1>要点分析</h1>
-<h2 id="子类新增">子类新增</h2>
-<ul>
-<li>上转型对象不能访问子类新增的数据域；不能直接访问子类新增的方法（子类中定义的覆盖、隐藏方法不算新增）。只有当对象类型强制转换为子类类型，才能进行相应的调用</li>
-</ul>
-<p><code>Example5_10.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">Monkey</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crawl</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;crawling&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span> <span class="keyword">extends</span> <span class="title">Monkey</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d =<span class="number">0</span>; <span class="comment">//子类新增的数据域</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">computer</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123; <span class="comment">//子类新增的方法</span></span><br><span class="line">        <span class="keyword">int</span> c=a*b;</span><br><span class="line">        System.out.println(c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;***&quot;</span>+s+<span class="string">&quot;***&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example5_10</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Monkey monkey = <span class="keyword">new</span> People();</span><br><span class="line">        monkey.crySpeak(<span class="string">&quot;I love this game&quot;</span>); <span class="comment">//调用子类，重写不算新增</span></span><br><span class="line">        monkey.crawl();</span><br><span class="line">        <span class="comment">//monkey.computer(10,10); //上转型后，子类新增的方法失去</span></span><br><span class="line">        <span class="comment">//System.out.println(monkey.d);//上转型后，子类新增的变量失去</span></span><br><span class="line">        People people = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (monkey <span class="keyword">instanceof</span> People) </span><br><span class="line">            <span class="comment">// instanceof判断money是否为People类所创建的对象</span></span><br><span class="line">            people=(People)monkey; <span class="comment">//把上转型对象强制转化为子类的对象</span></span><br><span class="line">        people.computer(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">        System.out.println(people.d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">***I love this game***</span><br><span class="line">crawling</span><br><span class="line">100</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p>在上述的例子中，父类为<code>Monkey</code>，子类为<code>People</code>。其中，在子类中，<code>int d</code>为新增变量，<code>computer</code>为新增方法，因此上转型对象无法直接调用这两个。强制转换为子类类型后，才能正常调用。</p>
-<h2 id="覆盖隐藏">覆盖隐藏</h2>
-<ul>
-<li>上转型对象可以访问子类从父类继承来的数据域、方法或子类中对父类覆盖重写的<strong>实例方法</strong>，但不能直接访问子类中对父类<strong>隐藏重写</strong>的静态方法和对父类隐藏定义的数据域。</li>
-<li>如果子类覆盖了父类的某个实例方法后，当用上转型对象调用这个实例方法时，一定是调用<strong>子类</strong>中的这个<strong>实例</strong>方法。</li>
-<li>如果子类隐藏了父类的某个静态方法后，当用上转型对象调用这个静态方法时，一定是调用<strong>父类</strong>中的这个<strong>静态</strong>方法，而不是子类中的这个静态方法，输出的值若为静态变量也应该是父类中的静态变量。</li>
-</ul>
-<p><code>MethodOverride.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodOverride</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Child c=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(c.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent p=<span class="keyword">new</span> Parent();</span><br><span class="line">        System.out.println(p.getClassName());</span><br><span class="line">        System.out.println(<span class="string">&quot;----------------&quot;</span>);</span><br><span class="line">        Parent pc=<span class="keyword">new</span> Child();</span><br><span class="line">        System.out.println(pc.getClassName());</span><br><span class="line">        System.out.println(pc.getX());</span><br><span class="line">        System.out.println(pc.getZ());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">5</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z = <span class="number">10</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Parent!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x =<span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> y =<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> z =<span class="number">11</span>;</span><br><span class="line">    <span class="function">String <span class="title">getClassName</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(x+<span class="string">&quot; &quot;</span>+y);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;this is Child!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">getX</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getZ</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> z;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">----------------</span><br><span class="line">this is Parent!</span><br><span class="line">----------------</span><br><span class="line">6 7</span><br><span class="line">this is Child!</span><br><span class="line">6</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
-<p>在上述<code>MethodOverride</code>文件中，父类为<code>Parent</code>，子类为<code>Child</code>。前两个对象为具体类的实例化，因此调用的是自己所属类的实例方法。<br>
-第三个为上转型对象，<code>getClassName()</code>是对父类的重写方法，因此调用的是子类的<code>getClassName()</code>，由于是子类的方法，所以方法中的x,y为间接访问数据域也为子类的。<code>getX()</code>也是一个道理。<br>
-<code>getZ()</code>为静态方法，子类虽然对静态变量及静态方法进行了隐藏，但无法直接访问。根据静态调用看左边的原则，调用的应该是父类的<code>getZ()</code>，z值也为父类的数据域。</p>
-<h2 id="数据域">数据域</h2>
-<ul>
-<li>子类从父类继承来的方法如果没有被覆盖或隐藏，此方法中如果存在成员变量调用，则此调用是针对父类的成员变量的调用。</li>
-</ul>
-<p><code>HidingDemo.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HidingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A  x = <span class="keyword">new</span> B();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1) x.i is &quot;</span> + x.i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2) (B)x.i is &quot;</span> + ((B)x).i);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3) x.j is &quot;</span> + x.j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(4) ((B)x).j is &quot;</span> + ((B)x).j);</span><br><span class="line">        System.out.println(<span class="string">&quot;(5) x.m1() is &quot;</span> + x.m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6) ((B)x).m1() is &quot;</span> + ((B)x).m1());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7) x.m2() is &quot;</span> + x.m2());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8) x.m3() is &quot;</span> + x.m3());</span><br><span class="line">        System.out.println(<span class="string">&quot;(9) x.z is &quot;</span> + x.z);</span><br><span class="line">        System.out.println(<span class="string">&quot;(10) x.w is &quot;</span> + x.w);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">11</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> z = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> w = <span class="number">13</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;A&#x27;s instance m3&quot;</span> + j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> j = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s static m1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;B&#x27;s instance m2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1) x.i is 1</span><br><span class="line">&#x2F;&#x2F;上转型对象实例数据域看父类</span><br><span class="line">(2) (B)x.i is 2</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(3) x.j is 11</span><br><span class="line">&#x2F;&#x2F;上转型对象静态数据域看父类</span><br><span class="line">(4) ((B)x).j is 12</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(5) x.m1() is A&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;静态方法看父类（左）</span><br><span class="line">(6) ((B)x).m1() is B&#39;s static m1</span><br><span class="line">&#x2F;&#x2F;强转后看子类</span><br><span class="line">(7) x.m2() is B&#39;s instance m2</span><br><span class="line">&#x2F;&#x2F;实例方法重写，看子类</span><br><span class="line">(8) x.m3() is A&#39;s instance m3 11</span><br><span class="line">&#x2F;&#x2F;继承来的方法，子类没有其对应的重写，结果看父类</span><br><span class="line">&#x2F;&#x2F;若其中有涉及数据域，无论是静态数据，还是实例数据，都应该是父类的数据域</span><br><span class="line">(9) x.z is 3</span><br><span class="line">&#x2F;&#x2F;显而易见，继承而来的实例数据</span><br><span class="line">(10) x.z is 13</span><br><span class="line">&#x2F;&#x2F;继承而来的静态数据</span><br></pre></td></tr></table></figure>
-<p>总结：</p>
-<ol>
-<li>继承而来（子类没有对其进行额外的操作），全部看父类的内容</li>
-<li>强转后，无条件看强转后的内容</li>
-<li>数据域默认看的是父类</li>
-<li>如果调用了上转型对象调用了父类的方法，那么对应的数据，也应该是父类的数据，即使子类对变量进行了覆盖</li>
-</ol>
-<h2 id="不变的强转">不变的强转</h2>
-<p>上转型对象即使采用父类做一个强制转换，所访问到的被覆盖的实例方法依旧是子类的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> B();</span><br><span class="line">a.getX();</span><br><span class="line">((A)a).getX(); <span class="comment">//a.getX();</span></span><br></pre></td></tr></table></figure>
-<p>简单来说就是，原来它的类型本来就是A，再转为A相当于没转。</p>
-<p><code>TestChange.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestChange</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Animal x=<span class="keyword">new</span> Tiger();</span><br><span class="line">        System.out.println(<span class="string">&quot;(1):x.news is &quot;</span>+x.news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(2):((Tiger)x).news is &quot;</span>+((Tiger)x).news);</span><br><span class="line">        System.out.println(<span class="string">&quot;(3):x.smile() is &quot;</span>+x.smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(4):((Tiger)x).smile() is &quot;</span>+((Tiger)x).smile());</span><br><span class="line">        System.out.println(<span class="string">&quot;(5):((Animal)x).getNews() is &quot;</span>+((Animal)x).getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(6):x.getNews() is &quot;</span>+x.getNews());</span><br><span class="line">        System.out.println(<span class="string">&quot;(7):x.getMessage() is &quot;</span>+x.getMessage());</span><br><span class="line">        System.out.println(<span class="string">&quot;(8):((Tiger)x).eat() is &quot;</span>+((Tiger)x).eat());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Animal&#x27;s news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Animal&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Animal&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String news=<span class="string">&quot;Tiger&#x27;s  news&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> String message=<span class="string">&quot;Tiger&#x27;s message&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">smile</span><span class="params">()</span></span>&#123; <span class="comment">//隐藏</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;smile from Tiger&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNews</span><span class="params">()</span></span>&#123; <span class="comment">//覆盖</span></span><br><span class="line">        <span class="keyword">return</span> news;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//新增的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">eat</span><span class="params">()</span></span>&#123; <span class="comment">//新</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;need eat meat&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(1):x.news is Animal&#39;s news</span><br><span class="line">&#x2F;&#x2F; 默认访问父类的成员变量</span><br><span class="line">(2):((Tiger)x).news is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(3):x.smile() is smile from Animal</span><br><span class="line">&#x2F;&#x2F; 静态方法看左</span><br><span class="line">(4):((Tiger)x).smile() is smile from Tiger</span><br><span class="line">&#x2F;&#x2F; 强转</span><br><span class="line">(5):((Animal)x).getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 不变的强转,易错点</span><br><span class="line">(6):x.getNews() is Tiger&#39;s  news</span><br><span class="line">&#x2F;&#x2F; 5与6是等效的</span><br><span class="line">(7):x.getMessage() is Animal&#39;s message</span><br><span class="line">&#x2F;&#x2F; 继承来的方法，访问变量看的是父类</span><br><span class="line">(8):((Tiger)x).eat() is need eat meat</span><br><span class="line">&#x2F;&#x2F; 访问子类新增需要强转</span><br></pre></td></tr></table></figure>
-<p>经过上面的沉淀，到这里应该没有问题了，有问题底下留言</p>
-<h1>动态绑定机制</h1>
-<p><code>DynamicBindingDemo.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codeslogan.inherit;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicBindingDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        m(<span class="keyword">new</span> GraduateStudent());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Student());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Person());</span><br><span class="line">        System.out.println(<span class="string">&quot;-----&quot;</span>);</span><br><span class="line">        m(<span class="keyword">new</span> Object());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">(Object x)</span> </span>&#123;</span><br><span class="line">        System.out.println(x.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">extends</span> <span class="title">Object</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GraduateStudent</span> <span class="keyword">extends</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>这道题要注意分析题目，不要看成构造函数。<code>m()</code>方法本质上是调用了每个类中的<code>toString()</code>，根据继承关系分析<code>toString()</code>方法来自哪个类就能得出答案。GraduateStudent是Student的子类，Student是Person的子类，Person是Object的子类。在调用<code>toString()</code>方法时，如果创建的是GraduateStudent的一个实例，JVM会依次在类GraduateStudent，Student，Person中查找<code>toString()</code>方法的实现，一旦找到一个，就停止查找，然后调用这个先找到的</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Student</span><br><span class="line">-----</span><br><span class="line">Person</span><br><span class="line">-----</span><br><span class="line">java.lang.Object@12a3a380</span><br></pre></td></tr></table></figure>
-<h1>构造方法链</h1>
-<p>定义：Java中，用子类构造一个实例对象时，系统会自行在执行子类的构造方法前沿着继承链依次调用所有父类的无参构造方法（按继承关系由其顶层父类至当前子类依次调用，无论其是否在子类的构造方法中被显式调用），这称为构造方法链。</p>
-<p>本小节讨论的是上转型对象的构造方法，以及构造方法调用实例方法所出现的情况，具体如下：</p>
-<p><code>TestC.java</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  value = <span class="number">5</span>;</span><br><span class="line">    A( ) &#123;</span><br><span class="line">        setValue(<span class="number">10</span>);</span><br><span class="line">        System.out.println( <span class="string">&quot;A:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">2</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    B( ) &#123;</span><br><span class="line">        <span class="comment">//super();</span></span><br><span class="line">        System.out.println( <span class="string">&quot;B:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">        value = <span class="number">5</span> * v; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestC</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">static</span>  <span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[ ] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">new</span> A( );</span><br><span class="line">        <span class="keyword">new</span> B( );</span><br><span class="line">        A c =<span class="keyword">new</span> B();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>运行答案如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">A:20</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br><span class="line">-------------</span><br><span class="line">A:50</span><br><span class="line">B:50</span><br></pre></td></tr></table></figure>
-<p>刚刚接触这道题我是有点意外的，没想到Java还能这么考，感觉自己平常学的Java和老师教的Java不是一个东西，但是还是得默默承受(4.0 yyds！！！) 话不多说，进入正题</p>
-<ul>
-<li>第一值输出为20，创建的是父类对象，调用其构造方法+实例方法，结果无需多言</li>
-<li>第二组为两个50，在创建<code>B</code>对象时，因为它是<code>A</code>类的子类，默认会先调用A的构造方法。但是在A的构造方法中，调用了个实例方法。根据前面的知识我们知道，<strong>如果子类对父类的实例方法进行了重写覆盖，那么优先调用的应该是子类的实例方法</strong>，所以<code>value</code>值为50。</li>
-<li>第三组的答案与第二组相同，道理同上，作为上转型只是一个障眼法。</li>
-</ul>
-<h1>参考资料</h1>
-<p><a href="https://hd.hainanu.edu.cn/cs/info/1019/1026.htm">某海大某张姓老师</a></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dev-C++调试配置</title>
-    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
-<ol>
-<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
-<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
-<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
-</ol>
-<p><strong>zlib1.dll</strong>文件的链接如下：</p>
-<p>私聊博主</p>
-]]></content>
-      <categories>
-        <category>C/C++</category>
-      </categories>
-  </entry>
-  <entry>
     <title>SpringBoot入门级项目hnucisys</title>
     <url>/2021/12/24/SpringBoot%E5%85%A5%E9%97%A8%E7%BA%A7%E9%A1%B9%E7%9B%AEhnucisys/</url>
     <content><![CDATA[<h1>项目源地址</h1>
@@ -998,6 +982,22 @@ Maven 3.8.1</p>
         <tag>SpringBoot</tag>
         <tag>后端</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Dev-C++调试配置</title>
+    <url>/2020/11/12/dev%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>我最开始接触C语言时用的编译器是Dev-C++，但调试功能一直没法使用，我也因为这个原因没有养成调试程序的习惯。今天上机房上实验课时，老师帮我解决了这个困扰我很久的问题。现将方法记录如下，希望大家在学习程序设计时可以试着去debug，同时也方便自己日后查找。</p>
+<ol>
+<li>复制<strong>zlib1.dll</strong>文件到C:\Windows\System32目录下</li>
+<li>设置Dev-&gt;工具-&gt;编译选项-&gt;代码生成优化-&gt;连接器-&gt;产生调试信息YES</li>
+<li>设置Dev-&gt;工具-&gt;环境选项-&gt;选中查看鼠标指向的变量</li>
+</ol>
+<p><strong>zlib1.dll</strong>文件的链接如下：</p>
+<p>私聊博主</p>
+]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
   </entry>
   <entry>
     <title>友元函数无法访问私有成员</title>
@@ -1158,6 +1158,94 @@ Maven 3.8.1</p>
         <tag>ML</tag>
         <tag>Pytorch</tag>
         <tag>Conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【AI_NLP】InstructGPT数据标注问题</title>
+    <url>/2023/02/16/%E3%80%90AI_NLP%E3%80%91InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1>1 背景介绍</h1>
+<p>ChatGPT的训练过程与InstructGPT相近，大致分为三步：</p>
+<ol>
+<li>SFT：收集描述型数据，对GPT3.5有监督微调</li>
+<li>RM：收集对比型数据，训练一个奖励型模型（RM）</li>
+<li>PPO：使用PPO算法，用RM继续微调GPT3.5</li>
+</ol>
+<p>由上述可见，任何一个训练过程，首当其冲的是获取到<strong>每个任务阶段所需要的标注型数据</strong>，因此本文将对ChatGPT可能使用到的数据及其标注方法进行介绍。</p>
+<h1>2 标记员筛选</h1>
+<p>由于在ChatGPT微调的过程中，对数据极为敏感，人们所希望的语言对话模型所生成的回答应该是<strong>真实、无害、有帮助的</strong>，并且在模型评估时，真实、无害是基本要素。在这样的需求下，openAI在挑选标记员时进行了一系列的筛选测试，从而保证结果的可靠性。</p>
+<h2 id="2-1标记员筛选标准">2.1	标记员筛选标准</h2>
+<ol>
+<li>对敏感言论的看法。敏感言论指的是能够引起人的强烈负面情绪的言论，openai要求标记者对其看法应尽量一致；</li>
+<li>答案排名能力。要求标记员与研究人员，就模型给出的问题回答排序应一致；</li>
+<li>识别不同领域的敏感内容的能力。</li>
+</ol>
+<h1>3	数据集及其标注</h1>
+<h2 id="3-1预训练">3.1	预训练</h2>
+<p>由于无论是ChatGPT所采用的GPT3.5，还是InstructGPT所采用的GPT3，都是事先训练好的预训练模型进行微调，所以无需太多关注预训练阶段所使用的数据。</p>
+<p>在预训练阶段，模型采用<strong>无监督学习方式</strong>，所采用数据集来自大规模文本数据，如网页、电子书、新闻文章、博客等，<strong>无需进行标注</strong>。训练过程中，模型接受一个输入序列（通常是文本的一部分），通过前面已经生成的部分来预测接下来的一个单词。在训练过程中，模型会根据预测结果和实际标签的差异来更新模型的参数，以使得模型能够更好地预测下一个单词（与GPT训练方式相似）。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/03ef62501bcd4630b10eea1858828a69.png" width="60%">
+</div>
+<p>上式描述了预训练阶段模型的似然函数，模型设置了大小为k的窗口，每次用k个单词去预测随后出现的单词，使整体预测概率最大。<br>
+<a href="https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf">https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf</a></p>
+<h2 id="3-2微调">3.2	微调</h2>
+<p>在有了预训练模型阶段，我们将用具体的下游任务类型出现的数据，对模型进行微调，从而产生符合预期的效果。在InstructGPT中，训练过程分为了三个阶段为<strong>有监督微调（SFT）</strong>、<strong>奖励模型训练（RM）</strong>、<strong>基于RM模型使用PPO微调SFT</strong>。本节内容将对各阶段出现的数据及标注，各数据集的大小进行介绍</p>
+<h3 id="3-2-1SFT-demonstration-data">3.2.1	SFT-demonstration data</h3>
+<p>在微调阶段，模型会使用人类对话数据进一步优化模型，微调阶段属于<strong>有监督学习</strong>，需要对文本进行标注。对于这个阶段的数据(demonstration data)，将会构造或针对给定的问题，由标注工对这些问题进行回答，<strong>问题-回答对</strong>构成有标签的数据，用于对模型微调。出现的问题形式共有3种：</p>
+<ul>
+<li>plain：直接给出需求问题，如“世界上最大的河？”；</li>
+<li>few-shot：先给出一些问题和回答，再提出新问题。如“给出此条微博的情感分析？”先提供若干条微博信息，并给出其“正面”或者“负面”的标签，再给出一条新的微博内容；</li>
+</ul>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" width="30%">
+</div>
+<ul>
+<li>user-based：根据具体的用户场景设计出的问题，场景类型共10类，如生成类问题，问答，头脑风暴，聊天，重写，总结，分类，抽取等。如头脑风暴场景下的“学习古希腊时应该知道的重点？”，生成类场景下的“写一篇短篇小说，讲述一只棕熊到海滩上，和一只海豹交朋友，然后回家的故事”，对故事进行续写。</li>
+</ul>
+<h3 id="3-2-2RM-comparison-data">3.2.2	RM-comparison data</h3>
+<p>在RM阶段，针对给定问题，由SFT微调得到的模型先产生对原问题的不同答案，由标注工对答案的正确性进行<strong>排序</strong>(comparison data)，并选择更倾向于模型输出的哪一个答案，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：“解释什么是数据结构？”</span><br><span class="line">A. 数据结构是计算机的一门专业课，可用特殊的结构对数据进行存储，为高效的算法提供条件</span><br><span class="line">B. 数据结构涉及数学知识</span><br><span class="line">C. 数据结构属于生物学领域</span><br><span class="line">D. 数据结构属于材料学领域</span><br><span class="line">标注结果：A&gt;B&gt;C&#x3D;D</span><br></pre></td></tr></table></figure>
+<p>以上结果的排序依据，遵从从有帮助性、真实性、无害性三个评估角度出发，其中对绝大多数任务来说，无害性、真实性的权重会<strong>远高于</strong>有帮助性（训练时则有帮助性权重更高）。但也有特殊情况，如：</p>
+<ol>
+<li>某一个答案相较于其它提供的帮助非常明显；</li>
+<li>该输出仅有些许不真实/有害；</li>
+<li>prompt不属于高风险领域（贷款申请、治疗、医疗、法律咨询等），那么将提高“有帮助性”所占的权重。如果出现帮助性相同，但不真实/有害在不同的地方，那么将从用户角度判断哪种可能对用户造成更大的损失，从而将它的排序结果置后。</li>
+</ol>
+<p>此外，我们还希望模型具备“ <em>当输入是一些有害的言论时，希望输出是无害的</em> ” 的能力。该能力的评价标准将从<strong>无害性</strong>和<strong>连续性</strong>出发，这里的连续性指的是输入和输出在逻辑上可以构成一个文本，而不会读起来明显像两个文本的情况。我们将从输出的有害度，输入输出相对有害度，输入输出文本连续性上进行打分，从而依据打分结果获得排序结果。</p>
+<p><img src="https://img-blog.csdnimg.cn/d84a288fbb6c44c294798cae30c7753f.png" alt="在这里插入图片描述"></p>
+<p>标记员的在第二个阶段RM标注工作在如下图所示的界面完成。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/849484b5cf3a49b7a5fb0cebf706c7c7.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/c53fc33e3660436892d3544bba87e739.png" width="50%">
+</div>
+<p>在第一张图中，标注员首先会给出1-7范围内的得分，得分更高的回答质量也更高，并且基于真实性，无害性，有帮助性，给出元数据的标签。而第二张图指的是在上一张图的工作完成以后，对模型的所有输出进行排序。</p>
+<h2 id="3-3数据集大小">3.3	数据集大小</h2>
+<p>在InstructGPT上，雇佣了40人进行标注及API中获得的。</p>
+<p><img src="https://img-blog.csdnimg.cn/6337b1b27a064c11920bbcd1f816f7b2.png" alt="在这里插入图片描述"></p>
+<p>训练集上，SFT标注了13k条数据（API+人工），RM标注了33k（API+人工），PPO标注了31k（API）。</p>
+<p>验证集上，SFT任务有1653条，RM有18k条，PPO中有16k条。</p>
+<h1>4	模型实现</h1>
+<p>在数据集采集及标注完全后，需要分别训练出两个不同的模型，即SFT和RM。</p>
+<p>在SFT阶段，使用采集的问答对数据，对GPT进行有监督微调。</p>
+<p>在RM阶段，使用对比数据集，训练RM<strong>奖励模型</strong>。<br>
+RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以问答为输入的情况下，输出得到奖励值。<br>
+在训练过程中，为了避免过拟合现象的出现，采用成对展示输出结果的方式，然后用户从中选择更好的结果输出。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/b186e21f960e4014991ce979182f9a57.png" width="60%">
+</div>
+<p>RM所定义的损失函数会最大化两者之间的差值。RM损失函数：x代表prompt，yw代表的是质量较高的回答，yl代表质量较低的，r为奖励模型的输入结果。每轮对prompt的所有回答进行两两比较，这样设计损失函数使得yw（质量较高回答）的得分尽可能高，最大化两个回答之间的差值。</p>
+<p>在最后PPO阶段，是利用第二步得到的奖励模型，指导SFT训练，用PPO算法微调SFT。针对给定的问题，由SFT生成回答。问题-回答作为输入，用RM模型得到奖励值，用奖励值使用PPO更新SFT，为一次迭代。由于SFT每轮参数都会发生变化，导致强化学习的环境也改变，所以在损失函数中加入KL散度。<br>
+<a href="https://readpaper.com/pdf-annotate/note?pdfId=4599338181132820481&amp;noteId=1653432993811871232">InstructGPT</a></p>
+]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>自然语言处理</tag>
+        <tag>ChatGPT</tag>
       </tags>
   </entry>
   <entry>
@@ -1447,31 +1535,6 @@ Maven 3.8.1</p>
       </tags>
   </entry>
   <entry>
-    <title>假币问题(n枚硬币)</title>
-    <url>/2022/03/31/%E5%81%87%E5%B8%81%E9%97%AE%E9%A2%98(n%E6%9E%9A%E7%A1%AC%E5%B8%81DFS)/</url>
-    <content><![CDATA[<h1>题目描述</h1>
-<p>在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>&gt;</mo><mo>=</mo><mn>3</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(n&gt;=3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span>枚硬币中有一枚重量不合格的硬币(<strong>过轻或者过重</strong>)，若只有一架天平可以用来称重，且称重的硬币数量没有限制，设计一个算法找出这枚不合格的硬币，使得称重次数<strong>最少</strong>。</p>
-<h1>题目分析</h1>
-<p>本题用的是减治法，我找了很多网上的写法，但是没有符合我想象中的代码，或者就是题目略有不同，所以决定自己写一个。写的时候花了很长时间处理边界问题。<br>
-注意本题是<strong>ｎ枚硬币</strong>，并且<strong>没有事先告知硬币是偏重还是偏轻</strong>，因此如果就是根据重量的大小来判断，无法得到正确的答案。</p>
-<h1>递归C++</h1>
-<p>主要的思想是根据数组的奇偶来分：</p>
-<ul>
-<li>长度为奇数时，先不考虑第一个元素，对往后的元素分两段求和，判断它们的大小。如果不相等，则先后递归处理左右两段。如果相等，<strong>并且第一个元素不等于第二个元素</strong>(这个条件很重要，若只是后面两段相等，并不能得出第一个元素就是假币)，那么第一个元素就是假币</li>
-<li>长度为偶数时，将数组分成长度相等的两段，并分别求和。若相等，则假币不在这个区间里；若不等，递归处理左右两段</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coins;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_coins</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tweight = rand() % <span class="number">10</span> + <span class="number">1</span>; <span class="comment">//生成[1,10]之间的随机数代表真硬币重量 </span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) coins[i] = tweight;</span><br><span class="line">	<span class="keyword">int</span> fweight = rand() % <span class="number">20</span> + <span class="number">1</span>; <span class="comment">//生成[1,20]之间的随机数代表假硬币重量</span></span><br><span class="line">	<span class="keyword">int</span> pos = rand() % N; <span class="comment">// 生成[0,N)之间的随机数，代表假硬币的位置</span></span><br><span class="line">	<span class="keyword">while</span> (fweight == tweight)  fweight = rand() % <span class="number">20</span> + <span class="number">1</span>;</span><br><span class="line">	coins[pos] = fweight; <span class="comment">// codeslogan</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum_arr</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++) sum += coins[i];</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 当剩余的长度为2时，根据当前两个元素的大小，及它们的前后关系判断 </span></span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">2</span>) &#123; </span><br><span class="line">		<span class="keyword">if</span> (coins[l] != coins[r]) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span>) <span class="keyword">return</span> coins[l<span class="number">-1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">return</span> coins[r+<span class="number">1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 当剩余长度为1时，需要同时判断它左右两边的元素</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span> &amp;&amp; coins[l<span class="number">-1</span>] != coins[l] &amp;&amp; coins[l] != coins[l+<span class="number">1</span>]) <span class="keyword">return</span> l+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &lt; <span class="number">0</span>  &amp;&amp; coins[r+<span class="number">1</span>] != coins[r] &amp;&amp; coins[r+<span class="number">2</span>] != coins[r]) <span class="keyword">return</span> r+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// codeslogan</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123; <span class="comment">// 长度为偶数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>; <span class="comment">// 计算右边界</span></span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left != right) &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">// 长度为奇数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l+<span class="number">1</span>, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left == right ) &#123;</span><br><span class="line">			<span class="keyword">if</span> (coins[l] != coins[l+<span class="number">1</span>])	pos = l + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l+<span class="number">1</span>, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintOut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> t: coins) <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历验证答案 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_ans</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val = coins[n];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> idx;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.size(); i++) </span><br><span class="line">		<span class="keyword">if</span> (val == coins[i]) &#123;</span><br><span class="line">			idx = i; </span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (idx == n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	N = rand() % <span class="number">30</span> + <span class="number">3</span>;  <span class="comment">// 随机生成[3,33)之间的数，代表n枚硬币</span></span><br><span class="line">	coins.resize(N); </span><br><span class="line">	make_coins();</span><br><span class="line">	PrintOut();</span><br><span class="line">	<span class="keyword">int</span> pos = dfs(N, <span class="number">0</span>, N<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;共有%d枚硬币\n&quot;</span>, N);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;假币重量为%d,位于第%d个位置\n&quot;</span>, coins[pos<span class="number">-1</span>], pos);</span><br><span class="line">	<span class="keyword">bool</span> flag = check_ans(pos<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span> (flag) <span class="built_in">printf</span>(<span class="string">&quot;经遍历验证，答案正确！\n&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;答案错误！\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>算法</tag>
-        <tag>DFS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>割圆法Pi</title>
     <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
     <content><![CDATA[<h1>题目</h1>
@@ -1496,6 +1559,31 @@ Maven 3.8.1</p>
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>假币问题(n枚硬币)</title>
+    <url>/2022/03/31/%E5%81%87%E5%B8%81%E9%97%AE%E9%A2%98(n%E6%9E%9A%E7%A1%AC%E5%B8%81DFS)/</url>
+    <content><![CDATA[<h1>题目描述</h1>
+<p>在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>&gt;</mo><mo>=</mo><mn>3</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(n&gt;=3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span>枚硬币中有一枚重量不合格的硬币(<strong>过轻或者过重</strong>)，若只有一架天平可以用来称重，且称重的硬币数量没有限制，设计一个算法找出这枚不合格的硬币，使得称重次数<strong>最少</strong>。</p>
+<h1>题目分析</h1>
+<p>本题用的是减治法，我找了很多网上的写法，但是没有符合我想象中的代码，或者就是题目略有不同，所以决定自己写一个。写的时候花了很长时间处理边界问题。<br>
+注意本题是<strong>ｎ枚硬币</strong>，并且<strong>没有事先告知硬币是偏重还是偏轻</strong>，因此如果就是根据重量的大小来判断，无法得到正确的答案。</p>
+<h1>递归C++</h1>
+<p>主要的思想是根据数组的奇偶来分：</p>
+<ul>
+<li>长度为奇数时，先不考虑第一个元素，对往后的元素分两段求和，判断它们的大小。如果不相等，则先后递归处理左右两段。如果相等，<strong>并且第一个元素不等于第二个元素</strong>(这个条件很重要，若只是后面两段相等，并不能得出第一个元素就是假币)，那么第一个元素就是假币</li>
+<li>长度为偶数时，将数组分成长度相等的两段，并分别求和。若相等，则假币不在这个区间里；若不等，递归处理左右两段</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coins;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_coins</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tweight = rand() % <span class="number">10</span> + <span class="number">1</span>; <span class="comment">//生成[1,10]之间的随机数代表真硬币重量 </span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) coins[i] = tweight;</span><br><span class="line">	<span class="keyword">int</span> fweight = rand() % <span class="number">20</span> + <span class="number">1</span>; <span class="comment">//生成[1,20]之间的随机数代表假硬币重量</span></span><br><span class="line">	<span class="keyword">int</span> pos = rand() % N; <span class="comment">// 生成[0,N)之间的随机数，代表假硬币的位置</span></span><br><span class="line">	<span class="keyword">while</span> (fweight == tweight)  fweight = rand() % <span class="number">20</span> + <span class="number">1</span>;</span><br><span class="line">	coins[pos] = fweight; <span class="comment">// codeslogan</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum_arr</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++) sum += coins[i];</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 当剩余的长度为2时，根据当前两个元素的大小，及它们的前后关系判断 </span></span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">2</span>) &#123; </span><br><span class="line">		<span class="keyword">if</span> (coins[l] != coins[r]) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span>) <span class="keyword">return</span> coins[l<span class="number">-1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">return</span> coins[r+<span class="number">1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 当剩余长度为1时，需要同时判断它左右两边的元素</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span> &amp;&amp; coins[l<span class="number">-1</span>] != coins[l] &amp;&amp; coins[l] != coins[l+<span class="number">1</span>]) <span class="keyword">return</span> l+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &lt; <span class="number">0</span>  &amp;&amp; coins[r+<span class="number">1</span>] != coins[r] &amp;&amp; coins[r+<span class="number">2</span>] != coins[r]) <span class="keyword">return</span> r+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// codeslogan</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123; <span class="comment">// 长度为偶数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>; <span class="comment">// 计算右边界</span></span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left != right) &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">// 长度为奇数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l+<span class="number">1</span>, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left == right ) &#123;</span><br><span class="line">			<span class="keyword">if</span> (coins[l] != coins[l+<span class="number">1</span>])	pos = l + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l+<span class="number">1</span>, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintOut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> t: coins) <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历验证答案 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_ans</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val = coins[n];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> idx;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.size(); i++) </span><br><span class="line">		<span class="keyword">if</span> (val == coins[i]) &#123;</span><br><span class="line">			idx = i; </span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (idx == n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	N = rand() % <span class="number">30</span> + <span class="number">3</span>;  <span class="comment">// 随机生成[3,33)之间的数，代表n枚硬币</span></span><br><span class="line">	coins.resize(N); </span><br><span class="line">	make_coins();</span><br><span class="line">	PrintOut();</span><br><span class="line">	<span class="keyword">int</span> pos = dfs(N, <span class="number">0</span>, N<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;共有%d枚硬币\n&quot;</span>, N);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;假币重量为%d,位于第%d个位置\n&quot;</span>, coins[pos<span class="number">-1</span>], pos);</span><br><span class="line">	<span class="keyword">bool</span> flag = check_ans(pos<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span> (flag) <span class="built_in">printf</span>(<span class="string">&quot;经遍历验证，答案正确！\n&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;答案错误！\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>算法</tag>
+        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -3387,6 +3475,171 @@ Maven 3.8.1</p>
       </categories>
       <tags>
         <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【AI-NLP】Transformer理论及源码理解</title>
+    <url>/2023/02/02/%E3%80%90AI-NLP%E3%80%91Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<h1>提出背景</h1>
+<p>改进了RNN的训练慢的缺点，利用self-attention机制实现<strong>并行计算</strong>。并且Transformer可以增加到非常深的深度，充分发掘DNN模型的特性，提升模型准确率。同时使用注意力机制更容易关注序列的全局特征，解决了RNN不善处理<strong>长距离依赖</strong>的问题<br>
+本质上是一个seq2seq的模型，因此可用于机器翻译，语音辨识，语音合成等问题</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png" width="40%">
+</div>
+<h1>总体结构</h1>
+<p>整体结构由编码器与解码器组成，一个编码器中可有若干个编码层</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/363a5a5949fb43acb714bb4a0f9a326e.png" width="40%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/e7eadae943594531a4f67b232baa7cf3.png" width="40%">
+</div>
+<p>注意，Encoder中的参数各不相同</p>
+<h2 id="Encoder">Encoder</h2>
+<p>编码器的作用在于，输入一个向量，输出一个等长的向量</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/bd2c8d6e6bf04ef1ab35c64c5c40243a.png" width="30%">
+</div>
+<p>要点：</p>
+<ol>
+<li>使用多头注意力机制，关注全局输入向量的资讯</li>
+<li>使用了残差及layer normalization，避免出现梯度消失问题</li>
+<li>使用前向神经网络，每个位置的单词对应的前馈神经网络都完全一样</li>
+</ol>
+<blockquote>
+<p>Self Attention</p>
+</blockquote>
+<p>query，key，value全由输入向量自身计算得到的一种注意力机制。每一个输入向量分别对应了查询、键、值权重矩阵，用于生成查询、键、值向量，权重矩阵为训练参数</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/e854bb2ab144493d8048dba8627b29be.png" width="60%">
+</div>
+<h2 id="Decoder">Decoder</h2>
+<p>输入有两部分</p>
+<ul>
+<li>编码器最后一层的输出作为key和value</li>
+<li>同时解码器自己的输入经过多头自注意力的计算作为query</li>
+</ul>
+<p>输出为对应的结果序列</p>
+<p>结构与编码器类似，唯一的不同在于Masked Multi-Head Attention使用了掩码机制，不再关注全局的资讯，而是只考虑了当前位置以及当前位置之前的信息，存在时序性</p>
+<h1>细节再探</h1>
+<ol>
+<li>
+<p>Teacher forcing：将真实标签作为decoder的输入，依次预测结果，相当于把正确答案给解码器</p>
+</li>
+<li>
+<p>掩码作用：考虑到Teacher forcing已经将正确答案输入到模型，因此在每次预测一个token时，需要将其及其之后的token先掩盖，保证训练任务和预测任务在执行自回归时，是同样的形式</p>
+</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d4d2bb708e784bb88a85c1e4d23706ff.png" width="60%">
+</div>
+<ol start="3">
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>是query和key向量的维度<br>
+在计算注意力权重时除以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，避免了随着<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">d_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的增大，即维度增大时，计算出的权重出现过大（softmax后的值非0即1）的情况，从而保留了数据原始的分布，可以使得梯度回传时更加平稳</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/fdd12e352cf64239b00a1df2397af017.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/061bcf1bf4b64acfac3aef3e8a74e6cd.png" width="40%">
+</div>
+<ol start="4">
+<li>使用layer normalize而非batch normalize：ln是针对一个样本内部做归一化；bn针对的是各个样本的特征做归一化，在文本长度变化较大时，这种归一化方式会造成均值方差抖动明显</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/626252a7b2ea4347923d77bbd11a222b.png" width="60%">
+</div>
+<ol start="5">
+<li>多头self attention意在让根据词向量得出的query, key, value向量，进入不同的线性层（子空间），分别进行自注意力计算，捕捉全局丰富的语义信息，再将所有结果concat，拼接回原有的形状，最后再进入一个线性层得到结果</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/dc7dcf762738418297044f4678641186.png" width="30%">
+</div>
+<ol start="6">
+<li>在decoder中计算自注意力时，query来自带有掩码的自注意力计算得出，而key和value来自encoder最后的输出，目的是让Decoder端的单词(token)给予Encoder端对应的单词(token)“更多的关注(attention weight)”</li>
+</ol>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/6b1d6c8f087e4e5db314a5a9a73c6d72.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d66cea387663441faf417e304735428b.png" width="40%">
+</div>
+<ol start="7">
+<li>自注意力是基于全局信息进行计算，而忽略了<strong>时序信息</strong>（导致任意打乱句子中token的顺序，结果不变），位置编码PE解决了这一问题。PE的长度与embedding相同，使二者可以直接相加。<br>
+计算方式是根据token的文本中的位置，PE向量中偶数位使用sin计算，奇数位使用cos计算。由于三角函数公式不受序列长度的限制，也就是可以对比所遇到序列的更长的序列进行表示</li>
+</ol>
+<h1>源码阅读</h1>
+<h2 id="主函数部分">主函数部分</h2>
+<p>确定了模型的输入部分，由两部分组成encoder的输入，decoder的输入<br>
+将token转换成id后以tensor形式传入模型</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/6d4843e03f3b40d59d6797042dcb22f4.png" width="80%">
+</div>
+<p>P代表填充码，S代表起始，E代表结束。对文本进行了id映射<br>
+模型参数初始化，选用交叉熵损失函数，Adam自适应学习率优化器</p>
+<h2 id="主模型定义">主模型定义</h2>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Transformer</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Transformer, self).__init__()</span><br><span class="line">        self.encoder = Encoder()</span><br><span class="line">        self.decoder = Decoder()</span><br><span class="line">        self.projection = nn.Linear(d_model, tgt_vocab_size, bias=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, enc_inputs, dec_inputs</span>):</span></span><br><span class="line">        enc_outputs, enc_self_attns = self.encoder(enc_inputs)</span><br><span class="line">        dec_outputs, dec_self_attns, dec_enc_attns = self.decoder(dec_inputs, enc_inputs, enc_outputs)</span><br><span class="line">        dec_logits = self.projection(dec_outputs) <span class="comment"># dec_logits : [batch_size x src_vocab_size x tgt_vocab_size]</span></span><br><span class="line">        <span class="keyword">return</span> dec_logits.view(<span class="number">-1</span>, dec_logits.size(<span class="number">-1</span>)), enc_self_attns, dec_self_attns, dec_enc_attns</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>由编码器，解码器及全连接层组成<br>
+<strong>编码器输入</strong> 为<code>1*5</code>的张量，输出为<code>1*5*512</code>的张量（批量大小为1，文本长度为5，embedding向量维度为512），及注意力权重参数<code>6*8*5*5</code><br>
+（6代表编码器中编码层的数量；8代表8头注意力，计算了8次，有8个子空间；<code>5*5</code>代表文本内部的相关性计算的结果）<br>
+<strong>解码器输入</strong>为编码器的输出及解码层输入文本<br>
+输出为注意力计算得出的结果（<code>1*5*512</code>），及解码器掩码自注意力权重参数及交互注意力权重参数<br>
+将解码器的输出作为<strong>全连接层的输入</strong>，通过全连接层将512维向量压缩成7维，对应翻译文本的长度(<code>5*7</code>)</p>
+<h2 id="编码器">编码器</h2>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Encoder</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Encoder, self).__init__()</span><br><span class="line">        <span class="comment"># 词向量5*512</span></span><br><span class="line">        self.src_emb = nn.Embedding(src_vocab_size, d_model)</span><br><span class="line">        <span class="comment"># 位置编码6*512</span></span><br><span class="line">        self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(src_len+<span class="number">1</span>, d_model), freeze=<span class="literal">True</span>)</span><br><span class="line">        self.layers = nn.ModuleList([EncoderLayer() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_layers)])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, enc_inputs</span>):</span>  <span class="comment"># enc_inputs : [batch_size x source_len] [1*5]</span></span><br><span class="line">        enc_outputs = self.src_emb(enc_inputs) + self.pos_emb(torch.LongTensor([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">0</span>]]))</span><br><span class="line">        enc_self_attn_mask = get_attn_pad_mask(enc_inputs, enc_inputs)</span><br><span class="line">        enc_self_attns = []</span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">            enc_outputs, enc_self_attn = layer(enc_outputs, enc_self_attn_mask)</span><br><span class="line">            enc_self_attns.append(enc_self_attn)</span><br><span class="line">        <span class="keyword">return</span> enc_outputs, enc_self_attns</span><br></pre></td></tr></table></figure>
+<p>定义词向量，位置向量，并将二者相加，传入编码层中迭代<br>
+位置向量由当前token所在文本中的位置计算得出</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d66cea387663441faf417e304735428b.png" width="40%">
+</div>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># n_position为文本长度，d_model为总向量维度</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sinusoid_encoding_table</span>(<span class="params">n_position, d_model</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cal_angle</span>(<span class="params">position, hid_idx</span>):</span></span><br><span class="line">        <span class="keyword">return</span> position / np.power(<span class="number">10000</span>, <span class="number">2</span> * (hid_idx // <span class="number">2</span>) / d_model)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_posi_angle_vec</span>(<span class="params">position</span>):</span></span><br><span class="line">        <span class="keyword">return</span> [cal_angle(position, hid_j) <span class="keyword">for</span> hid_j <span class="keyword">in</span> <span class="built_in">range</span>(d_model)]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6*512</span></span><br><span class="line">    sinusoid_table = np.array([get_posi_angle_vec(pos_i) <span class="keyword">for</span> pos_i <span class="keyword">in</span> <span class="built_in">range</span>(n_position)])</span><br><span class="line">    sinusoid_table[:, <span class="number">0</span>::<span class="number">2</span>] = np.sin(sinusoid_table[:, <span class="number">0</span>::<span class="number">2</span>])  <span class="comment"># dim 2i</span></span><br><span class="line">    sinusoid_table[:, <span class="number">1</span>::<span class="number">2</span>] = np.cos(sinusoid_table[:, <span class="number">1</span>::<span class="number">2</span>])  <span class="comment"># dim 2i+1</span></span><br><span class="line">    <span class="keyword">return</span> torch.FloatTensor(sinusoid_table)</span><br></pre></td></tr></table></figure>
+<h2 id="编码层">编码层</h2>
+<p>由多头自注意力层，以及前向神经网络组成<br>
+QKV均来自编码层输入的embedding<br>
+此时输入输出均为<code>1*5*512</code></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EncoderLayer</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(EncoderLayer, self).__init__()</span><br><span class="line">        self.enc_self_attn = MultiHeadAttention()</span><br><span class="line">        self.pos_ffn = PoswiseFeedForwardNet()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, enc_inputs, enc_self_attn_mask</span>):</span></span><br><span class="line">        <span class="comment"># enc_input: torch.Size([1, 5, 512])</span></span><br><span class="line">        <span class="comment"># enc_inputs to same Q,K,V</span></span><br><span class="line">        enc_outputs, attn = self.enc_self_attn(enc_inputs, enc_inputs, enc_inputs, enc_self_attn_mask)</span><br><span class="line">        enc_outputs = self.pos_ffn(enc_outputs)  <span class="comment"># enc_outputs: [batch_size x len_q x d_model]</span></span><br><span class="line">        <span class="comment"># torch.Size([1, 5, 512])</span></span><br><span class="line">        <span class="keyword">return</span> enc_outputs, attn</span><br></pre></td></tr></table></figure>
+<h2 id="多头自注意力层">多头自注意力层</h2>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiHeadAttention</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(MultiHeadAttention, self).__init__()</span><br><span class="line">        self.W_Q = nn.Linear(d_model, d_k * n_heads)</span><br><span class="line">        self.W_K = nn.Linear(d_model, d_k * n_heads)</span><br><span class="line">        self.W_V = nn.Linear(d_model, d_v * n_heads)</span><br><span class="line">        self.linear = nn.Linear(n_heads * d_v, d_model)</span><br><span class="line">        self.layer_norm = nn.LayerNorm(d_model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, Q, K, V, attn_mask</span>):</span></span><br><span class="line">        <span class="comment"># q: [batch_size x len_q x d_model], k: [batch_size x len_k x d_model], v: [batch_size x len_k x d_model]</span></span><br><span class="line">        <span class="comment"># attn_mask: [1 x 5 x 5]</span></span><br><span class="line">        residual, batch_size = Q, Q.size(<span class="number">0</span>)</span><br><span class="line">        <span class="comment"># (B, S, D) -proj-&gt; (B, S, D) -split-&gt; (B, S, H, W) -trans-&gt; (B, H, S, W)</span></span><br><span class="line">        <span class="comment"># torch.Size([1, 8, 5, 64])</span></span><br><span class="line">        q_s = self.W_Q(Q).view(batch_size, <span class="number">-1</span>, n_heads, d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># q_s: [batch_size x n_heads x len_q x d_k]</span></span><br><span class="line">        k_s = self.W_K(K).view(batch_size, <span class="number">-1</span>, n_heads, d_k).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># k_s: [batch_size x n_heads x len_k x d_k]</span></span><br><span class="line">        v_s = self.W_V(V).view(batch_size, <span class="number">-1</span>, n_heads, d_v).transpose(<span class="number">1</span>, <span class="number">2</span>)  <span class="comment"># v_s: [batch_size x n_heads x len_k x d_v]</span></span><br><span class="line">		<span class="comment"># 将mask从1*5*5复制为1*8*5*5</span></span><br><span class="line">        attn_mask = attn_mask.unsqueeze(<span class="number">1</span>).repeat(<span class="number">1</span>, n_heads, <span class="number">1</span>, <span class="number">1</span>) <span class="comment"># attn_mask : [batch_size x n_heads x len_q x len_k]</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># context: [batch_size x n_heads x len_q x d_v], attn: [batch_size x n_heads x len_q(=len_k) x len_k(=len_q)]</span></span><br><span class="line">        context, attn = ScaledDotProductAttention()(q_s, k_s, v_s, attn_mask)</span><br><span class="line">        context = context.transpose(<span class="number">1</span>, <span class="number">2</span>).contiguous().view(batch_size, <span class="number">-1</span>, n_heads * d_v) <span class="comment"># context: [batch_size x len_q x n_heads * d_v]</span></span><br><span class="line">        output = self.linear(context)</span><br><span class="line">        <span class="keyword">return</span> self.layer_norm(output + residual), attn <span class="comment"># output: [batch_size x len_q x d_model]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>Q</mi></msub></mrow><annotation encoding="application/x-tex">W_Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">Q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>矩阵与Embedding相乘时，本质是将<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mi>Q</mi></msub></mrow><annotation encoding="application/x-tex">W_Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3283em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">Q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>视为一个线性层，KV同理<br>
+多头计算的步骤是：先映射分头，再计算注意力权重</p>
+<hr>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/d4d2bb708e784bb88a85c1e4d23706ff.png" width="60%">
+</div>
+以上公式实现如下
+值得注意是，我们会找出文本序列中是padding的位置，并将其在`attn_mask`对应的位置上设置为True。接着在计算注意力，padding位置将被设置为负无穷，在经过softmax计算后结果基本为0，对当前单词的注意力计算就不会产生影响
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScaledDotProductAttention</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(ScaledDotProductAttention, self).__init__()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, Q, K, V, attn_mask</span>):</span></span><br><span class="line">        scores = torch.matmul(Q, K.transpose(<span class="number">-1</span>, <span class="number">-2</span>)) / np.sqrt(d_k)</span><br><span class="line">        <span class="comment"># padding负无穷</span></span><br><span class="line">        scores.masked_fill_(attn_mask, <span class="number">-1e9</span>) </span><br><span class="line">        attn = nn.Softmax(dim=<span class="number">-1</span>)(scores)</span><br><span class="line">        context = torch.matmul(attn, V)</span><br><span class="line">        <span class="keyword">return</span> context, attn</span><br></pre></td></tr></table></figure>
+<h2 id="前馈神经网络层">前馈神经网络层</h2>
+<p>在前向神经网络层中，使用一维卷积进行计算<br>
+原因在于当kernel_size=1，stride=1，padding=0时，与MLP的节点计算方式一样，变相实现了一个MLP<br>
+<code>nn.Conv1d</code>的输入数据格式只能以三维tensor[batch, channel, length]输入，与<code>nn.Linear</code>输入数据格式不同；<br>
+并且 <code>nn.Conv1d</code>的数据作用位置也不同，<code>nn.Conv1d</code>作用在<strong>第二个</strong>维度channel上，而<code>nn.Linear</code>作用于<strong>第三个</strong>维度</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PoswiseFeedForwardNet</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(PoswiseFeedForwardNet, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv1d(in_channels=d_model, out_channels=d_ff, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.conv2 = nn.Conv1d(in_channels=d_ff, out_channels=d_model, kernel_size=<span class="number">1</span>)</span><br><span class="line">        self.layer_norm = nn.LayerNorm(d_model)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, inputs</span>):</span></span><br><span class="line">        residual = inputs  <span class="comment"># inputs : [batch_size, len_q, d_model]</span></span><br><span class="line">        <span class="comment"># nn.Conv1d作用于第2个维度，因此要交换位置</span></span><br><span class="line">        output = nn.ReLU()(self.conv1(inputs.transpose(<span class="number">1</span>, <span class="number">2</span>)))</span><br><span class="line">        output = self.conv2(output).transpose(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> self.layer_norm(output + residual)</span><br></pre></td></tr></table></figure>
+<h2 id="Masked">Masked</h2>
+<p>为解码层的自注意力加入掩码机制，使其无法查看当前及当前以后的序列</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_attn_subsequent_mask</span>(<span class="params">seq</span>):</span></span><br><span class="line">    attn_shape = [seq.size(<span class="number">0</span>), seq.size(<span class="number">1</span>), seq.size(<span class="number">1</span>)]</span><br><span class="line">    subsequent_mask = np.triu(np.ones(attn_shape), k=<span class="number">1</span>)</span><br><span class="line">    subsequent_mask = torch.from_numpy(subsequent_mask).byte()</span><br><span class="line">    <span class="keyword">return</span> subsequent_mask</span><br></pre></td></tr></table></figure>
+<h2 id="解码器">解码器</h2>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Decoder</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(Decoder, self).__init__()</span><br><span class="line">        <span class="comment"># 7*512</span></span><br><span class="line">        self.tgt_emb = nn.Embedding(tgt_vocab_size, d_model)</span><br><span class="line">        self.pos_emb = nn.Embedding.from_pretrained(get_sinusoid_encoding_table(tgt_len+<span class="number">1</span>, d_model), freeze=<span class="literal">True</span>)</span><br><span class="line">        self.layers = nn.ModuleList([DecoderLayer() <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n_layers)])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, dec_inputs, enc_inputs, enc_outputs</span>):</span>  <span class="comment"># dec_inputs : [batch_size x target_len]</span></span><br><span class="line">        dec_outputs = self.tgt_emb(dec_inputs) + self.pos_emb(torch.LongTensor([[<span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]]))</span><br><span class="line">        dec_self_attn_pad_mask = get_attn_pad_mask(dec_inputs, dec_inputs)</span><br><span class="line">        dec_self_attn_subsequent_mask = get_attn_subsequent_mask(dec_inputs)</span><br><span class="line">        <span class="comment"># 将掩码转换为bool类型</span></span><br><span class="line">        dec_self_attn_mask = torch.gt((dec_self_attn_pad_mask + dec_self_attn_subsequent_mask), <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        dec_enc_attn_mask = get_attn_pad_mask(dec_inputs, enc_inputs)</span><br><span class="line"></span><br><span class="line">        dec_self_attns, dec_enc_attns = [], []</span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> self.layers:</span><br><span class="line">            dec_outputs, dec_self_attn, dec_enc_attn = layer(dec_outputs, enc_outputs, dec_self_attn_mask, dec_enc_attn_mask)</span><br><span class="line">            dec_self_attns.append(dec_self_attn)</span><br><span class="line">            dec_enc_attns.append(dec_enc_attn)</span><br><span class="line">        <span class="keyword">return</span> dec_outputs, dec_self_attns, dec_enc_attns</span><br></pre></td></tr></table></figure>
+<h2 id="解码层">解码层</h2>
+<p>定义了两层注意力，分别为自注意力和交互注意力<br>
+其中自注意力为masked<br>
+交互注意力中，Q来自decoder，KV来自encoder</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DecoderLayer</span>(<span class="params">nn.Module</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">super</span>(DecoderLayer, self).__init__()</span><br><span class="line">        self.dec_self_attn = MultiHeadAttention()</span><br><span class="line">        self.dec_enc_attn = MultiHeadAttention()</span><br><span class="line">        self.pos_ffn = PoswiseFeedForwardNet()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span>(<span class="params">self, dec_inputs, enc_outputs, dec_self_attn_mask, dec_enc_attn_mask</span>):</span></span><br><span class="line">        dec_outputs, dec_self_attn = self.dec_self_attn(dec_inputs, dec_inputs, dec_inputs, dec_self_attn_mask)</span><br><span class="line">        dec_outputs, dec_enc_attn = self.dec_enc_attn(dec_outputs, enc_outputs, enc_outputs, dec_enc_attn_mask)</span><br><span class="line">        dec_outputs = self.pos_ffn(dec_outputs)</span><br><span class="line">        <span class="keyword">return</span> dec_outputs, dec_self_attn, dec_enc_attn</span><br></pre></td></tr></table></figure>
+<h1>参考资料</h1>
+<ol>
+<li><a href="https://www.bilibili.com/video/BV1pu411o7BE">李沐Transformer论文逐段精读【论文精读】</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=49">李宏毅Transformer</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Di4y1c7Zm">Transformer从零详细解读(可能是你见过最通俗易懂的讲解)</a></li>
+<li>源码请见：<a href="https://github.com/graykode/nlp-tutorial/tree/master/5-1.Transformer">graykode/nlp-tutorial</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>NLP</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>自然语言处理</tag>
+        <tag>Transformer</tag>
       </tags>
   </entry>
   <entry>
