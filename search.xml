@@ -1,6 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ML笔记</title>
+    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
+<h1>1. Regression</h1>
+<p>如何开始一个深度学习？</p>
+<ol>
+<li>
+<p>Function with unknown parameters</p>
+<p>w and b are unknown parameters</p>
+<p>w -&gt; weight               b-&gt;bias</p>
+</li>
+<li>
+<p>Define loss from training data</p>
+</li>
+<li>
+<p>Optimization</p>
+<a id="more"></a>
+<p>梯度下降，算积分，使得Loss趋近于最小</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
+</li>
+</ol>
+<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
+<h1>2. Classification</h1>
+<p>模型无法训练起来的原因：</p>
+<ul>
+<li>
+<p>model bias</p>
+<p>参数不够，如同大海捞针，针却不在海里</p>
+</li>
+<li>
+<p>optimization issue</p>
+<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
+</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li>比较不同的模型</li>
+<li>从浅的网络或一些简单的模型开始优化</li>
+<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
+</ol>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
+<h2 id="General-Guide">General Guide</h2>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
+<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
+<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
+<p>local minima and saddle point</p>
+<h3 id="Hessian">Hessian</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
+<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
+<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
+<p>选取特征值为负所对应的特征向量u</p>
+<p>uT<em>H</em>u</p>
+<p>用这种方法可逃离鞍点，降低loss</p>
+<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
+<p>batch and momentum</p>
+<p>结论：</p>
+<ul>
+<li>small batch size has better performance</li>
+<li>Noisy update is better for training</li>
+</ul>
+<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
+<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
+<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
+<ul>
+<li>
+<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
+</li>
+<li>
+<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
+</li>
+<li>
+<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
+</li>
+<li>
+<p>noisy的数据有利于训练</p>
+</li>
+<li>
+<p>small batch有助于跳出局部最优解</p>
+</li>
+</ul>
+<hr>
+<p>未完待续……</p>
+<h1>参考资料</h1>
+<ol>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
+</li>
+<li>
+<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
+      <tags>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C++要点复习</title>
     <url>/2022/07/26/C++%E8%A6%81%E7%82%B9%E5%A4%8D%E4%B9%A0/</url>
     <content><![CDATA[<h1>前言</h1>
@@ -226,107 +327,6 @@ B 类称为父类 或 基类</p>
       </tags>
   </entry>
   <entry>
-    <title>ML笔记</title>
-    <url>/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>大三时正式开始接触AI机器学习方面的内容，希望能为以后研究生方向铺路</p>
-<h1>1. Regression</h1>
-<p>如何开始一个深度学习？</p>
-<ol>
-<li>
-<p>Function with unknown parameters</p>
-<p>w and b are unknown parameters</p>
-<p>w -&gt; weight               b-&gt;bias</p>
-</li>
-<li>
-<p>Define loss from training data</p>
-</li>
-<li>
-<p>Optimization</p>
-<a id="more"></a>
-<p>梯度下降，算积分，使得Loss趋近于最小</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p0.png" alt="image1"></p>
-</li>
-</ol>
-<p>​																	可反复增加层数，来达到建立深度神经网络的目的</p>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p1.png" alt="image2"></p>
-<h1>2. Classification</h1>
-<p>模型无法训练起来的原因：</p>
-<ul>
-<li>
-<p>model bias</p>
-<p>参数不够，如同大海捞针，针却不在海里</p>
-</li>
-<li>
-<p>optimization issue</p>
-<p>梯度下降却无法得到最优解，如同大海捞针，方法不好捞不到针</p>
-</li>
-</ul>
-<p>解决方法：</p>
-<ol>
-<li>比较不同的模型</li>
-<li>从浅的网络或一些简单的模型开始优化</li>
-<li>如果运用了深度网络，loss却不如其它简单模型来得好，那么可以归结于optimization issue，如下图所示：</li>
-</ol>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p3.png" alt="image3"></p>
-<h2 id="General-Guide">General Guide</h2>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p4.png" alt="image4"></p>
-<p>首先判断在训练数据上的损失，在保证小的情况下再判断测试数据的损失</p>
-<h2 id="2-1-局部最小值与鞍点">2.1 局部最小值与鞍点</h2>
-<p>local minima and saddle point</p>
-<h3 id="Hessian">Hessian</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p2.png" alt="image5"></p>
-<p>在梯度为0的情况下，计算L()，以此判断鞍点与局部最小</p>
-<p>求二次偏导，构成<strong>hessian matrix</strong>，若此时特征值有正有负，则这个点为鞍点</p>
-<p>选取特征值为负所对应的特征向量u</p>
-<p>uT<em>H</em>u</p>
-<p>用这种方法可逃离鞍点，降低loss</p>
-<h2 id="2-2-批次与动量">2.2 批次与动量</h2>
-<p>batch and momentum</p>
-<p>结论：</p>
-<ul>
-<li>small batch size has better performance</li>
-<li>Noisy update is better for training</li>
-</ul>
-<h3 id="Small-Batch-vs-Large-Batch">Small Batch vs Large Batch</h3>
-<p><img src="/2021/09/20/2021ML%E7%AC%94%E8%AE%B0/p5.png" alt="image6"></p>
-<p>batch size 代表将训练资料分成多少块，每块的大小即为Batch</p>
-<ul>
-<li>
-<p>在没有平行计算时，小的batch自然比大的batch计算的要快，这就好比计算10道数学题和计算100道数学题之间的区别</p>
-</li>
-<li>
-<p>有平行计算时，由于batch中的资料是同时开始计算，所花费的时间等同于计算1道数学题的时间</p>
-</li>
-<li>
-<p>一次epoch代表利用所有分好的batches进行训练，每个batch内的计算是基于平行计算，因此，如果batch分的小，那么计算次数就多，计算速度就慢；反之速度就快</p>
-</li>
-<li>
-<p>noisy的数据有利于训练</p>
-</li>
-<li>
-<p>small batch有助于跳出局部最优解</p>
-</li>
-</ul>
-<hr>
-<p>未完待续……</p>
-<h1>参考资料</h1>
-<ol>
-<li>
-<p><a href="https://www.bilibili.com/video/BV1Wv411h7kN?p=12">李宏毅2021机器学习</a></p>
-</li>
-<li>
-<p>《统计学习方法》李航著，第2版，北京：清华大学出版社，2019</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>ML_DL</category>
-      </categories>
-      <tags>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>论文阅读Gaussian Embedding</title>
     <url>/2021/10/10/Gaussian%20Embedding/</url>
     <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/bab62afe3dfe480ba248078fd7456813.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAQ29kZVNsb2dhbg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
@@ -456,6 +456,43 @@ B 类称为父类 或 基类</p>
       </tags>
   </entry>
   <entry>
+    <title>Git配置</title>
+    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
+<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
+<a id="more"></a>
+<h1>版本控制工具</h1>
+<p>大致分为3种</p>
+<h2 id="本地版本控制">本地版本控制</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
+<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
+<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
+<h1>Git环境配置</h1>
+<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
+<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
+<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
+<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+<h2 id="SSH公钥">SSH公钥</h2>
+<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
+<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
+<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
+<h1>Git的工作流程</h1>
+<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
+<h1>致谢</h1>
+<p>狂神说</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTML5笔记</title>
     <url>/2021/09/27/HTML5%E9%87%8D%E7%82%B9/</url>
     <content><![CDATA[<h1>前言</h1>
@@ -537,40 +574,91 @@ B 类称为父类 或 基类</p>
       </tags>
   </entry>
   <entry>
-    <title>Git配置</title>
-    <url>/2021/04/28/Git%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>最早接触Git是用来搭建博客，也就是现在看到的这个界面。git bash给我的第一感觉就是可以用linux的命令来对windows进行一些操作，十分便捷。本文将记录git相关知识。</p>
-<p>首先，<strong>Git是目前世界上最先进的分布式版本控制系统。</strong></p>
-<a id="more"></a>
-<h1>版本控制工具</h1>
-<p>大致分为3种</p>
-<h2 id="本地版本控制">本地版本控制</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223831633.bmp" alt="图片1"></p>
-<h2 id="集中版本控制-SVN">集中版本控制  SVN</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223840342.bmp" alt="图片2"></p>
-<h2 id="分布式版本控制-Git">分布式版本控制 Git</h2>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223850663.bmp" alt="图片3"></p>
-<h1>Git环境配置</h1>
-<p>软件的下载这里不再赘述，主要记录关键的几步。所有的这些修改可以在如下目录中找到</p>
-<p>1）Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   --system 系统级</p>
-<p>2）C:\Users\huawei\ .gitconfig   只适用于当前登录用户的配置  --global 全局</p>
-<h2 id="设置用户名与邮箱">设置用户名与邮箱</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;CodeSlogan&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email mrchen40@163.com   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-<h2 id="SSH公钥">SSH公钥</h2>
-<p>这里我解释一下这个公钥和Git之间的关系。每台电脑上都可以安装git，从而产生对应的公钥。</p>
-<p>gitee/github接收从git提交的项目代码，那问题就来了，如何把git和gitee/github连接起来呢？</p>
-<p>就是靠这个公钥。公钥先由本地git产生，然后再将公钥信息提交到码云SSH中，便可实现连接</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 通过ssh-keygen命令生成公钥</span></span><br><span class="line"><span class="comment"># 进入 C:\Users\huawei\.ssh 目录可查看对应的公钥</span></span><br></pre></td></tr></table></figure>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223930345.bmp" alt="图片4"></p>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/image1.bmp" alt="image1"></p>
-<h1>Git的工作流程</h1>
-<p><img src="/2021/04/28/Git%E9%85%8D%E7%BD%AE/capture_20210428223915568.bmp" alt="图片"></p>
-<h1>致谢</h1>
-<p>狂神说</p>
+    <title>InstructGPT数据标注问题</title>
+    <url>/2023/02/16/InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1>1 背景介绍</h1>
+<p>ChatGPT的训练过程与InstructGPT相近，大致分为三步：</p>
+<ol>
+<li>SFT：收集描述型数据，对GPT3.5有监督微调</li>
+<li>RM：收集对比型数据，训练一个奖励型模型（RM）</li>
+<li>PPO：使用PPO算法，用RM继续微调GPT3.5</li>
+</ol>
+<p>由上述可见，任何一个训练过程，首当其冲的是获取到<strong>每个任务阶段所需要的标注型数据</strong>，因此本文将对ChatGPT可能使用到的数据及其标注方法进行介绍。</p>
+<h1>2 标记员筛选</h1>
+<p>由于在ChatGPT微调的过程中，对数据极为敏感，人们所希望的语言对话模型所生成的回答应该是<strong>真实、无害、有帮助的</strong>，并且在模型评估时，真实、无害是基本要素。在这样的需求下，openAI在挑选标记员时进行了一系列的筛选测试，从而保证结果的可靠性。</p>
+<h2 id="2-1标记员筛选标准">2.1	标记员筛选标准</h2>
+<ol>
+<li>对敏感言论的看法。敏感言论指的是能够引起人的强烈负面情绪的言论，openai要求标记者对其看法应尽量一致；</li>
+<li>答案排名能力。要求标记员与研究人员，就模型给出的问题回答排序应一致；</li>
+<li>识别不同领域的敏感内容的能力。</li>
+</ol>
+<h1>3	数据集及其标注</h1>
+<h2 id="3-1预训练">3.1	预训练</h2>
+<p>由于无论是ChatGPT所采用的GPT3.5，还是InstructGPT所采用的GPT3，都是事先训练好的预训练模型进行微调，所以无需太多关注预训练阶段所使用的数据。</p>
+<p>在预训练阶段，模型采用<strong>无监督学习方式</strong>，所采用数据集来自大规模文本数据，如网页、电子书、新闻文章、博客等，<strong>无需进行标注</strong>。训练过程中，模型接受一个输入序列（通常是文本的一部分），通过前面已经生成的部分来预测接下来的一个单词。在训练过程中，模型会根据预测结果和实际标签的差异来更新模型的参数，以使得模型能够更好地预测下一个单词（与GPT训练方式相似）。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/03ef62501bcd4630b10eea1858828a69.png" width="60%">
+</div>
+<p>上式描述了预训练阶段模型的似然函数，模型设置了大小为k的窗口，每次用k个单词去预测随后出现的单词，使整体预测概率最大。<br>
+<a href="https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf">https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf</a></p>
+<h2 id="3-2微调">3.2	微调</h2>
+<p>在有了预训练模型阶段，我们将用具体的下游任务类型出现的数据，对模型进行微调，从而产生符合预期的效果。在InstructGPT中，训练过程分为了三个阶段为<strong>有监督微调（SFT）</strong>、<strong>奖励模型训练（RM）</strong>、<strong>基于RM模型使用PPO微调SFT</strong>。本节内容将对各阶段出现的数据及标注，各数据集的大小进行介绍</p>
+<h3 id="3-2-1SFT-demonstration-data">3.2.1	SFT-demonstration data</h3>
+<p>在微调阶段，模型会使用人类对话数据进一步优化模型，微调阶段属于<strong>有监督学习</strong>，需要对文本进行标注。对于这个阶段的数据(demonstration data)，将会构造或针对给定的问题，由标注工对这些问题进行回答，<strong>问题-回答对</strong>构成有标签的数据，用于对模型微调。出现的问题形式共有3种：</p>
+<ul>
+<li>plain：直接给出需求问题，如“世界上最大的河？”；</li>
+<li>few-shot：先给出一些问题和回答，再提出新问题。如“给出此条微博的情感分析？”先提供若干条微博信息，并给出其“正面”或者“负面”的标签，再给出一条新的微博内容；</li>
+</ul>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" width="30%">
+</div>
+<ul>
+<li>user-based：根据具体的用户场景设计出的问题，场景类型共10类，如生成类问题，问答，头脑风暴，聊天，重写，总结，分类，抽取等。如头脑风暴场景下的“学习古希腊时应该知道的重点？”，生成类场景下的“写一篇短篇小说，讲述一只棕熊到海滩上，和一只海豹交朋友，然后回家的故事”，对故事进行续写。</li>
+</ul>
+<h3 id="3-2-2RM-comparison-data">3.2.2	RM-comparison data</h3>
+<p>在RM阶段，针对给定问题，由SFT微调得到的模型先产生对原问题的不同答案，由标注工对答案的正确性进行<strong>排序</strong>(comparison data)，并选择更倾向于模型输出的哪一个答案，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：“解释什么是数据结构？”</span><br><span class="line">A. 数据结构是计算机的一门专业课，可用特殊的结构对数据进行存储，为高效的算法提供条件</span><br><span class="line">B. 数据结构涉及数学知识</span><br><span class="line">C. 数据结构属于生物学领域</span><br><span class="line">D. 数据结构属于材料学领域</span><br><span class="line">标注结果：A&gt;B&gt;C&#x3D;D</span><br></pre></td></tr></table></figure>
+<p>以上结果的排序依据，遵从从有帮助性、真实性、无害性三个评估角度出发，其中对绝大多数任务来说，无害性、真实性的权重会<strong>远高于</strong>有帮助性（训练时则有帮助性权重更高）。但也有特殊情况，如：</p>
+<ol>
+<li>某一个答案相较于其它提供的帮助非常明显；</li>
+<li>该输出仅有些许不真实/有害；</li>
+<li>prompt不属于高风险领域（贷款申请、治疗、医疗、法律咨询等），那么将提高“有帮助性”所占的权重。如果出现帮助性相同，但不真实/有害在不同的地方，那么将从用户角度判断哪种可能对用户造成更大的损失，从而将它的排序结果置后。</li>
+</ol>
+<p>此外，我们还希望模型具备“ <em>当输入是一些有害的言论时，希望输出是无害的</em> ” 的能力。该能力的评价标准将从<strong>无害性</strong>和<strong>连续性</strong>出发，这里的连续性指的是输入和输出在逻辑上可以构成一个文本，而不会读起来明显像两个文本的情况。我们将从输出的有害度，输入输出相对有害度，输入输出文本连续性上进行打分，从而依据打分结果获得排序结果。</p>
+<p><img src="https://img-blog.csdnimg.cn/d84a288fbb6c44c294798cae30c7753f.png" alt="在这里插入图片描述"></p>
+<p>标记员的在第二个阶段RM标注工作在如下图所示的界面完成。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/849484b5cf3a49b7a5fb0cebf706c7c7.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/c53fc33e3660436892d3544bba87e739.png" width="50%">
+</div>
+<p>在第一张图中，标注员首先会给出1-7范围内的得分，得分更高的回答质量也更高，并且基于真实性，无害性，有帮助性，给出元数据的标签。而第二张图指的是在上一张图的工作完成以后，对模型的所有输出进行排序。</p>
+<h2 id="3-3数据集大小">3.3	数据集大小</h2>
+<p>在InstructGPT上，雇佣了40人进行标注及API中获得的。</p>
+<p><img src="https://img-blog.csdnimg.cn/6337b1b27a064c11920bbcd1f816f7b2.png" alt="在这里插入图片描述"></p>
+<p>训练集上，SFT标注了13k条数据（API+人工），RM标注了33k（API+人工），PPO标注了31k（API）。</p>
+<p>验证集上，SFT任务有1653条，RM有18k条，PPO中有16k条。</p>
+<h1>4	模型实现</h1>
+<p>在数据集采集及标注完全后，需要分别训练出两个不同的模型，即SFT和RM。</p>
+<p>在SFT阶段，使用采集的问答对数据，对GPT进行有监督微调。</p>
+<p>在RM阶段，使用对比数据集，训练RM<strong>奖励模型</strong>。<br>
+RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以问答为输入的情况下，输出得到奖励值。<br>
+在训练过程中，为了避免过拟合现象的出现，采用成对展示输出结果的方式，然后用户从中选择更好的结果输出。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/b186e21f960e4014991ce979182f9a57.png" width="60%">
+</div>
+<p>RM所定义的损失函数会最大化两者之间的差值。RM损失函数：x代表prompt，yw代表的是质量较高的回答，yl代表质量较低的，r为奖励模型的输入结果。每轮对prompt的所有回答进行两两比较，这样设计损失函数使得yw（质量较高回答）的得分尽可能高，最大化两个回答之间的差值。</p>
+<p>在最后PPO阶段，是利用第二步得到的奖励模型，指导SFT训练，用PPO算法微调SFT。针对给定的问题，由SFT生成回答。问题-回答作为输入，用RM模型得到奖励值，用奖励值使用PPO更新SFT，为一次迭代。由于SFT每轮参数都会发生变化，导致强化学习的环境也改变，所以在损失函数中加入KL散度。<br>
+<a href="https://readpaper.com/pdf-annotate/note?pdfId=4599338181132820481&amp;noteId=1653432993811871232">InstructGPT</a></p>
 ]]></content>
+      <categories>
+        <category>ML_DL</category>
+      </categories>
       <tags>
-        <tag>git</tag>
-        <tag>工具</tag>
+        <tag>NLP</tag>
+        <tag>自然语言处理</tag>
+        <tag>ChatGPT</tag>
       </tags>
   </entry>
   <entry>
@@ -1120,8 +1208,8 @@ Maven 3.8.1</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --set show_channel_urls yes </span><br><span class="line">conda config --get channels</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;main&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;conda-forge&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;bioconda&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;pytorch&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;msys2&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;menpo&#x2F;</span><br></pre></td></tr></table></figure>
 <h2 id="创建环境">创建环境</h2>
 <p>如下面的例子，</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n tf24 python&#x3D;3.7</span><br></pre></td></tr></table></figure>
-<p>代表创建一个Python版本为3.7，环境名为tf24的环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda create -n tf24 python&#x3D;3.8</span><br></pre></td></tr></table></figure>
+<p>代表创建一个Python版本为3.8，环境名为tf24的环境</p>
 <p>这里的Python版本可以指定，但不能超过miniconda自带的版本（一般3.6,3.7,3.8均可）</p>
 <p>激活环境：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda activate tf24 </span><br></pre></td></tr></table></figure>
@@ -1131,6 +1219,10 @@ Maven 3.8.1</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m ipykernel install --user --name&#x3D;tf24</span><br></pre></td></tr></table></figure>
 <p>退出当前环境：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda deactivate</span><br></pre></td></tr></table></figure>
+<p>删除环境，需要先转换置其它环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda remove -n xxx --all</span><br></pre></td></tr></table></figure>
+<p>查看conda的所有环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
 <h1>Pytorch</h1>
 <p>以下操作接着刚刚的命令行窗口内</p>
 <h2 id="查看自己的GPU版本">查看自己的GPU版本</h2>
@@ -1158,94 +1250,6 @@ Maven 3.8.1</p>
         <tag>ML</tag>
         <tag>Pytorch</tag>
         <tag>Conda</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【AI_NLP】InstructGPT数据标注问题</title>
-    <url>/2023/02/16/%E3%80%90AI_NLP%E3%80%91InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1>1 背景介绍</h1>
-<p>ChatGPT的训练过程与InstructGPT相近，大致分为三步：</p>
-<ol>
-<li>SFT：收集描述型数据，对GPT3.5有监督微调</li>
-<li>RM：收集对比型数据，训练一个奖励型模型（RM）</li>
-<li>PPO：使用PPO算法，用RM继续微调GPT3.5</li>
-</ol>
-<p>由上述可见，任何一个训练过程，首当其冲的是获取到<strong>每个任务阶段所需要的标注型数据</strong>，因此本文将对ChatGPT可能使用到的数据及其标注方法进行介绍。</p>
-<h1>2 标记员筛选</h1>
-<p>由于在ChatGPT微调的过程中，对数据极为敏感，人们所希望的语言对话模型所生成的回答应该是<strong>真实、无害、有帮助的</strong>，并且在模型评估时，真实、无害是基本要素。在这样的需求下，openAI在挑选标记员时进行了一系列的筛选测试，从而保证结果的可靠性。</p>
-<h2 id="2-1标记员筛选标准">2.1	标记员筛选标准</h2>
-<ol>
-<li>对敏感言论的看法。敏感言论指的是能够引起人的强烈负面情绪的言论，openai要求标记者对其看法应尽量一致；</li>
-<li>答案排名能力。要求标记员与研究人员，就模型给出的问题回答排序应一致；</li>
-<li>识别不同领域的敏感内容的能力。</li>
-</ol>
-<h1>3	数据集及其标注</h1>
-<h2 id="3-1预训练">3.1	预训练</h2>
-<p>由于无论是ChatGPT所采用的GPT3.5，还是InstructGPT所采用的GPT3，都是事先训练好的预训练模型进行微调，所以无需太多关注预训练阶段所使用的数据。</p>
-<p>在预训练阶段，模型采用<strong>无监督学习方式</strong>，所采用数据集来自大规模文本数据，如网页、电子书、新闻文章、博客等，<strong>无需进行标注</strong>。训练过程中，模型接受一个输入序列（通常是文本的一部分），通过前面已经生成的部分来预测接下来的一个单词。在训练过程中，模型会根据预测结果和实际标签的差异来更新模型的参数，以使得模型能够更好地预测下一个单词（与GPT训练方式相似）。</p>
-<div align="center">
-<img src="https://img-blog.csdnimg.cn/03ef62501bcd4630b10eea1858828a69.png" width="60%">
-</div>
-<p>上式描述了预训练阶段模型的似然函数，模型设置了大小为k的窗口，每次用k个单词去预测随后出现的单词，使整体预测概率最大。<br>
-<a href="https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf">https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf</a></p>
-<h2 id="3-2微调">3.2	微调</h2>
-<p>在有了预训练模型阶段，我们将用具体的下游任务类型出现的数据，对模型进行微调，从而产生符合预期的效果。在InstructGPT中，训练过程分为了三个阶段为<strong>有监督微调（SFT）</strong>、<strong>奖励模型训练（RM）</strong>、<strong>基于RM模型使用PPO微调SFT</strong>。本节内容将对各阶段出现的数据及标注，各数据集的大小进行介绍</p>
-<h3 id="3-2-1SFT-demonstration-data">3.2.1	SFT-demonstration data</h3>
-<p>在微调阶段，模型会使用人类对话数据进一步优化模型，微调阶段属于<strong>有监督学习</strong>，需要对文本进行标注。对于这个阶段的数据(demonstration data)，将会构造或针对给定的问题，由标注工对这些问题进行回答，<strong>问题-回答对</strong>构成有标签的数据，用于对模型微调。出现的问题形式共有3种：</p>
-<ul>
-<li>plain：直接给出需求问题，如“世界上最大的河？”；</li>
-<li>few-shot：先给出一些问题和回答，再提出新问题。如“给出此条微博的情感分析？”先提供若干条微博信息，并给出其“正面”或者“负面”的标签，再给出一条新的微博内容；</li>
-</ul>
-<div align="center">
-<img src="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" width="30%">
-</div>
-<ul>
-<li>user-based：根据具体的用户场景设计出的问题，场景类型共10类，如生成类问题，问答，头脑风暴，聊天，重写，总结，分类，抽取等。如头脑风暴场景下的“学习古希腊时应该知道的重点？”，生成类场景下的“写一篇短篇小说，讲述一只棕熊到海滩上，和一只海豹交朋友，然后回家的故事”，对故事进行续写。</li>
-</ul>
-<h3 id="3-2-2RM-comparison-data">3.2.2	RM-comparison data</h3>
-<p>在RM阶段，针对给定问题，由SFT微调得到的模型先产生对原问题的不同答案，由标注工对答案的正确性进行<strong>排序</strong>(comparison data)，并选择更倾向于模型输出的哪一个答案，如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Q：“解释什么是数据结构？”</span><br><span class="line">A. 数据结构是计算机的一门专业课，可用特殊的结构对数据进行存储，为高效的算法提供条件</span><br><span class="line">B. 数据结构涉及数学知识</span><br><span class="line">C. 数据结构属于生物学领域</span><br><span class="line">D. 数据结构属于材料学领域</span><br><span class="line">标注结果：A&gt;B&gt;C&#x3D;D</span><br></pre></td></tr></table></figure>
-<p>以上结果的排序依据，遵从从有帮助性、真实性、无害性三个评估角度出发，其中对绝大多数任务来说，无害性、真实性的权重会<strong>远高于</strong>有帮助性（训练时则有帮助性权重更高）。但也有特殊情况，如：</p>
-<ol>
-<li>某一个答案相较于其它提供的帮助非常明显；</li>
-<li>该输出仅有些许不真实/有害；</li>
-<li>prompt不属于高风险领域（贷款申请、治疗、医疗、法律咨询等），那么将提高“有帮助性”所占的权重。如果出现帮助性相同，但不真实/有害在不同的地方，那么将从用户角度判断哪种可能对用户造成更大的损失，从而将它的排序结果置后。</li>
-</ol>
-<p>此外，我们还希望模型具备“ <em>当输入是一些有害的言论时，希望输出是无害的</em> ” 的能力。该能力的评价标准将从<strong>无害性</strong>和<strong>连续性</strong>出发，这里的连续性指的是输入和输出在逻辑上可以构成一个文本，而不会读起来明显像两个文本的情况。我们将从输出的有害度，输入输出相对有害度，输入输出文本连续性上进行打分，从而依据打分结果获得排序结果。</p>
-<p><img src="https://img-blog.csdnimg.cn/d84a288fbb6c44c294798cae30c7753f.png" alt="在这里插入图片描述"></p>
-<p>标记员的在第二个阶段RM标注工作在如下图所示的界面完成。</p>
-<div align="center">
-<img src="https://img-blog.csdnimg.cn/849484b5cf3a49b7a5fb0cebf706c7c7.png" width="50%">
-</div>
-<div align="center">
-<img src="https://img-blog.csdnimg.cn/c53fc33e3660436892d3544bba87e739.png" width="50%">
-</div>
-<p>在第一张图中，标注员首先会给出1-7范围内的得分，得分更高的回答质量也更高，并且基于真实性，无害性，有帮助性，给出元数据的标签。而第二张图指的是在上一张图的工作完成以后，对模型的所有输出进行排序。</p>
-<h2 id="3-3数据集大小">3.3	数据集大小</h2>
-<p>在InstructGPT上，雇佣了40人进行标注及API中获得的。</p>
-<p><img src="https://img-blog.csdnimg.cn/6337b1b27a064c11920bbcd1f816f7b2.png" alt="在这里插入图片描述"></p>
-<p>训练集上，SFT标注了13k条数据（API+人工），RM标注了33k（API+人工），PPO标注了31k（API）。</p>
-<p>验证集上，SFT任务有1653条，RM有18k条，PPO中有16k条。</p>
-<h1>4	模型实现</h1>
-<p>在数据集采集及标注完全后，需要分别训练出两个不同的模型，即SFT和RM。</p>
-<p>在SFT阶段，使用采集的问答对数据，对GPT进行有监督微调。</p>
-<p>在RM阶段，使用对比数据集，训练RM<strong>奖励模型</strong>。<br>
-RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以问答为输入的情况下，输出得到奖励值。<br>
-在训练过程中，为了避免过拟合现象的出现，采用成对展示输出结果的方式，然后用户从中选择更好的结果输出。</p>
-<div align="center">
-<img src="https://img-blog.csdnimg.cn/b186e21f960e4014991ce979182f9a57.png" width="60%">
-</div>
-<p>RM所定义的损失函数会最大化两者之间的差值。RM损失函数：x代表prompt，yw代表的是质量较高的回答，yl代表质量较低的，r为奖励模型的输入结果。每轮对prompt的所有回答进行两两比较，这样设计损失函数使得yw（质量较高回答）的得分尽可能高，最大化两个回答之间的差值。</p>
-<p>在最后PPO阶段，是利用第二步得到的奖励模型，指导SFT训练，用PPO算法微调SFT。针对给定的问题，由SFT生成回答。问题-回答作为输入，用RM模型得到奖励值，用奖励值使用PPO更新SFT，为一次迭代。由于SFT每轮参数都会发生变化，导致强化学习的环境也改变，所以在损失函数中加入KL散度。<br>
-<a href="https://readpaper.com/pdf-annotate/note?pdfId=4599338181132820481&amp;noteId=1653432993811871232">InstructGPT</a></p>
-]]></content>
-      <categories>
-        <category>ML_DL</category>
-      </categories>
-      <tags>
-        <tag>NLP</tag>
-        <tag>自然语言处理</tag>
-        <tag>ChatGPT</tag>
       </tags>
   </entry>
   <entry>
@@ -1535,6 +1539,31 @@ RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以�
       </tags>
   </entry>
   <entry>
+    <title>假币问题(n枚硬币)</title>
+    <url>/2022/03/31/%E5%81%87%E5%B8%81%E9%97%AE%E9%A2%98(n%E6%9E%9A%E7%A1%AC%E5%B8%81DFS)/</url>
+    <content><![CDATA[<h1>题目描述</h1>
+<p>在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>&gt;</mo><mo>=</mo><mn>3</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(n&gt;=3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span>枚硬币中有一枚重量不合格的硬币(<strong>过轻或者过重</strong>)，若只有一架天平可以用来称重，且称重的硬币数量没有限制，设计一个算法找出这枚不合格的硬币，使得称重次数<strong>最少</strong>。</p>
+<h1>题目分析</h1>
+<p>本题用的是减治法，我找了很多网上的写法，但是没有符合我想象中的代码，或者就是题目略有不同，所以决定自己写一个。写的时候花了很长时间处理边界问题。<br>
+注意本题是<strong>ｎ枚硬币</strong>，并且<strong>没有事先告知硬币是偏重还是偏轻</strong>，因此如果就是根据重量的大小来判断，无法得到正确的答案。</p>
+<h1>递归C++</h1>
+<p>主要的思想是根据数组的奇偶来分：</p>
+<ul>
+<li>长度为奇数时，先不考虑第一个元素，对往后的元素分两段求和，判断它们的大小。如果不相等，则先后递归处理左右两段。如果相等，<strong>并且第一个元素不等于第二个元素</strong>(这个条件很重要，若只是后面两段相等，并不能得出第一个元素就是假币)，那么第一个元素就是假币</li>
+<li>长度为偶数时，将数组分成长度相等的两段，并分别求和。若相等，则假币不在这个区间里；若不等，递归处理左右两段</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coins;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_coins</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tweight = rand() % <span class="number">10</span> + <span class="number">1</span>; <span class="comment">//生成[1,10]之间的随机数代表真硬币重量 </span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) coins[i] = tweight;</span><br><span class="line">	<span class="keyword">int</span> fweight = rand() % <span class="number">20</span> + <span class="number">1</span>; <span class="comment">//生成[1,20]之间的随机数代表假硬币重量</span></span><br><span class="line">	<span class="keyword">int</span> pos = rand() % N; <span class="comment">// 生成[0,N)之间的随机数，代表假硬币的位置</span></span><br><span class="line">	<span class="keyword">while</span> (fweight == tweight)  fweight = rand() % <span class="number">20</span> + <span class="number">1</span>;</span><br><span class="line">	coins[pos] = fweight; <span class="comment">// codeslogan</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum_arr</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++) sum += coins[i];</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 当剩余的长度为2时，根据当前两个元素的大小，及它们的前后关系判断 </span></span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">2</span>) &#123; </span><br><span class="line">		<span class="keyword">if</span> (coins[l] != coins[r]) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span>) <span class="keyword">return</span> coins[l<span class="number">-1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">return</span> coins[r+<span class="number">1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 当剩余长度为1时，需要同时判断它左右两边的元素</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span> &amp;&amp; coins[l<span class="number">-1</span>] != coins[l] &amp;&amp; coins[l] != coins[l+<span class="number">1</span>]) <span class="keyword">return</span> l+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &lt; <span class="number">0</span>  &amp;&amp; coins[r+<span class="number">1</span>] != coins[r] &amp;&amp; coins[r+<span class="number">2</span>] != coins[r]) <span class="keyword">return</span> r+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// codeslogan</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123; <span class="comment">// 长度为偶数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>; <span class="comment">// 计算右边界</span></span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left != right) &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">// 长度为奇数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l+<span class="number">1</span>, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left == right ) &#123;</span><br><span class="line">			<span class="keyword">if</span> (coins[l] != coins[l+<span class="number">1</span>])	pos = l + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l+<span class="number">1</span>, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintOut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> t: coins) <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历验证答案 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_ans</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val = coins[n];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> idx;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.size(); i++) </span><br><span class="line">		<span class="keyword">if</span> (val == coins[i]) &#123;</span><br><span class="line">			idx = i; </span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (idx == n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	N = rand() % <span class="number">30</span> + <span class="number">3</span>;  <span class="comment">// 随机生成[3,33)之间的数，代表n枚硬币</span></span><br><span class="line">	coins.resize(N); </span><br><span class="line">	make_coins();</span><br><span class="line">	PrintOut();</span><br><span class="line">	<span class="keyword">int</span> pos = dfs(N, <span class="number">0</span>, N<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;共有%d枚硬币\n&quot;</span>, N);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;假币重量为%d,位于第%d个位置\n&quot;</span>, coins[pos<span class="number">-1</span>], pos);</span><br><span class="line">	<span class="keyword">bool</span> flag = check_ans(pos<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span> (flag) <span class="built_in">printf</span>(<span class="string">&quot;经遍历验证，答案正确！\n&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;答案错误！\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>算法</tag>
+        <tag>DFS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>割圆法Pi</title>
     <url>/2021/09/19/%E5%89%B2%E5%9C%86%E6%B3%95%E6%B1%82Pi/</url>
     <content><![CDATA[<h1>题目</h1>
@@ -1559,31 +1588,6 @@ RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以�
       </categories>
       <tags>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>假币问题(n枚硬币)</title>
-    <url>/2022/03/31/%E5%81%87%E5%B8%81%E9%97%AE%E9%A2%98(n%E6%9E%9A%E7%A1%AC%E5%B8%81DFS)/</url>
-    <content><![CDATA[<h1>题目描述</h1>
-<p>在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mi>n</mi><mo>&gt;</mo><mo>=</mo><mn>3</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(n&gt;=3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span>枚硬币中有一枚重量不合格的硬币(<strong>过轻或者过重</strong>)，若只有一架天平可以用来称重，且称重的硬币数量没有限制，设计一个算法找出这枚不合格的硬币，使得称重次数<strong>最少</strong>。</p>
-<h1>题目分析</h1>
-<p>本题用的是减治法，我找了很多网上的写法，但是没有符合我想象中的代码，或者就是题目略有不同，所以决定自己写一个。写的时候花了很长时间处理边界问题。<br>
-注意本题是<strong>ｎ枚硬币</strong>，并且<strong>没有事先告知硬币是偏重还是偏轻</strong>，因此如果就是根据重量的大小来判断，无法得到正确的答案。</p>
-<h1>递归C++</h1>
-<p>主要的思想是根据数组的奇偶来分：</p>
-<ul>
-<li>长度为奇数时，先不考虑第一个元素，对往后的元素分两段求和，判断它们的大小。如果不相等，则先后递归处理左右两段。如果相等，<strong>并且第一个元素不等于第二个元素</strong>(这个条件很重要，若只是后面两段相等，并不能得出第一个元素就是假币)，那么第一个元素就是假币</li>
-<li>长度为偶数时，将数组分成长度相等的两段，并分别求和。若相等，则假币不在这个区间里；若不等，递归处理左右两段</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; coins;</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make_coins</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tweight = rand() % <span class="number">10</span> + <span class="number">1</span>; <span class="comment">//生成[1,10]之间的随机数代表真硬币重量 </span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) coins[i] = tweight;</span><br><span class="line">	<span class="keyword">int</span> fweight = rand() % <span class="number">20</span> + <span class="number">1</span>; <span class="comment">//生成[1,20]之间的随机数代表假硬币重量</span></span><br><span class="line">	<span class="keyword">int</span> pos = rand() % N; <span class="comment">// 生成[0,N)之间的随机数，代表假硬币的位置</span></span><br><span class="line">	<span class="keyword">while</span> (fweight == tweight)  fweight = rand() % <span class="number">20</span> + <span class="number">1</span>;</span><br><span class="line">	coins[pos] = fweight; <span class="comment">// codeslogan</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum_arr</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = l; i &lt;= r; i++) sum += coins[i];</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 当剩余的长度为2时，根据当前两个元素的大小，及它们的前后关系判断 </span></span><br><span class="line">	<span class="keyword">if</span>(n == <span class="number">2</span>) &#123; </span><br><span class="line">		<span class="keyword">if</span> (coins[l] != coins[r]) &#123;</span><br><span class="line">			<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span>) <span class="keyword">return</span> coins[l<span class="number">-1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">return</span> coins[r+<span class="number">1</span>] == coins[l]? (r+<span class="number">1</span>):(l+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 当剩余长度为1时，需要同时判断它左右两边的元素</span></span><br><span class="line">	<span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &gt;= <span class="number">0</span> &amp;&amp; coins[l<span class="number">-1</span>] != coins[l] &amp;&amp; coins[l] != coins[l+<span class="number">1</span>]) <span class="keyword">return</span> l+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ((l<span class="number">-1</span>) &lt; <span class="number">0</span>  &amp;&amp; coins[r+<span class="number">1</span>] != coins[r] &amp;&amp; coins[r+<span class="number">2</span>] != coins[r]) <span class="keyword">return</span> r+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>; <span class="comment">// codeslogan</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123; <span class="comment">// 长度为偶数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>; <span class="comment">// 计算右边界</span></span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left != right) &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123; <span class="comment">// 长度为奇数</span></span><br><span class="line">		<span class="keyword">int</span> rr = l+(r-l)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">int</span> left = sum_arr(l+<span class="number">1</span>, rr);</span><br><span class="line">		<span class="keyword">int</span> right = sum_arr(rr+<span class="number">1</span>, r);</span><br><span class="line">		<span class="keyword">if</span> (left == right ) &#123;</span><br><span class="line">			<span class="keyword">if</span> (coins[l] != coins[l+<span class="number">1</span>])	pos = l + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, l+<span class="number">1</span>, rr);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">			pos = dfs(n/<span class="number">2</span>, rr+<span class="number">1</span>, r);</span><br><span class="line">			<span class="keyword">if</span> (pos != <span class="number">-1</span>) <span class="keyword">return</span> pos;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> pos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintOut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> t: coins) <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历验证答案 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_ans</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> val = coins[n];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> idx;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.size(); i++) </span><br><span class="line">		<span class="keyword">if</span> (val == coins[i]) &#123;</span><br><span class="line">			idx = i; </span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (idx == n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	N = rand() % <span class="number">30</span> + <span class="number">3</span>;  <span class="comment">// 随机生成[3,33)之间的数，代表n枚硬币</span></span><br><span class="line">	coins.resize(N); </span><br><span class="line">	make_coins();</span><br><span class="line">	PrintOut();</span><br><span class="line">	<span class="keyword">int</span> pos = dfs(N, <span class="number">0</span>, N<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;共有%d枚硬币\n&quot;</span>, N);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;假币重量为%d,位于第%d个位置\n&quot;</span>, coins[pos<span class="number">-1</span>], pos);</span><br><span class="line">	<span class="keyword">bool</span> flag = check_ans(pos<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">if</span> (flag) <span class="built_in">printf</span>(<span class="string">&quot;经遍历验证，答案正确！\n&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;答案错误！\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-        <tag>算法</tag>
-        <tag>DFS</tag>
       </tags>
   </entry>
   <entry>
@@ -3478,8 +3482,8 @@ RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以�
       </tags>
   </entry>
   <entry>
-    <title>【AI-NLP】Transformer理论及源码理解</title>
-    <url>/2023/02/02/%E3%80%90AI-NLP%E3%80%91Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/</url>
+    <title>Transformer理论及源码理解</title>
+    <url>/2023/02/02/Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<h1>提出背景</h1>
 <p>改进了RNN的训练慢的缺点，利用self-attention机制实现<strong>并行计算</strong>。并且Transformer可以增加到非常深的深度，充分发掘DNN模型的特性，提升模型准确率。同时使用注意力机制更容易关注序列的全局特征，解决了RNN不善处理<strong>长距离依赖</strong>的问题<br>
 本质上是一个seq2seq的模型，因此可用于机器翻译，语音辨识，语音合成等问题</p>

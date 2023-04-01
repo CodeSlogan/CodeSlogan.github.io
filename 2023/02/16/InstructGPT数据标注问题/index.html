@@ -1,0 +1,236 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>InstructGPT数据标注问题 | CodeSlogan</title><meta name="keywords" content="NLP,自然语言处理,ChatGPT"><meta name="author" content="codeslogan"><meta name="copyright" content="codeslogan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 背景介绍 ChatGPT的训练过程与InstructGPT相近，大致分为三步：  SFT：收集描述型数据，对GPT3.5有监督微调 RM：收集对比型数据，训练一个奖励型模型（RM） PPO：使用PPO算法，用RM继续微调GPT3.5  由上述可见，任何一个训练过程，首当其冲的是获取到每个任务阶段所需要的标注型数据，因此本文将对ChatGPT可能使用到的数据及其标注方法进行介绍。 2 标记员筛选">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InstructGPT数据标注问题">
+<meta property="og:url" content="http://example.com/2023/02/16/InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="CodeSlogan">
+<meta property="og:description" content="1 背景介绍 ChatGPT的训练过程与InstructGPT相近，大致分为三步：  SFT：收集描述型数据，对GPT3.5有监督微调 RM：收集对比型数据，训练一个奖励型模型（RM） PPO：使用PPO算法，用RM继续微调GPT3.5  由上述可见，任何一个训练过程，首当其冲的是获取到每个任务阶段所需要的标注型数据，因此本文将对ChatGPT可能使用到的数据及其标注方法进行介绍。 2 标记员筛选">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png">
+<meta property="article:published_time" content="2023-02-16T07:12:14.000Z">
+<meta property="article:modified_time" content="2023-02-16T12:27:25.714Z">
+<meta property="article:author" content="codeslogan">
+<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="ChatGPT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/16/InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'InstructGPT数据标注问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-16 20:27:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CodeSlogan</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">InstructGPT数据标注问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-16T07:12:14.000Z" title="发表于 2023-02-16 15:12:14">2023-02-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-16T12:27:25.714Z" title="更新于 2023-02-16 20:27:25">2023-02-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ML-DL/">ML_DL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="InstructGPT数据标注问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>1 背景介绍</h1>
+<p>ChatGPT的训练过程与InstructGPT相近，大致分为三步：</p>
+<ol>
+<li>SFT：收集描述型数据，对GPT3.5有监督微调</li>
+<li>RM：收集对比型数据，训练一个奖励型模型（RM）</li>
+<li>PPO：使用PPO算法，用RM继续微调GPT3.5</li>
+</ol>
+<p>由上述可见，任何一个训练过程，首当其冲的是获取到<strong>每个任务阶段所需要的标注型数据</strong>，因此本文将对ChatGPT可能使用到的数据及其标注方法进行介绍。</p>
+<h1>2 标记员筛选</h1>
+<p>由于在ChatGPT微调的过程中，对数据极为敏感，人们所希望的语言对话模型所生成的回答应该是<strong>真实、无害、有帮助的</strong>，并且在模型评估时，真实、无害是基本要素。在这样的需求下，openAI在挑选标记员时进行了一系列的筛选测试，从而保证结果的可靠性。</p>
+<h2 id="2-1标记员筛选标准">2.1	标记员筛选标准</h2>
+<ol>
+<li>对敏感言论的看法。敏感言论指的是能够引起人的强烈负面情绪的言论，openai要求标记者对其看法应尽量一致；</li>
+<li>答案排名能力。要求标记员与研究人员，就模型给出的问题回答排序应一致；</li>
+<li>识别不同领域的敏感内容的能力。</li>
+</ol>
+<h1>3	数据集及其标注</h1>
+<h2 id="3-1预训练">3.1	预训练</h2>
+<p>由于无论是ChatGPT所采用的GPT3.5，还是InstructGPT所采用的GPT3，都是事先训练好的预训练模型进行微调，所以无需太多关注预训练阶段所使用的数据。</p>
+<p>在预训练阶段，模型采用<strong>无监督学习方式</strong>，所采用数据集来自大规模文本数据，如网页、电子书、新闻文章、博客等，<strong>无需进行标注</strong>。训练过程中，模型接受一个输入序列（通常是文本的一部分），通过前面已经生成的部分来预测接下来的一个单词。在训练过程中，模型会根据预测结果和实际标签的差异来更新模型的参数，以使得模型能够更好地预测下一个单词（与GPT训练方式相似）。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/03ef62501bcd4630b10eea1858828a69.png" width="60%">
+</div>
+<p>上式描述了预训练阶段模型的似然函数，模型设置了大小为k的窗口，每次用k个单词去预测随后出现的单词，使整体预测概率最大。<br>
+<a target="_blank" rel="noopener" href="https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf">https://www.cs.ubc.ca/~amuham01/LING530/papers/radford2018improving.pdf</a></p>
+<h2 id="3-2微调">3.2	微调</h2>
+<p>在有了预训练模型阶段，我们将用具体的下游任务类型出现的数据，对模型进行微调，从而产生符合预期的效果。在InstructGPT中，训练过程分为了三个阶段为<strong>有监督微调（SFT）</strong>、<strong>奖励模型训练（RM）</strong>、<strong>基于RM模型使用PPO微调SFT</strong>。本节内容将对各阶段出现的数据及标注，各数据集的大小进行介绍</p>
+<h3 id="3-2-1SFT-demonstration-data">3.2.1	SFT-demonstration data</h3>
+<p>在微调阶段，模型会使用人类对话数据进一步优化模型，微调阶段属于<strong>有监督学习</strong>，需要对文本进行标注。对于这个阶段的数据(demonstration data)，将会构造或针对给定的问题，由标注工对这些问题进行回答，<strong>问题-回答对</strong>构成有标签的数据，用于对模型微调。出现的问题形式共有3种：</p>
+<ul>
+<li>plain：直接给出需求问题，如“世界上最大的河？”；</li>
+<li>few-shot：先给出一些问题和回答，再提出新问题。如“给出此条微博的情感分析？”先提供若干条微博信息，并给出其“正面”或者“负面”的标签，再给出一条新的微博内容；</li>
+</ul>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" width="30%">
+</div>
+<ul>
+<li>user-based：根据具体的用户场景设计出的问题，场景类型共10类，如生成类问题，问答，头脑风暴，聊天，重写，总结，分类，抽取等。如头脑风暴场景下的“学习古希腊时应该知道的重点？”，生成类场景下的“写一篇短篇小说，讲述一只棕熊到海滩上，和一只海豹交朋友，然后回家的故事”，对故事进行续写。</li>
+</ul>
+<h3 id="3-2-2RM-comparison-data">3.2.2	RM-comparison data</h3>
+<p>在RM阶段，针对给定问题，由SFT微调得到的模型先产生对原问题的不同答案，由标注工对答案的正确性进行<strong>排序</strong>(comparison data)，并选择更倾向于模型输出的哪一个答案，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Q：“解释什么是数据结构？”</span><br><span class="line">A. 数据结构是计算机的一门专业课，可用特殊的结构对数据进行存储，为高效的算法提供条件</span><br><span class="line">B. 数据结构涉及数学知识</span><br><span class="line">C. 数据结构属于生物学领域</span><br><span class="line">D. 数据结构属于材料学领域</span><br><span class="line">标注结果：A&gt;B&gt;C&#x3D;D</span><br></pre></td></tr></table></figure>
+<p>以上结果的排序依据，遵从从有帮助性、真实性、无害性三个评估角度出发，其中对绝大多数任务来说，无害性、真实性的权重会<strong>远高于</strong>有帮助性（训练时则有帮助性权重更高）。但也有特殊情况，如：</p>
+<ol>
+<li>某一个答案相较于其它提供的帮助非常明显；</li>
+<li>该输出仅有些许不真实/有害；</li>
+<li>prompt不属于高风险领域（贷款申请、治疗、医疗、法律咨询等），那么将提高“有帮助性”所占的权重。如果出现帮助性相同，但不真实/有害在不同的地方，那么将从用户角度判断哪种可能对用户造成更大的损失，从而将它的排序结果置后。</li>
+</ol>
+<p>此外，我们还希望模型具备“ <em>当输入是一些有害的言论时，希望输出是无害的</em> ” 的能力。该能力的评价标准将从<strong>无害性</strong>和<strong>连续性</strong>出发，这里的连续性指的是输入和输出在逻辑上可以构成一个文本，而不会读起来明显像两个文本的情况。我们将从输出的有害度，输入输出相对有害度，输入输出文本连续性上进行打分，从而依据打分结果获得排序结果。</p>
+<p><img src="https://img-blog.csdnimg.cn/d84a288fbb6c44c294798cae30c7753f.png" alt="在这里插入图片描述"></p>
+<p>标记员的在第二个阶段RM标注工作在如下图所示的界面完成。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/849484b5cf3a49b7a5fb0cebf706c7c7.png" width="50%">
+</div>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/c53fc33e3660436892d3544bba87e739.png" width="50%">
+</div>
+<p>在第一张图中，标注员首先会给出1-7范围内的得分，得分更高的回答质量也更高，并且基于真实性，无害性，有帮助性，给出元数据的标签。而第二张图指的是在上一张图的工作完成以后，对模型的所有输出进行排序。</p>
+<h2 id="3-3数据集大小">3.3	数据集大小</h2>
+<p>在InstructGPT上，雇佣了40人进行标注及API中获得的。</p>
+<p><img src="https://img-blog.csdnimg.cn/6337b1b27a064c11920bbcd1f816f7b2.png" alt="在这里插入图片描述"></p>
+<p>训练集上，SFT标注了13k条数据（API+人工），RM标注了33k（API+人工），PPO标注了31k（API）。</p>
+<p>验证集上，SFT任务有1653条，RM有18k条，PPO中有16k条。</p>
+<h1>4	模型实现</h1>
+<p>在数据集采集及标注完全后，需要分别训练出两个不同的模型，即SFT和RM。</p>
+<p>在SFT阶段，使用采集的问答对数据，对GPT进行有监督微调。</p>
+<p>在RM阶段，使用对比数据集，训练RM<strong>奖励模型</strong>。<br>
+RM模型是将SFT去掉softmax层，改成输出为1的线性层，从而在以问答为输入的情况下，输出得到奖励值。<br>
+在训练过程中，为了避免过拟合现象的出现，采用成对展示输出结果的方式，然后用户从中选择更好的结果输出。</p>
+<div align="center">
+<img src="https://img-blog.csdnimg.cn/b186e21f960e4014991ce979182f9a57.png" width="60%">
+</div>
+<p>RM所定义的损失函数会最大化两者之间的差值。RM损失函数：x代表prompt，yw代表的是质量较高的回答，yl代表质量较低的，r为奖励模型的输入结果。每轮对prompt的所有回答进行两两比较，这样设计损失函数使得yw（质量较高回答）的得分尽可能高，最大化两个回答之间的差值。</p>
+<p>在最后PPO阶段，是利用第二步得到的奖励模型，指导SFT训练，用PPO算法微调SFT。针对给定的问题，由SFT生成回答。问题-回答作为输入，用RM模型得到奖励值，用奖励值使用PPO更新SFT，为一次迭代。由于SFT每轮参数都会发生变化，导致强化学习的环境也改变，所以在损失函数中加入KL散度。<br>
+<a target="_blank" rel="noopener" href="https://readpaper.com/pdf-annotate/note?pdfId=4599338181132820481&amp;noteId=1653432993811871232">InstructGPT</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">codeslogan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://codeslogan.github.io">https://codeslogan.github.io</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">CodeSlogan</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NLP/">NLP</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/ChatGPT/">ChatGPT</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/53a6507232e14d6fa3ac372a1404d106.png" data-sites="facebook,twitter,`,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/images/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/images/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/02/Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/"><img class="next-cover" src="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Transformer理论及源码理解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/02/Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/" title="Transformer理论及源码理解"><img class="cover" src="https://img-blog.csdnimg.cn/a70cf54721f346f99c9fff001cf77d5b.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-02</div><div class="title">Transformer理论及源码理解</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">codeslogan</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/CodeSlogan"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/CodeSlogan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:mrchen40@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">If not me, who?</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">1 背景介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">2 标记员筛选</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1%E6%A0%87%E8%AE%B0%E5%91%98%E7%AD%9B%E9%80%89%E6%A0%87%E5%87%86"><span class="toc-number">2.1.</span> <span class="toc-text">2.1	标记员筛选标准</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">3	数据集及其标注</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="toc-number">3.1.</span> <span class="toc-text">3.1	预训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2%E5%BE%AE%E8%B0%83"><span class="toc-number">3.2.</span> <span class="toc-text">3.2	微调</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1SFT-demonstration-data"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1	SFT-demonstration data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2RM-comparison-data"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2	RM-comparison data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A4%A7%E5%B0%8F"><span class="toc-number">3.3.</span> <span class="toc-text">3.3	数据集大小</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">4	模型实现</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/16/InstructGPT%E6%95%B0%E6%8D%AE%E6%A0%87%E6%B3%A8%E9%97%AE%E9%A2%98/" title="InstructGPT数据标注问题">InstructGPT数据标注问题</a><time datetime="2023-02-16T07:12:14.000Z" title="发表于 2023-02-16 15:12:14">2023-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/02/Transformer%E7%90%86%E8%AE%BA%E5%8F%8A%E6%BA%90%E7%A0%81%E7%90%86%E8%A7%A3/" title="Transformer理论及源码理解">Transformer理论及源码理解</a><time datetime="2023-02-02T08:07:29.000Z" title="发表于 2023-02-02 16:07:29">2023-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/09/30/hai-AcWing%E8%AE%A1%E5%88%92/" title="hai-AcWing计划">hai-AcWing计划</a><time datetime="2022-09-30T02:00:26.000Z" title="发表于 2022-09-30 10:00:26">2022-09-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/27/%E3%80%90%E5%8A%A8%E6%89%8B%E5%AD%A6%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%91CNN%E6%B5%85%E8%AE%B0/" title="从卷积到卷积神经网络">从卷积到卷积神经网络</a><time datetime="2022-08-27T09:17:40.000Z" title="发表于 2022-08-27 17:17:40">2022-08-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/18/%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9F%E4%B8%8D%E8%A6%81%E5%8F%AA%E5%9B%9E%E7%AD%94%E6%8C%89%E7%94%B5%E6%BA%90%E9%94%AE%E5%95%A6/" title="如何启动操作系统？不要只回答按电源键啦">如何启动操作系统？不要只回答按电源键啦</a><time datetime="2022-08-18T04:05:56.000Z" title="发表于 2022-08-18 12:05:56">2022-08-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By codeslogan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
